@@ -54,14 +54,20 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.get('/', route.index);
-app.get('/demographics', route.demographics);
-
-
-
 app.get('/signin', route.signIn);
+app.get('/signup', route.signUp);
+app.get('/home', route.home);
+app.get('/demographics', route.demographics);
+app.get('/history', route.history);
+app.get('/vitals', route.vitals);
+app.get('/medication', route.medication);
+
+
+
+
 app.post('/signin', route.signInPost);
 
-app.get('/signup', route.signUp);
+
 app.post('/signup', route.signUpPost);
 
 app.get('/signout', route.signOut);

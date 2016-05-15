@@ -40,6 +40,21 @@ var index = function(req, res, next) {
 
 //-------------------------------------------------------
 
+var home = function(req, res, next) {
+   if(!req.isAuthenticated()) {
+      res.redirect('/signin');
+   } else {
+
+      var user = req.user;
+
+      if(user !== undefined) {
+         user = user.toJSON();
+      }
+      res.render('home', {title: 'Home', user: user});
+   }
+};
+
+//-------------------------------------------------------
 var demographics = function(req, res, next) {
    if(!req.isAuthenticated()) {
       res.redirect('/signin');
@@ -51,6 +66,51 @@ var demographics = function(req, res, next) {
          user = user.toJSON();
       }
       res.render('demographics', {title: 'Demographics', user: user});
+   }
+};
+
+//-------------------------------------------------------
+var history = function(req, res, next) {
+   if(!req.isAuthenticated()) {
+      res.redirect('/signin');
+   } else {
+
+      var user = req.user;
+
+      if(user !== undefined) {
+         user = user.toJSON();
+      }
+      res.render('history', {title: 'History', user: user});
+   }
+};
+
+//-------------------------------------------------------
+var vitals = function(req, res, next) {
+   if(!req.isAuthenticated()) {
+      res.redirect('/signin');
+   } else {
+
+      var user = req.user;
+
+      if(user !== undefined) {
+         user = user.toJSON();
+      }
+      res.render('vitals', {title: 'vitals', user: user});
+   }
+};
+
+//-------------------------------------------------------
+var medication = function(req, res, next) {
+   if(!req.isAuthenticated()) {
+      res.redirect('/signin');
+   } else {
+
+      var user = req.user;
+
+      if(user !== undefined) {
+         user = user.toJSON();
+      }
+      res.render('medication', {title: 'Medication', user: user});
    }
 };
 
@@ -145,28 +205,15 @@ var notFound404 = function(req, res, next) {
 
 // export functions
 /**************************************/
-// index
 module.exports.index = index;
+module.exports.home = home;
 module.exports.demographics = demographics;
-
-
-
-
-
-// sigin in
-// GET
+module.exports.history = history;
+module.exports.vitals = vitals;
+module.exports.medication = medication;
 module.exports.signIn = signIn;
-// POST
 module.exports.signInPost = signInPost;
-
-// sign up
-// GET
 module.exports.signUp = signUp;
-// POST
 module.exports.signUpPost = signUpPost;
-
-// sign out
 module.exports.signOut = signOut;
-
-// 404 not found
 module.exports.notFound404 = notFound404;
