@@ -1,0 +1,25 @@
+{
+  "name": "trucks",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/royschuyler/trucks.git"
+  },
+  "author": "royschuyler",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/royschuyler/trucks/issues"
+  },
+  "homepage": "https://github.com/royschuyler/trucks#readme",
+  "dependencies": {
+    "body-parser": "^1.15.1",
+    "express": "^4.13.4",
+    "jade": "^1.11.0",
+    "mysql": "^2.10.2"
+  }
+}
