@@ -1,0 +1,17 @@
+include ./header.jade
+div(class="container log-form")
+  h2 Register Form
+  form(method='post', action='/signup')
+    | if(typeof(errorMessage) !== 'undefined') {
+    span = errorMessage
+    |           }
+    p
+      label(for='username') username
+      input#username(type='text', name='username', placeholder='username', required='true')
+    p
+      label(for='password') password
+      input#password(type='text', name='password', placeholder='password', required='true')
+    p
+      input#signup(type='submit', name='signup', value='register')
+      a(href='/signin', title='sign in') sign in
+

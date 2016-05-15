@@ -17,9 +17,16 @@
   },
   "homepage": "https://github.com/royschuyler/trucks#readme",
   "dependencies": {
-    "body-parser": "^1.15.1",
-    "express": "^4.13.4",
-    "jade": "^1.11.0",
-    "mysql": "^2.10.2"
+    "bcrypt-nodejs": "*",
+    "body-parser": "*",
+    "bookshelf": "0.5",
+    "cookie-parser": "*",
+    "ejs": "^2.4.1",
+    "express": "4.x",
+    "express-session": "*",
+    "jade": "*",
+    "mysql": "*",
+    "passport": "*",
+    "passport-local": "*"
   }
 }
