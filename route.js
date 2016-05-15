@@ -24,6 +24,40 @@ var index = function(req, res, next) {
 
 //-------------------------------------------------------
 
+var index = function(req, res, next) {
+   if(!req.isAuthenticated()) {
+      res.redirect('/signin');
+   } else {
+
+      var user = req.user;
+
+      if(user !== undefined) {
+         user = user.toJSON();
+      }
+      res.render('index', {title: 'Home', user: user});
+   }
+};
+
+//-------------------------------------------------------
+
+var demographics = function(req, res, next) {
+   if(!req.isAuthenticated()) {
+      res.redirect('/signin');
+   } else {
+
+      var user = req.user;
+
+      if(user !== undefined) {
+         user = user.toJSON();
+      }
+      res.render('demographics', {title: 'Demographics', user: user});
+   }
+};
+
+//-------------------------------------------------------
+
+
+
 var signIn = function(req, res, next) {
    if(req.isAuthenticated()) res.redirect('/');
    res.render('signin', {title: 'Sign In'});
@@ -113,6 +147,11 @@ var notFound404 = function(req, res, next) {
 /**************************************/
 // index
 module.exports.index = index;
+module.exports.demographics = demographics;
+
+
+
+
 
 // sigin in
 // GET

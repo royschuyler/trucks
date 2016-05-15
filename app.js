@@ -1,13 +1,3 @@
-// var express  = require('express');
-// var app      = express();
-// var mysql    = require('mysql');
-// var passport = require('passport');
-// var cookieParser = require('cookie-parser');
-// var bodyParser   = require('body-parser');
-// var session      = require('express-session');
-// var bcrypt   = require('bcrypt-nodejs');
-// var bookshelf = require('bookshelf')
-
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
@@ -19,17 +9,8 @@ var path = require('path');
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 
-// custom libraries
-// routes
 var route = require('./route');
-// model
 var Model = require('./model');
-
-
-
-//app.set('view engine', 'jade');
-// app.use(express.static('www'));
-
 
 //--------------------------------------------------------------
 
@@ -49,8 +30,6 @@ passport.use(new LocalStrategy(function(username, password, done) {
    });
 }));
 
-//-------------------------------------------
-
 passport.serializeUser(function(user, done) {
   done(null, user.username);
 });
@@ -61,7 +40,6 @@ passport.deserializeUser(function(username, done) {
    });
 });
 
-//---------------------------------------------------------------
 
 app.set('port', process.env.PORT || 3000);
 app.set('views', path.join(__dirname, 'views'));
@@ -75,31 +53,20 @@ app.use(session({secret: 'secret strategic xxzzz code'}));
 app.use(passport.initialize());
 app.use(passport.session());
 
-//---------------------------------
-
-// GET
 app.get('/', route.index);
+app.get('/demographics', route.demographics);
 
-// signin
-// GET
+
+
 app.get('/signin', route.signIn);
-// POST
 app.post('/signin', route.signInPost);
 
-// signup
-// GET
 app.get('/signup', route.signUp);
-// POST
 app.post('/signup', route.signUpPost);
 
-// logout
-// GET
 app.get('/signout', route.signOut);
 
-// 404 not found
 app.use(route.notFound404);
-
-//---------------------------------
 
 var server = app.listen(app.get('port'), function(err) {
    if(err) throw err;
@@ -109,7 +76,7 @@ var server = app.listen(app.get('port'), function(err) {
 });
 
 
-//---------------------------------
+
 // app.get('/', function(req, res){
 //   res.render('index')
 // });
@@ -171,7 +138,3 @@ var server = app.listen(app.get('port'), function(err) {
 // //     console.log('Error while performing Query.');
 // // });
 // config.end();
-
-//--------------------------------------------------------------------------
-
-//app.listen(3000);
