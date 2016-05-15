@@ -1,0 +1,62 @@
+include ./header.jade
+.container
+  .row
+    .col-md-6.col-md-offset-3.personal-info
+      h3.col-md-offset-5.form-label Personal info
+      form.form-horizontal(role='form')
+        .form-group
+          label.col-lg-3.control-label First name:
+          .col-lg-8
+            input.form-control.fName(type='text', placeholder='First name')
+        .form-group
+          label.col-lg-3.control-label Middle name:
+          .col-lg-8
+            input.form-control.mName(type='text', placeholder='Middle Name')
+        .form-group
+          label.col-lg-3.control-label Last name:
+          .col-lg-8
+            input.form-control.lName(type='text', placeholder='Last name')
+        .form-group
+          label.col-lg-3.control-label Birthday:
+          .col-lg-8
+            input.form-control.dob(type='text', placeholder='12/10/1976')
+        .form-group
+          label.col-lg-3.control-label SSN:
+          .col-lg-8
+            input.form-control.ssn(type='text', placeholder='123-45-6789')
+        .form-group
+          label.col-lg-3.control-label Phone:
+          .col-lg-8
+            input.form-control.phone(type='text', placeholder='(555)-555-5555')
+        .form-group
+          label.col-lg-3.control-label Address:
+          .col-lg-8
+            input.form-control.address(type='text', placeholder='123 Main Street')
+        .form-group
+          label.col-lg-3.control-label City:
+          .col-lg-8
+            input.form-control.city(type='text', placeholder='City')
+        .form-group
+          label.col-lg-3.control-label State:
+          .col-lg-8
+            input.form-control.state(type='text', placeholder='123 Main Street')
+        .form-group
+          label.col-lg-3.control-label Zip:
+          .col-lg-8
+            input.form-control.zip(type='text', placeholder='12345')
+        .form-group
+          label.col-lg-3.control-label Email:
+          .col-lg-8
+            input.form-control.email(type='text', placeholder='email@mail.com')
+        .form-group
+          label.col-lg-3.control-label Company:
+          .col-lg-8
+            input.form-control.company(type='text', placeholder='Company')
+        .form-group
+        .form-group
+          label.col-md-3.control-label
+          .col-md-8
+            input.btn.btn-primary.submitBtn(type='button', value='Save Changes')
+            span
+            input.btn.btn-default.clearBtn(type='reset', value='Clear form')
+

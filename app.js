@@ -17,6 +17,10 @@ app.get('/login', function(req, res){
   res.render('login')
 });
 //---------------------------------
+app.get('/demographics', function(req, res){
+  res.render('demographics')
+});
+//---------------------------------
 app.get('/history', function(req, res){
   res.render('history')
 });
