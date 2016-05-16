@@ -1,28 +1,8 @@
-// vendor library
 var passport = require('passport');
 var bcrypt = require('bcrypt-nodejs');
-
-// custom library
-// model
 var Model = require('./model');
 
 //-----------------------------------------------------
-
-var index = function(req, res, next) {
-   if(!req.isAuthenticated()) {
-      res.redirect('/signin');
-   } else {
-
-      var user = req.user;
-
-      if(user !== undefined) {
-         user = user.toJSON();
-      }
-      res.render('index', {title: 'Home', user: user});
-   }
-};
-
-//-------------------------------------------------------
 
 var index = function(req, res, next) {
    if(!req.isAuthenticated()) {
@@ -186,13 +166,13 @@ var signUpPost = function(req, res, next) {
 //-------------------------------------------------------------------------------------------
 
 var signOut = function(req, res, next) {
-   if(!req.isAuthenticated()) {
-      notFound404(req, res, next);
-   } else {
+   // if(!req.isAuthenticated()) {
+   //    notFound404(req, res, next);
+   // } else {
       req.logout();
       res.redirect('/signin');
    }
-};
+// };
 
 //-------------------------------------------------------
 
@@ -203,8 +183,6 @@ var notFound404 = function(req, res, next) {
 
 //--------------------------------------------------------
 
-// export functions
-/**************************************/
 module.exports.index = index;
 module.exports.home = home;
 module.exports.demographics = demographics;

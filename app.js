@@ -8,11 +8,9 @@ var ejs = require('ejs');
 var path = require('path');
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
-
 var route = require('./route');
 var Model = require('./model');
 
-//--------------------------------------------------------------
 
 passport.use(new LocalStrategy(function(username, password, done) {
    new Model.User({username: username}).fetch().then(function(data) {
@@ -43,7 +41,6 @@ passport.deserializeUser(function(username, done) {
 
 app.set('port', process.env.PORT || 3000);
 app.set('views', path.join(__dirname, 'views'));
-//app.set('view engine', 'jade');
 app.set('view engine', 'ejs');
 app.use(express.static('www'));
 
@@ -61,18 +58,23 @@ app.get('/demographics', route.demographics);
 app.get('/history', route.history);
 app.get('/vitals', route.vitals);
 app.get('/medication', route.medication);
+app.get('/signout', route.signOut);
 
 
 
 
 app.post('/signin', route.signInPost);
 
-
 app.post('/signup', route.signUpPost);
 
 app.get('/signout', route.signOut);
 
 app.use(route.notFound404);
+
+
+
+
+
 
 var server = app.listen(app.get('port'), function(err) {
    if(err) throw err;
@@ -82,65 +84,3 @@ var server = app.listen(app.get('port'), function(err) {
 });
 
 
-
-// app.get('/', function(req, res){
-//   res.render('index')
-// });
-// //---------------------------------
-// app.get('/signin', function(req, res){
-//   res.render('signin');
-// });
-// //---------------------------------
-// app.get('/signout', function(req, res){
-//   res.render('signout');
-// });
-// //---------------------------------
-// app.get('/demographics', function(req, res){
-//   res.render('demographics')
-// });
-// //---------------------------------
-// app.get('/history', function(req, res){
-//   res.render('history')
-// });
-// //---------------------------------
-// app.get('/medication', function(req, res){
-//   res.render('medication')
-// });
-// //---------------------------------
-// app.get('/vitals', function(req, res){
-//   res.render('vitals')
-// });
-// //---------------------------------
-// app.get('/signup', function(req, res){
-//   res.render('signup');
-// });
-// //---------------------------------
-// app.get('/404', function(req, res){
-//   res.render('404');
-// });
-//---------------------------------
-
-//---------DB CONNECT--------------------------------------
-
-// var config = mysql.createConnection({
-//   host     : 'localhost',
-//   user     : 'root',
-//   password : 'Hollie12123',
-//   database : 'dbUsers',
-//   charset: 'UTF8_GENERAL_CI'
-// });
-
-// var DB = bookshelf.initialize({
-//    client: 'mysql',
-//    connection: config
-// });
-
-// config.connect();
-
-// // config.query('SELECT * FROM Persons', function(err, rows, fields) {
-// //   if (!err)
-// //     console.log('The solution is: ', rows);
-// //   else
-// //     console.log('Error while performing Query.');
-// // });
-// config.end();
