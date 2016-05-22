@@ -1,7 +1,22 @@
 var passport = require('passport');
 var bcrypt = require('bcrypt-nodejs');
 var Model = require('./model');
-var mysql = require('mysql');
+
+var mysql      = require('mysql');
+var connection = mysql.createConnection({
+  host     : 'localhost',
+  user     : 'root',
+  password : 'Hollie12123',
+  database : 'doctor'
+});
+
+connection.connect(function(err){
+if(!err) {
+    console.log("Database is connected ... \n\n");
+} else {
+    console.log("Error connecting database ... \n\n");
+}
+});
 
 
 //-----------------------------------------------------
@@ -53,8 +68,17 @@ var demographics = function(req, res, next) {
 //------------------------------------------------------
 var demographicsPost = function(req, res, next) {
 
-      console.log('hello world');
-      console.log(req.body.fName);
+      // console.log('hello world');
+      // console.log('First Name: ' + req.body.fName);
+      // console.log('Middle Name: ' + req.body.mName);
+      // console.log('Last Name: ' + req.body.lName);
+      // console.log('DOB: ' + req.body.dob);
+
+      connection.query('SELECT * FROM persons', function(err, rows) {
+      console.log(rows)
+      console.log(err)
+
+    });
 
       res.redirect('/vitals');
 

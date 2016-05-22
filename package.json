@@ -18,6 +18,7 @@
   "homepage": "https://github.com/royschuyler/trucks#readme",
   "dependencies": {
     "bcrypt-nodejs": "*",
+    "bluebird": "^3.4.0",
     "body-parser": "*",
     "bookshelf": "0.5",
     "cookie-parser": "*",
@@ -25,6 +26,7 @@
     "express": "4.x",
     "express-session": "*",
     "jade": "*",
+    "knex": "^0.11.4",
     "mysql": "*",
     "passport": "*",
     "passport-local": "*"

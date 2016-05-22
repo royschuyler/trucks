@@ -1,4 +1,5 @@
 var bookshelf = require('bookshelf');
+var Promise = require('bluebird');
 
 var config = {
    host: 'localhost',  // your host
