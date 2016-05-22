@@ -67,7 +67,13 @@ app.post('/signin', route.signInPost);
 
 app.post('/signup', route.signUpPost);
 
-app.get('/signout', route.signOut);
+app.post('/demographics', route.demographicsPost);
+
+
+
+
+
+
 
 app.use(route.notFound404);
 

@@ -1,6 +1,8 @@
 var passport = require('passport');
 var bcrypt = require('bcrypt-nodejs');
 var Model = require('./model');
+var mysql = require('mysql');
+
 
 //-----------------------------------------------------
 
@@ -48,6 +50,17 @@ var demographics = function(req, res, next) {
       res.render('demographics', {title: 'Demographics', user: user});
    }
 };
+//------------------------------------------------------
+var demographicsPost = function(req, res, next) {
+
+      console.log('hello world');
+      console.log(req.body.fName);
+
+      res.redirect('/vitals');
+
+};
+
+//-------------------------------------------------------
 
 //-------------------------------------------------------
 var history = function(req, res, next) {
@@ -186,6 +199,7 @@ var notFound404 = function(req, res, next) {
 module.exports.index = index;
 module.exports.home = home;
 module.exports.demographics = demographics;
+module.exports.demographicsPost = demographicsPost;
 module.exports.history = history;
 module.exports.vitals = vitals;
 module.exports.medication = medication;
