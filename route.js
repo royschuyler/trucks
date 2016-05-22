@@ -74,12 +74,11 @@ var demographicsPost = function(req, res, next) {
       // console.log('Last Name: ' + req.body.lName);
       // console.log('DOB: ' + req.body.dob);
 
-      connection.query('SELECT * FROM persons', function(err, rows) {
+      connection.query('INSERT INTO persons (PersonID, LastName, FirstName, Address, City)Values(4' + ",'" + req.body.lName + "'," + "'" + req.body.fName + "'," + "'" + req.body.address + "'," + "'" + req.body.city + "'" + ')'), function(err, rows) {
       console.log(rows)
-      console.log(err)
+      //console.log(err)
 
-    });
-
+    };
       res.redirect('/vitals');
 
 };
