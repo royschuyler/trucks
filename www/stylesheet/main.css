@@ -18,3 +18,15 @@ a {
 .log-form {
   margin-top: 100px;
 }
+
+.register {
+  color: black !important;
+}
+
+.user {
+  padding-top: 50px;
+}
+
+.hidden {
+  display: none;
+}

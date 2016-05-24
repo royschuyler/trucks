@@ -2,6 +2,8 @@ var passport = require('passport');
 var bcrypt = require('bcrypt-nodejs');
 var Model = require('./model');
 
+
+
 var mysql      = require('mysql');
 var connection = mysql.createConnection({
   host     : 'localhost',
@@ -57,26 +59,29 @@ var demographics = function(req, res, next) {
       res.redirect('/signin');
    } else {
 
+
       var user = req.user;
 
       if(user !== undefined) {
          user = user.toJSON();
       }
+
+
+          //console.log("user: " + user.username);
+
+
       res.render('demographics', {title: 'Demographics', user: user});
    }
 };
 //------------------------------------------------------
 var demographicsPost = function(req, res, next) {
 
-      // console.log('hello world');
-      // console.log('First Name: ' + req.body.fName);
-      // console.log('Middle Name: ' + req.body.mName);
-      // console.log('Last Name: ' + req.body.lName);
-      // console.log('DOB: ' + req.body.dob);
 
-      connection.query('INSERT INTO persons (PersonID, LastName, FirstName, Address, City)Values(4' + ",'" + req.body.lName + "'," + "'" + req.body.fName + "'," + "'" + req.body.address + "'," + "'" + req.body.city + "'" + ')'), function(err, rows) {
-      console.log(rows)
-      //console.log(err)
+      var user = req.user;
+
+      connection.query('INSERT INTO persons (FirstName, MiddleName, LastName, Address, Zip, DOB, SSN, City, State, Country, Company, Email, Doctor)Values(' + "'" + req.body.fName + "'," + "'" + req.body.mName + "'," + "'" + req.body.lName + "'," + "'" + req.body.address + "'," + "'" + req.body.zip + "',"+ "'" + req.body.dob + "'," + "'" + req.body.ssn + "'," + "'" + req.body.city + "'," + "'" + req.body.state + "'," + "'" + req.body.country + "'," + "'" + req.body.company + "'," + "'" + req.body.email + "'," + "'" + req.body.username + "'" + ')'), function(err, rows) {
+      console.log("user: " + user.username);
+
 
     };
       res.redirect('/vitals');
