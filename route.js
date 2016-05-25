@@ -20,6 +20,9 @@ if(!err) {
 }
 });
 
+//-----------------------------------------------------------------------
+
+
 
 //-----------------------------------------------------
 
@@ -77,9 +80,15 @@ var demographics = function(req, res, next) {
 var demographicsPost = function(req, res, next) {
 
 
+      var GUID = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+        var r = Math.random() * 16 | 0,
+          v = c == 'x' ? r : (r & 0x3 | 0x8);
+        return v.toString(16);
+      });
+
       var user = req.user;
 
-      connection.query('INSERT INTO persons (FirstName, MiddleName, LastName, Address, Zip, DOB, SSN, City, State, Country, Company, Email, Doctor)Values(' + "'" + req.body.fName + "'," + "'" + req.body.mName + "'," + "'" + req.body.lName + "'," + "'" + req.body.address + "'," + "'" + req.body.zip + "',"+ "'" + req.body.dob + "'," + "'" + req.body.ssn + "'," + "'" + req.body.city + "'," + "'" + req.body.state + "'," + "'" + req.body.country + "'," + "'" + req.body.company + "'," + "'" + req.body.email + "'," + "'" + req.body.username + "'" + ')'), function(err, rows) {
+      connection.query('INSERT INTO persons (FirstName, MiddleName, LastName, Address, Zip, DOB, SSN, City, State, Country, Company, Email, Doctor, GUID)Values(' + "'" + req.body.fName + "'," + "'" + req.body.mName + "'," + "'" + req.body.lName + "'," + "'" + req.body.address + "'," + "'" + req.body.zip + "',"+ "'" + req.body.dob + "'," + "'" + req.body.ssn + "'," + "'" + req.body.city + "'," + "'" + req.body.state + "'," + "'" + req.body.country + "'," + "'" + req.body.company + "'," + "'" + req.body.email + "'," + "'" + req.body.username + "'," + "'" + GUID + "'" + ')'), function(err, rows) {
       console.log("user: " + user.username);
 
 
@@ -161,7 +170,7 @@ var signInPost = function(req, res, next) {
          if(err) {
             return res.render('signin', {title: 'Sign In', errorMessage: err.message});
          } else {
-            return res.redirect('/');
+            return res.redirect('/demographics');
          }
       });
    })(req, res, next);
