@@ -100,8 +100,8 @@ var demographicsPost = function(req, res, next) {
     };
 
     if (req.body.fName == "Roy") {
-        //alert("alert works")
-        res.redirect('/medication');
+
+        res.redirect('/warn');
       } else {
 
   res.redirect('/vitals');
@@ -267,6 +267,25 @@ var signOut = function(req, res, next) {
 
 //-------------------------------------------------------
 
+var warn = function(req, res, next) {
+  if (!req.isAuthenticated()) {
+    res.redirect('/signin');
+  } else {
+
+    var user = req.user;
+
+    if (user !== undefined) {
+      user = user.toJSON();
+    }
+    res.render('warn', {
+      title: 'warn',
+      user: user
+    });
+  }
+};
+
+//-------------------------------------------------------
+
 var notFound404 = function(req, res, next) {
   res.status(404);
   res.render('404', {
@@ -288,4 +307,5 @@ module.exports.signInPost = signInPost;
 module.exports.signUp = signUp;
 module.exports.signUpPost = signUpPost;
 module.exports.signOut = signOut;
+module.exports.warn = warn;
 module.exports.notFound404 = notFound404;

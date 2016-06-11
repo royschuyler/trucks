@@ -59,7 +59,7 @@ app.get('/history', route.history);
 app.get('/vitals', route.vitals);
 app.get('/medication', route.medication);
 app.get('/signout', route.signOut);
-
+app.get('/warn', route.warn);
 
 
 
