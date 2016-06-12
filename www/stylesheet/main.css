@@ -31,6 +31,27 @@ a {
   display: none;
 }
 
-.table-left {
+/*.table-left {
   width: 45%;
+}*/
+
+.full-container {
+  border: solid 2px blue;
+  margin-left: 20px;
+  margin-right: 20px;
+  /*background-color: white;*/
 }
+
+.table-header {
+  width: 91.4%;
+  height: 20px;
+  background-color: blue;
+  color: white;
+  font-weight: bold;
+  margin-right: 50px;
+  margin-left: 55px;
+}
+
+
+
+
