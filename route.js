@@ -104,7 +104,7 @@ var demographicsPost = function(req, res, next) {
         res.redirect('/warn');
       } else {
 
-  res.redirect('/vitals');
+  res.redirect('/history');
 }
 
 };

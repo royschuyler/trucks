@@ -30,3 +30,7 @@ a {
 .hidden {
   display: none;
 }
+
+.table-left {
+  width: 45%;
+}
