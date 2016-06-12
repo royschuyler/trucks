@@ -36,7 +36,7 @@ a {
 }*/
 
 .full-container {
-  border: solid 2px blue;
+  border: solid 2px darkblue;
   margin-left: 20px;
   margin-right: 20px;
   /*background-color: white;*/
@@ -45,12 +45,29 @@ a {
 .table-header {
   width: 91.4%;
   height: 20px;
-  background-color: blue;
+  background-color: darkblue;
   color: white;
   font-weight: bold;
   margin-right: 50px;
   margin-left: 55px;
 }
+
+.yes {
+  padding-right: 5px;
+  padding-left: 5px;
+}
+
+.no {
+  padding-right: 5px;
+  padding-left: 5px;
+}
+
+.notsure {
+  padding-right: 5px;
+  padding-left: 5px;
+}
+
+
 
 
 
