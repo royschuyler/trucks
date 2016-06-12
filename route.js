@@ -74,6 +74,8 @@ var demographics = function(req, res, next) {
   } else {
 
     var user = req.user;
+    var userId = req.user.attributes.userId
+    console.log(req.user.attributes.userId)
 
     if (user !== undefined) {
       user = user.toJSON();
@@ -83,7 +85,8 @@ var demographics = function(req, res, next) {
 
     res.render('demographics', {
       title: 'Demographics',
-      user: user
+      user: user,
+      userId: userId
     });
   }
 };
@@ -99,18 +102,37 @@ var demographicsPost = function(req, res, next) {
 
     };
 
-    if (req.body.fName == "Roy") {
+    if (req.body.fName == "warn") {
 
         res.redirect('/warn');
       } else {
 
-  res.redirect('/history');
-}
+        res.redirect('/history');
+      }
 
 };
 
 //-------------------------------------------------------
 var history = function(req, res, next) {
+  if (!req.isAuthenticated()) {
+    res.redirect('/signin');
+  } else {
+
+    var user = req.user;
+
+    if (user !== undefined) {
+      user = user.toJSON();
+    }
+    res.render('history', {
+      title: 'History',
+      user: user
+    });
+  }
+};
+
+//-------------------------------------------------------
+
+var historyPost = function(req, res, next) {
   if (!req.isAuthenticated()) {
     res.redirect('/signin');
   } else {

@@ -8,7 +8,7 @@
 }
 
 .navbar {
-  background-color: #546e7a !important;
+  background-color: #06485E !important;
 }
 
 a {
@@ -36,20 +36,22 @@ a {
 }*/
 
 .full-container {
+  width: 70% !important;
   border: solid 2px darkblue;
   margin-left: 20px;
   margin-right: 20px;
-  /*background-color: white;*/
+  background-color: white;
 }
 
 .table-header {
-  width: 91.4%;
+  width: 79.3%;
   height: 20px;
   background-color: darkblue;
   color: white;
   font-weight: bold;
   margin-right: 50px;
-  margin-left: 55px;
+  margin-left: 42px;
+  padding-left: 10px;
 }
 
 .yes {
@@ -70,6 +72,10 @@ a {
 .history-table td {
   padding-bottom: 5px;
   font-size: 14px;
+}
+
+.header-container {
+  padding-left: 150px;
 }
 
 
