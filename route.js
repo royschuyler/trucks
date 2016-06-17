@@ -75,7 +75,7 @@ var demographics = function(req, res, next) {
 
     var user = req.user;
     var userId = req.user.attributes.userId
-    console.log(req.user.attributes.userId)
+    //console.log(req.user.attributes.userId)
 
     if (user !== undefined) {
       user = user.toJSON();
@@ -109,7 +109,7 @@ var demographicsPost = function(req, res, next) {
 
         res.redirect('/history');
       }
-
+(req, res, next);
 };
 
 //-------------------------------------------------------
@@ -133,20 +133,15 @@ var history = function(req, res, next) {
 //-------------------------------------------------------
 
 var historyPost = function(req, res, next) {
-  if (!req.isAuthenticated()) {
-    res.redirect('/signin');
-  } else {
 
     var user = req.user;
+    console.log(req.body)
+    //console.log(user)
+    console.log(req.body.one)
+    console.log(req.body.two)
+    console.log(req.body.three)
 
-    if (user !== undefined) {
-      user = user.toJSON();
-    }
-    res.render('history', {
-      title: 'History',
-      user: user
-    });
-  }
+    res.redirect('/demographics')
 };
 
 //-------------------------------------------------------
@@ -309,10 +304,20 @@ var warn = function(req, res, next) {
 //-------------------------------------------------------
 
 var notFound404 = function(req, res, next) {
-  res.status(404);
-  res.render('404', {
-    title: '404 Not Found'
-  });
+  if (!req.isAuthenticated()) {
+    res.redirect('/signin');
+  } else {
+
+    var user = req.user;
+
+    if (user !== undefined) {
+      user = user.toJSON();
+    }
+    res.render('404', {
+      title: '404',
+      user: user
+    });
+  }
 };
 
 //--------------------------------------------------------
@@ -322,6 +327,7 @@ module.exports.home = home;
 module.exports.demographics = demographics;
 module.exports.demographicsPost = demographicsPost;
 module.exports.history = history;
+module.exports.historyPost = historyPost;
 module.exports.vitals = vitals;
 module.exports.medication = medication;
 module.exports.signIn = signIn;

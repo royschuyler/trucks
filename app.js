@@ -69,8 +69,7 @@ app.post('/signup', route.signUpPost);
 
 app.post('/demographics', route.demographicsPost);
 
-
-
+app.post('/history', route.historyPost);
 
 
 

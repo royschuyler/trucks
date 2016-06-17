@@ -5,7 +5,7 @@
     <div class="table-header">DRIVER HEALTH HISTORY</div>
   </div>
   <div class=" container full-container">
-    <form action="" method="post" name="frmSurvey">
+    <form action="/history" method="post" name="frmSurvey">
       <div class="row">
         <div class="col-md-6 history-table">
           <table class="tables">
@@ -17,21 +17,21 @@
             </tr>
             <tr>
               <td>1. Head/brain injuries or illnesses (e.g., concussion)</td>
-              <td class="yes"><input type="radio" name="1" value="" id="" </td>
-              <td class="no"><input type="radio" name="1" value="" id="" </td>
-              <td class=notsure><input type="radio" name="1" value="" id="" </td>
+              <td class="yes"><input type="radio" name="one" value="yes" id="" </td>
+              <td class="no"><input type="radio" name="one" value="no" id="" </td>
+              <td class=notsure><input type="radio" name="one" value="notsure" id="" </td>
             </tr>
             <tr>
               <td>2. Seizures, epilepsy</td>
-              <td class="yes"><input type="radio" name="2" value="" id="" </td>
-              <td class="no"><input type="radio" name="2" value="" id="" </td>
-              <td class=notsure><input type="radio" name="2" value="" id="" </td>
+              <td class="yes"><input type="radio" name="two" value="yes" id="" </td>
+              <td class="no"><input type="radio" name="two" value="no" id="" </td>
+              <td class=notsure><input type="radio" name="two" value="notsure" id="" </td>
             </tr>
             <tr>
               <td>3. Eye problems (except glasses or contacts)</td>
-              <td class="yes"><input type="radio" name="3" value="" id="" </td>
-              <td class="no"><input type="radio" name="3" value="" id="" </td>
-              <td class=notsure><input type="radio" name="3" value="" id="" </td>
+              <td class="yes"><input type="radio" name="three" value="yes" id="" </td>
+              <td class="no"><input type="radio" name="three" value="no" id="" </td>
+              <td class=notsure><input type="radio" name="three" value="notsure" id="" </td>
             </tr>
             <tr>
               <td>4. Ear and/or hearing problems</td>
@@ -222,6 +222,13 @@
               </tr>
           </table>
         </div>
+            <div class="form-group">
+              <label class="col-md-3 control-label"></label>
+              <div class="col-md-8">
+                <input type="submit" value="Save Changes" class="btn btn-primary submitBtn"/><span></span>
+                <input type="reset" value="Clear form" class="btn btn-default clearBtn"/>
+              </div>
+            </div>
       </div>
     </form>
   </div>
