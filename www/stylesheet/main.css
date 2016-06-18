@@ -132,9 +132,20 @@ a {
   margin-left: -60px;
 }
 
-hr {
+.break {
   width: 99% !important;
+  height: 1px;
   background-color: darkgreen;
-  margin-left: -12px;
+  margin-left: 3px;
+  margin-top: 4px;
+}
+
+.next td{
+  padding-top: 3px;
+}
+
+.header-style {
+  color: darkgreen;
+  font-weight: 500;
 }
 

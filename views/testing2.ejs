@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<% include header.ejs %>
+
+  <div class="header-container">
+    <div class="table-header table-header2">TESTING</div>
+  </div>
+  <div class=" container full-container full-container2">
+    <form action="/testing" method="post" name="frmSurvey">
+      <div class="row">
+        <div class="col-md-3 history-table history-table2">
+          <table class="tables">
+            <tr>
+              <td>Pulse rate:</td>
+              <td><input class="pulse" type="text" name="pulserate"></td>
+            </tr>
+          </table>
+        </div>
+        <div class="col-md-4 history-table history-table-move">
+          <table class="tables">
+              <tr>
+                <td>Pulse rhythm regular:</td>
+                <td class="pusher"><input type="radio" name="rhythm" value="yes" id="yes" </td><label class="yes"for="yes">yes</label>
+                <td class="pusher"><input type="radio" name="rhythm" value="no" id="no" </td><label class="no"for="no">no</label>
+              </tr>
+          </table>
+        </div>
+      </div>
+      <div id="break" class="col-md-12"></div>
+      <div class="row">
+        <div class="col-md-3 history-table history-table2">
+          <table class="tables">
+            <tr>
+              <td>Blood pressure:</td>
+              <td><input class="pulse" type="text" name="pulserate"></td>
+            </tr>
+          </table>
+        </div>
+        <div class="col-md-2 history-table history-table-move">
+          <table class="tables">
+              <tr>
+                <td>Systolic:</td>
+                <td class="pusher"><input type="text" name="rhythm" value="yes" id="yes" </td><label class="yes"for="yes">yes</label>
+              </tr>
+          </table>
+        </div>
+      </div>
+    </form>
+  </div>
+
+
+  <% include footer.ejs %>
