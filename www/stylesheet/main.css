@@ -78,6 +78,23 @@ a {
   padding-left: 150px;
 }
 
+.top-header {
+  margin-left: 195px;
+}
 
+.table-header2 {
+  background-color: darkgreen;
+}
 
+.full-container2 {
+  border: solid 2px darkgreen;
+  margin-left: 20px;
+  margin-right: 20px;
+  background-color: white;
+}
+
+.textareaborder {
+  width: 100%;
+  border: solid darkgreen 1px;
+}
 

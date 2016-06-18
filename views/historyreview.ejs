@@ -1,5 +1,30 @@
 <!DOCTYPE html>
 <% include header.ejs %>
+<h5 class="top-header">SECTION 2. Examination Report (to be filled out by the medical examiner)</h5>
+  <div class="header-container">
+    <div class="table-header table-header2">DRIVER HEALTH HISTORY REVIEW</div>
+  </div>
+  <div class=" container full-container full-container2">
+    <form action="/historyreview" method="post" name="frmSurvey">
+      <div class="row">
+        <div class="col-md-12 history-table">
+        <div>Review and discuss pertinent driver answers and any available medical records. Comment on the driver's responses to the "health history" questions that may affect the driver's safe operation of a commercial motor vehicle (CMV).</div>
+        <div class= "col-md-13">
+          <textarea class="textareaborder" rows="5" cols="80" id="TITLE">
+          </textarea>
+        </div>
+        </div>
+        </div>
+            <div class="form-group">
+              <label class="col-md-3 control-label"></label>
+              <div class="col-md-8">
+                <input type="submit" value="Save Changes" class="btn btn-primary submitBtn"/><span></span>
+                <input type="reset" value="Clear form" class="btn btn-default clearBtn"/>
+              </div>
+            </div>
+      </div>
+    </form>
+  </div>
 
-  <h1>haaay</h1>
-<% include footer.ejs %>
+
+  <% include footer.ejs %>

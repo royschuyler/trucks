@@ -71,6 +71,8 @@ app.post('/demographics', route.demographicsPost);
 
 app.post('/history', route.historyPost);
 
+app.post('/historyreview', route.historyReviewPost);
+
 
 
 
