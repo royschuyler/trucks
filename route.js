@@ -167,13 +167,30 @@ var historyReview = function(req, res, next) {
 var historyReviewPost = function(req, res, next) {
 
     var user = req.user;
-    // console.log(req.body)
-    console.log(user)
-    // console.log(req.body.one)
-    // console.log(req.body.two)
-    // console.log(req.body.three)
 
-    res.redirect('/demographics')
+
+    console.log(req.body.review)
+
+
+    res.redirect('/testing')
+};
+
+//-------------------------------------------------------
+var testing = function(req, res, next) {
+  if (!req.isAuthenticated()) {
+    res.redirect('/signin');
+  } else {
+
+    var user = req.user;
+
+    if (user !== undefined) {
+      user = user.toJSON();
+    }
+    res.render('testing', {
+      title: 'Testing',
+      user: user
+    });
+  }
 };
 
 //-------------------------------------------------------
@@ -362,6 +379,7 @@ module.exports.history = history;
 module.exports.historyPost = historyPost;
 module.exports.historyReview = historyReview;
 module.exports.historyReviewPost = historyReviewPost;
+module.exports.testing = testing;
 module.exports.medication = medication;
 module.exports.signIn = signIn;
 module.exports.signInPost = signInPost;

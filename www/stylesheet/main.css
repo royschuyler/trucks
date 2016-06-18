@@ -74,6 +74,10 @@ a {
   font-size: 14px;
 }
 
+.history-table2 td {
+  padding-bottom: 5px;
+  font-size: 12px;
+}
 .header-container {
   padding-left: 150px;
 }
@@ -97,4 +101,30 @@ a {
   width: 100%;
   border: solid darkgreen 1px;
 }
+
+.move-left {
+  margin-left: -15px;
+}
+
+.pulse {
+  border-bottom: solid black 1px;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  max-width: 70px;
+  margin-left: 5px;
+}
+
+.yes {
+  margin-left: 2px;
+}
+
+.no {
+  margin-left: 2px;
+}
+
+.pusher {
+  padding-left: 5px;
+}
+
 

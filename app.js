@@ -57,6 +57,7 @@ app.get('/home', route.home);
 app.get('/demographics', route.demographics);
 app.get('/history', route.history);
 app.get('/historyreview', route.historyReview);
+app.get('/testing', route.testing);
 app.get('/medication', route.medication);
 app.get('/signout', route.signOut);
 app.get('/warn', route.warn);
