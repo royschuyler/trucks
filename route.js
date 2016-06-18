@@ -208,6 +208,41 @@ var testingPost = function(req, res, next) {
     console.log(req.body.secondreading)
     console.log(req.body.othertesting)
 
+    res.redirect('/vision')
+};
+
+//-------------------------------------------------------
+var vision = function(req, res, next) {
+  if (!req.isAuthenticated()) {
+    res.redirect('/signin');
+  } else {
+
+    var user = req.user;
+
+    if (user !== undefined) {
+      user = user.toJSON();
+    }
+    res.render('vision', {
+      title: 'Vision',
+      user: user
+    });
+  }
+};
+//-------------------------------------------------------
+var visionPost = function(req, res, next) {
+
+    var user = req.user;
+
+
+    // console.log(req.body.pulserate)
+    // console.log(req.body.rhythm)
+    // console.log(req.body.bloodpressure)
+    // console.log(req.body.systolic)
+    // console.log(req.body.diastolic)
+    // console.log(req.body.sitting)
+    // console.log(req.body.secondreading)
+       console.log("hayyyy")
+
     res.redirect('/home')
 };
 
@@ -399,6 +434,8 @@ module.exports.historyReview = historyReview;
 module.exports.historyReviewPost = historyReviewPost;
 module.exports.testing = testing;
 module.exports.testingPost = testingPost;
+module.exports.vision = vision;
+module.exports.visionPost = visionPost;
 module.exports.medication = medication;
 module.exports.signIn = signIn;
 module.exports.signInPost = signInPost;

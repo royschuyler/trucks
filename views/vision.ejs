@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<% include header.ejs %>
+
+  <div class="header-container">
+    <div class="table-header table-header2">TESTING</div>
+  </div>
+  <div class=" container full-container full-container2">
+    <form action="/vision" method="post" name="frmSurvey">
+      <div class="row">
+        <table style="width:100%">
+            <tr>
+              <td>
+                Pulse rate:<input class="pulse" type="text" name="pulserate">
+              </td>
+              <td>
+                Pulse rhythm regular:
+                <input type="radio" name="rhythm" value="pulserhythm" id="yes">
+                <label class="yes"for="yes">yes</label>
+                <input type="radio" name="rhythm" value="no" id="no">
+                <label class="no"for="no">no</label>
+              </td>
+            </tr>
+          <tr>
+        </table>
+        <div class="break"></div>
+        <table style="width:100%">
+            <tr class="mid-table-header">
+              <td class="header-style">Blood pressure</td>
+            </tr>
+            <tr class="next">
+              <td>
+                Blood pressure:<input class="pulse" type="text" name="bloodpressure">
+              </td>
+              <td>
+                Systolic:
+                <input class="pulse" type="text" name="systolic" id="">
+
+                Diastolic:
+                <input class="pulse" type="text" name="diastolic" id="">
+
+              </td>
+            </tr>
+        </table>
+        <div class="break"></div>
+        <table style="width:100%">
+            <tr class="next">
+              <td>
+                Sitting:<input class="pulse" type="text" name="sitting">
+              </td>
+              <td>
+                Second reading(optional):<input class="pulse" type="text" name="secondreading">
+              </td>
+            </tr>
+        </table>
+        <div class="break"></div>
+        <table style="width:100%">
+            <tr class="next">
+              <td>
+                <div class= "col-md-12">
+                  <div>Other testing if indicated</div>
+                  <textarea class="textareaborder" rows="5" cols="80" name="othertesting">
+                  </textarea>
+                </div>
+              </td>
+            </tr>
+        </table>
+        <div class="col-md-8">
+          <input type="submit" value="Save Changes" class="btn btn-primary submitBtn"/><span></span>
+          <input type="reset" value="Clear form" class="btn btn-default clearBtn"/>
+        </div>
+      </div>
+    </form>
+  </div>
+
+
+  <% include footer.ejs %>
