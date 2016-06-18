@@ -141,11 +141,11 @@ var historyPost = function(req, res, next) {
     console.log(req.body.two)
     console.log(req.body.three)
 
-    res.redirect('/demographics')
+    res.redirect('/historyreview')
 };
 
 //-------------------------------------------------------
-var vitals = function(req, res, next) {
+var historyReview = function(req, res, next) {
   if (!req.isAuthenticated()) {
     res.redirect('/signin');
   } else {
@@ -155,13 +155,31 @@ var vitals = function(req, res, next) {
     if (user !== undefined) {
       user = user.toJSON();
     }
-    res.render('vitals', {
-      title: 'vitals',
+    res.render('historyreview', {
+      title: 'History Review',
       user: user,
-      GUID: GUIDReady
+      //GUID: GUIDReady
     });
   }
 };
+//-------------------------------------------------------
+// var vitals = function(req, res, next) {
+//   if (!req.isAuthenticated()) {
+//     res.redirect('/signin');
+//   } else {
+
+//     var user = req.user;
+
+//     if (user !== undefined) {
+//       user = user.toJSON();
+//     }
+//     res.render('vitals', {
+//       title: 'vitals',
+//       user: user,
+//       GUID: GUIDReady
+//     });
+//   }
+// };
 
 //-------------------------------------------------------
 var medication = function(req, res, next) {
@@ -328,7 +346,7 @@ module.exports.demographics = demographics;
 module.exports.demographicsPost = demographicsPost;
 module.exports.history = history;
 module.exports.historyPost = historyPost;
-module.exports.vitals = vitals;
+module.exports.historyReview = historyReview;
 module.exports.medication = medication;
 module.exports.signIn = signIn;
 module.exports.signInPost = signInPost;
