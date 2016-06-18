@@ -74,6 +74,8 @@ app.post('/history', route.historyPost);
 
 app.post('/historyreview', route.historyReviewPost);
 
+app.post('/testing', route.testingPost);
+
 
 
 

@@ -135,11 +135,11 @@ var history = function(req, res, next) {
 var historyPost = function(req, res, next) {
 
     var user = req.user;
-    console.log(req.body)
+    //console.log(req.body)
     //console.log(user)
-    console.log(req.body.one)
-    console.log(req.body.two)
-    console.log(req.body.three)
+    //console.log(req.body.one)
+    //console.log(req.body.two)
+    //console.log(req.body.three)
 
     res.redirect('/historyreview')
 };
@@ -169,7 +169,7 @@ var historyReviewPost = function(req, res, next) {
     var user = req.user;
 
 
-    console.log(req.body.review)
+    //console.log(req.body.review)
 
 
     res.redirect('/testing')
@@ -191,6 +191,24 @@ var testing = function(req, res, next) {
       user: user
     });
   }
+};
+
+//-------------------------------------------------------
+var testingPost = function(req, res, next) {
+
+    var user = req.user;
+
+
+    console.log(req.body.pulserate)
+    console.log(req.body.rhythm)
+    console.log(req.body.bloodpressure)
+    console.log(req.body.systolic)
+    console.log(req.body.diastolic)
+    console.log(req.body.sitting)
+    console.log(req.body.secondreading)
+    console.log(req.body.othertesting)
+
+    res.redirect('/home')
 };
 
 //-------------------------------------------------------
@@ -380,6 +398,7 @@ module.exports.historyPost = historyPost;
 module.exports.historyReview = historyReview;
 module.exports.historyReviewPost = historyReviewPost;
 module.exports.testing = testing;
+module.exports.testingPost = testingPost;
 module.exports.medication = medication;
 module.exports.signIn = signIn;
 module.exports.signInPost = signInPost;
