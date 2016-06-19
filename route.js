@@ -234,13 +234,50 @@ var visionPost = function(req, res, next) {
     var user = req.user;
 
 
-    // console.log(req.body.pulserate)
-    // console.log(req.body.rhythm)
-    // console.log(req.body.bloodpressure)
-    // console.log(req.body.systolic)
-    // console.log(req.body.diastolic)
-    // console.log(req.body.sitting)
-    // console.log(req.body.secondreading)
+    console.log(req.body.rightuncorrected)
+    console.log(req.body.rightcorrected)
+    console.log(req.body.fieldright)
+    console.log(req.body.leftuncorrected)
+    console.log(req.body.leftcorrected)
+    console.log(req.body.fieldleft)
+    console.log(req.body.bothuncorrected)
+    console.log(req.body.bothcorrected)
+       //console.log("hayyyy")
+
+    res.redirect('/hearing')
+};
+
+//-------------------------------------------------------
+var hearing = function(req, res, next) {
+  if (!req.isAuthenticated()) {
+    res.redirect('/signin');
+  } else {
+
+    var user = req.user;
+
+    if (user !== undefined) {
+      user = user.toJSON();
+    }
+    res.render('hearing', {
+      title: 'Hearing',
+      user: user
+    });
+  }
+};
+//-------------------------------------------------------
+var hearingPost = function(req, res, next) {
+
+    var user = req.user;
+
+
+    // console.log(req.body.rightuncorrected)
+    // console.log(req.body.rightcorrected)
+    // console.log(req.body.fieldright)
+    // console.log(req.body.leftuncorrected)
+    // console.log(req.body.leftcorrected)
+    // console.log(req.body.fieldleft)
+    // console.log(req.body.bothuncorrected)
+    // console.log(req.body.bothcorrected)
        console.log("hayyyy")
 
     res.redirect('/home')
@@ -436,6 +473,8 @@ module.exports.testing = testing;
 module.exports.testingPost = testingPost;
 module.exports.vision = vision;
 module.exports.visionPost = visionPost;
+module.exports.hearing = hearing;
+module.exports.hearingPost = hearingPost;
 module.exports.medication = medication;
 module.exports.signIn = signIn;
 module.exports.signInPost = signInPost;

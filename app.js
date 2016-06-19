@@ -59,25 +59,19 @@ app.get('/history', route.history);
 app.get('/historyreview', route.historyReview);
 app.get('/testing', route.testing);
 app.get('/vision', route.vision);
+app.get('/hearing', route.hearing);
 app.get('/medication', route.medication);
 app.get('/signout', route.signOut);
 app.get('/warn', route.warn);
 
-
-
 app.post('/signin', route.signInPost);
-
 app.post('/signup', route.signUpPost);
-
 app.post('/demographics', route.demographicsPost);
-
 app.post('/history', route.historyPost);
-
 app.post('/historyreview', route.historyReviewPost);
-
 app.post('/testing', route.testingPost);
-
 app.post('/vision', route.visionPost);
+app.post('/hearing', route.hearingPost);
 
 
 

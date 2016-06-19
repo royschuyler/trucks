@@ -149,3 +149,15 @@ a {
   font-weight: 500;
 }
 
+.eyebox {
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  border-bottom: solid 1px darkgreen;
+  width: 50px;
+/*  padding: 3px;*/
+}
+
+.eyetable  {
+  padding-bottom: 8px;
+}
