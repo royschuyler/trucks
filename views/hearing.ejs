@@ -2,36 +2,48 @@
 <% include header.ejs %>
 
   <div class="header-container">
-    <div class="table-header table-header2">VISION</div>
+    <div class="table-header table-header2">HEARING</div>
   </div>
   <div class=" container full-container full-container2">
     <form action="/hearing" method="post" name="frmSurvey">
       <div class="row">
-        <div>Standard is at least 20/40 acuity (Snellen) in each eye with or without correction. At least 70° field of vision in horizontal meridian measured in each eye. The use of cor- rective lenses should be noted on the Medical Examiner's Certificate.</div>
+        <div>Standard: Must first perceive whispered voice at not less than 5 feet OR average hearing loss of less than or equal to 40 dB, in better ear (with or without hearing aid).</div>
         <div class="col-md-12">
-          <table class="eyetable"style="width:100%">
+          <table class="hearingtable" style="width:100%">
+            <tr>
+              <td class="hearingtable">Check if hearing aid used for test:</td>
+              <td class="hearingtable">Right ear<input name="hearingaid" class="eyebox" type="radio"></td>
+              <td class="hearingtable">Left ear<input name="hearingaid" class="eyebox" type="radio"></td>
+              <td class="hearingtable">Neither<input name="hearingaid" class="eyebox" type="radio"></td>
+            </tr>
             <tr class="">
-              <th class="eyetable">Acuity</td>
-              <th class="eyetable">Uncorrected</th>
-              <th class="eyetable">Corrected</th>
-              <th class="eyetable">Horizontal Field of Vision</th>
+              <th class="hearingtable">Whisper Test Results</th>
             </tr>
             <tr>
-              <td class="eyetable">Right eye:</td>
-              <td class="eyetable">20/<input name="rightuncorrected" class="eyebox" type=text></td>
-              <td class="eyetable">20/<input name="rightcorrected" class="eyebox" type=text></td>
-              <td class="eyetable">Right eye:<input name="fieldright" class="eyebox" type=text>degrees</td>
+              <td class="hearingtable"><p>Record distance (in feet) from driver at which a forced whispered voice</br> can first be heard.</p></td>
+              <td class="hearingtable hearingpush">Right ear<input name="rightear" class="eyebox" type=text></td>
+              <td class="hearingtable hearingpush">Left ear<input name="leftear" class="eyebox" type=text></td>
             </tr>
             <tr>
-              <td class="eyetable">Left eye:</td>
-              <td class="eyetable">20/<input name="leftuncorrected" class="eyebox" type=text></td>
-              <td class="eyetable">20/<input name="leftcorrected" class="eyebox" type=text></td>
-              <td class="eyetable">Left eye:<input name="fieldleft" class="eyebox" type=text>degrees</td>
+              <th class="or hearingtable">OR</th>
             </tr>
-            <tr>
-              <td class="eyetable">Both eyes:</td>
-              <td class="eyetable">20/<input name="bothuncorrected" class="eyebox" type=text></td>
-              <td class="eyetable">20/<input name="bothcorrected" class="eyebox" type=text></td>
+              <th class="hearingtable">Audiometric Test Results</th>
+            </tr>
+            </tr>
+              <th class="hearingtable">Right ear</th>
+              <th class="hearingtable">Left ear</th>
+            </tr>
+            </tr>
+              <td class="hearingtable" style="width:50%">
+                500Hz<input class="earbox" type="text" name="">
+                1000Hz<input class="earbox" type="text" name="">
+                2000Hz<input class="earbox" type="text" name="">
+              </td>
+              <td class="hearingtable" style="width:50%">
+                500Hz<input class="earbox" type="text" name="">
+                1000Hz<input class="earbox" type="text" name="">
+                2000Hz<input class="earbox" type="text" name="">
+              </td>
             </tr>
           </table>
         </div>

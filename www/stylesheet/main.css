@@ -161,3 +161,11 @@ a {
 .eyetable  {
   padding-bottom: 8px;
 }
+
+.hearingtable {
+  padding-bottom: 10px;
+}
+
+.earbox {
+  width: 50px;
+}
