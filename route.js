@@ -244,7 +244,12 @@ var visionPost = function(req, res, next) {
     console.log(req.body.bothcorrected)
        //console.log("hayyyy")
 
+
+    if(req.body.rightuncorrected <= 20) {
+      res.redirect('/warn')
+    } else {
     res.redirect('/hearing')
+  }
 };
 
 //-------------------------------------------------------
@@ -280,27 +285,45 @@ var hearingPost = function(req, res, next) {
     // console.log(req.body.bothcorrected)
        console.log("hayyyy")
 
-    res.redirect('/home')
+    res.redirect('/physicalexamination')
 };
 
 //-------------------------------------------------------
-// var vitals = function(req, res, next) {
-//   if (!req.isAuthenticated()) {
-//     res.redirect('/signin');
-//   } else {
+var physicalExamination = function(req, res, next) {
+  if (!req.isAuthenticated()) {
+    res.redirect('/signin');
+  } else {
 
-//     var user = req.user;
+    var user = req.user;
 
-//     if (user !== undefined) {
-//       user = user.toJSON();
-//     }
-//     res.render('vitals', {
-//       title: 'vitals',
-//       user: user,
-//       GUID: GUIDReady
-//     });
-//   }
-// };
+    if (user !== undefined) {
+      user = user.toJSON();
+    }
+    res.render('physicalexamination', {
+      title: 'Physical examination',
+      user: user
+    });
+  }
+};
+//-------------------------------------------------------
+var physicalExaminationPost = function(req, res, next) {
+
+    var user = req.user;
+
+
+    // console.log(req.body.rightuncorrected)
+    // console.log(req.body.rightcorrected)
+    // console.log(req.body.fieldright)
+    // console.log(req.body.leftuncorrected)
+    // console.log(req.body.leftcorrected)
+    // console.log(req.body.fieldleft)
+    // console.log(req.body.bothuncorrected)
+    // console.log(req.body.bothcorrected)
+       console.log("hayyyyey")
+
+    res.redirect('/home')
+};
+
 
 //-------------------------------------------------------
 var medication = function(req, res, next) {
@@ -474,6 +497,9 @@ module.exports.testingPost = testingPost;
 module.exports.vision = vision;
 module.exports.visionPost = visionPost;
 module.exports.hearing = hearing;
+module.exports.hearingPost = hearingPost;
+module.exports.physicalExamination = physicalExamination;
+module.exports.physicalExaminationPost = physicalExaminationPost;
 module.exports.hearingPost = hearingPost;
 module.exports.medication = medication;
 module.exports.signIn = signIn;

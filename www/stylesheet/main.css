@@ -97,6 +97,13 @@ a {
   background-color: white;
 }
 
+.full-container2 {
+  width: 100%;
+  margin-left: 20px;
+  margin-right: 20px;
+  background-color: white;
+}
+
 .textareaborder {
   width: 100%;
   border: solid darkgreen 1px;
@@ -168,4 +175,12 @@ a {
 
 .earbox {
   width: 50px;
+}
+
+body {
+  background-color: #F8F8F8 !important;
+}
+
+.ab {
+  padding-top: 5px;
 }
