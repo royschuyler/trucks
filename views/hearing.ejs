@@ -12,52 +12,53 @@
           <table class="hearingtable" style="width:100%">
             <tr>
               <td class="hearingtable">Check if hearing aid used for test:</td>
-              <td class="hearingtable">Right ear<input name="hearingaid" class="eyebox" type="radio"></td>
-              <td class="hearingtable">Left ear<input name="hearingaid" class="eyebox" type="radio"></td>
-              <td class="hearingtable">Neither<input name="hearingaid" class="eyebox" type="radio"></td>
+              <td class="hearingtable">Right ear<input name="hearingaidright" value="yes" class="" type="radio"></td>
+              <td class="hearingtable">Left ear<input name="hearingaidleft" value="yes" class="close" type="radio"></td>
+              <td class="hearingtable">Neither<input name="hearingaidboth" value="neither" class="" type="radio"></td>
             </tr>
             <tr class="">
               <th class="hearingtable">Whisper Test Results</th>
             </tr>
             <tr>
-              <td class="hearingtable"><p>Record distance (in feet) from driver at which a forced whispered voice</br> can first be heard.</p></td>
+              <td class="hearingtable">
+                <p>Record distance (in feet) from driver at which a forced whispered voice</br> can first be heard.</p>
+              </td>
               <td class="hearingtable hearingpush">Right ear<input name="rightear" class="eyebox" type=text></td>
               <td class="hearingtable hearingpush">Left ear<input name="leftear" class="eyebox" type=text></td>
             </tr>
             <tr>
               <th class="or hearingtable">OR</th>
             </tr>
-              <th class="hearingtable">Audiometric Test Results</th>
+            <th class="hearingtable">Audiometric Test Results</th>
             </tr>
             </tr>
-              <th class="hearingtable">Right ear</th>
-              <th class="hearingtable">Left ear</th>
+            <th class="hearingtable">Right ear</th>
+            <th class="hearingtable">Left ear</th>
             </tr>
             </tr>
-              <td class="hearingtable" style="width:50%">
-                500Hz<input class="earbox" type="text" name="">
-                1000Hz<input class="earbox" type="text" name="">
-                2000Hz<input class="earbox" type="text" name="">
-              </td>
-              <td class="hearingtable" style="width:50%">
-                500Hz<input class="earbox" type="text" name="">
-                1000Hz<input class="earbox" type="text" name="">
-                2000Hz<input class="earbox" type="text" name="">
-              </td>
+            <td class="hearingtable" style="width:50%">
+              500Hz<input class="earbox" type="text" name="right500"> 1000Hz
+              <input class="earbox" type="text" name="right1000"> 2000Hz
+              <input class="earbox" type="text" name="right2000">
+            </td>
+            <td class="hearingtable" style="width:50%">
+              500Hz<input class="earbox" type="text" name="left500"> 1000Hz
+              <input class="earbox" type="text" name="left1000"> 2000Hz
+              <input class="earbox" type="text" name="left2000">
+            </td>
             </tr>
           </table>
         </div>
       </div>
-                  <div class="form-group">
-              <label class="col-md-3 control-label"></label>
-              <div class="col-md-8">
-                <input type="submit" value="Save Changes" class="btn btn-primary submitBtn"/><span></span>
-                <input type="reset" value="Clear form" class="btn btn-default clearBtn"/>
-              </div>
-            </div>
+      <div class="form-group">
+        <label class="col-md-3 control-label"></label>
+        <div class="col-md-8">
+          <input type="submit" value="Save Changes" class="btn btn-primary submitBtn" /><span></span>
+          <input type="reset" value="Clear form" class="btn btn-default clearBtn" />
+        </div>
+      </div>
     </form>
   </div>
 
 
   <% include footer.ejs %>
-

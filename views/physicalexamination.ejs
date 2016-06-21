@@ -4,104 +4,117 @@
   <div class="header-container">
     <div class="table-header table-header2">PHYSICAL EXAM</div>
   </div>
-  <div class=" container full-container full-container2">
+  <div class="container full-container full-container2">
     <form action="/physicalexamination" method="post" name="frmSurvey">
-      <div class="row">
-        <div>The presence of a certain condition may not necessarily disqualify a driver, particularly if the condition is controlled adequately, is not likely to worsen, or is readily amenable to treatment. Even if a condition does not disqualify a driver, the Medical Examiner may consider deferring the driver temporarily. Also, the driver should be advised to take the necessary steps to correct the condition as soon as possible, particularly if neglecting the condition could result in a more serious illness that might affect driving.</div>
-        <div class="ab">Check the body systems for abnormalities.</div>
-  <div class="container">
-    <form action="/history" method="post" name="frmSurvey">
-      <div class="row">
-        <div class="col-md-6">
-          <table class="" style="width:100%">
-            <tr>
-              <th class="question">Body system</td>
-              <th class="yes">Normal</th>
-              <th class="no">Abnormal</th>
-            </tr>
-            <tr>
-              <td>1. General</td>
-              <td class="yes"><input type="radio" name="one" value="yes" id=""></td>
-              <td class="no"><input type="radio" name="one" value="no" id=""></td>
-            </tr>
-            <tr>
-              <td>2. Skin</td>
-              <td class="yes"><input type="radio" name="two" value="yes" id="" </td>
-              <td class="no"><input type="radio" name="two" value="no" id="" </td>
-            </tr>
-            <tr>
-              <td>3. Eyes</td>
-              <td class="yes"><input type="radio" name="three" value="yes" id="" </td>
-              <td class="no"><input type="radio" name="three" value="no" id="" </td>
-            </tr>
-            <tr>
-              <td>4. Ears</td>
-              <td class="yes"><input type="radio" name="4" value="" id="" </td>
-              <td class="no"><input type="radio" name="4" value="" id="" </td>
-            </tr>
-            <tr>
-              <td>5. Mouth/throat</td>
-              <td class="yes"><input type="radio" name="5" value="" id="" </td>
-              <td class="no"><input type="radio" name="5" value="" id="" </td>
-            </tr>
-            <tr>
-              <td>6. Cardiovascular</td>
-              <td class="yes"><input type="radio" name="6" value="" id="" </td>
-              <td class="no"><input type="radio" name="6" value="" id="" </td>
-            </tr>
-            <tr>
-              <td>7. Lungs/chest</td>
-              <td class="yes"><input type="radio" name="7" value="" id="" </td>
-              <td class="no"><input type="radio" name="7" value="" id="" </td>
-            </tr>
-            <tr>
-              <td>8. Abdomen</td>
-              <td class="yes"><input type="radio" name="8" value="" id="" </td>
-              <td class="no"><input type="radio" name="8" value="" id="" </td>
-            </tr>
-            <tr>
-              <td>9. Genito-urinary system including hernias</td>
-              <td class="yes"><input type="radio" name="9" value="" id="" </td>
-              <td class="no"><input type="radio" name="9" value="" id="" </td>
-            </tr>
-            <tr>
-              <td> 10. Back/Spine</td>
-              <td class="yes"><input type="radio" name="10" value="" id="" </td>
-              <td class="no"><input type="radio" name="10" value="" id="" </td>
-            </tr>
-            <tr>
-              <td>11. Extremities/joints
-              </td>
-              <td class="yes"><input type="radio" name="11" value="" id="" </td>
-              <td class="no"><input type="radio" name="11" value="" id="" </td>
-            </tr>
-            <tr>
-              <td>12. Neurological system including reflexes </td>
-              <td class="yes"><input type="radio" name="12" value="" id="" </td>
-              <td class="no"><input type="radio" name="12" value="" id="" </td>
-            </tr>
-            <tr>
-              <tr>
-                <td>13. Gait</td>
-                <td class="yes"><input type="radio" name="13" value="" id="" </td>
-                <td class="no"><input type="radio" name="13" value="" id="" </td>
-              </tr>
-              <tr>
-                <td>14. Vascular system</td>
-                <td class="yes"><input type="radio" name="14" value="" id="" </td>
-                <td class="no"><input type="radio" name="14" value="" id="" </td>
-              </tr>
-          </table>
+      <div class="">
+        <div>The presence of a certain condition may not necessarily disqualify a driver, particularly if the condition is controlled adequately, is not likely to worsen, or is readily amenable to treatment. Even if a condition does not disqualify a driver,
+          the Medical Examiner may consider deferring the driver temporarily. Also, the driver should be advised to take the necessary steps to correct the condition as soon as possible, particularly if neglecting the condition could result in a more
+          serious illness that might affect driving.
         </div>
-            <div class="form-group">
-              <label class="col-md-3 control-label"></label>
-              <div class="col-md-8">
-                <input type="submit" value="Save Changes" class="btn btn-primary submitBtn"/><span></span>
-                <input type="reset" value="Clear form" class="btn btn-default clearBtn"/>
+        <div class="ab">Check the body systems for abnormalities.</div>
+        <div class="">
+          <form action="/history" method="post" name="frmSurvey">
+            <div class="row">
+              <div class="col-md-6">
+                <table class="" style="width:75%">
+                  <tr>
+                    <th class="question">Body system</td>
+                      <th class="yes">Normal</th>
+                      <th class="no">Abnormal</th>
+                  </tr>
+                  <tr>
+                    <td>1. General</td>
+                    <td class="yes"><input type="radio" name="general" value="normal" id=""></td>
+                    <td class="no"><input type="radio" name="general" value="abnormal" id=""></td>
+                  </tr>
+                  <tr>
+                    <td>2. Skin</td>
+                    <td class="yes"><input type="radio" name="skin" value="normal" id="" </td>
+                      <td class="no"><input type="radio" name="skin" value="abnormal" id="" </td>
+                  </tr>
+                  <tr>
+                    <td>3. Eyes</td>
+                    <td class="yes"><input type="radio" name="eyes" value="normal" id="" </td>
+                      <td class="no"><input type="radio" name="eyes" value="abnormal" id="" </td>
+                  </tr>
+                  <tr>
+                    <td>4. Ears</td>
+                    <td class="yes"><input type="radio" name="ears" value="normal" id="" </td>
+                      <td class="no"><input type="radio" name="ears" value="abnormal" id="" </td>
+                  </tr>
+                  <tr>
+                    <td>5. Mouth/throat</td>
+                    <td class="yes"><input type="radio" name="mouth" value="normal" id="" </td>
+                      <td class="no"><input type="radio" name="mouth" value="abnormal" id="" </td>
+                  </tr>
+                  <tr>
+                    <td>6. Cardiovascular</td>
+                    <td class="yes"><input type="radio" name="cardiovascular" value="normal" id="" </td>
+                      <td class="no"><input type="radio" name="cardiovascular" value="abnormal" id="" </td>
+                  </tr>
+                  <tr>
+                    <td>7. Lungs/chest</td>
+                    <td class="yes"><input type="radio" name="lungs" value="normal" id="" </td>
+                      <td class="no"><input type="radio" name="lungs" value="abnormal" id="" </td>
+                  </tr>
+                  <tr>
+                    <td>8. Abdomen</td>
+                    <td class="yes"><input type="radio" name="abdomen" value="normal" id="" </td>
+                      <td class="no"><input type="radio" name="abdomen" value="abnormal" id="" </td>
+                  </tr>
+                  <tr>
+                    <td>9. Genito-urinary system including hernias</td>
+                    <td class="yes"><input type="radio" name="hernias" value="normal" id="" </td>
+                      <td class="no"><input type="radio" name="hernias" value="abnormal" id="" </td>
+                  </tr>
+                  <tr>
+                    <td> 10. Back/Spine</td>
+                    <td class="yes"><input type="radio" name="back" value="normal" id="" </td>
+                      <td class="no"><input type="radio" name="back" value="abnormal" id="" </td>
+                  </tr>
+                  <tr>
+                    <td>11. Extremities/joints
+                    </td>
+                    <td class="yes"><input type="radio" name="joints" value="normal" id="" </td>
+                      <td class="no"><input type="radio" name="joints" value="abnormal" id="" </td>
+                  </tr>
+                  <tr>
+                    <td>12. Neurological system including reflexes </td>
+                    <td class="yes"><input type="radio" name="neuro" value="normal" id="" </td>
+                      <td class="no"><input type="radio" name="neuro" value="abnormal" id="" </td>
+                  </tr>
+                  <tr>
+                    <tr>
+                      <td>13. Gait</td>
+                      <td class="yes"><input type="radio" name="gait" value="normal" id="" </td>
+                        <td class="no"><input type="radio" name="gait" value="abnormal" id="" </td>
+                    </tr>
+                    <tr>
+                      <td>14. Vascular system</td>
+                      <td class="yes"><input type="radio" name="vascular" value="normal" id="" </td>
+                        <td class="no"><input type="radio" name="vascular" value="abnormal" id="" </td>
+                    </tr>
+                </table>
+              </div>
+              <div class="row">
+                <div class="col-md-11 history-table">
+                  <div>Discuss any abnormal answers in detail in the space below and indicate whether it would affect the driver's ability to operate a CMV. Enter applicable item number before each comment.</div>
+                  <div class="col-md-13">
+                    <textarea class="textareaborder" rows="5" cols="80" name="textarea">
+          </textarea>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-md-3 control-label"></label>
+                <div class="col-md-8">
+                  <input type="submit" value="Save Changes" class="btn btn-primary submitBtn" /><span></span>
+                  <input type="reset" value="Clear form" class="btn btn-default clearBtn" />
+                </div>
               </div>
             </div>
+        </div>
+        </form>
       </div>
-    </form>
-  </div>
 
-  <% include footer.ejs %>
+      <% include footer.ejs %>

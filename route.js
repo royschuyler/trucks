@@ -275,15 +275,17 @@ var hearingPost = function(req, res, next) {
     var user = req.user;
 
 
-    // console.log(req.body.rightuncorrected)
-    // console.log(req.body.rightcorrected)
-    // console.log(req.body.fieldright)
-    // console.log(req.body.leftuncorrected)
-    // console.log(req.body.leftcorrected)
-    // console.log(req.body.fieldleft)
-    // console.log(req.body.bothuncorrected)
-    // console.log(req.body.bothcorrected)
-       console.log("hayyyy")
+    console.log(req.body.hearingaidright)
+    console.log(req.body.hearingaidleft)
+    console.log(req.body.hearingaidboth)
+    console.log(req.body.rightear)
+    console.log(req.body.leftear)
+    console.log(req.body.right500)
+    console.log(req.body.right1000)
+    console.log(req.body.right2000)
+    console.log(req.body.left500)
+    console.log(req.body.left1000)
+    console.log(req.body.left2000)
 
     res.redirect('/physicalexamination')
 };
@@ -311,15 +313,22 @@ var physicalExaminationPost = function(req, res, next) {
     var user = req.user;
 
 
-    // console.log(req.body.rightuncorrected)
-    // console.log(req.body.rightcorrected)
-    // console.log(req.body.fieldright)
-    // console.log(req.body.leftuncorrected)
-    // console.log(req.body.leftcorrected)
-    // console.log(req.body.fieldleft)
-    // console.log(req.body.bothuncorrected)
-    // console.log(req.body.bothcorrected)
-       console.log("hayyyyey")
+    console.log(req.body.general)
+    console.log(req.body.skin)
+    console.log(req.body.eyes)
+    console.log(req.body.ears)
+    console.log(req.body.mouth)
+    console.log(req.body.cardiovascular)
+    console.log(req.body.lungs)
+    console.log(req.body.abdomen)
+    console.log(req.body.hernias)
+    console.log(req.body.back)
+    console.log(req.body.joints)
+    console.log(req.body.neuro)
+    console.log(req.body.gait)
+    console.log(req.body.vascular)
+
+    console.log(req.body.textarea)
 
     res.redirect('/home')
 };
