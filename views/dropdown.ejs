@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<% include header.ejs %>
+
+  <div class="container full-container full-container2">
+    <form action="/dropdown" method="post" name="frmSurvey">
+      <div class="row">
+
+      <select>
+        <option value="volvo">Volvo</option>
+        <option value="saab">Saab</option>
+        <option value="opel">Opel</option>
+        <option value="audi">Audi</option>
+      </select>
+
+      <div class="form-group">
+        <label class="col-md-3 control-label"></label>
+      <div class="col-md-8">
+          <input type="submit" value="Save Changes" class="btn btn-primary submitBtn" /><span></span>
+          <input type="reset" value="Clear form" class="btn btn-default clearBtn" />
+        </div>
+      </div>
+
+      </div>
+    </form>
+  </div>
+
+
+  <% include footer.ejs %>

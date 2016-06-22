@@ -62,6 +62,7 @@ app.get('/vision', route.vision);
 app.get('/hearing', route.hearing);
 app.get('/medication', route.medication);
 app.get('/signout', route.signOut);
+app.get('/dropdown', route.dropdown);
 app.get('/warn', route.warn);
 app.get('/physicalexamination', route.physicalExamination)
 
@@ -73,6 +74,7 @@ app.post('/historyreview', route.historyReviewPost);
 app.post('/testing', route.testingPost);
 app.post('/vision', route.visionPost);
 app.post('/hearing', route.hearingPost);
+app.post('/dropdown', route.dropdownPost);
 app.post('/physicalexamination', route.physicalExaminationPost)
 
 

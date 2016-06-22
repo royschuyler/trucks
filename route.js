@@ -233,7 +233,6 @@ var visionPost = function(req, res, next) {
 
     var user = req.user;
 
-
     console.log(req.body.rightuncorrected)
     console.log(req.body.rightcorrected)
     console.log(req.body.fieldright)
@@ -242,10 +241,8 @@ var visionPost = function(req, res, next) {
     console.log(req.body.fieldleft)
     console.log(req.body.bothuncorrected)
     console.log(req.body.bothcorrected)
-       //console.log("hayyyy")
 
-
-    if(req.body.rightuncorrected <= 20) {
+    if(req.body.rightuncorrected >= 40) {
       res.redirect('/warn')
     } else {
     res.redirect('/hearing')
@@ -287,7 +284,13 @@ var hearingPost = function(req, res, next) {
     console.log(req.body.left1000)
     console.log(req.body.left2000)
 
-    res.redirect('/physicalexamination')
+    if(req.body.rightear >= 5 || req.body.leftear >= 5) {
+      res.redirect('/physicalexamination')
+    } else {
+      res.redirect('/warn')
+    }
+
+
 };
 
 //-------------------------------------------------------
@@ -329,6 +332,32 @@ var physicalExaminationPost = function(req, res, next) {
     console.log(req.body.vascular)
 
     console.log(req.body.textarea)
+
+    res.redirect('/home')
+};
+
+//-------------------------------------------------------
+var dropdown = function(req, res, next) {
+  if (!req.isAuthenticated()) {
+    res.redirect('/signin');
+  } else {
+
+    var user = req.user;
+
+    if (user !== undefined) {
+      user = user.toJSON();
+    }
+    res.render('dropdown', {
+      title: 'dropdown',
+      user: user
+    });
+  }
+};
+//-------------------------------------------------------
+var dropdownPost = function(req, res, next) {
+
+    var user = req.user;
+
 
     res.redirect('/home')
 };
@@ -511,6 +540,8 @@ module.exports.physicalExamination = physicalExamination;
 module.exports.physicalExaminationPost = physicalExaminationPost;
 module.exports.hearingPost = hearingPost;
 module.exports.medication = medication;
+module.exports.dropdown = dropdown;
+module.exports.dropdownPost = dropdownPost;
 module.exports.signIn = signIn;
 module.exports.signInPost = signInPost;
 module.exports.signUp = signUp;
