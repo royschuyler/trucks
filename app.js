@@ -64,6 +64,7 @@ app.get('/medication', route.medication);
 app.get('/signout', route.signOut);
 app.get('/dropdown', route.dropdown);
 app.get('/warn', route.warn);
+app.get('/form', route.form);
 app.get('/physicalexamination', route.physicalExamination)
 
 app.post('/signin', route.signInPost);

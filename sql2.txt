@@ -1,0 +1,34 @@
+CREATE TABLE session
+(
+ID int NOT NULL AUTO_INCREMENT,
+username varchar(255) NOT NULL,
+userID varchar(255),
+);
+
+INSERT INTO session
+(
+ID, username, userId, sessionId
+)
+VALUES
+(
+1,"tod", "1234", "sessionGUID"
+);
+
+INSERT INTO session
+(
+username, userId, sessionId
+)
+VALUES
+(
+"tod", "1234", "sessionGUID"
+);
+
+CREATE TABLE session
+(
+ID Integer PRIMARY KEY AUTO_INCREMENT,
+username varchar(255) NOT NULL,
+userId varchar(255),
+sessionId varchar(255)
+);
+
+CREATE TABLE persons (FirstName varchar(255), MiddleName varchar(255), LastName varchar(255), Address varchar(255), Zip varchar(255), DOB varchar(255), SSN varchar(255), City varchar(255), State varchar(255), Country varchar(255), Company varchar(255), Email varchar(255), Doctor varchar(255), GUID varchar(255))

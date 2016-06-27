@@ -1,25 +1,28 @@
 <!DOCTYPE html>
 <% include header.ejs %>
 
-  <div class="container full-container full-container2">
+  <div class="container">
     <form action="/dropdown" method="post" name="frmSurvey">
       <div class="row">
+        <div class="col-md-4 col-md-offset-4">
 
-      <select>
-        <option value="volvo">Volvo</option>
-        <option value="saab">Saab</option>
-        <option value="opel">Opel</option>
-        <option value="audi">Audi</option>
-      </select>
+            <select>
+              <option value="Alprazolam">Alprazolam</option>
+              <option value="Ambien">Ambien</option>
+              <option value="Ativan">Ativan</option>
+              <option value="Buprenorphine">Buprenorphine</option>
+              <option value="Alprazolam">Asprin</option>
+              <option value="Codeine">Codeine</option>
+              <option value="Concerta">Concerta</option>
+              <option value="Diazepam">Diazepam</option>
+            </select>
 
-      <div class="form-group">
-        <label class="col-md-3 control-label"></label>
-      <div class="col-md-8">
-          <input type="submit" value="Save Changes" class="btn btn-primary submitBtn" /><span></span>
-          <input type="reset" value="Clear form" class="btn btn-default clearBtn" />
+
+            <div id="topad">
+            <input type="submit" value="Save Changes" class="btn btn-primary submitBtn" /><span></span>
+            <input type="reset" value="Clear form" class="btn btn-default clearBtn" />
+            </div>
         </div>
-      </div>
-
       </div>
     </form>
   </div>

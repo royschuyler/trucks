@@ -7,7 +7,7 @@ var connection = mysql.createConnection({
   host: 'localhost',
   user: 'root',
   password: 'Hollie12123',
-  database: 'doctor'
+  database: 'dbUsers'
 });
 
 connection.connect(function(err) {
@@ -21,13 +21,22 @@ connection.connect(function(err) {
 //-----------------------------------------------------------------------
 var GUIDText = "Current Patient ID: ";
 
-var GUID = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
-  var r = Math.random() * 16 | 0,
-    v = c == 'x' ? r : (r & 0x3 | 0x8);
-  return v.toString(16);
-});
+function GUID() {
+    // http://www.ietf.org/rfc/rfc4122.txt
+    var s = [];
+    var hexDigits = "0123456789abcdef";
+    for (var i = 0; i < 36; i++) {
+        s[i] = hexDigits.substr(Math.floor(Math.random() * 0x10), 1);
+    }
+    s[14] = "4";  // bits 12-15 of the time_hi_and_version field to 0010
+    s[19] = hexDigits.substr((s[19] & 0x3) | 0x8, 1);  // bits 6-7 of the clock_seq_hi_and_reserved to 01
+    s[8] = s[13] = s[18] = s[23] = "-";
 
-var GUIDReady = GUIDText + GUID;
+    var uuid = s.join("");
+    return uuid;
+}
+
+var GUIDReady = GUIDText + GUID();
 
 //-----------------------------------------------------
 
@@ -94,21 +103,17 @@ var demographics = function(req, res, next) {
 var demographicsPost = function(req, res, next) {
 
   var user = req.user;
+  console.log(user.attributes.username);
 
-  connection.query('INSERT INTO persons (FirstName, MiddleName, LastName, Address, Zip, DOB, SSN, City, State, Country, Company, Email, Doctor, GUID)Values(' + "'" + req.body.fName + "'," + "'" + req.body.mName + "'," + "'" + req.body.lName + "'," + "'" + req.body.address + "'," + "'" + req.body.zip + "'," + "'" + req.body.dob + "'," + "'" + req.body.ssn + "'," + "'" + req.body.city + "'," + "'" + req.body.state + "'," + "'" + req.body.country + "'," + "'" + req.body.company + "'," + "'" + req.body.email + "'," + "'" + req.body.username + "'," + "'" + GUID + "'" + ')'),
+  connection.query('INSERT INTO persons (userId, username, sessionId, FirstName, MiddleName, LastName, Address, Zip, DOB, SSN, City, State, Country, Company, Email, Doctor, GUID)Values(' + '"' + user.attributes.userId + '",' + '"' + user.attributes.username + '",' + '"' + GUID() + '",' + "'" + req.body.fName + "'," + "'" + req.body.mName + "'," + "'" + req.body.lName + "'," + "'" + req.body.address + "'," + "'" + req.body.zip + "'," + "'" + req.body.dob + "'," + "'" + req.body.ssn + "'," + "'" + req.body.city + "'," + "'" + req.body.state + "'," + "'" + req.body.country + "'," + "'" + req.body.company + "'," + "'" + req.body.email + "'," + "'" + req.body.username + "'," + "'" + GUID() + "'" + ')'),
     function(err, rows) {
       console.log("user: " + user.username);
-
-
     };
 
-    if (req.body.fName == "warn") {
-
-        res.redirect('/warn');
-      } else {
+  console.log(user)
 
         res.redirect('/history');
-      }
+
 (req, res, next);
 };
 
@@ -353,6 +358,24 @@ var dropdown = function(req, res, next) {
     });
   }
 };
+
+//-------------------------------------------------------
+var form = function(req, res, next) {
+  if (!req.isAuthenticated()) {
+    res.redirect('/signin');
+  } else {
+
+    var user = req.user;
+
+    if (user !== undefined) {
+      user = user.toJSON();
+    }
+    res.render('form', {
+      title: 'form',
+      user: user
+    });
+  }
+};
 //-------------------------------------------------------
 var dropdownPost = function(req, res, next) {
 
@@ -418,6 +441,15 @@ var signInPost = function(req, res, next) {
           errorMessage: err.message
         });
       } else {
+
+        var sessionGUID = GUID();
+        //console.log(user)
+        connection.query('INSERT INTO session(username, userId, sessionId)VALUES(' + '"' + user.username + '",' + '"' + user.userId + '",' + '"' + sessionGUID + '")'),
+        function(err, rows) {
+          //console.log("user: " + user.username);
+
+    };
+
         return res.redirect('/demographics');
       }
     });
@@ -522,6 +554,7 @@ var notFound404 = function(req, res, next) {
 
 //--------------------------------------------------------
 
+module.exports.form = form;
 module.exports.index = index;
 module.exports.home = home;
 module.exports.demographics = demographics;
@@ -549,3 +582,4 @@ module.exports.signUpPost = signUpPost;
 module.exports.signOut = signOut;
 module.exports.warn = warn;
 module.exports.notFound404 = notFound404;
+
