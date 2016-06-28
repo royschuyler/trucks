@@ -105,12 +105,12 @@ var demographicsPost = function(req, res, next) {
   var user = req.user;
   console.log(user.attributes.username);
 
-  connection.query('INSERT INTO persons (userId, username, sessionId, FirstName, MiddleName, LastName, Address, Zip, DOB, SSN, City, State, Country, Company, Email, Doctor, GUID)Values(' + '"' + user.attributes.userId + '",' + '"' + user.attributes.username + '",' + '"' + GUID() + '",' + "'" + req.body.fName + "'," + "'" + req.body.mName + "'," + "'" + req.body.lName + "'," + "'" + req.body.address + "'," + "'" + req.body.zip + "'," + "'" + req.body.dob + "'," + "'" + req.body.ssn + "'," + "'" + req.body.city + "'," + "'" + req.body.state + "'," + "'" + req.body.country + "'," + "'" + req.body.company + "'," + "'" + req.body.email + "'," + "'" + req.body.username + "'," + "'" + GUID() + "'" + ')'),
+  connection.query('INSERT INTO persons(userId, username, sessionId, FirstName, MiddleName, LastName, Address, Zip, DOB, SSN, City, State, Country, Company, Email, Doctor, GUID)Values(' + '"' + user.attributes.userId + '",' + '"' + user.attributes.username + '",' + '"' + GUID() + '",' + "'" + req.body.fName + "'," + "'" + req.body.mName + "'," + "'" + req.body.lName + "'," + "'" + req.body.address + "'," + "'" + req.body.zip + "'," + "'" + req.body.dob + "'," + "'" + req.body.ssn + "'," + "'" + req.body.city + "'," + "'" + req.body.state + "'," + "'" + req.body.country + "'," + "'" + req.body.company + "'," + "'" + req.body.email + "'," + "'" + req.body.username + "'," + "'" + GUID() + "'" + ')'),
     function(err, rows) {
-      console.log("user: " + user.username);
+      //console.log("user: " + user.username);
     };
 
-  console.log(user)
+  //console.log(user)
 
         res.redirect('/history');
 
@@ -140,11 +140,16 @@ var history = function(req, res, next) {
 var historyPost = function(req, res, next) {
 
     var user = req.user;
-    //console.log(req.body)
-    //console.log(user)
-    //console.log(req.body.one)
-    //console.log(req.body.two)
-    //console.log(req.body.three)
+    console.log("User: " + user.attributes.username)
+    console.log("body: " + req.body.brainInjuries)
+
+
+    connection.query('INSERT INTO history (userId, username, sessionId, brainInjuries, seizures, eyeProblems, earProblems, heartProblems, paceMaker, highBloodPressure, highCholesterol, breathingProblems, lungDisease, kidneyProblems, stomachProblems, diabetes, anxiety, fainting, dizziness, unexplainedWeightLoss, stroke, missingLimbs, backProblems,  boneProblems, bloodClots, cancer, chronicDiseases, sleepDisorders, sleepTest, nightInHospital, brokenBone, useTobacco, drinkAlcohol, illegalSubstance, failedDrugTest) VALUES (' + "'" + user.attributes.userId + "'," + "'" + user.attributes.username + "'," + "'" + user.attributes.sessionId + "'," + "'" + req.body.brainInjuries + "'," + "'" + req.body.seizures + "'," + "'" + req.body.eyeProblems + "'," + "'" + req.body.earProblems + "'," + "'" + req.body.heartProblems + "'," + "'" + req.body.paceMaker + "'," + "'" + req.body.highBloodPressure + "'," + "'" + req.body.highCholesterol + "'," + "'" + req.body.breathingProblems + "'," + "'" + req.body.lungDisease + "'," + "'" + req.body.kidneyProblems + "'," + "'" + req.body.stomachProblems + "'," + "'" + req.body.diabetes + "'," + "'" + req.body.anxiety + "'," + "'" + req.body.fainting + "'," + "'" + req.body.dizziness + "'," + "'" + req.body.unexplainedWeightLoss + "'," + "'" + req.body.stroke + "'," + "'" + req.body.missingLimbs + "'," + "'" + req.body.backProblems + "'," + "'" + req.body.boneProblems + "'," + "'" + req.body.bloodClots + "'," + "'" + req.body.cancer + "'," + "'" + req.body.chronicDiseases + "'," + "'" + req.body.sleepDisorders + "'," + "'" + req.body.sleepTest + "'," + "'" + req.body.nightInHospital + "'," + "'" + req.body.brokenBone + "'," + "'" + req.body.useTobacco + "'," + "'" + req.body.drinkAlcohol + "'," + "'" + req.body.illegalSubstance + "'," + "'" + req.body.failedDrugTest + "')"),
+      function(err, rows) {
+      console.log(err);
+      console.log(rows);
+    };
+
 
     res.redirect('/historyreview')
 };

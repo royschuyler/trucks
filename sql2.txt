@@ -1,10 +1,3 @@
-CREATE TABLE session
-(
-ID int NOT NULL AUTO_INCREMENT,
-username varchar(255) NOT NULL,
-userID varchar(255),
-);
-
 INSERT INTO session
 (
 ID, username, userId, sessionId
@@ -31,4 +24,26 @@ userId varchar(255),
 sessionId varchar(255)
 );
 
-CREATE TABLE persons (FirstName varchar(255), MiddleName varchar(255), LastName varchar(255), Address varchar(255), Zip varchar(255), DOB varchar(255), SSN varchar(255), City varchar(255), State varchar(255), Country varchar(255), Company varchar(255), Email varchar(255), Doctor varchar(255), GUID varchar(255))
+CREATE TABLE persons (userId varchar(255), username varchar(255), sessionId varchar(255), FirstName varchar(255), MiddleName varchar(255), LastName varchar(255), Address varchar(255), Zip varchar(255), DOB varchar(255), SSN varchar(255), City varchar(255), State varchar(255), Country varchar(255), Company varchar(255), Email varchar(255), Doctor varchar(255), GUID varchar(255));
+
+CREATE TABLE history (ID Integer PRIMARY KEY AUTO_INCREMENT, userId varchar(255), username varchar(255), sessionId varchar(255), brainInjuries varchar(255),seizures varchar(255), eyeProblems varchar(255), earProblems varchar(255), heartProblems varchar(255), paceMaker varchar(255), highBloodPressure varchar(255), highCholesterol varchar(255), breathingProblems varchar(255), lungDisease varchar(255), kidneyProblems varchar(255), stomachProblems varchar(255), diabetes varchar(255), anxiety varchar(255), fainting varchar(255), dizziness varchar(255), unexplainedWeightLoss varchar(255), stroke varchar(255), missingLimbs varchar(255), backProblems varchar(255), boneProblems varchar(255), bloodClots varchar(255), cancer varchar(255), chronicDiseases varchar(255), sleepDisorders varchar(255), sleepTest varchar(255), nightInHospital varchar(255), brokenBone varchar(255), useTobacco varchar(255), drinkAlcohol varchar(255), illegalSubstance varchar(255), failedDrugTest varchar(255));
+
+
+   connection.query('INSERT INTO history (userId, username, sessionId, brainInjuries, seizures, eyeProblems, earProblems, heartProblems, paceMaker, highBloodPressure, highCholesterol, breathingProblems, lungDisease, kidneyProblems, stomachProblems, diabetes, anxiety, fainting, dizziness, unexplainedWeightLoss, stroke, missingLimbs, backProblems,  boneProblems, bloodClots, cancer, chronicDiseases, sleepDisorders, sleepTest, nightInHospital, brokenBone, useTobacco, drinkAlcohol, illegalSubstance, failedDrugTest) VALUES (' + "'" + userId + "'," + "'" + username + "'," + "'" + sessionId + "'," + "'" req.body.brainInjuries + "'," + "'" + req.body.seizures + "'," + "'" + req.body.eyeProblems + "'," + "'" + req.body.earProblems + "'," + "'" + req.body.heartProblems + "'," + "'" + req.body.paceMaker + "'," + "'" + req.body.highBloodPressure + "'," + "'" + req.body.highCholesterol + "'," + "'" + req.body.breathingProblems + "'," + "'" + req.body.lungDisease + "'," + "'" + req.body.kidneyProblems + "'," + "'" + req.body.stomachProblems + "'," + "'" + req.body.diabetes + "'," + "'" + req.body.anxiety + "'," + "'" + req.body.fainting + "'," + "'" + req.body.dizziness + "'," + "'" + req.body.unexplainedWeightLoss + "'," + "'" + req.body.stroke + "'," + "'" + req.body.missingLimbs + "'," + "'" + req.body.backProblems + "'," + "'" + req.body.boneProblems + "'," + "'" + req.body.bloodClots + "'," + "'" + req.body.cancer + "'," + "'" + req.body.chronicDiseases + "'," + "'" + req.body.sleepDisorders + "'," + "'" + req.body.sleepTest + "'," + "'" + req.body.nightInHospital + "'," + "'" + req.body.brokenBone + "'," + "'" + req.body.useTobacco + "'," + "'" + req.body.drinkAlcohol + "'," + "'" + req.body.illegalSubstance + "'," + "'" + req.body.failedDrugTest + "')");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
