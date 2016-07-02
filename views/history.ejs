@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <% include header.ejs %>
 
-CREATE TABLE history (userId varchar(255), username varchar(255), sessionId varchar(255), brainInjuries varchar(255),seizures varchar(255), eyeProblems varchar(255), earProblems varchar(255), heartProblems varchar(255), paceMaker varchar(255), highBloodPressure varchar(255), highCholesterol varchar(255), breathingProblems varchar(255), lungDisease varchar(255), kidneyProblems varchar(255), stomachProblems varchar(255), diabetes varchar(255), anxiety varchar(255), fainting varchar(255), dizziness varchar(255), unexplainedWeightLoss varchar(255), stroke varchar(255), missingLimbs varchar(255), backProblems varchar(255), boneProblems varchar(255), bloodClots varchar(255), cancer varchar(255), chronicDiseases varchar(255), sleepDisorders varchar(255), sleepTest varchar(255), nightInHospital varchar(255), brokenBone varchar(255), useTobacco varchar(255), drinkAlcohol varchar(255), illegalSubstance varchar(255), failedDrugTest varchar(255);
+<!-- CREATE TABLE history (userId varchar(255), username varchar(255), sessionId varchar(255), brainInjuries varchar(255),seizures varchar(255), eyeProblems varchar(255), earProblems varchar(255), heartProblems varchar(255), paceMaker varchar(255), highBloodPressure varchar(255), highCholesterol varchar(255), breathingProblems varchar(255), lungDisease varchar(255), kidneyProblems varchar(255), stomachProblems varchar(255), diabetes varchar(255), anxiety varchar(255), fainting varchar(255), dizziness varchar(255), unexplainedWeightLoss varchar(255), stroke varchar(255), missingLimbs varchar(255), backProblems varchar(255), boneProblems varchar(255), bloodClots varchar(255), cancer varchar(255), chronicDiseases varchar(255), sleepDisorders varchar(255), sleepTest varchar(255), nightInHospital varchar(255), brokenBone varchar(255), useTobacco varchar(255), drinkAlcohol varchar(255), illegalSubstance varchar(255), failedDrugTest varchar(255); -->
 
 
   <div class="header-container">
@@ -9,6 +9,7 @@ CREATE TABLE history (userId varchar(255), username varchar(255), sessionId varc
   </div>
   <div class=" container full-container">
     <form action="/history" method="post" name="frmSurvey">
+    <div class="sessionId" value=<%= sessionId %>> <%= sessionId %> </div>
       <div class="row">
         <div class="col-md-6 history-table">
           <table class="tables">
