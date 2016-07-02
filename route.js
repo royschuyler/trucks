@@ -214,15 +214,15 @@ var testingPost = function(req, res, next) {
 
     }
 
-    console.log(req.body.pulserate)
-    console.log(req.body.rhythm)
-    console.log(req.body.bloodpressure1)
-    console.log(req.body.bloodpressure2)
-    console.log(req.body.systolic)
-    console.log(req.body.diastolic)
-    console.log(req.body.sitting)
-    console.log(req.body.secondreading)
-    console.log(req.body.othertesting)
+    // console.log(req.body.pulserate)
+    // console.log(req.body.rhythm)
+    // console.log(req.body.bloodpressure1)
+    // console.log(req.body.bloodpressure2)
+    // console.log(req.body.systolic)
+    // console.log(req.body.diastolic)
+    // console.log(req.body.sitting)
+    // console.log(req.body.secondreading)
+    // console.log(req.body.othertesting)
 
     res.redirect('/vision')
 };
@@ -248,6 +248,11 @@ var vision = function(req, res, next) {
 var visionPost = function(req, res, next) {
 
     var user = req.user;
+
+    connection.query('INSERT INTO vision(username, userId, sessionId, rightuncorrected, rightcorrected, fieldright, leftuncorrected, leftcorrected, fieldleft, bothuncorrected, bothcorrected) VALUES(' + "'" + user.attributes.username + "'," + "'" + user.attributes.userId + "'," + "'" + sessionId + "'," + "'" + req.body.rightuncorrected + "'," + "'" + req.body.rightcorrected + "'," + "'" + req.body.fieldright + "'," + "'" + req.body.leftuncorrected + "'," + "'" + req.body.leftcorrected + "'," + "'" + req.body.fieldleft + "'," + "'" + req.body.bothuncorrected + "'," + "'" + req.body.bothcorrected + "')"),
+    function(err, rows) {
+
+    }
 
     console.log(req.body.rightuncorrected)
     console.log(req.body.rightcorrected)
@@ -286,6 +291,12 @@ var hearing = function(req, res, next) {
 var hearingPost = function(req, res, next) {
 
     var user = req.user;
+
+
+    connection.query('INSERT INTO hearing(username, userId, sessionId, hearingaidright, hearingaidleft, hearingaidboth, rightear, leftear, right500, right1000, right2000, left500, left1000, left2000) VALUES(' + "'" + user.attributes.username + "'," + "'" + user.attributes.userId + "'," + "'" + sessionId + "'," + "'" + req.body.hearingaidright + "'," + "'" + req.body.hearingaidleft + "'," + "'" + req.body.hearingaidboth + "'," + "'" + req.body.rightear + "'," + "'" + req.body.leftear + "'," + "'" + req.body.right500 + "'," + "'" + req.body.right1000 + "'," + "'" + req.body.right2000 + "'," + "'" + req.body.left500 + "'," + "'" + req.body.left1000 + "'," + "'" + req.body.left2000 + "')"),
+    function(err, rows) {
+
+    }
 
 
     console.log(req.body.hearingaidright)

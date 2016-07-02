@@ -76,9 +76,81 @@ secondReading varchar(255),
 otherTesting varchar(8000),
 );
 
+INSERT INTO TABLE testing(ID Integer PRIMARY KEY AUTO_INCREMENT,username varchar(255)NOTNULL,userIdvarchar(255),sessionId varchar(255),pulseRate varchar(255),rhythm varchar(255),bloodPressure1varchar(255),bloodPressure2 varchar(255),systolic varchar(255),diastolic varchar(255),sitting varchar(255),secondReading varchar(255),otherTesting varchar(8000)) VALUES(' + "'" + userId + "'," + "'" + username + "'," + "'" + sessionId + "'," + "'" req.body.pulserate + "'," + "'" + req.body.rhythm + "'," + "'" + req.body.bloodpressure1 + "'," + "'" + req.body.bloodpressure1 + "'," + "'" + req.body.systolic + "'," + "'" + req.body.diastolic + "'," + "'" + req.body.sitting + "'," + "'" + req.body.secondreading + "'," + "'" + req.body.othertesting + "')");
 
 
 
+
+    console.log(req.body.rightuncorrected)
+    console.log(req.body.rightcorrected)
+    console.log(req.body.fieldright)
+    console.log(req.body.leftuncorrected)
+    console.log(req.body.leftcorrected)
+    console.log(req.body.fieldleft)
+    console.log(req.body.bothuncorrected)
+    console.log(req.body.bothcorrected)
+
+
+CREATE TABLE vision
+(
+ID Integer PRIMARY KEY AUTO_INCREMENT,
+username varchar(255) NOT NULL,
+userId varchar(255),
+sessionId varchar(255),
+rightuncorrected varchar(255),
+rightcorrected varchar(255),
+fieldright varchar(255),
+leftuncorrected varchar(255),
+leftcorrected varchar(255),
+fieldleft varchar(255),
+bothuncorrected varchar(255),
+bothcorrected varchar(255)
+);
+
+    connection.query('INSERT INTO vision(username, userId, sessionId, rightuncorrected, rightcorrected, fieldright, leftuncorrected, leftcorrected, fieldleft, bothuncorrected, bothcorrected) VALUES(' + "'" + user.attributes.username + "'," + "'" + user.attributes.userId + "'," + "'" + sessionId + "'," + "'" + req.body.rightuncorrected + "'," + "'" + req.body.rightcorrected + "'," + "'" + req.body.fieldright + "'," + "'" + req.body.leftuncorrected + "'," + "'" + req.body.leftcorrected + "'," + "'" + req.body.fieldleft + "'," + "'" + req.body.bothuncorrected + "'," + "'" + req.body.bothcorrected + "')"),
+    function(err, rows) {
+
+    }
+
+
+
+
+    console.log(req.body.hearingaidright)
+    console.log(req.body.hearingaidleft)
+    console.log(req.body.hearingaidboth)
+    console.log(req.body.rightear)
+    console.log(req.body.leftear)
+    console.log(req.body.right500)
+    console.log(req.body.right1000)
+    console.log(req.body.right2000)
+    console.log(req.body.left500)
+    console.log(req.body.left1000)
+    console.log(req.body.left2000)
+
+
+    CREATE TABLE hearing
+(
+ID Integer PRIMARY KEY AUTO_INCREMENT,
+username varchar(255) NOT NULL,
+userId varchar(255),
+sessionId varchar(255),
+hearingaidright varchar(255),
+hearingaidleft varchar(255),
+hearingaidboth varchar(255),
+rightear varchar(255),
+leftear varchar(255),
+right500 varchar(255),
+right1000 varchar(255),
+right2000 varchar(255),
+left500 varchar(255),
+left1000 varchar(255),
+left2000 varchar(255)
+);
+
+    connection.query('INSERT INTO hearing(username, userId, sessionId, hearingaidright, hearingaidleft, hearingaidboth, rightear, leftear, right500, right1000, right2000, left500, left1000, left2000) VALUES(' + "'" + user.attributes.username + "'," + "'" + user.attributes.userId + "'," + "'" + sessionId + "'," + "'" + req.body.hearingaidright + "'," + "'" + req.body.hearingaidleft + "'," + "'" + req.body.hearingaidboth + "'," + "'" + req.body.rightear + "'," + "'" + req.body.leftear + "'," + "'" + req.body.right500 + "'," + "'" + req.body.right1000 + "'," + "'" + req.body.right2000 + "'," + "'" + req.body.left500 + "'," + "'" + req.body.left1000 + "'," + "'" + req.body.left2000 + "')"),
+    function(err, rows) {
+
+    }
 
 
 
