@@ -19,26 +19,26 @@ connection.connect(function(err) {
 });
 
 //-----------------------------------------------------------------------
-var GUIDText = "Current Patient ID: ";
+//var GUIDText = "Current Patient ID: ";
 
 function GUID() {
-    // http://www.ietf.org/rfc/rfc4122.txt
-    var s = [];
-    var hexDigits = "0123456789abcdef";
-    for (var i = 0; i < 36; i++) {
-        s[i] = hexDigits.substr(Math.floor(Math.random() * 0x10), 1);
-    }
-    s[14] = "4";  // bits 12-15 of the time_hi_and_version field to 0010
-    s[19] = hexDigits.substr((s[19] & 0x3) | 0x8, 1);  // bits 6-7 of the clock_seq_hi_and_reserved to 01
-    s[8] = s[13] = s[18] = s[23] = "-";
+  // http://www.ietf.org/rfc/rfc4122.txt
+  var s = [];
+  var hexDigits = "0123456789abcdef";
+  for (var i = 0; i < 36; i++) {
+    s[i] = hexDigits.substr(Math.floor(Math.random() * 0x10), 1);
+  }
+  s[14] = "4";
+  s[19] = hexDigits.substr((s[19] & 0x3) | 0x8, 1);
+  s[8] = s[13] = s[18] = s[23] = "-";
 
-    var uuid = s.join("");
-    return uuid;
+  var uuid = s.join("");
+  return uuid;
 }
 
-  var sessionId = GUID();
+var sessionId = GUID();
 
-var GUIDReady = GUIDText + GUID();
+//var GUIDReady = GUIDText + GUID();
 
 //-----------------------------------------------------
 
@@ -86,13 +86,10 @@ var demographics = function(req, res, next) {
 
     var user = req.user;
     var userId = req.user.attributes.userId
-    //console.log(req.user.attributes.userId)
 
     if (user !== undefined) {
       user = user.toJSON();
     }
-
-    //console.log("user: " + user.username);
 
     res.render('demographics', {
       title: 'Demographics',
@@ -109,14 +106,11 @@ var demographicsPost = function(req, res, next) {
   console.log(user.attributes.username);
 
   connection.query('INSERT INTO persons(userId, username, sessionId, FirstName, MiddleName, LastName, Address, Zip, DOB, SSN, City, State, Country, Company, Email, Doctor, GUID)Values(' + '"' + user.attributes.userId + '",' + '"' + user.attributes.username + '",' + '"' + sessionId + '",' + "'" + req.body.fName + "'," + "'" + req.body.mName + "'," + "'" + req.body.lName + "'," + "'" + req.body.address + "'," + "'" + req.body.zip + "'," + "'" + req.body.dob + "'," + "'" + req.body.ssn + "'," + "'" + req.body.city + "'," + "'" + req.body.state + "'," + "'" + req.body.country + "'," + "'" + req.body.company + "'," + "'" + req.body.email + "'," + "'" + req.body.username + "'," + "'" + GUID() + "'" + ')'),
-    function(err, rows) {
-    };
+    function(err, rows) {};
 
+  res.redirect('/history');
 
-
-        res.redirect('/history');
-
-(req, res, next);
+  (req, res, next);
 };
 
 //-------------------------------------------------------
@@ -143,17 +137,14 @@ var history = function(req, res, next) {
 
 var historyPost = function(req, res, next) {
 
+  var user = req.user;
 
-    var user = req.user;
+  console.log(sessionId)
 
-    console.log(sessionId)
+  connection.query('INSERT INTO history (userId, username, sessionId, brainInjuries, seizures, eyeProblems, earProblems, heartProblems, paceMaker, highBloodPressure, highCholesterol, breathingProblems, lungDisease, kidneyProblems, stomachProblems, diabetes, anxiety, fainting, dizziness, unexplainedWeightLoss, stroke, missingLimbs, backProblems,  boneProblems, bloodClots, cancer, chronicDiseases, sleepDisorders, sleepTest, nightInHospital, brokenBone, useTobacco, drinkAlcohol, illegalSubstance, failedDrugTest) VALUES (' + "'" + user.attributes.userId + "'," + "'" + user.attributes.username + "'," + "'" + sessionId + "'," + "'" + req.body.brainInjuries + "'," + "'" + req.body.seizures + "'," + "'" + req.body.eyeProblems + "'," + "'" + req.body.earProblems + "'," + "'" + req.body.heartProblems + "'," + "'" + req.body.paceMaker + "'," + "'" + req.body.highBloodPressure + "'," + "'" + req.body.highCholesterol + "'," + "'" + req.body.breathingProblems + "'," + "'" + req.body.lungDisease + "'," + "'" + req.body.kidneyProblems + "'," + "'" + req.body.stomachProblems + "'," + "'" + req.body.diabetes + "'," + "'" + req.body.anxiety + "'," + "'" + req.body.fainting + "'," + "'" + req.body.dizziness + "'," + "'" + req.body.unexplainedWeightLoss + "'," + "'" + req.body.stroke + "'," + "'" + req.body.missingLimbs + "'," + "'" + req.body.backProblems + "'," + "'" + req.body.boneProblems + "'," + "'" + req.body.bloodClots + "'," + "'" + req.body.cancer + "'," + "'" + req.body.chronicDiseases + "'," + "'" + req.body.sleepDisorders + "'," + "'" + req.body.sleepTest + "'," + "'" + req.body.nightInHospital + "'," + "'" + req.body.brokenBone + "'," + "'" + req.body.useTobacco + "'," + "'" + req.body.drinkAlcohol + "'," + "'" + req.body.illegalSubstance + "'," + "'" + req.body.failedDrugTest + "')"),
+    function(err, rows) {};
 
-    connection.query('INSERT INTO history (userId, username, sessionId, brainInjuries, seizures, eyeProblems, earProblems, heartProblems, paceMaker, highBloodPressure, highCholesterol, breathingProblems, lungDisease, kidneyProblems, stomachProblems, diabetes, anxiety, fainting, dizziness, unexplainedWeightLoss, stroke, missingLimbs, backProblems,  boneProblems, bloodClots, cancer, chronicDiseases, sleepDisorders, sleepTest, nightInHospital, brokenBone, useTobacco, drinkAlcohol, illegalSubstance, failedDrugTest) VALUES (' + "'" + user.attributes.userId + "'," + "'" + user.attributes.username + "'," + "'" + sessionId + "'," + "'" + req.body.brainInjuries + "'," + "'" + req.body.seizures + "'," + "'" + req.body.eyeProblems + "'," + "'" + req.body.earProblems + "'," + "'" + req.body.heartProblems + "'," + "'" + req.body.paceMaker + "'," + "'" + req.body.highBloodPressure + "'," + "'" + req.body.highCholesterol + "'," + "'" + req.body.breathingProblems + "'," + "'" + req.body.lungDisease + "'," + "'" + req.body.kidneyProblems + "'," + "'" + req.body.stomachProblems + "'," + "'" + req.body.diabetes + "'," + "'" + req.body.anxiety + "'," + "'" + req.body.fainting + "'," + "'" + req.body.dizziness + "'," + "'" + req.body.unexplainedWeightLoss + "'," + "'" + req.body.stroke + "'," + "'" + req.body.missingLimbs + "'," + "'" + req.body.backProblems + "'," + "'" + req.body.boneProblems + "'," + "'" + req.body.bloodClots + "'," + "'" + req.body.cancer + "'," + "'" + req.body.chronicDiseases + "'," + "'" + req.body.sleepDisorders + "'," + "'" + req.body.sleepTest + "'," + "'" + req.body.nightInHospital + "'," + "'" + req.body.brokenBone + "'," + "'" + req.body.useTobacco + "'," + "'" + req.body.drinkAlcohol + "'," + "'" + req.body.illegalSubstance + "'," + "'" + req.body.failedDrugTest + "')"),
-      function(err, rows) {
-    };
-
-
-    res.redirect('/historyreview')
+  res.redirect('/historyreview')
 };
 
 //-------------------------------------------------------
@@ -177,13 +168,12 @@ var historyReview = function(req, res, next) {
 //-------------------------------------------------------
 var historyReviewPost = function(req, res, next) {
 
-    var user = req.user;
+  var user = req.user;
 
-connection.query('INSERT INTO history_review(username, userId, sessionId, historyReview)VALUES(' + "'" + user.attributes.userId + "'," + "'" + user.attributes.username + "'," + "'" + sessionId + "'," + "'" + req.body.review + "')"),
-function(err, rows) {
-}
+  connection.query('INSERT INTO history_review(username, userId, sessionId, historyReview)VALUES(' + "'" + user.attributes.userId + "'," + "'" + user.attributes.username + "'," + "'" + sessionId + "'," + "'" + req.body.review + "')"),
+    function(err, rows) {}
 
-    res.redirect('/testing')
+  res.redirect('/testing')
 };
 
 //-------------------------------------------------------
@@ -207,24 +197,24 @@ var testing = function(req, res, next) {
 //-------------------------------------------------------
 var testingPost = function(req, res, next) {
 
-    var user = req.user;
+  var user = req.user;
 
-    connection.query('INSERT INTO testing(username, userId, sessionId, pulseRate, rhythm, bloodPressure1, bloodPressure2, systolic, diastolic, sitting, secondReading, otherTesting) VALUES(' + "'" + user.attributes.username + "'," + "'" + user.attributes.userId + "'," + "'" + sessionId + "'," + "'" + req.body.pulserate + "'," + "'" + req.body.rhythm + "'," + "'" + req.body.bloodpressure1 + "'," + "'" + req.body.bloodpressure1 + "'," + "'" + req.body.systolic + "'," + "'" + req.body.diastolic + "'," + "'" + req.body.sitting + "'," + "'" + req.body.secondreading + "'," + "'" + req.body.othertesting + "')"),
+  connection.query('INSERT INTO testing(username, userId, sessionId, pulseRate, rhythm, bloodPressure1, bloodPressure2, systolic, diastolic, sitting, secondReading, otherTesting) VALUES(' + "'" + user.attributes.username + "'," + "'" + user.attributes.userId + "'," + "'" + sessionId + "'," + "'" + req.body.pulserate + "'," + "'" + req.body.rhythm + "'," + "'" + req.body.bloodpressure1 + "'," + "'" + req.body.bloodpressure1 + "'," + "'" + req.body.systolic + "'," + "'" + req.body.diastolic + "'," + "'" + req.body.sitting + "'," + "'" + req.body.secondreading + "'," + "'" + req.body.othertesting + "')"),
     function(err, rows) {
 
     }
 
-    // console.log(req.body.pulserate)
-    // console.log(req.body.rhythm)
-    // console.log(req.body.bloodpressure1)
-    // console.log(req.body.bloodpressure2)
-    // console.log(req.body.systolic)
-    // console.log(req.body.diastolic)
-    // console.log(req.body.sitting)
-    // console.log(req.body.secondreading)
-    // console.log(req.body.othertesting)
+  // console.log(req.body.pulserate)
+  // console.log(req.body.rhythm)
+  // console.log(req.body.bloodpressure1)
+  // console.log(req.body.bloodpressure2)
+  // console.log(req.body.systolic)
+  // console.log(req.body.diastolic)
+  // console.log(req.body.sitting)
+  // console.log(req.body.secondreading)
+  // console.log(req.body.othertesting)
 
-    res.redirect('/vision')
+  res.redirect('/vision')
 };
 
 //-------------------------------------------------------
@@ -247,25 +237,25 @@ var vision = function(req, res, next) {
 //-------------------------------------------------------
 var visionPost = function(req, res, next) {
 
-    var user = req.user;
+  var user = req.user;
 
-    connection.query('INSERT INTO vision(username, userId, sessionId, rightuncorrected, rightcorrected, fieldright, leftuncorrected, leftcorrected, fieldleft, bothuncorrected, bothcorrected) VALUES(' + "'" + user.attributes.username + "'," + "'" + user.attributes.userId + "'," + "'" + sessionId + "'," + "'" + req.body.rightuncorrected + "'," + "'" + req.body.rightcorrected + "'," + "'" + req.body.fieldright + "'," + "'" + req.body.leftuncorrected + "'," + "'" + req.body.leftcorrected + "'," + "'" + req.body.fieldleft + "'," + "'" + req.body.bothuncorrected + "'," + "'" + req.body.bothcorrected + "')"),
+  connection.query('INSERT INTO vision(username, userId, sessionId, rightuncorrected, rightcorrected, fieldright, leftuncorrected, leftcorrected, fieldleft, bothuncorrected, bothcorrected) VALUES(' + "'" + user.attributes.username + "'," + "'" + user.attributes.userId + "'," + "'" + sessionId + "'," + "'" + req.body.rightuncorrected + "'," + "'" + req.body.rightcorrected + "'," + "'" + req.body.fieldright + "'," + "'" + req.body.leftuncorrected + "'," + "'" + req.body.leftcorrected + "'," + "'" + req.body.fieldleft + "'," + "'" + req.body.bothuncorrected + "'," + "'" + req.body.bothcorrected + "')"),
     function(err, rows) {
 
     }
 
-    console.log(req.body.rightuncorrected)
-    console.log(req.body.rightcorrected)
-    console.log(req.body.fieldright)
-    console.log(req.body.leftuncorrected)
-    console.log(req.body.leftcorrected)
-    console.log(req.body.fieldleft)
-    console.log(req.body.bothuncorrected)
-    console.log(req.body.bothcorrected)
+  // console.log(req.body.rightuncorrected)
+  // console.log(req.body.rightcorrected)
+  // console.log(req.body.fieldright)
+  // console.log(req.body.leftuncorrected)
+  // console.log(req.body.leftcorrected)
+  // console.log(req.body.fieldleft)
+  // console.log(req.body.bothuncorrected)
+  // console.log(req.body.bothcorrected)
 
-    if(req.body.rightuncorrected >= 40) {
-      res.redirect('/warn')
-    } else {
+  if (req.body.rightuncorrected >= 40) {
+    res.redirect('/warn')
+  } else {
     res.redirect('/hearing')
   }
 };
@@ -290,33 +280,30 @@ var hearing = function(req, res, next) {
 //-------------------------------------------------------
 var hearingPost = function(req, res, next) {
 
-    var user = req.user;
+  var user = req.user;
 
-
-    connection.query('INSERT INTO hearing(username, userId, sessionId, hearingaidright, hearingaidleft, hearingaidboth, rightear, leftear, right500, right1000, right2000, left500, left1000, left2000) VALUES(' + "'" + user.attributes.username + "'," + "'" + user.attributes.userId + "'," + "'" + sessionId + "'," + "'" + req.body.hearingaidright + "'," + "'" + req.body.hearingaidleft + "'," + "'" + req.body.hearingaidboth + "'," + "'" + req.body.rightear + "'," + "'" + req.body.leftear + "'," + "'" + req.body.right500 + "'," + "'" + req.body.right1000 + "'," + "'" + req.body.right2000 + "'," + "'" + req.body.left500 + "'," + "'" + req.body.left1000 + "'," + "'" + req.body.left2000 + "')"),
+  connection.query('INSERT INTO hearing(username, userId, sessionId, hearingaidright, hearingaidleft, hearingaidboth, rightear, leftear, right500, right1000, right2000, left500, left1000, left2000) VALUES(' + "'" + user.attributes.username + "'," + "'" + user.attributes.userId + "'," + "'" + sessionId + "'," + "'" + req.body.hearingaidright + "'," + "'" + req.body.hearingaidleft + "'," + "'" + req.body.hearingaidboth + "'," + "'" + req.body.rightear + "'," + "'" + req.body.leftear + "'," + "'" + req.body.right500 + "'," + "'" + req.body.right1000 + "'," + "'" + req.body.right2000 + "'," + "'" + req.body.left500 + "'," + "'" + req.body.left1000 + "'," + "'" + req.body.left2000 + "')"),
     function(err, rows) {
 
     }
 
+  // console.log(req.body.hearingaidright)
+  // console.log(req.body.hearingaidleft)
+  // console.log(req.body.hearingaidboth)
+  // console.log(req.body.rightear)
+  // console.log(req.body.leftear)
+  // console.log(req.body.right500)
+  // console.log(req.body.right1000)
+  // console.log(req.body.right2000)
+  // console.log(req.body.left500)
+  // console.log(req.body.left1000)
+  // console.log(req.body.left2000)
 
-    console.log(req.body.hearingaidright)
-    console.log(req.body.hearingaidleft)
-    console.log(req.body.hearingaidboth)
-    console.log(req.body.rightear)
-    console.log(req.body.leftear)
-    console.log(req.body.right500)
-    console.log(req.body.right1000)
-    console.log(req.body.right2000)
-    console.log(req.body.left500)
-    console.log(req.body.left1000)
-    console.log(req.body.left2000)
-
-    if(req.body.rightear >= 5 || req.body.leftear >= 5) {
-      res.redirect('/physicalexamination')
-    } else {
-      res.redirect('/warn')
-    }
-
+  if (req.body.rightear >= 5 || req.body.leftear >= 5) {
+    res.redirect('/physicalexamination')
+  } else {
+    res.redirect('/warn')
+  }
 
 };
 
@@ -340,27 +327,32 @@ var physicalExamination = function(req, res, next) {
 //-------------------------------------------------------
 var physicalExaminationPost = function(req, res, next) {
 
-    var user = req.user;
+  var user = req.user;
+
+  // console.log(req.body.general)
+  // console.log(req.body.skin)
+  // console.log(req.body.eyes)
+  // console.log(req.body.ears)
+  // console.log(req.body.mouth)
+  // console.log(req.body.cardiovascular)
+  // console.log(req.body.lungs)
+  // console.log(req.body.abdomen)
+  // console.log(req.body.hernias)
+  // console.log(req.body.back)
+  // console.log(req.body.joints)
+  // console.log(req.body.neuro)
+  // console.log(req.body.gait)
+  // console.log(req.body.vascular)
+  //console.log(req.body.textarea)
+
+    connection.query('INSERT INTO physicalexam(username, userId, sessionId, general, skin, eyes, mouth, cardiovascular, lungs, abdomen, back, joints, neuro, gait, vascular, textarea) VALUES(' + "'" + user.attributes.username + "'," + "'" + user.attributes.userId + "'," + "'" + sessionId + "'," + "'" + req.body.general + "'," + "'" + req.body.skin + "'," + "'" + req.body.eyes + "'," + "'" + req.body.mouth + "'," + "'" + req.body.cardiovascular + "'," + "'" + req.body.lungs + "'," + "'" + req.body.abdomen + "'," + "'" + req.body.back + "'," + "'" + req.body.joints + "'," + "'" + req.body.neuro + "'," + "'" + req.body.gait + "'," + "'" + req.body.vascular + "'," + "'" + req.body.textarea + "')"),
+    function(err, rows) {
+
+    }
 
 
-    console.log(req.body.general)
-    console.log(req.body.skin)
-    console.log(req.body.eyes)
-    console.log(req.body.ears)
-    console.log(req.body.mouth)
-    console.log(req.body.cardiovascular)
-    console.log(req.body.lungs)
-    console.log(req.body.abdomen)
-    console.log(req.body.hernias)
-    console.log(req.body.back)
-    console.log(req.body.joints)
-    console.log(req.body.neuro)
-    console.log(req.body.gait)
-    console.log(req.body.vascular)
 
-    console.log(req.body.textarea)
-
-    res.redirect('/home')
+  res.redirect('/home')
 };
 
 //-------------------------------------------------------
@@ -401,12 +393,10 @@ var form = function(req, res, next) {
 //-------------------------------------------------------
 var dropdownPost = function(req, res, next) {
 
-    var user = req.user;
+  var user = req.user;
 
-
-    res.redirect('/home')
+  res.redirect('/home')
 };
-
 
 //-------------------------------------------------------
 var medication = function(req, res, next) {
@@ -464,12 +454,10 @@ var signInPost = function(req, res, next) {
         });
       } else {
 
-        //var sessionGUID = GUID();
-        //console.log(user)
         connection.query('INSERT INTO session(username, userId, sessionId)VALUES(' + '"' + user.username + '",' + '"' + user.userId + '",' + '"' + sessionId + '")'),
-        function(err, rows) {
+          function(err, rows) {
 
-    };
+          };
 
         return res.redirect('/demographics');
       }
@@ -603,4 +591,3 @@ module.exports.signUpPost = signUpPost;
 module.exports.signOut = signOut;
 module.exports.warn = warn;
 module.exports.notFound404 = notFound404;
-
