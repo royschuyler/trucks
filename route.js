@@ -169,8 +169,7 @@ var historyReview = function(req, res, next) {
     }
     res.render('historyreview', {
       title: 'History Review',
-      user: user,
-      //GUID: GUIDReady
+      user: user
     });
   }
 };
@@ -180,9 +179,9 @@ var historyReviewPost = function(req, res, next) {
 
     var user = req.user;
 
-
-    //console.log(req.body.review)
-
+connection.query('INSERT INTO history_review(username, userId, sessionId, historyReview)VALUES(' + "'" + user.attributes.userId + "'," + "'" + user.attributes.username + "'," + "'" + sessionId + "'," + "'" + req.body.review + "')"),
+function(err, rows) {
+}
 
     res.redirect('/testing')
 };
@@ -451,7 +450,7 @@ var signInPost = function(req, res, next) {
 
         var sessionGUID = GUID();
         //console.log(user)
-        connection.query('INSERT INTO session(username, userId, sessionId)VALUES(' + '"' + user.username + '",' + '"' + user.userId + '",' + '"' + sessionGUID + '")'),
+        connection.query('INSERT INTO session(username, userId, sessionId)VALUES(' + '"' + user.username + '",' + '"' + user.userId + '",' + '"' + sessionId + '")'),
         function(err, rows) {
           //console.log("user: " + user.username);
 
