@@ -209,10 +209,15 @@ var testingPost = function(req, res, next) {
 
     var user = req.user;
 
+    connection.query('INSERT INTO testing(username, userId, sessionId, pulseRate, rhythm, bloodPressure1, bloodPressure2, systolic, diastolic, sitting, secondReading, otherTesting) VALUES(' + "'" + user.attributes.username + "'," + "'" + user.attributes.userId + "'," + "'" + sessionId + "'," + "'" + req.body.pulserate + "'," + "'" + req.body.rhythm + "'," + "'" + req.body.bloodpressure1 + "'," + "'" + req.body.bloodpressure1 + "'," + "'" + req.body.systolic + "'," + "'" + req.body.diastolic + "'," + "'" + req.body.sitting + "'," + "'" + req.body.secondreading + "'," + "'" + req.body.othertesting + "')"),
+    function(err, rows) {
+
+    }
 
     console.log(req.body.pulserate)
     console.log(req.body.rhythm)
-    console.log(req.body.bloodpressure)
+    console.log(req.body.bloodpressure1)
+    console.log(req.body.bloodpressure2)
     console.log(req.body.systolic)
     console.log(req.body.diastolic)
     console.log(req.body.sitting)
@@ -448,11 +453,10 @@ var signInPost = function(req, res, next) {
         });
       } else {
 
-        var sessionGUID = GUID();
+        //var sessionGUID = GUID();
         //console.log(user)
         connection.query('INSERT INTO session(username, userId, sessionId)VALUES(' + '"' + user.username + '",' + '"' + user.userId + '",' + '"' + sessionId + '")'),
         function(err, rows) {
-          //console.log("user: " + user.username);
 
     };
 

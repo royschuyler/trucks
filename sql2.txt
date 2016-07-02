@@ -49,6 +49,33 @@ VALUES
 "tod", "1234", "sessionGUID", "historyReviewTest"
 );
 
+    console.log(req.body.pulserate)
+    console.log(req.body.rhythm)
+    console.log(req.body.bloodpressure)
+    console.log(req.body.systolic)
+    console.log(req.body.diastolic)
+    console.log(req.body.sitting)
+    console.log(req.body.secondreading)
+    console.log(req.body.othertesting)
+
+
+CREATE TABLE testing
+(
+ID Integer PRIMARY KEY AUTO_INCREMENT,
+username varchar(255) NOT NULL,
+userId varchar(255),
+sessionId varchar(255),
+pulseRate varchar(255),
+rhythm varchar(255),
+bloodPressure1 varchar(255),
+bloodPressure2 varchar(255),
+systolic varchar(255),
+diastolic varchar(255),
+sitting varchar(255),
+secondReading varchar(255),
+otherTesting varchar(8000),
+);
+
 
 
 
