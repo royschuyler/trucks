@@ -244,8 +244,52 @@ body {
   color: white;
   }
 
+.supercontainer {
+  width: 85%;
+  border: solid darkblue 1px;
+}
 
+.container2 {
+  border: solid darkblue 1px;
+  width: 80%;
+  height: 800px;
+  float: right;
 
+}
+
+.headercontainer {
+  width: 100%;
+  border: solid darkblue 1px;
+  background: darkblue;
+}
+
+.headertext {
+  font-weight: 500;
+  padding-left: 2px;
+  color: white;
+}
+
+.innercontainer {
+  margin: 1px;
+  border: solid red 1px;
+}
+
+.formcontainer {
+  margin: 1px;
+  border: solid red 1px;
+}
+
+.inputline {
+  width: 110px;
+  border-left: none;
+  border-top: none;
+  border-right: none;
+  border-bottom: solid 1px black;
+}
+
+.age {
+  width: 50px;
+}
 
 
 
