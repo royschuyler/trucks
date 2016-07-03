@@ -291,6 +291,56 @@ body {
   width: 50px;
 }
 
+.row1container {
+  border: solid red 1px;
+  margin: 2px;
+}
+
+.row2container {
+  border: solid red 1px;
+  margin: 2px;
+}
+
+.inputline2 {
+  width: 200px;
+  border-left: none;
+  border-top: none;
+  border-right: none;
+  border-bottom: solid 1px black;
+}
+
+.dob {
+  border-left: none;
+  border-top: none;
+  border-right: none;
+  border-bottom: solid 1px black;
+}
+
+.row3container {
+  border: solid red 1px;
+  margin: 2px;
+}
+
+.gendercontainer {
+  width: 100px;
+}
+
+.issuing {
+  width: 75px;
+}
+
+.genderM {
+  margin-left: -75px;
+}
+
+.genderlabel {
+  font-weight: 400;
+}
+
+
+
+
+
 
 
 
