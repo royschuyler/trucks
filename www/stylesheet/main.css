@@ -246,13 +246,13 @@ body {
 
 .supercontainer {
   width: 85%;
-  border: solid darkblue 1px;
+  /*border: solid darkblue 1px;*/
 }
 
 .container2 {
   border: solid darkblue 1px;
   width: 80%;
-  height: 800px;
+  /*height: 800px;*/
   float: right;
 
 }
@@ -271,12 +271,12 @@ body {
 
 .innercontainer {
   margin: 1px;
-  border: solid red 1px;
+  /*border: solid red 1px;*/
 }
 
 .formcontainer {
   margin: 1px;
-  border: solid red 1px;
+  /*border: solid red 1px;*/
 }
 
 .inputline {
@@ -292,12 +292,12 @@ body {
 }
 
 .row1container {
-  border: solid red 1px;
+  /*border: solid red 1px;*/
   margin: 2px;
 }
 
 .row2container {
-  border: solid red 1px;
+  /*border: solid red 1px;*/
   margin: 2px;
 }
 
@@ -317,7 +317,7 @@ body {
 }
 
 .row3container {
-  border: solid red 1px;
+  /*border: solid red 1px;*/
   margin: 2px;
 }
 
@@ -334,7 +334,43 @@ body {
 }
 
 .genderlabel {
-  font-weight: 400;
+  font-weight: 200 !important;
+}
+.maingenderlabel {
+  font-weight: 200 !important;
+}
+
+label {
+  font-weight: 200 !important;
+}
+
+.row4container {
+  /*border: solid red 1px;*/
+  margin: 2px;
+}
+
+.emailinput {
+  width: 200px;
+}
+
+
+.row5container {
+  /*border: solid red 1px;*/
+  margin: 2px;
+}
+
+.verifiedspace {
+  width: 63%;
+  /*border: solid red 1px;*/
+}
+
+.verifiedinput {
+  width: 150px;
+}
+
+.rowcontainer {
+  /*border: solid red 1px;*/
+  margin: 10px;
 }
 
 

@@ -9,7 +9,7 @@
       <div class="innercontainer">
         <div class="formcontainer">
             <form action="demographics">
-              <div class="row1container">
+              <div class="row1container rowcontainer">
                 <label for="lastname">Last Name:</label>
                 <input class="inputline" type="text" name="lastname" id="lastname">
                 <label for="firstname">First Name:</label>
@@ -50,7 +50,7 @@
                 <label for="age">Age:</label>
                 <input class="age inputline" type="text" name="age" id="age">
               </div>
-              <div class="row2container">
+              <div class="row2container rowcontainer">
                 <label for="streetaddress">Street Address:</label>
                 <input class="inputline2" type="text" name="streetaddress" id="streetaddress">
                 <label for="city">City:</label>
@@ -112,7 +112,7 @@
                 <label for="zip">Zip Code:</label>
                 <input class="inputline" type="text" name="zipcode" id="zipcode">
               </div>
-              <div class="row3container">
+              <div class="row3container rowcontainer">
                 <label for="dln">Driver's License Number:</label>
                 <input class="inputline" type="text" name="dln" id="dln">
                 <label for="issuing">Issuing State:</label>
@@ -174,12 +174,37 @@
                     <input type=tel size=4 name="phone3">
 
 
-                <strong>Gender:</strong>
-                <label class="genderlabel" for="male">M:</label>
+                <strong class="maingenderlabel">Gender:</strong>
+                <label class="genderlabel" for="male">M</label>
                 <input class="" type="radio" name="gender" id="male">
-                <label class="genderlabel" for="female">F:</label>
+                <label class="genderlabel" for="female">F</label>
                 <input class="" type="radio" name="gender" id="female">
               </div>
+              <div class="row4container rowcontainer">
+                <label for="email">E-mail (optional):</label>
+                <input class="inputline emailinput" type="text" name="email" id="email">
+                <label for="holder">CLP/CDL Applicant/Holder*:</label>
+                <label class="genderlabel" for="yesholder">yes</label>
+                <input class="" type="radio" name="holder" id="yesholder">
+                <label class="genderlabel" for="noholder">no</label>
+                <input class="" type="radio" name="holder" id="noholder">
+              </div>
+              <div class="row5container rowcontainer">
+                <label class="verifiedspace"></label
+                <label for="verified">Driver ID Verified By**:</label>
+                <input class="inputline verifiedinput" type="text" name="verified" id="verified">
+              </div>
+              <div class="row6container rowcontainer">
+                <label for="denied">Has your USDOT/FMCSA medical certificate ever been denied or issued for less than 2 years?</label>
+                <label class="genderlabel" for="yesdenied">yes</label>
+                <input class="" type="radio" name="denied" id="yesdenied">
+                <label class="genderlabel" for="nodenied">no</label>
+                <input class="" type="radio" name="denied" id="nodenied">
+                <label class="genderlabel" for="notsuredenied">not sure</label>
+                <input class="" type="radio" name="denied" id="notsuredenied">
+              </div>
+
+
               <input type="submit" value="Submit">
             </form>
         </div>
