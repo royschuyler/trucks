@@ -8,7 +8,7 @@
       </div>
       <div class="innercontainer">
         <div class="formcontainer">
-            <form action="demographics">
+            <form action="/demographics" role="form" method="post">
               <div class="row1container rowcontainer">
                 <label for="lastname">Last Name:</label>
                 <input class="inputline" type="text" name="lastname" id="lastname">
@@ -110,13 +110,13 @@
                   <option value="WY">Wyoming</option>
                 </select>
                 <label for="zip">Zip Code:</label>
-                <input class="inputline" type="text" name="zipcode" id="zipcode">
+                <input class="inputline" type="text" name="zip" id="zip">
               </div>
               <div class="row3container rowcontainer">
                 <label for="dln">Driver's License Number:</label>
                 <input class="inputline" type="text" name="dln" id="dln">
                 <label for="issuing">Issuing State:</label>
-                <select class="issuing" id="issuing">
+                <select class="issuing" id="issuing" name="issuing">
                   <option value="AL">Alabama</option>
                   <option value="AK">Alaska</option>
                   <option value="AZ">Arizona</option>

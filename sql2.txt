@@ -24,7 +24,12 @@ userId varchar(255),
 sessionId varchar(255)
 );
 
-CREATE TABLE persons (userId varchar(255), username varchar(255), sessionId varchar(255), FirstName varchar(255), MiddleName varchar(255), LastName varchar(255), Address varchar(255), Zip varchar(255), DOB varchar(255), SSN varchar(255), City varchar(255), State varchar(255), Country varchar(255), Company varchar(255), Email varchar(255), Doctor varchar(255), GUID varchar(255));
+CREATE TABLE persons2 (ID Integer PRIMARY KEY AUTO_INCREMENT, userId varchar(255), username varchar(255), sessionId varchar(255), lastname varchar(255), firstname varchar(255), middlename varchar(255), dob varchar(255), age varchar(255), streetaddress varchar(255), city varchar(255), state varchar(255), zip varchar(255), dln varchar(255), issuing varchar(255), phone varchar(255), gender varchar(255), email varchar(255), holder varchar(255), verified varchar(255), denied varchar(255));
+
+INSTERT INTO persons2 (userId, username, sessionId, lastname, firstname, middlename, dob, age, streetaddress, city, state, zip, dln, issuing, phone, gender, email, holder, verified, denied) VALUES(' + '"' + user.attributes.userId + '",' + '"' + user.attributes.username + '",' + '"' + sessionId + '",' + "'" + req.body.lastname + "'," + "'" + req.body.firstname + "'," + "'" + req.body.middlename + "'," + "'" + req.body.dob + "'," + "'" + req.body.age + "'," + "'" + req.body.streetaddress + "'," + "'" + req.body.city + "'," + "'" + req.body.state + "'," + "'" + req.body.zip + "'," + "'" + req.body.dln + "'," + "'" + req.body.issuing + "'," + "'" + phone + "'," + "'" + req.body.gender + "'," + "'" + req.body.email + "'," + "'" + req.body.holder + "'," + "'" + req.body.verified + "'," + "'" + req.body.denied + "')"),
+function(err,rows) {
+
+}
 
 CREATE TABLE history (ID Integer PRIMARY KEY AUTO_INCREMENT, userId varchar(255), username varchar(255), sessionId varchar(255), brainInjuries varchar(255),seizures varchar(255), eyeProblems varchar(255), earProblems varchar(255), heartProblems varchar(255), paceMaker varchar(255), highBloodPressure varchar(255), highCholesterol varchar(255), breathingProblems varchar(255), lungDisease varchar(255), kidneyProblems varchar(255), stomachProblems varchar(255), diabetes varchar(255), anxiety varchar(255), fainting varchar(255), dizziness varchar(255), unexplainedWeightLoss varchar(255), stroke varchar(255), missingLimbs varchar(255), backProblems varchar(255), boneProblems varchar(255), bloodClots varchar(255), cancer varchar(255), chronicDiseases varchar(255), sleepDisorders varchar(255), sleepTest varchar(255), nightInHospital varchar(255), brokenBone varchar(255), useTobacco varchar(255), drinkAlcohol varchar(255), illegalSubstance varchar(255), failedDrugTest varchar(255));
 
