@@ -400,7 +400,13 @@ label {
   color: blue !important;
 }
 
+.followup-container {
+  padding-left: 20px;
+}
 
+.brainInjuries {
+  display: none;
+}
 
 
 
