@@ -149,7 +149,26 @@ var home = function(req, res, next) {
 
 
       connection.query("SELECT * FROM history WHERE history.sessionId =" +  '"' + sessionId + '"', function(err, rows) {
-        console.log(rows);
+
+
+        var obj = rows[0];
+        var arr =[];
+
+
+
+          for (var prop in obj) {
+            //console.log("obj." + prop + " = " + obj[prop]);
+            if(obj[prop] == "yes") {
+              arr.push(prop);
+              //console.log(prop)
+
+            }
+          }
+          console.log(arr)
+
+
+
+        //console.log(rows);
       });
 
 
