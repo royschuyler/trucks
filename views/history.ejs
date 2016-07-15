@@ -210,14 +210,14 @@
                 <td class=notsure><input type="radio" name="anxiety" value="notsure" id="" ></td>
               </tr>
               <tr>
-                <td>15. Fainting or passing out</td>
+                <td id="demo">15. Fainting or passing out</td>
                 <td class="yes"><input type="radio" name="fainting" value="yes" id="" ></td>
                 <td class="no"><input type="radio" name="fainting" value="no" id="" ></td>
                 <td class=notsure><input type="radio" name="fainting" value="notsure" id="" ></td>
               </tr>
               <tr>
                 <td>16. Dizziness, headaches, numbness, tingling, or memory loss</td>
-                <td class="yes"><input type="radio" name="dizziness" value="yes" id="" ></td>
+                <td class="yes"><input type="radio" name="dizziness" value="yes" id="demo" ></td>
                 <td class="no"><input type="radio" name="dizziness" value="no" id="" ></td>
                 <td class=notsure><input type="radio" name="dizziness" value="notsure" id="" ></td>
               </tr>
@@ -225,6 +225,7 @@
         </div>
       <input type="submit" value="Submit">
       </form>
+      <input type="submit" onclick="getElementById('demo').innerHTML=Date()"value="Submit">
     </div>
   </div>
 </div>
