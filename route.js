@@ -142,6 +142,7 @@ var home = function(req, res, next) {
   } else {
 
     var user = req.user;
+    var arr =[];
 
     if (user !== undefined) {
       user = user.toJSON();
@@ -151,32 +152,40 @@ var home = function(req, res, next) {
       connection.query("SELECT * FROM history WHERE history.sessionId =" +  '"' + sessionId + '"', function(err, rows) {
 
 
-        var obj = rows[0];
-        var arr =[];
-
-
+    var obj = rows[0];
 
           for (var prop in obj) {
-            //console.log("obj." + prop + " = " + obj[prop]);
             if(obj[prop] == "yes") {
               arr.push(prop);
-              //console.log(prop)
-
             }
           }
-          console.log(arr)
-
-
-
-        //console.log(rows);
-      });
-
 
 
     res.render('home', {
       title: 'Home',
-      user: user
+      user: user,
+      arr: arr
+
     });
+
+
+
+
+
+
+
+
+
+
+      });
+
+
+
+    // res.render('home', {
+    //   title: 'Home',
+    //   user: user,
+    //   rows: rows[0]
+    // });
   }
 };
 
