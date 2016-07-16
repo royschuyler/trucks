@@ -10,6 +10,7 @@
 <% } %>
 </table>
 
+
 <!-- <div class="followup-container">
   <div class="followup-sub-container">
     <form>
@@ -35,7 +36,7 @@
     <div class="followup-form-container">
       <form class="follup-form">
 
-        <div class="followup-brain-container brainInjuries">
+        <div class="followup-brain-container" id=<%= arr[0] %>>
           <div class="followup-question">
             <strong>The patient has had or is not sure if they have had brain/head injuries.</br>
             How would you best describe the patients status?</strong>
@@ -52,7 +53,7 @@
 
         <hr>
 
-        <div class="followup-seizures-container">
+        <div class="followup-seizures-container" id=<%= arr[1] %>>
           <div class="seizures-question">
             <strong>The patient has had or is not sure if they have had epilepsy/seizures. How would you best describe the patients status?</strong>
           </div>
@@ -67,7 +68,7 @@
 
          <hr>
 
-         <div class="followup-pacemaker-container">
+         <div class="followup-pacemaker-container" id= <%= arr[5] %>>
            <div class="pacemaker-question">
               <strong>The patient has had or is not sure if they have had a pacemaker. How would you best describe the patients status?</strong>
            </div>
@@ -82,7 +83,7 @@
          </div>
 
          <hr>
-         <div class="followup-bloodpressure-container">
+         <div class="followup-bloodpressure-container" id=<%= arr[6] %>>
            <div class="bloodpressure-question">
               <strong>The patient has had or is not sure if they have had a history of high blood pressure. Is the patient currently taking any of the current medication?</strong>
            </div>

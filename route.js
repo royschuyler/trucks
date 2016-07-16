@@ -143,6 +143,7 @@ var home = function(req, res, next) {
 
     var user = req.user;
     var arr =[];
+    var arr2 = [];
 
     if (user !== undefined) {
       user = user.toJSON();
@@ -156,15 +157,22 @@ var home = function(req, res, next) {
 
           for (var prop in obj) {
             if(obj[prop] == "yes") {
-              arr.push(prop);
+              arr.push("yes");
             }
+            else {
+              arr.push("no")
+            }
+          }
+
+          for (i=4; i<arr.length; i++) {
+            arr2.push(arr[i])
           }
 
 
     res.render('home', {
       title: 'Home',
       user: user,
-      arr: arr
+      arr: arr2
 
     });
 
