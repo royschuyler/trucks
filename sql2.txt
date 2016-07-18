@@ -1,3 +1,5 @@
+pdftk pdfForm3.pdf fill_form data.fdf output form.filled.pdf
+
 INSERT INTO session
 (
 ID, username, userId, sessionId

@@ -26,9 +26,16 @@
     "ejs": "^2.4.1",
     "express": "4.x",
     "express-session": "*",
+    "fdf": "0.0.0",
+    "fill-pdf": "^0.5.0",
     "jade": "*",
     "mysql": "*",
+    "node-pdffiller": "0.0.7",
     "passport": "*",
-    "passport-local": "*"
+    "passport-local": "*",
+    "pdffiller": "^0.4.0",
+    "pdffiller-concurrent": "0.0.9",
+    "pdfkit": "^0.7.2",
+    "pdftk-formfill": "0.0.1"
   }
 }

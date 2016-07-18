@@ -1,0 +1,1160 @@
+%FDF-1.2
+%‚„œ”
+1 0 obj
+<<
+/FDF
+<<
+/Fields [
+<<
+/Kids [
+<<
+/Kids [
+<<
+/Kids [
+<<
+/V /
+/T (do[0])
+>>
+<<
+/V /
+/T (chiroPractor[0])
+>>
+<<
+/V /
+/T (md[0])
+>>
+<<
+/V ()
+/T (otherQualify[0])
+>>
+<<
+/V ()
+/T (medicalZip[0])
+>>
+<<
+/V /
+/T (reportAmend[0])
+>>
+<<
+/V ()
+/T (ifAmendDate[0])
+>>
+<<
+/V /
+/T (incompleteButtonList[0])
+>>
+<<
+/V ()
+/T (amendWhy[0])
+>>
+<<
+/V ()
+/T (medicalState[0])
+>>
+<<
+/V ()
+/T (pendingWhy[0])
+>>
+<<
+/V /
+/T (physAssist[0])
+>>
+<<
+/V ()
+/T (medicalPhone[0])
+>>
+<<
+/V /
+/T (standardButtonList[0])
+>>
+<<
+/V /
+/T (cfrQualify[0])
+>>
+<<
+/V ()
+/T (medicalCity[0])
+>>
+<<
+/V ()
+/T (issueState[0])
+>>
+<<
+/V /
+/T (waiverQualify[0])
+>>
+<<
+/V /
+/T (pracNurse[0])
+>>
+<<
+/V ()
+/T (medicalAddress[0])
+>>
+<<
+/V ()
+/T (incompleteWhy[0])
+>>
+<<
+/V /
+/T (qualifiedButtonList[0])
+>>
+<<
+/V ()
+/T (expireDate[0])
+>>
+<<
+/V ()
+/T (examName[0])
+>>
+<<
+/V /
+/T (returnExam[0])
+>>
+<<
+/V ()
+/T (nationalRegister[0])
+>>
+<<
+/V /
+/T (speQualify[0])
+>>
+<<
+/V /
+/T (hearingAid[0])
+>>
+<<
+/V ()
+/T (examDate[0])
+>>
+<<
+/V ()
+/T (butStandardsWhy[0])
+>>
+<<
+/V ()
+/T (otherPracSpecify[0])
+>>
+<<
+/V ()
+/T (returnDate[0])
+>>
+<<
+/V ()
+/T (notStandardsWhy[0])
+>>
+<<
+/V /
+/T (exemptQualify[0])
+>>
+<<
+/V /
+/T (correctLenses[0])
+>>
+<<
+/V ()
+/T (certNumber[0])
+>>
+<<
+/V /
+/T (otherPrac[0])
+>>
+<<
+/V ()
+/T (waiverEnter[0])
+>>]
+/T (fedDetermination[0])
+>>
+<<
+/Kids [
+<<
+/V ()
+/T (dateBirth4[0])
+>>
+<<
+/V ()
+/T (dateForm4[0])
+>>
+<<
+/V ()
+/T (nameInitialHead4[0])
+>>
+<<
+/V (tester)
+/T (nameLastHead4[0])
+>>
+<<
+/V (tester)
+/T (nameFirstHead4[0])
+>>]
+/T (pageHead4[0])
+>>]
+/T (Page4[0])
+>>
+<<
+/Kids [
+<<
+/Kids [
+<<
+/Kids [
+<<
+/Kids [
+<<
+/Kids [
+<<
+/V ()
+/T (sugarNumber[0])
+>>
+<<
+/V ()
+/T (spgrNumber[0])
+>>
+<<
+/V ()
+/T (proteinNumber[0])
+>>
+<<
+/V ()
+/T (bloodNumber[0])
+>>]
+/T (Row1[0])
+>>]
+/T (urineAnalysis[0])
+>>]
+/T (urineTest[0])
+>>
+<<
+/Kids [
+<<
+/Kids [
+<<
+/V ()
+/T (secSys[0])
+>>
+<<
+/V ()
+/T (secDias[0])
+>>]
+/T (Row2[0])
+>>
+<<
+/Kids [
+<<
+/V ()
+/T (sitSys[0])
+>>
+<<
+/V ()
+/T (sitDias[0])
+>>]
+/T (Row1[0])
+>>]
+/T (bloodPressure[0])
+>>
+<<
+/Kids [
+<<
+/V ()
+/T (fieldLeft[0])
+>>
+<<
+/V ()
+/T (uncorrectLeft[0])
+>>
+<<
+/V ()
+/T (uncorrectRight[0])
+>>
+<<
+/V ()
+/T (correctLeft[0])
+>>
+<<
+/Kids [
+<<
+/V /
+/T (monocularButtons[0])
+>>]
+/T (monocularGroup[0])
+>>
+<<
+/V ()
+/T (correctRight[0])
+>>
+<<
+/Kids [
+<<
+/V /
+/T (distinguishButtons[0])
+>>]
+/T (distinguishGroup[0])
+>>
+<<
+/V ()
+/T (fieldRight[0])
+>>
+<<
+/Kids [
+<<
+/V /
+/T (referredButtons[0])
+>>]
+/T (referredGroup[0])
+>>
+<<
+/Kids [
+<<
+/V /
+/T (documentButtons[0])
+>>]
+/T (documentGroup[0])
+>>
+<<
+/V ()
+/T (correctBoth[0])
+>>
+<<
+/V ()
+/T (uncorrectBoth[0])
+>>]
+/T (visionTest[0])
+>>
+<<
+/Kids [
+<<
+/Kids [
+<<
+/V ()
+/T (whisperLeft[0])
+>>
+<<
+/V ()
+/T (whisperRight[0])
+>>
+<<
+/Kids [
+<<
+/V /
+/T (hearingaidButtons[0])
+>>]
+/T (hearingaidGroup[0])
+>>
+<<
+/Kids [
+<<
+/V ()
+/T (rightAverage[0])
+>>
+<<
+/V ()
+/T (right500[0])
+>>
+<<
+/V ()
+/T (right2000[0])
+>>
+<<
+/V ()
+/T (left1000[0])
+>>
+<<
+/V ()
+/T (left500[0])
+>>
+<<
+/V ()
+/T (right1000[0])
+>>
+<<
+/V ()
+/T (left2000[0])
+>>
+<<
+/V ()
+/T (leftAverage[0])
+>>]
+/T (#area[2])
+>>]
+/T (#area[0])
+>>]
+/T (hearingTest[0])
+>>
+<<
+/V ()
+/T (otherTesting[0])
+>>
+<<
+/Kids [
+<<
+/V ()
+/T (pulseMeasure[0])
+>>
+<<
+/Kids [
+<<
+/V /
+/T (pulserhythmButtons[0])
+>>]
+/T (pulserhythmGroup[0])
+>>
+<<
+/Kids [
+<<
+/V ()
+/T (inchesHeight[0])
+>>
+<<
+/V (3)
+/T (feetHeight[0])
+>>
+<<
+/V (333)
+/T (poundsWeight[0])
+>>]
+/T (#area[1])
+>>]
+/T (basicStats[0])
+>>]
+/T (driveTest[0])
+>>
+<<
+/Kids [
+<<
+/V ()
+/T (nameLastHead3[0])
+>>
+<<
+/V ()
+/T (dateBirth3[0])
+>>
+<<
+/V ()
+/T (nameFirstHead3[0])
+>>
+<<
+/V (teter)
+/T (nameInitialHead3[0])
+>>
+<<
+/V ()
+/T (dateForm3[0])
+>>]
+/T (pageHead3[0])
+>>
+<<
+/Kids [
+<<
+/V /
+/T (attachButton3[0])
+>>
+<<
+/Kids [
+<<
+/V /
+/T (abdomenButtons[0])
+>>
+<<
+/V /
+/T (vascularButtons[0])
+>>
+<<
+/V /
+/T (herniaButtons[0])
+>>
+<<
+/V /
+/T (gaitButtons[0])
+>>
+<<
+/V /
+/T (backButtons[0])
+>>
+<<
+/V /
+/T (jointsButtons[0])
+>>
+<<
+/V /
+/T (neuroButtons[0])
+>>]
+/T (bodysys2[0])
+>>
+<<
+/V ()
+/T (examComment[0])
+>>
+<<
+/Kids [
+<<
+/V /
+/T (heartButtons[0])
+>>
+<<
+/V /
+/T (skinButtons[0])
+>>
+<<
+/V /
+/T (mouthButtons[0])
+>>
+<<
+/V /
+/T (chestButtons[0])
+>>
+<<
+/V /
+/T (eyesButtons[0])
+>>
+<<
+/V /
+/T (earsButtons[0])
+>>
+<<
+/V /
+/T (generalButtons[0])
+>>]
+/T (bodysys1[0])
+>>]
+/T (driveExam[0])
+>>]
+/T (Page3[0])
+>>
+<<
+/Kids [
+<<
+/Kids [
+<<
+/V /
+/T (otherButtons[0])
+>>
+<<
+/V ()
+/T (otherDescribe[0])
+>>]
+/T (otherGroup[0])
+>>
+<<
+/Kids [
+<<
+/Kids [
+<<
+/V /
+/T (faintButtons[0])
+>>]
+/T (faintGroup[0])
+>>
+<<
+/Kids [
+<<
+/V /
+/T (sugarButtons[0])
+>>]
+/T (sugarGroup[0])
+>>
+<<
+/Kids [
+<<
+/V /
+/T (sleeptestButtons[0])
+>>]
+/T (sleeptestGroup[0])
+>>
+<<
+/Kids [
+<<
+/V /
+/T (alcoholButtons[0])
+>>]
+/T (alcoholGroup[0])
+>>
+<<
+/Kids [
+<<
+/V /
+/T (mentalButtons[0])
+>>]
+/T (mentalGroup[0])
+>>
+<<
+/Kids [
+<<
+/V /
+/T (eyeButtons[0])
+>>]
+/T (eyeGroup[0])
+>>
+<<
+/Kids [
+<<
+/V /
+/T (lungButtons[0])
+>>]
+/T (lungGroup[0])
+>>
+<<
+/Kids [
+<<
+/V /
+/T (paceButtons[0])
+>>]
+/T (paceGroup[0])
+>>
+<<
+/Kids [
+<<
+/V /
+/T (infectButtons[0])
+>>]
+/T (infectGroup[0])
+>>
+<<
+/Kids [
+<<
+/V /
+/T (seizeButtons[0])
+>>]
+/T (seizeGroup[0])
+>>
+<<
+/Kids [
+<<
+/V /
+/T (strokeButtons[0])
+>>]
+/T (strokeGroup[0])
+>>
+<<
+/Kids [
+<<
+/V /
+/T (breathButtons[0])
+>>]
+/T (breathGroup[0])
+>>
+<<
+/Kids [
+<<
+/V /
+/T (cancerButtons[0])
+>>]
+/T (cancerGroup[0])
+>>
+<<
+/Kids [
+<<
+/V /
+/T (heartButtons[0])
+>>]
+/T (heartGroup[0])
+>>
+<<
+/Kids [
+<<
+/V /
+/T (tobaccoButtons[0])
+>>]
+/T (tobaccoGroup[0])
+>>
+<<
+/Kids [
+<<
+/V /
+/T (uselimitButtons[0])
+>>]
+/T (uselimitGroup[0])
+>>
+<<
+/Kids [
+<<
+/V /
+/T (headButtons[0])
+>>]
+/T (headGroup[0])
+>>
+<<
+/Kids [
+<<
+/V /
+/T (boneButtons[0])
+>>]
+/T (boneGroup[0])
+>>
+<<
+/Kids [
+<<
+/V /
+/T (highButtons[0])
+>>]
+/T (highGroup[0])
+>>
+<<
+/Kids [
+<<
+/V /
+/T (hospitalButtons[0])
+>>]
+/T (hospitalGroup[0])
+>>
+<<
+/Kids [
+<<
+/V /
+/T (brokenButtons[0])
+>>]
+/T (brokenGroup[0])
+>>
+<<
+/Kids [
+<<
+/V /
+/T (dizzyButtons[0])
+>>]
+/T (dizzyGroup[0])
+>>
+<<
+/Kids [
+<<
+/V /
+/T (neckbackButtons[0])
+>>]
+/T (neckbackGroup[0])
+>>
+<<
+/Kids [
+<<
+/V /
+/T (kidneyButtons[0])
+>>]
+/T (kidneyGroup[0])
+>>
+<<
+/Kids [
+<<
+/V /
+/T (failedButtons[0])
+>>]
+/T (failedGroup[0])
+>>
+<<
+/Kids [
+<<
+/V /
+/T (cholesterolButtons[0])
+>>]
+/T (cholesterolGroup[0])
+>>
+<<
+/Kids [
+<<
+/V /
+/T (stomachButtons[0])
+>>]
+/T (stomachGroup[0])
+>>
+<<
+/Kids [
+<<
+/V /
+/T (insulinButtons[0])
+>>]
+/T (insulinGroup[0])
+>>
+<<
+/Kids [
+<<
+/V /
+/T (earButtons[0])
+>>]
+/T (earGroup[0])
+>>
+<<
+/Kids [
+<<
+/V /
+/T (apneaButtons[0])
+>>]
+/T (apneaGroup[0])
+>>
+<<
+/Kids [
+<<
+/V /
+/T (illegalButtons[0])
+>>]
+/T (illegalGroup[0])
+>>
+<<
+/Kids [
+<<
+/V /
+/T (weightButtons[0])
+>>]
+/T (weightGroup[0])
+>>
+<<
+/Kids [
+<<
+/V /
+/T (bloodButtons[0])
+>>]
+/T (bloodGroup[0])
+>>]
+/T (driverHealth[0])
+>>
+<<
+/V /
+/T (attachButton[0])
+>>
+<<
+/Kids [
+<<
+/V /
+/T (commentButtons[0])
+>>
+<<
+/V ()
+/T (commentDescribe[0])
+>>]
+/T (commentGroup[0])
+>>
+<<
+/Kids [
+<<
+/V ()
+/T (nameInitialHead2[0])
+>>
+<<
+/V ()
+/T (nameLastHead2[0])
+>>
+<<
+/V ()
+/T (nameFirstHead2[0])
+>>
+<<
+/V ()
+/T (dateBirth2[0])
+>>
+<<
+/V ()
+/T (dateForm2[0])
+>>]
+/T (pageHead2[0])
+>>
+<<
+/Kids [
+<<
+/Kids [
+<<
+/V ()
+/T (examinerComment[0])
+>>
+<<
+/V /
+/T (attachButton2[0])
+>>]
+/T (driveReview[0])
+>>]
+/T (#area[2])
+>>
+<<
+/Kids [
+<<
+/V ()
+/T (signatureDate[0])
+>>]
+/T (driverSignature[0])
+>>]
+/T (Page2[0])
+>>
+<<
+/Kids [
+<<
+/Kids [
+<<
+/V /
+/T (chiroPractorState[0])
+>>
+<<
+/V ()
+/T (nationalRegisterState[0])
+>>
+<<
+/V ()
+/T (otherSpec[0])
+>>
+<<
+/V /
+/T (qualifiedButtonListState[0])
+>>
+<<
+/V ()
+/T (medicalPhoneState[0])
+>>
+<<
+/V ()
+/T (medicalCityState[0])
+>>
+<<
+/V /
+/T (speQualifyState[0])
+>>
+<<
+/V /
+/T (otherPracState[0])
+>>
+<<
+/V ()
+/T (medicalStateState[0])
+>>
+<<
+/V ()
+/T (butStandardsWhyState[0])
+>>
+<<
+/V /
+/T (physAssistState[0])
+>>
+<<
+/V ()
+/T (otherQualifyState[0])
+>>
+<<
+/V ()
+/T (waiverEnterState[0])
+>>
+<<
+/V ()
+/T (issueStateState[0])
+>>
+<<
+/V /
+/T (standardButtonListState[0])
+>>
+<<
+/V /
+/T (grandQualifyState[0])
+>>
+<<
+/V ()
+/T (notStandardsWhyState[0])
+>>
+<<
+/V ()
+/T (examNameState[0])
+>>
+<<
+/V /
+/T (waiverQualifyState[0])
+>>
+<<
+/V ()
+/T (examDateState[0])
+>>
+<<
+/V ()
+/T (medicalZipState[0])
+>>
+<<
+/V /
+/T (hearingAidState[0])
+>>
+<<
+/V ()
+/T (medicalAddressState[0])
+>>
+<<
+/V /
+/T (mdState[0])
+>>
+<<
+/V /
+/T (pracNurseState[0])
+>>
+<<
+/V /
+/T (doState[0])
+>>
+<<
+/V /
+/T (correctLensesState[0])
+>>
+<<
+/V ()
+/T (expireDateState[0])
+>>
+<<
+/V ()
+/T (certNumberState[0])
+>>]
+/T (stateDetermination[0])
+>>
+<<
+/Kids [
+<<
+/V ()
+/T (nameFirstHead5[0])
+>>
+<<
+/V ()
+/T (nameInitialHead5[0])
+>>
+<<
+/V ()
+/T (dateForm5[0])
+>>
+<<
+/V ()
+/T (dateBirth5[0])
+>>
+<<
+/V ()
+/T (nameLastHead5[0])
+>>]
+/T (pageHead5[0])
+>>]
+/T (Page5[0])
+>>
+<<
+/Kids [
+<<
+/Kids [
+<<
+/V ()
+/T (surgeryDescribe[0])
+>>
+<<
+/V /
+/T (surgeryButtons[0])
+>>]
+/T (surgeryGroup[0])
+>>
+<<
+/V /
+/T (attachButton[0])
+>>
+<<
+/Kids [
+<<
+/V ()
+/T (medicineDescribe[0])
+>>
+<<
+/V /
+/T (medicineButtons[0])
+>>]
+/T (medicineGroup[0])
+>>
+<<
+/Kids [
+<<
+/V ()
+/T (privacyDate[0])
+>>]
+/T (privacyStatement[0])
+>>
+<<
+/Kids [
+<<
+/Kids [
+<<
+/V /
+/T (genderButtons[0])
+>>]
+/T (genderGroup[0])
+>>
+<<
+/Kids [
+<<
+/V /
+/T (cdlButtonList[0])
+>>]
+/T (cdlLicense[0])
+>>
+<<
+/V ()
+/T (driverLicense[0])
+>>
+<<
+/V ()
+/T (driverCity[0])
+>>
+<<
+/Kids [
+<<
+/V /
+/T (certDenyButtons[0])
+>>]
+/T (certDenyGroup[0])
+>>
+<<
+/V ()
+/T (driverAge[0])
+>>
+<<
+/V ()
+/T (emailAddress[0])
+>>
+<<
+/V ()
+/T (driverPhone[0])
+>>
+<<
+/V ()
+/T (driverVerify[0])
+>>
+<<
+/V ()
+/T (nameInitial[0])
+>>
+<<
+/V ()
+/T (nameFirst[0])
+>>
+<<
+/V ()
+/T (driverAddress[0])
+>>
+<<
+/V ()
+/T (nameLast[0])
+>>
+<<
+/V ()
+/T (birthDate[0])
+>>
+<<
+/V ()
+/T (driverState[0])
+>>
+<<
+/V ()
+/T (licenseState[0])
+>>
+<<
+/V ()
+/T (driverZip[0])
+>>]
+/T (driverPersonal[0])
+>>
+<<
+/Kids [
+<<
+/V ()
+/T (medNumber[0])
+>>]
+/T (medRecord[0])
+>>]
+/T (Page1[0])
+>>]
+/T (MCSA-5875[0])
+>>]
+>>
+>>
+endobj
+trailer
+
+<<
+/Root 1 0 R
+>>
+%%EOF
