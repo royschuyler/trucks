@@ -408,6 +408,10 @@ label {
   display: none;
 }
 
+a {
+  color: black !important;
+}
+
 
 
 

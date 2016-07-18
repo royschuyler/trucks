@@ -78,11 +78,13 @@ var demographics = function(req, res, next) {
       user = user.toJSON();
     }
 
-    res.render('demographics', {
-      title: 'Demographics',
-      user: user,
-      userId: userId
-    });
+    // res.render('demographics', {
+    //   title: 'Demographics',
+    //   user: user,
+    //   userId: userId
+    // });
+
+    res.download('watch9.pdf');
   }
 };
 //------------------------------------------------------
