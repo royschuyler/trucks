@@ -78,13 +78,13 @@ var demographics = function(req, res, next) {
       user = user.toJSON();
     }
 
-    // res.render('demographics', {
-    //   title: 'Demographics',
-    //   user: user,
-    //   userId: userId
-    // });
+    res.render('demographics', {
+      title: 'Demographics',
+      user: user,
+      userId: userId
+    });
 
-    res.download('watch9.pdf');
+    // res.download('watch9.pdf');
   }
 };
 //------------------------------------------------------
@@ -138,7 +138,7 @@ var historyPost = function(req, res, next) {
   connection.query('INSERT INTO history (userId, username, sessionId, brainInjuries, seizures, eyeProblems, earProblems, heartProblems, paceMaker, highBloodPressure, highCholesterol, breathingProblems, lungDisease, kidneyProblems, stomachProblems, diabetes, anxiety, fainting, dizziness, unexplainedWeightLoss, stroke, missingLimbs, backProblems,  boneProblems, bloodClots, cancer, chronicDiseases, sleepDisorders, sleepTest, nightInHospital, brokenBone, useTobacco, drinkAlcohol, illegalSubstance, failedDrugTest) VALUES (' + "'" + user.attributes.userId + "'," + "'" + user.attributes.username + "'," + "'" + sessionId + "'," + "'" + req.body.brainInjuries + "'," + "'" + req.body.seizures + "'," + "'" + req.body.eyeProblems + "'," + "'" + req.body.earProblems + "'," + "'" + req.body.heartProblems + "'," + "'" + req.body.paceMaker + "'," + "'" + req.body.highBloodPressure + "'," + "'" + req.body.highCholesterol + "'," + "'" + req.body.breathingProblems + "'," + "'" + req.body.lungDisease + "'," + "'" + req.body.kidneyProblems + "'," + "'" + req.body.stomachProblems + "'," + "'" + req.body.diabetes + "'," + "'" + req.body.anxiety + "'," + "'" + req.body.fainting + "'," + "'" + req.body.dizziness + "'," + "'" + req.body.unexplainedWeightLoss + "'," + "'" + req.body.stroke + "'," + "'" + req.body.missingLimbs + "'," + "'" + req.body.backProblems + "'," + "'" + req.body.boneProblems + "'," + "'" + req.body.bloodClots + "'," + "'" + req.body.cancer + "'," + "'" + req.body.chronicDiseases + "'," + "'" + req.body.sleepDisorders + "'," + "'" + req.body.sleepTest + "'," + "'" + req.body.nightInHospital + "'," + "'" + req.body.brokenBone + "'," + "'" + req.body.useTobacco + "'," + "'" + req.body.drinkAlcohol + "'," + "'" + req.body.illegalSubstance + "'," + "'" + req.body.failedDrugTest + "')"),
     function(err, rows) {};
 
-  res.redirect('/home')
+  res.redirect('/historyreview')
 };
 
 //-------------------------------------------------------
@@ -409,8 +409,60 @@ var physicalExaminationPost = function(req, res, next) {
 
 
 
-  res.redirect('/home')
+  res.redirect('/end')
 };
+//-------------------------------------------------------
+var end = function(req, res, next) {
+  if (!req.isAuthenticated()) {
+    res.redirect('/signin');
+  } else {
+
+    var user = req.user;
+
+    if (user !== undefined) {
+      user = user.toJSON();
+    }
+    res.render('end', {
+      title: 'End',
+      user: user
+    });
+  }
+};
+//-------------------------------------------------------
+var endPost = function(req, res, next) {
+
+  var user = req.user;
+
+
+  res.redirect('/pdf')
+
+};
+
+//-------------------------------------------------------
+var pdf = function(req, res, next) {
+  if (!req.isAuthenticated()) {
+    res.redirect('/signin');
+  } else {
+
+    var user = req.user;
+
+    if (user !== undefined) {
+      user = user.toJSON();
+    }
+
+    res.download('watch9.pdf')
+
+    // res.render('pdf', {
+    //   title: 'PDF',
+    //   user: user
+    // });
+  }
+};
+//-------------------------------------------------------
+//res.download('watch9.pdf')
+
+
+
 
 //-------------------------------------------------------
 var dropdown = function(req, res, next) {
@@ -623,6 +675,9 @@ var notFound404 = function(req, res, next) {
 module.exports.form = form;
 module.exports.index = index;
 module.exports.home = home;
+module.exports.end = end;
+module.exports.endPost = endPost;
+module.exports.pdf = pdf;
 module.exports.demographics = demographics;
 module.exports.demographicsPost = demographicsPost;
 module.exports.history = history;

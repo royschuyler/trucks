@@ -280,6 +280,8 @@ app.get('/', route.index);
 app.get('/signin', route.signIn);
 app.get('/signup', route.signUp);
 app.get('/home', route.home);
+app.get('/end', route.end);
+app.get('/pdf', route.pdf);
 app.get('/demographics', route.demographics);
 app.get('/history', route.history);
 app.get('/historyreview', route.historyReview);
@@ -293,8 +295,11 @@ app.get('/warn', route.warn);
 app.get('/form', route.form);
 app.get('/physicalexamination', route.physicalExamination)
 
+
+
 app.post('/signin', route.signInPost);
 app.post('/signup', route.signUpPost);
+app.post('/end', route.endPost);
 app.post('/demographics', route.demographicsPost);
 app.post('/history', route.historyPost);
 app.post('/historyreview', route.historyReviewPost);
