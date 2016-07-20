@@ -419,6 +419,21 @@ var end = function(req, res, next) {
 
     var user = req.user;
 
+
+    // connection.query('SELECT person2.*, history.*, history_review.*, testing.*, vision.*, hearing.*, physicalexam.* FROM person2 JOIN history ON history.sessionId = person2.sessionId JOIN history_review ON history_review.sessionId = history.sessionId JOIN testing ON testing.sessionId = history_review.sessionId JOIN vision ON vission.sessionId = testing.sessionId JOIN hearing ON hearing.sessionId = vission.sessionId JOIN physicalexam ON physicalexam.sessionId = hearing.sessionId', function (err,rows) {
+
+      //connection.query('SELECT * FROM person2 limit 1, history limit 1, history_review limit 1, testing limit 1, vision limit 1, hearing limit 1, physicalexam limit 1', function (err,rows) {
+    // console.log(err, rows)
+    // });
+    // connection.query('SELECT persons2.*, history.* FROM persons2, history WHERE' + "'" + sessionId + "'" + '=persons2.sessionId AND'+ "'" + sessionId + "'" + '=history.sessionId' , function(err, rows) {
+    //   console.log(rows)
+    // })
+
+    connection.query('SELECT persons2.*, history.*, history_review.*, testing.*, vision.*, hearing.*, physicalexam.* FROM persons2, history, history_review, testing, vision, hearing, physicalexam WHERE' + "'" + sessionId + "'" + '=persons2.sessionId AND' + "'" + sessionId + "'" + '=history.sessionId AND' + "'" + sessionId + "'" + '=history_review.sessionId AND' + "'" + sessionId + "'" + '=testing.sessionId AND' + "'" + sessionId + "'" + '=vision.sessionId AND' + "'" + sessionId + "'" + '=hearing.sessionId AND' + "'" + sessionId + "'" + '=physicalexam.sessionId' , function(err, rows) {
+      console.log(rows)
+    });
+
+
     if (user !== undefined) {
       user = user.toJSON();
     }
