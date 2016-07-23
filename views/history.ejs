@@ -228,32 +228,30 @@
         <div class="text-area-container">
           <div class="other-question-container">
           <table class="other-table">
+            <tr>
+              <td class="other-question">Other health condition(s) not described above:</td>
+              <!-- <div class="radio-container"> -->
+                <td class="initial-push">Yes:<input class="otherbutton" type="radio" value="1" name="otherButton"></td>
+                <td>No:<input class="otherbutton" type="radio" value="2" name="otherButton"></td>
+                <td>Not sure:<input class="otherbutton" type="radio" value="3" name="otherButton"</td>
+              <!-- </div> -->
+            </div>
+            </tr>
+          </table>
+          <textarea class="other-conditions" name="otherComments"></textarea>
+          <table class="other-table">
           <tr>
-            <td class="other-question">Other health condition(s) not described above:</td>
+            <td class="other-question">Did you answer "yes" to any of questions 1-32? If so, please comment further on those health conditions below.</td>
             <!-- <div class="radio-container"> -->
-              <td class="initial-push">Yes:<input class="otherbutton" type="radio" value="1" name="otherButton"></td>
-              <td>No:<input class="otherbutton" type="radio" value="2" name="otherButton"></td>
-              <td>Not sure:<input class="otherbutton" type="radio" value="3" name="otherButton"</td>
+              <td class="initial-push">Yes:<input class="yesButton" type="radio" value="1" name="otherButton"></td>
+              <td>No:<input class="otherbutton" type="radio" value="2" name="yesButton"></td>
+              <td>Not sure:<input class="otherbutton" type="radio" value="3" name="yesButton"</td>
             <!-- </div> -->
           </div>
           </tr>
           </table>
-          <textarea class="other-conditions" name="otherComments"></textarea>
           <textarea class="other-conditions" name="yesDescribe"></textarea>
         </div>
-
-<!--         <div class="text-area-container">
-          <div class="other-question-container">
-            <div class="other-question">Other health condition(s) not described above:</div>
-            <div class="radio-container">
-              Yes:<input class="otherbutton" type="radio" value="1" name="otherYes">
-              No:<input class="otherbutton" type="radio" value="2" name="otherNo">
-              Not sure:<input class="otherbutton" type="radio" value="3" name="otherNotSure">
-            </div>
-          </div>
-          <textarea class="other-conditions" name="otherConditions"></textarea>
-          <textarea class="other-conditions" name="describeYes"></textarea>
-        </div> -->
 
 
       <input type="submit" value="Submit">
