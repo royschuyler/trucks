@@ -223,9 +223,42 @@
               </tr>
           </table>
         </div>
+
+
+        <div class="text-area-container">
+          <div class="other-question-container">
+          <table class="other-table">
+          <tr>
+            <td class="other-question">Other health condition(s) not described above:</td>
+            <!-- <div class="radio-container"> -->
+              <td class="initial-push">Yes:<input class="otherbutton" type="radio" value="1" name="otherConditions"></td>
+              <td>No:<input class="otherbutton" type="radio" value="2" name="otherConditions"></td>
+              <td>Not sure:<input class="otherbutton" type="radio" value="3" name="otherConditions"</td>
+            <!-- </div> -->
+          </div>
+          </tr>
+          </table>
+          <textarea class="other-conditions" name="otherConditionsText"></textarea>
+          <textarea class="other-conditions" name="describeYes"></textarea>
+        </div>
+
+<!--         <div class="text-area-container">
+          <div class="other-question-container">
+            <div class="other-question">Other health condition(s) not described above:</div>
+            <div class="radio-container">
+              Yes:<input class="otherbutton" type="radio" value="1" name="otherYes">
+              No:<input class="otherbutton" type="radio" value="2" name="otherNo">
+              Not sure:<input class="otherbutton" type="radio" value="3" name="otherNotSure">
+            </div>
+          </div>
+          <textarea class="other-conditions" name="otherConditions"></textarea>
+          <textarea class="other-conditions" name="describeYes"></textarea>
+        </div> -->
+
+
       <input type="submit" value="Submit">
       </form>
-      <input type="submit" onclick="getElementById('demo').innerHTML=Date()"value="Submit">
+      <!-- <input type="submit" onclick="getElementById('demo').innerHTML=Date()"value="Submit"> -->
     </div>
   </div>
 </div>
