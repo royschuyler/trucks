@@ -441,8 +441,10 @@ var destinationPDF =  "watch9.pdf";
 var shouldFlatten = true;
 
 
-//brainInjuries, seizures, eyeProblems, earProblems, heartProblems, paceMaker, highBloodPressure, highCholesterol, breathingProblems, lungDisease, kidneyProblems, stomachProblems, diabetes, anxiety, fainting, dizziness, unexplainedWeightLoss, stroke, missingLimbs, backProblems,  boneProblems, bloodClots, cancer, chronicDiseases, sleepDisorders, sleepTest, nightInHospital, brokenBone, useTobacco, drinkAlcohol, illegalSubstance, failedDrugTest)
-
+var d = new Date();
+var monthFix = Number(d.getMonth()) + 1;
+var date = monthFix + "/" + d.getDate() + "/" + d.getFullYear();
+//console.log(str);
 
 var data = {
 "MCSA-5875[0].Page1[0].privacyStatement[0].privacyDate[0]": "rows[0].",
@@ -473,7 +475,7 @@ var data = {
 "MCSA-5875[0].Page2[0].pageHead2[0].nameFirstHead2[0]": rows[0].firstname,
 "MCSA-5875[0].Page2[0].pageHead2[0].nameInitialHead2[0]": rows[0].middlename,
 "MCSA-5875[0].Page2[0].pageHead2[0].dateBirth2[0]": rows[0].dob,
-"MCSA-5875[0].Page2[0].pageHead2[0].dateForm2[0]": "rows[0].",
+"MCSA-5875[0].Page2[0].pageHead2[0].dateForm2[0]": date,
 "MCSA-5875[0].Page2[0].driverHealth[0].headGroup[0].headButtons[0]": rows[0].brainInjuries,
 "MCSA-5875[0].Page2[0].driverHealth[0].seizeGroup[0].seizeButtons[0]": rows[0].seizures,
 "MCSA-5875[0].Page2[0].driverHealth[0].eyeGroup[0].eyeButtons[0]": rows[0].eyeProblems,
@@ -519,7 +521,7 @@ var data = {
 "MCSA-5875[0].Page3[0].pageHead3[0].nameFirstHead3[0]": rows[0].firstname,
 "MCSA-5875[0].Page3[0].pageHead3[0].nameInitialHead3[0]": rows[0].middlename,
 "MCSA-5875[0].Page3[0].pageHead3[0].dateBirth3[0]": rows[0].dob,
-"MCSA-5875[0].Page3[0].pageHead3[0].dateForm3[0]": "rows[0].",
+"MCSA-5875[0].Page3[0].pageHead3[0].dateForm3[0]": date,
 "MCSA-5875[0].Page3[0].driveTest[0].basicStats[0].pulseMeasure[0]": "rows[0].",
 "MCSA-5875[0].Page3[0].driveTest[0].basicStats[0].pulserhythmGroup[0].pulserhythmButtons[0]": "rows[0].",
 "MCSA-5875[0].Page3[0].driveTest[0].basicStats[0].#area[1].feetHeight[0]": "rows[0].",
@@ -577,7 +579,7 @@ var data = {
 "MCSA-5875[0].Page4[0].pageHead4[0].nameFirstHead4[0]": rows[0].firstname,
 "MCSA-5875[0].Page4[0].pageHead4[0].nameInitialHead4[0]": rows[0].middlename,
 "MCSA-5875[0].Page4[0].pageHead4[0].dateBirth4[0]": rows[0].dob,
-"MCSA-5875[0].Page4[0].pageHead4[0].dateForm4[0]": "rows[0].",
+"MCSA-5875[0].Page4[0].pageHead4[0].dateForm4[0]": date,
 "MCSA-5875[0].Page4[0].fedDetermination[0].standardButtonList[0]": "rows[0].",
 "MCSA-5875[0].Page4[0].fedDetermination[0].notStandardsWhy[0]": "rows[0].",
 "MCSA-5875[0].Page4[0].fedDetermination[0].butStandardsWhy[0]": "rows[0].",
@@ -620,7 +622,7 @@ var data = {
 "MCSA-5875[0].Page5[0].pageHead5[0].nameFirstHead5[0]": rows[0].firstname,
 "MCSA-5875[0].Page5[0].pageHead5[0].nameInitialHead5[0]": rows[0].middlename,
 "MCSA-5875[0].Page5[0].pageHead5[0].dateBirth5[0]": rows[0].dob,
-"MCSA-5875[0].Page5[0].pageHead5[0].dateForm5[0]": "rows[0].",
+"MCSA-5875[0].Page5[0].pageHead5[0].dateForm5[0]": date,
 "MCSA-5875[0].Page5[0].stateDetermination[0].standardButtonListState[0]": "rows[0].",
 "MCSA-5875[0].Page5[0].stateDetermination[0].notStandardsWhyState[0]": "rows[0].",
 "MCSA-5875[0].Page5[0].stateDetermination[0].butStandardsWhyState[0]": "rows[0].",
