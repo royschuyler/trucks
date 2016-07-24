@@ -256,8 +256,8 @@ var testingPost = function(req, res, next) {
 
   var user = req.user;
 
-  connection.query('INSERT INTO testing(username, userId, sessionId, pulseRate, rhythm, bloodPressure1, bloodPressure2, systolic, diastolic, sitting, secondReading, otherTesting) VALUES(' + "'" + user.attributes.username + "'," + "'" + user.attributes.userId + "'," + "'" + sessionId + "'," + "'" + req.body.pulserate + "'," + "'" + req.body.rhythm + "'," + "'" + req.body.bloodpressure1 + "'," + "'" + req.body.bloodpressure1 + "'," + "'" + req.body.systolic + "'," + "'" + req.body.diastolic + "'," + "'" + req.body.sitting + "'," + "'" + req.body.secondreading + "'," + "'" + req.body.othertesting + "')"),
-    function(err, rows) {
+connection.query('INSERT INTO testing(username, userId, sessionId, pulserate, pulserhythm, heightfeet, heightinches , weight, urinesp, urineprotein, urineblood, urinesugar, systolic1, diastolic1, systolic2, diastolic2, othertesting) VALUES(' + "'" + user.attributes.username + "'," + "'" + user.attributes.userId + "'," + "'" + sessionId + "'," + "'" + req.body.pulserate + "'," + "'" + req.body.pulserhythm + "'," + "'" + req.body.heightfeet + "'," + "'" + req.body.heightinches + "'," + "'" + req.body.weight + "'," + "'" + req.body.urinesp + "'," + "'" + req.body.urineprotein + "'," + "'" + req.body.urineblood + "'," + "'" + req.body.urinesugar + "'," + "'" + req.body.systolic1 + "'," + "'" + req.body.diastolic1 + "'," + "'" + req.body.systolic2 + "'," + "'" + req.body.diastolic2 + "'," + "'" + req.body.othertesting + "')"),
+  function(err, rows) {
 
     }
 
