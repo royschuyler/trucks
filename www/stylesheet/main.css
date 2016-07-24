@@ -488,7 +488,7 @@ td {
 }
 
 input {
-  background-color: #e6f7ff;
+  background-color: #ccf5ff;
 }
 
 .height-input {
@@ -514,6 +514,81 @@ input {
 .weight-label {
   margin-left: 20px;
 }
+
+.pulse-break {
+  width: 95%;
+  border-bottom: solid darkgeen 1px !important;
+}
+
+.pulse-table {
+  width: 100%;
+  margin-bottom: -25px;
+  border-bottom: solid darkgreen 1px;
+  margin: 0 5px 0 0;
+}
+
+.blood-pressure-table, tr {
+  border-bottom: solid 1px black;
+  margin-top: 15px;
+  width: 50%;
+}
+
+.blood-pressure-text {
+  color: darkgreen;
+  margin-right: 14px;
+
+}
+
+.systolic-text {
+  margin-left: 30px;
+
+}
+
+.diastolic-text {
+  margin-left: 70px;
+}
+
+.systolic-input {
+  margin-top: 7px;
+  width: 80px;
+  margin-left: 96px;
+  border-left: none;
+  border-top: none;
+  border-right: none;
+  border-bottom: solid 1px black;
+}
+
+.diastolic-input {
+  margin-top: 7px;
+  margin-left: 45px;
+  width: 80px;
+  border-left: none;
+  border-top: none;
+  border-right: none;
+  border-bottom: solid 1px black;
+}
+
+.systolic-input-2 {
+  margin-left: 38px;
+  width: 80px;
+  border-left: none;
+  border-top: none;
+  border-right: none;
+  border-bottom: solid 1px black;
+}
+
+.diastolic-input-2 {
+  margin-left: 45px;
+  width: 80px;
+  border-left: none;
+  border-top: none;
+  border-right: none;
+  border-bottom: solid 1px black;
+}
+.first-reading-container {
+  margin-top: 10px !important;
+}
+
 
 
 

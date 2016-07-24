@@ -6,7 +6,7 @@
     <div class="testing-interior-container">
       <form action="/testing" method="post" name="frmSurvey">
         <div class="testing-table-container">
-          <table class="">
+          <table class="pulse-table">
             <tr>
               <td>
                 Pulse rate:<input class="pulse-input" type="text" name="pulserate">
@@ -19,6 +19,30 @@
                 <label>pounds</label>
               </td>
             </tr>
+          </table>
+          <table class="blood-pressure-table">
+            <tr>
+            <td>
+              <label><strong class="blood-pressure-text">Blood pressure</strong></label>
+              <label class="systolic-text"><strong>Systolic</strong></label>
+              <label class="diastolic-text"><strong>Diastolic</strong></label>
+            </td>
+            </tr>
+            <tr>
+              <td class="first-reading-container">
+                <label>Sitting</label>
+                <input type="text" class="systolic-input" name="systolic1">
+                <input type="text" class="diastolic-input" name="diastolic1">
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label>Second reading<br>(optional)</label>
+                <input type="text" class="systolic-input-2" name="systolic2">
+                <input type="text" class="diastolic-input-2" name="diastolic2">
+              </td>
+            </tr>
+
           </table>
 
 
