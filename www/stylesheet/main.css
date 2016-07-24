@@ -452,12 +452,12 @@ td {
 
 .testing-super-container {
   width: 85%;
-  border: solid red 1px;
+  /*border: solid red 1px;*/
 }
 
 .testing-container {
   width: 80%;
-  height: 500px;
+ /* height: 500px;*/
   border: solid darkgreen 2px;
   float: right;
 }
@@ -500,7 +500,7 @@ input {
 }
 
 .height-label {
-  margin-left: 60px;
+  margin-left: 83px;
 }
 
 .weight-input {
@@ -522,7 +522,7 @@ input {
 
 .pulse-table {
   width: 100%;
-  margin-bottom: -25px;
+  /*margin-bottom: 0px;*/
   border-bottom: solid darkgreen 1px;
   margin: 0 5px 0 0;
 }
@@ -530,7 +530,7 @@ input {
 .blood-pressure-table, tr {
   border-bottom: solid 1px black;
   margin-top: 15px;
-  width: 50%;
+  width: 100%;
 }
 
 .blood-pressure-text {
@@ -593,9 +593,82 @@ input {
 .other-testing {
   margin-top: -10px;
   background: rgb(241,244, 255);
-  width: 100%;
+  width: 99%;
 }
 
+.other-testing-2 {
+  margin-top: 12px;
+  background: rgb(241,244, 255);
+  width: 99%;
+}
+
+.urine-text {
+  color: darkgreen;
+  padding-left: 3px;
+}
+
+.chamber-2-left {
+  width: 49.5%;
+  /*border-right: solid darkgreen 1px;*/
+  /*float: right;*/
+  /*margin-top: -20px;*/
+}
+
+.chamber-2-right {
+  width: 49.5%;
+  /*border-left: solid darkgreen 1px;*/
+  float: right;
+}
+
+.urine-table {
+  margin-top: 15px;
+}
+
+.urine-label {
+  /*padding-left: 2px !important;*/
+  /*border-left: solid 1px black;*/
+  text-align: center;
+}
+
+.urine-font {
+  padding-left: 3px;
+  font-size: 13px;
+}
+
+tr.urine-row-2 > td
+{
+  padding-top: 10px;
+}
+
+.urine-input {
+  width: 50px;
+  height: 79px;
+  margin-left: 15px;
+  border-bottom: solid black 1px;
+}
+
+.urine-input-first {
+  margin-left: 0px;
+}
+
+.other-txt {
+  border: 0px !important;
+  margin-bottom: -10px;
+}
+
+.urine-input-last {
+  padding-right: 7px !important;
+}
+
+.testing-button {
+  margin: 30px 0 0 165px;
+  background-color: rgb(47, 121, 185);
+  color: white;
+}
+
+tr.non-border {
+  border-bottom: 0px !important;
+}
 
 
 

@@ -6,62 +6,80 @@
     <div class="testing-interior-container">
       <form action="/testing" method="post" name="frmSurvey">
         <div class="testing-table-container">
-          <table class="pulse-table">
-            <tr>
+          <div class="testing-left">
+            <table class="pulse-table">
+              <tr class="first-pulse">
+                <td>
+                  Pulse rate:<input class="pulse-input" type="text" name="pulserate">
+                  Pulse rhythm regular:<input class="pulse-rhythm-radio" type="radio" name="pulserhythm" value="1">Yes
+                  <input class="pulse-rhythm-radio" type="radio" name="pulserhythm" value="2">No
+                  <label class="height-label">Height:</label><input class="height-input" name="heightfeet"><label>feet</label>
+                  <input class="height-input" name="heightinches"><label>inches</label>
+                  <label class=weight-label>Weight:</label>
+                  <input type="text" class="weight-input" name="weight">
+                  <label>pounds</label>
+                </td>
+              </tr>
+            </table>
+            <div class="chamber-2-right">
+              <table class="urine-table">
+                <tr>
+                  <td>
+                    <label><strong class="urine-text">Urinalysis</strong></label>
+                  </td>
+                  <td class="urine-label urine-label-1">Sp. Gr.</td>
+                  <td class="urine-label">Protein</td>
+                  <td class="urine-label">Blood</td>
+                  <td class="urine-label">Sugar</td>
+                </tr>
+                <tr class="urine-row-2">
+                  <td class="urine-font">Urinalysis is required.
+Numerical readings
+must be recorded.</td>
+                  <td><input class="urine-input urine-input-first" type="text" name="urineSp"></td>
+                  <td><input class="urine-input" type="text" name="urineProtein"></td>
+                  <td><input class="urine-input" type="text" name="urineBlood"></td>
+                  <td><input class="urine-input urine-input-last" type="text" name="urineSugar"></td>
+                </tr>
+                <table>
+                  <div>
+                    <input class="testing-button"type="submit" value="Save Testing" class="btn btn-primary submitBtn"/><span></span>
+                  </div>
+                </table>
+              </table>
+            </div>
+            <div class="chamber-2-left">
+            <table class="blood-pressure-table">
+              <tr>
               <td>
-                Pulse rate:<input class="pulse-input" type="text" name="pulserate">
-                Pulse rhythm regular:<input class="pulse-rhythm-radio" type="radio" name="pulserhythm" value="1">Yes
-                <input class="pulse-rhythm-radio" type="radio" name="pulserhythm" value="2">No
-                <label class="height-label">Height:</label><input class="height-input" name="heightfeet"><label>feet</label>
-                <input class="height-input" name="heightinches"><label>inches</label>
-                <label class=weight-label>Weight:</label>
-                <input type="text" class="weight-input" name="weight">
-                <label>pounds</label>
+                <label><strong class="blood-pressure-text">Blood pressure</strong></label>
+                <label class="systolic-text"><strong>Systolic</strong></label>
+                <label class="diastolic-text"><strong>Diastolic</strong></label>
               </td>
-            </tr>
-          </table>
-          <table class="blood-pressure-table">
-            <tr>
-            <td>
-              <label><strong class="blood-pressure-text">Blood pressure</strong></label>
-              <label class="systolic-text"><strong>Systolic</strong></label>
-              <label class="diastolic-text"><strong>Diastolic</strong></label>
-            </td>
-            </tr>
-            <tr>
-              <td class="first-reading-container">
-                <label>Sitting</label>
-                <input type="text" class="systolic-input" name="systolic1">
-                <input type="text" class="diastolic-input" name="diastolic1">
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <label>Second reading<br>(optional)</label>
-                <input type="text" class="systolic-input-2" name="systolic2">
-                <input type="text" class="diastolic-input-2" name="diastolic2">
-              </td>
-            </tr>
-            <tr>
-              <td>
-                Other testing if indicated
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <textarea class="other-testing" name="otherTesting"></textarea>
-              </td>
-            </tr>
-
-          </table>
-
-
-
+              </tr>
+              <tr>
+                <td class="first-reading-container non-border">
+                  <label>Sitting</label>
+                  <input type="text" class="systolic-input" name="systolic1">
+                  <input type="text" class="diastolic-input" name="diastolic1">
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <label>Second reading<br>(optional)</label>
+                  <input type="text" class="systolic-input-2" name="systolic2">
+                  <input type="text" class="diastolic-input-2" name="diastolic2">
+                </td>
+              </tr>
+              <tr>
+                <td class="non-border">
+                  <div class="other-txt">Other testing if indicated</div>
+                  <div><textarea class="other-testing-2" name="otherTesting"></textarea></div>
+                </td>
+              </tr>
+            </table>
+            </div>
         </div>
-
-
-
-
       </form>
     </div>
   </div>
