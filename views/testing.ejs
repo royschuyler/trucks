@@ -1,7 +1,63 @@
 <!DOCTYPE html>
 <% include header.ejs %>
+<div class="testing-super-container">
+  <div class="testing-container">
+    <div class="testing-header-container">TESTING</div>
+    <div class="testing-interior-container">
+      <form action="/testing" method="post" name="frmSurvey">
+        <div class="testing-table-container">
+          <table class="">
+            <tr>
+              <td>
+                Pulse rate:<input class="pulse-input" type="text" name="pulserate">
+                Pulse rhythm regular:<input class="pulse-rhythm-radio" type="radio" name="pulserhythm" value="1">Yes
+                <input class="pulse-rhythm-radio" type="radio" name="pulserhythm" value="2">No
+                <label class="height-label">Height:</label><input class="height-input" name="heightfeet"><label>feet</label>
+                <input class="height-input" name="heightinches"><label>inches</label>
+                <label class=weight-label>Weight:</label>
+                <input type="text" class="weight-input" name="weight">
+                <label>pounds</label>
+              </td>
+            </tr>
+          </table>
 
-  <div class="header-container">
+
+
+        </div>
+
+
+
+
+      </form>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--   <div class="header-container">
     <div class="table-header table-header2">TESTING</div>
   </div>
   <div class=" container full-container full-container2">
@@ -70,7 +126,7 @@
         </div>
       </div>
     </form>
-  </div>
+  </div> -->
 
 
   <% include footer.ejs %>
