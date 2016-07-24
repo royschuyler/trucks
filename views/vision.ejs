@@ -9,12 +9,12 @@
       <div class="row">
         <div>Standard is at least 20/40 acuity (Snellen) in each eye with or without correction. At least 70° field of vision in horizontal meridian measured in each eye. The use of cor- rective lenses should be noted on the Medical Examiner's Certificate.</div>
         <div class="col-md-12">
-          <table class="eyetable"style="width:100%">
+          <table class="eyetable" style="width:100%">
             <tr class="">
               <th class="eyetable">Acuity</td>
-              <th class="eyetable">Uncorrected</th>
-              <th class="eyetable">Corrected</th>
-              <th class="eyetable">Horizontal Field of Vision</th>
+                <th class="eyetable">Uncorrected</th>
+                <th class="eyetable">Corrected</th>
+                <th class="eyetable">Horizontal Field of Vision</th>
             </tr>
             <tr>
               <td class="eyetable">Right eye:</td>
@@ -36,13 +36,41 @@
           </table>
         </div>
       </div>
-                  <div class="form-group">
-              <label class="col-md-3 control-label"></label>
-              <div class="col-md-8">
-                <input type="submit" value="Save Changes" class="btn btn-primary submitBtn"/><span></span>
-                <input type="reset" value="Clear form" class="btn btn-default clearBtn"/>
-              </div>
-            </div>
+      <div class="vision-radio-container">
+        <table class="vision-tablt-container">
+          <tr>
+            <td class="smaller-text">
+              Applicant can recognize and distinguish among traffic control
+signals and devices showing red, green, and amber colors
+            </td>
+
+            <td class=""><label class="vision-radio vision-radio-right">Yes</label><input class="vision-radio vision-radio-right" type="radio" value="1" name="trafficlight"></td>
+            <td class=""><label class="vision-radio-2 vision-radio-right" value="2">No</label><input class="vision-radio-right" type="radio" name="trafficlight"></td>
+          </tr>
+          <tr>
+            <td>Monocular vision</td>
+            <td><input class="vision-radio vision-radio-right" type="radio" value="1" name="monocular"></td>
+            <td><input class="vision-radio-right" type="radio" value="2" name="monocular"></td>
+          </tr>
+          <tr>
+            <td>Referred to ophthalmologist or optometrist?</td>
+            <td><input class="vision-radio vision-radio-right" type="radio" value="1" name="optometrist"></td>
+            <td><input class="vision-radio-right" type="radio" value="2" name="optometrist"></td>
+          </tr>
+          <tr>
+            <td>Received documentation from ophthalmologist or optometrist?</td>
+            <td><input class="vision-radio vision-radio-right" type="radio" value="1" name="documentation"></td>
+            <td><input class="vision-radio-right" type="radio" value="2" name="documentation"></td>
+          </tr>
+        </table>
+      </div>
+      <div class="form-group">
+        <label class="col-md-3 control-label"></label>
+        <div class="col-md-8">
+          <input type="submit" value="Save Vision" class="btn btn-primary submitBtn" /><span></span>
+          <input type="reset" value="Clear form" class="btn btn-default clearBtn" />
+        </div>
+      </div>
     </form>
   </div>
 

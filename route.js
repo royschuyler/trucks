@@ -261,16 +261,6 @@ connection.query('INSERT INTO testing(username, userId, sessionId, pulserate, pu
 
     }
 
-  // console.log(req.body.pulserate)
-  // console.log(req.body.rhythm)
-  // console.log(req.body.bloodpressure1)
-  // console.log(req.body.bloodpressure2)
-  // console.log(req.body.systolic)
-  // console.log(req.body.diastolic)
-  // console.log(req.body.sitting)
-  // console.log(req.body.secondreading)
-  // console.log(req.body.othertesting)
-
   res.redirect('/vision')
 };
 
@@ -296,19 +286,10 @@ var visionPost = function(req, res, next) {
 
   var user = req.user;
 
-  connection.query('INSERT INTO vision(username, userId, sessionId, rightuncorrected, rightcorrected, fieldright, leftuncorrected, leftcorrected, fieldleft, bothuncorrected, bothcorrected) VALUES(' + "'" + user.attributes.username + "'," + "'" + user.attributes.userId + "'," + "'" + sessionId + "'," + "'" + req.body.rightuncorrected + "'," + "'" + req.body.rightcorrected + "'," + "'" + req.body.fieldright + "'," + "'" + req.body.leftuncorrected + "'," + "'" + req.body.leftcorrected + "'," + "'" + req.body.fieldleft + "'," + "'" + req.body.bothuncorrected + "'," + "'" + req.body.bothcorrected + "')"),
+    connection.query('INSERT INTO vision(username, userId, sessionId, rightuncorrected, rightcorrected, fieldright, leftuncorrected, leftcorrected, fieldleft, bothuncorrected, bothcorrected, traficlight, monocular, optometrist, documentation) VALUES(' + "'" + user.attributes.username + "'," + "'" + user.attributes.userId + "'," + "'" + sessionId + "'," + "'" + req.body.rightuncorrected + "'," + "'" + req.body.rightcorrected + "'," + "'" + req.body.fieldright + "'," + "'" + req.body.leftuncorrected + "'," + "'" + req.body.leftcorrected + "'," + "'" + req.body.fieldleft + "'," + "'" + req.body.bothuncorrected + "'," + "'" + req.body.bothcorrected + "'," + "'" + req.body.traficlight + "'," + "'" + req.body.monocular + "'," + "'" + req.body.optometrist + "'," + "'" + req.body.documentation + "')"),
     function(err, rows) {
 
     }
-
-  // console.log(req.body.rightuncorrected)
-  // console.log(req.body.rightcorrected)
-  // console.log(req.body.fieldright)
-  // console.log(req.body.leftuncorrected)
-  // console.log(req.body.leftcorrected)
-  // console.log(req.body.fieldleft)
-  // console.log(req.body.bothuncorrected)
-  // console.log(req.body.bothcorrected)
 
   if (req.body.rightuncorrected >= 40) {
     res.redirect('/warn')
@@ -386,28 +367,10 @@ var physicalExaminationPost = function(req, res, next) {
 
   var user = req.user;
 
-  // console.log(req.body.general)
-  // console.log(req.body.skin)
-  // console.log(req.body.eyes)
-  // console.log(req.body.ears)
-  // console.log(req.body.mouth)
-  // console.log(req.body.cardiovascular)
-  // console.log(req.body.lungs)
-  // console.log(req.body.abdomen)
-  // console.log(req.body.hernias)
-  // console.log(req.body.back)
-  // console.log(req.body.joints)
-  // console.log(req.body.neuro)
-  // console.log(req.body.gait)
-  // console.log(req.body.vascular)
-  //console.log(req.body.textarea)
-
     connection.query('INSERT INTO physicalexam(username, userId, sessionId, general, skin, eyes, mouth, cardiovascular, lungs, abdomen, back, joints, neuro, gait, vascular, textarea) VALUES(' + "'" + user.attributes.username + "'," + "'" + user.attributes.userId + "'," + "'" + sessionId + "'," + "'" + req.body.general + "'," + "'" + req.body.skin + "'," + "'" + req.body.eyes + "'," + "'" + req.body.mouth + "'," + "'" + req.body.cardiovascular + "'," + "'" + req.body.lungs + "'," + "'" + req.body.abdomen + "'," + "'" + req.body.back + "'," + "'" + req.body.joints + "'," + "'" + req.body.neuro + "'," + "'" + req.body.gait + "'," + "'" + req.body.vascular + "'," + "'" + req.body.textarea + "')"),
     function(err, rows) {
 
     }
-
-
 
   res.redirect('/end')
 };
@@ -422,15 +385,15 @@ var end = function(req, res, next) {
     var datas = connection.query('SELECT persons2.*, history.*, history_review.*, testing.*, vision.*, hearing.*, physicalexam.* FROM persons2, history, history_review, testing, vision, hearing, physicalexam WHERE' + "'" + sessionId + "'" + '=persons2.sessionId AND' + "'" + sessionId + "'" + '=history.sessionId AND' + "'" + sessionId + "'" + '=history_review.sessionId AND' + "'" + sessionId + "'" + '=testing.sessionId AND' + "'" + sessionId + "'" + '=vision.sessionId AND' + "'" + sessionId + "'" + '=hearing.sessionId AND' + "'" + sessionId + "'" + '=physicalexam.sessionId' , function(err, rows) {
 
 
-      console.log("rows[0].lastname: " + rows[0].lastname)
-      console.log("rows[0].firstname: " + rows[0].firstname)
-      console.log("rows[0].middlename: " + rows[0].middlename)
-      console.log("rows[0].dob: " + rows[0].dob)
-      console.log("rows[0].leftcorrected: " + rows[0].leftcorrected)
-      console.log("rows[0].rightear: " + rows[0].rightear)
-      console.log("rows[0].mouth: " + rows[0].mouth)
-      console.log("rows[0].lungs: " + rows[0].lungs)
-      //return rows[0];
+      // console.log("rows[0].lastname: " + rows[0].lastname)
+      // console.log("rows[0].firstname: " + rows[0].firstname)
+      // console.log("rows[0].middlename: " + rows[0].middlename)
+      // console.log("rows[0].dob: " + rows[0].dob)
+      // console.log("rows[0].leftcorrected: " + rows[0].leftcorrected)
+      // console.log("rows[0].rightear: " + rows[0].rightear)
+      // console.log("rows[0].mouth: " + rows[0].mouth)
+      // console.log("rows[0].lungs: " + rows[0].lungs)
+
 
 var fs = require('fs');
 var pdfFiller   = require('pdffiller');
@@ -522,32 +485,32 @@ var data = {
 "MCSA-5875[0].Page3[0].pageHead3[0].nameInitialHead3[0]": rows[0].middlename,
 "MCSA-5875[0].Page3[0].pageHead3[0].dateBirth3[0]": rows[0].dob,
 "MCSA-5875[0].Page3[0].pageHead3[0].dateForm3[0]": date,
-"MCSA-5875[0].Page3[0].driveTest[0].basicStats[0].pulseMeasure[0]": "rows[0].",
-"MCSA-5875[0].Page3[0].driveTest[0].basicStats[0].pulserhythmGroup[0].pulserhythmButtons[0]": "rows[0].",
-"MCSA-5875[0].Page3[0].driveTest[0].basicStats[0].#area[1].feetHeight[0]": "rows[0].",
-"MCSA-5875[0].Page3[0].driveTest[0].basicStats[0].#area[1].inchesHeight[0]": "rows[0].",
-"MCSA-5875[0].Page3[0].driveTest[0].basicStats[0].#area[1].poundsWeight[0]": "rows[0].",
-"MCSA-5875[0].Page3[0].driveTest[0].bloodPressure[0].Row1[0].sitSys[0]": "rows[0].",
-"MCSA-5875[0].Page3[0].driveTest[0].bloodPressure[0].Row1[0].sitDias[0]": "rows[0].",
-"MCSA-5875[0].Page3[0].driveTest[0].bloodPressure[0].Row2[0].secSys[0]": "rows[0].",
-"MCSA-5875[0].Page3[0].driveTest[0].bloodPressure[0].Row2[0].secDias[0]": "rows[0].",
-"MCSA-5875[0].Page3[0].driveTest[0].otherTesting[0]": "rows[0].",
-"MCSA-5875[0].Page3[0].driveTest[0].urineTest[0].urineAnalysis[0].Row1[0].spgrNumber[0]": "rows[0].",
-"MCSA-5875[0].Page3[0].driveTest[0].urineTest[0].urineAnalysis[0].Row1[0].proteinNumber[0]": "rows[0].",
-"MCSA-5875[0].Page3[0].driveTest[0].urineTest[0].urineAnalysis[0].Row1[0].bloodNumber[0]": "rows[0].",
-"MCSA-5875[0].Page3[0].driveTest[0].urineTest[0].urineAnalysis[0].Row1[0].sugarNumber[0]": "rows[0].",
-"MCSA-5875[0].Page3[0].driveTest[0].visionTest[0].uncorrectRight[0]": "rows[0].",
-"MCSA-5875[0].Page3[0].driveTest[0].visionTest[0].correctRight[0]": "rows[0].",
-"MCSA-5875[0].Page3[0].driveTest[0].visionTest[0].fieldRight[0]": "rows[0].",
-"MCSA-5875[0].Page3[0].driveTest[0].visionTest[0].uncorrectLeft[0]": "rows[0].",
-"MCSA-5875[0].Page3[0].driveTest[0].visionTest[0].correctLeft[0]": "rows[0].",
-"MCSA-5875[0].Page3[0].driveTest[0].visionTest[0].fieldLeft[0]": "rows[0].",
-"MCSA-5875[0].Page3[0].driveTest[0].visionTest[0].uncorrectBoth[0]": "rows[0].",
-"MCSA-5875[0].Page3[0].driveTest[0].visionTest[0].correctBoth[0]": "rows[0].",
-"MCSA-5875[0].Page3[0].driveTest[0].visionTest[0].distinguishGroup[0].distinguishButtons[0]": "rows[0].",
-"MCSA-5875[0].Page3[0].driveTest[0].visionTest[0].monocularGroup[0].monocularButtons[0]": "rows[0].",
-"MCSA-5875[0].Page3[0].driveTest[0].visionTest[0].referredGroup[0].referredButtons[0]": "rows[0].",
-"MCSA-5875[0].Page3[0].driveTest[0].visionTest[0].documentGroup[0].documentButtons[0]": "rows[0].",
+"MCSA-5875[0].Page3[0].driveTest[0].basicStats[0].pulseMeasure[0]": rows[0].pulserate,
+"MCSA-5875[0].Page3[0].driveTest[0].basicStats[0].pulserhythmGroup[0].pulserhythmButtons[0]": rows[0].pulserhythm,
+"MCSA-5875[0].Page3[0].driveTest[0].basicStats[0].#area[1].feetHeight[0]": rows[0].heightfeet,
+"MCSA-5875[0].Page3[0].driveTest[0].basicStats[0].#area[1].inchesHeight[0]": rows[0].heightinches,
+"MCSA-5875[0].Page3[0].driveTest[0].basicStats[0].#area[1].poundsWeight[0]": rows[0].weight,
+"MCSA-5875[0].Page3[0].driveTest[0].bloodPressure[0].Row1[0].sitSys[0]": rows[0].systolic1,
+"MCSA-5875[0].Page3[0].driveTest[0].bloodPressure[0].Row1[0].sitDias[0]": rows[0].diastolic1,
+"MCSA-5875[0].Page3[0].driveTest[0].bloodPressure[0].Row2[0].secSys[0]": rows[0].systolic2,
+"MCSA-5875[0].Page3[0].driveTest[0].bloodPressure[0].Row2[0].secDias[0]": rows[0].diastolic2,
+"MCSA-5875[0].Page3[0].driveTest[0].otherTesting[0]": rows[0].othertesting,
+"MCSA-5875[0].Page3[0].driveTest[0].urineTest[0].urineAnalysis[0].Row1[0].spgrNumber[0]": rows[0].urinesp,
+"MCSA-5875[0].Page3[0].driveTest[0].urineTest[0].urineAnalysis[0].Row1[0].proteinNumber[0]": rows[0].urineprotein,
+"MCSA-5875[0].Page3[0].driveTest[0].urineTest[0].urineAnalysis[0].Row1[0].bloodNumber[0]": rows[0].urineblood,
+"MCSA-5875[0].Page3[0].driveTest[0].urineTest[0].urineAnalysis[0].Row1[0].sugarNumber[0]": rows[0].urinesugar,
+"MCSA-5875[0].Page3[0].driveTest[0].visionTest[0].uncorrectRight[0]": rows[0].rightuncorrected,
+"MCSA-5875[0].Page3[0].driveTest[0].visionTest[0].correctRight[0]": rows[0].rightcorrected,
+"MCSA-5875[0].Page3[0].driveTest[0].visionTest[0].fieldRight[0]": rows[0].fieldright,
+"MCSA-5875[0].Page3[0].driveTest[0].visionTest[0].uncorrectLeft[0]": rows[0].leftuncorrected,
+"MCSA-5875[0].Page3[0].driveTest[0].visionTest[0].correctLeft[0]": rows[0].leftcorrected,
+"MCSA-5875[0].Page3[0].driveTest[0].visionTest[0].fieldLeft[0]": rows[0].fieldleft,
+"MCSA-5875[0].Page3[0].driveTest[0].visionTest[0].uncorrectBoth[0]": rows[0].bothuncorrected,
+"MCSA-5875[0].Page3[0].driveTest[0].visionTest[0].correctBoth[0]": rows[0].bothcorrected,
+"MCSA-5875[0].Page3[0].driveTest[0].visionTest[0].distinguishGroup[0].distinguishButtons[0]": rows[0].traficlight,
+"MCSA-5875[0].Page3[0].driveTest[0].visionTest[0].monocularGroup[0].monocularButtons[0]": rows[0].monocular,
+"MCSA-5875[0].Page3[0].driveTest[0].visionTest[0].referredGroup[0].referredButtons[0]": rows[0].optometrist,
+"MCSA-5875[0].Page3[0].driveTest[0].visionTest[0].documentGroup[0].documentButtons[0]": rows[0].documentation,
 "MCSA-5875[0].Page3[0].driveTest[0].hearingTest[0].#area[0].hearingaidGroup[0].hearingaidButtons[0]": "rows[0].",
 "MCSA-5875[0].Page3[0].driveTest[0].hearingTest[0].#area[0].whisperRight[0]": "rows[0].",
 "MCSA-5875[0].Page3[0].driveTest[0].hearingTest[0].#area[0].whisperLeft[0]": "rows[0].",
