@@ -488,7 +488,7 @@ td {
 }
 
 input {
-  background-color: #ccf5ff;
+  background-color: rgb(241,244, 255);
 }
 
 .height-input {
@@ -585,8 +585,15 @@ input {
   border-right: none;
   border-bottom: solid 1px black;
 }
+
 .first-reading-container {
   margin-top: 10px !important;
+}
+
+.other-testing {
+  margin-top: -10px;
+  background: rgb(241,244, 255);
+  width: 100%;
 }
 
 
