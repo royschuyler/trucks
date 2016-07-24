@@ -8,6 +8,34 @@
       </div>
     <div class="history-form-container">
       <form method="post" action="/history" role="form">
+        <div class="text-area-container">
+          <div class="other-question-container">
+          <table class="other-table">
+            <tr>
+              <td class="other-question">Have you ever had surgery? If "yes," please list and explain below.</td>
+              <!-- <div class="radio-container"> -->
+                <td class="initial-push">Yes:<input class="otherbutton" type="radio" value="1" name="surgeryButton"></td>
+                <td>No:<input class="otherbutton" type="radio" value="2" name="surgeryButton"></td>
+                <td>Not sure:<input class="otherbutton" type="radio" value="3" name="surgeryButton"</td>
+              <!-- </div> -->
+            </div>
+            </tr>
+          </table>
+          <textarea class="other-conditions" name="surgeryComments"></textarea>
+          <table class="other-table">
+          <tr>
+            <td class="other-question">Are you currently taking medications (prescription, over-the-counter, herbal remedies, diet supplements)?<br>
+If "yes," please describe below.</td>
+            <!-- <div class="radio-container"> -->
+              <td class="initial-push">Yes:<input class="yesButton" type="radio" value="1" name="medicationButton"></td>
+              <td>No:<input class="otherbutton" type="radio" value="2" name="medicationButton"></td>
+              <td>Not sure:<input class="otherbutton" type="radio" value="3" name="medicationButton"</td>
+            <!-- </div> -->
+          </div>
+          </tr>
+          </table>
+          <textarea class="other-conditions" name="medicationComments"></textarea>
+        </div>
         <div class="table-left-container">
           <table class="tables">
             <tr>
@@ -247,7 +275,7 @@
           <tr>
             <td class="other-question">Did you answer "yes" to any of questions 1-32? If so, please comment further on those health conditions below.</td>
             <!-- <div class="radio-container"> -->
-              <td class="initial-push">Yes:<input class="yesButton" type="radio" value="1" name="otherButton"></td>
+              <td class="initial-push">Yes:<input class="yesButton" type="radio" value="1" name="yesButton"></td>
               <td>No:<input class="otherbutton" type="radio" value="2" name="yesButton"></td>
               <td>Not sure:<input class="otherbutton" type="radio" value="3" name="yesButton"</td>
             <!-- </div> -->
