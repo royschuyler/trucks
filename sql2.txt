@@ -163,6 +163,8 @@ left2000 varchar(255)
   // console.log(req.body.gait)
   // console.log(req.body.vascular)
 
+
+///************************ PHYSICAL EXAM ************************
 CREATE TABLE physicalexam
 (
 ID Integer PRIMARY KEY AUTO_INCREMENT,
@@ -172,19 +174,21 @@ sessionId varchar(255),
 general varchar(255),
 skin varchar(255),
 eyes varchar(255),
+ears varchar(255),
 mouth varchar(255),
 cardiovascular varchar(255),
 lungs varchar(255),
 abdomen varchar(255),
+hernia varchar(255),
 back varchar(255),
 joints varchar(255),
 neuro varchar(255),
 gait varchar(255),
 vascular varchar(255),
-textarea varchar(8000)
+examtextarea varchar(8000)
 );
 
-    connection.query('INSERT INTO physicalexam(username, userId, sessionId, general, skin, eyes, mouth, cardiovascular, lungs, abdomen, back, joints, neuro, gait, vascular) VALUES(' + "'" + user.attributes.username + "'," + "'" + user.attributes.userId + "'," + "'" + sessionId + "'," + "'" + req.body.general + "'," + "'" + req.body.skin + "'," + "'" + req.body.eyes + "'," + "'" + req.body.mouth + "'," + "'" + req.body.cardiovascular + "'," + "'" + req.body.lungs + "'," + "'" + req.body.abdomen + "'," + "'" + req.body.back + "'," + "'" + req.body.joints + "'," + "'" + req.body.neuro + "'," + "'" + req.body.gait + "'," + "'" + req.body.vascular + "')"),
+    connection.query('INSERT INTO physicalexam(username, userId, sessionId, general, skin, eyes, ears, mouth, cardiovascular, lungs, abdomen, back, hernia, joints, neuro, gait, vascular, examtextarea) VALUES(' + "'" + user.attributes.username + "'," + "'" + user.attributes.userId + "'," + "'" + sessionId + "'," + "'" + req.body.general + "'," + "'" + req.body.skin + "'," + "'" + req.body.eyes + "'," + "'" + req.body.ears + "'," + "'" + req.body.mouth + "'," + "'" + req.body.cardiovascular + "'," + "'" + req.body.lungs + "'," + "'" + req.body.abdomen + "'," + "'" + req.body.back + "'," + "'" + req.body.hernia + "'," + "'" + req.body.joints + "'," + "'" + req.body.neuro + "'," + "'" + req.body.gait + "'," + "'" + req.body.vascular + "'," + "'" + req.body.examtextarea + "')"),
     function(err, rows) {
 
     }

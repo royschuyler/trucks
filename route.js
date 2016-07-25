@@ -302,17 +302,6 @@ var hearingPost = function(req, res, next) {
 
     }
 
-  // console.log(req.body.hearingaidright)
-  // console.log(req.body.hearingaidleft)
-  // console.log(req.body.hearingaidboth)
-  // console.log(req.body.rightear)
-  // console.log(req.body.leftear)
-  // console.log(req.body.right500)
-  // console.log(req.body.right1000)
-  // console.log(req.body.right2000)
-  // console.log(req.body.left500)
-  // console.log(req.body.left1000)
-  // console.log(req.body.left2000)
   console.log(req.body.hearingaid)
 
   if (req.body.rightear >= 5 || req.body.leftear >= 5) {
@@ -345,7 +334,7 @@ var physicalExaminationPost = function(req, res, next) {
 
   var user = req.user;
 
-  connection.query('INSERT INTO physicalexam(username, userId, sessionId, general, skin, eyes, mouth, cardiovascular, lungs, abdomen, back, joints, neuro, gait, vascular, textarea) VALUES(' + "'" + user.attributes.username + "'," + "'" + user.attributes.userId + "'," + "'" + sessionId + "'," + "'" + req.body.general + "'," + "'" + req.body.skin + "'," + "'" + req.body.eyes + "'," + "'" + req.body.mouth + "'," + "'" + req.body.cardiovascular + "'," + "'" + req.body.lungs + "'," + "'" + req.body.abdomen + "'," + "'" + req.body.back + "'," + "'" + req.body.joints + "'," + "'" + req.body.neuro + "'," + "'" + req.body.gait + "'," + "'" + req.body.vascular + "'," + "'" + req.body.textarea + "')"),
+connection.query('INSERT INTO physicalexam(username, userId, sessionId, general, skin, eyes, ears, mouth, cardiovascular, lungs, abdomen, back, hernia, joints, neuro, gait, vascular, examtextarea) VALUES(' + "'" + user.attributes.username + "'," + "'" + user.attributes.userId + "'," + "'" + sessionId + "'," + "'" + req.body.general + "'," + "'" + req.body.skin + "'," + "'" + req.body.eyes + "'," + "'" + req.body.ears + "'," + "'" + req.body.mouth + "'," + "'" + req.body.cardiovascular + "'," + "'" + req.body.lungs + "'," + "'" + req.body.abdomen + "'," + "'" + req.body.back + "'," + "'" + req.body.hernia + "'," + "'" + req.body.joints + "'," + "'" + req.body.neuro + "'," + "'" + req.body.gait + "'," + "'" + req.body.vascular + "'," + "'" + req.body.examtextarea + "')"),
     function(err, rows) {
 
     }
@@ -480,7 +469,7 @@ var end = function(req, res, next) {
         "MCSA-5875[0].Page3[0].driveTest[0].visionTest[0].monocularGroup[0].monocularButtons[0]": rows[0].monocular,
         "MCSA-5875[0].Page3[0].driveTest[0].visionTest[0].referredGroup[0].referredButtons[0]": rows[0].optometrist,
         "MCSA-5875[0].Page3[0].driveTest[0].visionTest[0].documentGroup[0].documentButtons[0]": rows[0].documentation,
-        "MCSA-5875[0].Page3[0].driveTest[0].hearingTest[0].#area[0].hearingaidGroup[0].hearingaidButtons[0]": "right",
+        "MCSA-5875[0].Page3[0].driveTest[0].hearingTest[0].#area[0].hearingaidGroup[0].hearingaidButtons[0]": rows[0].hearingaid,
         "MCSA-5875[0].Page3[0].driveTest[0].hearingTest[0].#area[0].whisperRight[0]": rows[0].rightear,
         "MCSA-5875[0].Page3[0].driveTest[0].hearingTest[0].#area[0].whisperLeft[0]": rows[0].leftear,
         "MCSA-5875[0].Page3[0].driveTest[0].hearingTest[0].#area[0].#area[2].right500[0]": rows[0].right500,
@@ -491,21 +480,21 @@ var end = function(req, res, next) {
         "MCSA-5875[0].Page3[0].driveTest[0].hearingTest[0].#area[0].#area[2].left2000[0]": rows[0].left2000,
         "MCSA-5875[0].Page3[0].driveTest[0].hearingTest[0].#area[0].#area[2].rightAverage[0]": avgRight,
         "MCSA-5875[0].Page3[0].driveTest[0].hearingTest[0].#area[0].#area[2].leftAverage[0]": avgLeft,
-        "MCSA-5875[0].Page3[0].driveExam[0].bodysys1[0].generalButtons[0]": "rows[0].",
-        "MCSA-5875[0].Page3[0].driveExam[0].bodysys1[0].skinButtons[0]": "rows[0].",
-        "MCSA-5875[0].Page3[0].driveExam[0].bodysys1[0].eyesButtons[0]": "rows[0].",
-        "MCSA-5875[0].Page3[0].driveExam[0].bodysys1[0].earsButtons[0]": "rows[0].",
-        "MCSA-5875[0].Page3[0].driveExam[0].bodysys1[0].mouthButtons[0]": "rows[0].",
-        "MCSA-5875[0].Page3[0].driveExam[0].bodysys1[0].heartButtons[0]": "rows[0].",
-        "MCSA-5875[0].Page3[0].driveExam[0].bodysys1[0].chestButtons[0]": "rows[0].",
-        "MCSA-5875[0].Page3[0].driveExam[0].bodysys2[0].abdomenButtons[0]": "rows[0].",
-        "MCSA-5875[0].Page3[0].driveExam[0].bodysys2[0].herniaButtons[0]": "rows[0].",
-        "MCSA-5875[0].Page3[0].driveExam[0].bodysys2[0].backButtons[0]": "rows[0].",
-        "MCSA-5875[0].Page3[0].driveExam[0].bodysys2[0].jointsButtons[0]": "rows[0].",
-        "MCSA-5875[0].Page3[0].driveExam[0].bodysys2[0].neuroButtons[0]": "rows[0].",
-        "MCSA-5875[0].Page3[0].driveExam[0].bodysys2[0].gaitButtons[0]": "rows[0].",
-        "MCSA-5875[0].Page3[0].driveExam[0].bodysys2[0].vascularButtons[0]": "rows[0].",
-        "MCSA-5875[0].Page3[0].driveExam[0].examComment[0]": "rows[0].",
+        "MCSA-5875[0].Page3[0].driveExam[0].bodysys1[0].generalButtons[0]": rows[0].general,
+        "MCSA-5875[0].Page3[0].driveExam[0].bodysys1[0].skinButtons[0]": rows[0].skin,
+        "MCSA-5875[0].Page3[0].driveExam[0].bodysys1[0].eyesButtons[0]": rows[0].eyes,
+        "MCSA-5875[0].Page3[0].driveExam[0].bodysys1[0].earsButtons[0]": rows[0].ears,
+        "MCSA-5875[0].Page3[0].driveExam[0].bodysys1[0].mouthButtons[0]": rows[0].mouth,
+        "MCSA-5875[0].Page3[0].driveExam[0].bodysys1[0].heartButtons[0]": rows[0].cardiovascular,
+        "MCSA-5875[0].Page3[0].driveExam[0].bodysys1[0].chestButtons[0]": rows[0].lungs,
+        "MCSA-5875[0].Page3[0].driveExam[0].bodysys2[0].abdomenButtons[0]": rows[0].abdomen,
+        "MCSA-5875[0].Page3[0].driveExam[0].bodysys2[0].herniaButtons[0]": rows[0].hernia,
+        "MCSA-5875[0].Page3[0].driveExam[0].bodysys2[0].backButtons[0]": rows[0].back,
+        "MCSA-5875[0].Page3[0].driveExam[0].bodysys2[0].jointsButtons[0]": rows[0].joints,
+        "MCSA-5875[0].Page3[0].driveExam[0].bodysys2[0].neuroButtons[0]": rows[0].neuro,
+        "MCSA-5875[0].Page3[0].driveExam[0].bodysys2[0].gaitButtons[0]": rows[0].gait,
+        "MCSA-5875[0].Page3[0].driveExam[0].bodysys2[0].vascularButtons[0]": rows[0].vascular,
+        "MCSA-5875[0].Page3[0].driveExam[0].examComment[0]": rows[0].examtextarea,
         "MCSA-5875[0].Page3[0].driveExam[0].attachButton3[0]": "rows[0].",
         "MCSA-5875[0].Page4[0].pageHead4[0].nameLastHead4[0]": rows[0].lastname,
         "MCSA-5875[0].Page4[0].pageHead4[0].nameFirstHead4[0]": rows[0].firstname,
