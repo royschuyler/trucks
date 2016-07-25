@@ -685,6 +685,19 @@ tr.non-border {
   padding-left: 10px !important;
 }
 
+.moveleft {
+  padding-right: 0px;
+}
+
+#hearing-table-top {
+  margin-top: 15px;
+  margin-bottom: 10px
+}
+
+#hearing-input {
+  margin-left: 5px;
+}
+
 
 
 

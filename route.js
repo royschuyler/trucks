@@ -20,9 +20,7 @@ connection.connect(function(err) {
 
 //-----------------------------------------------------------------------
 
-
 //--------------------------------------------------------------------
-
 
 //var GUIDText = "Current Patient ID: ";
 
@@ -64,7 +62,6 @@ var index = function(req, res, next) {
   }
 };
 
-
 //-------------------------------------------------------
 var demographics = function(req, res, next) {
   if (!req.isAuthenticated()) {
@@ -96,12 +93,12 @@ var demographicsPost = function(req, res, next) {
   //console.log(user.attributes.username);
 
   connection.query('INSERT INTO persons2 (userId, username, sessionId, lastname, firstname, middlename, dob, age, streetaddress, city, state, zip, dln, issuing, phone, gender, email, holder, verified, denied) VALUES(' + '"' + user.attributes.userId + '",' + '"' + user.attributes.username + '",' + '"' + sessionId + '",' + "'" + req.body.lastname + "'," + "'" + req.body.firstname + "'," + "'" + req.body.middlename + "'," + "'" + req.body.dob + "'," + "'" + req.body.age + "'," + "'" + req.body.streetaddress + "'," + "'" + req.body.city + "'," + "'" + req.body.state + "'," + "'" + req.body.zip + "'," + "'" + req.body.dln + "'," + "'" + req.body.issuing + "'," + "'" + phone + "'," + "'" + req.body.gender + "'," + "'" + req.body.email + "'," + "'" + req.body.holder + "'," + "'" + req.body.verified + "'," + "'" + req.body.denied + "')"),
-  function(err,rows) {
+    function(err, rows) {
 
-}
+    }
 
-console.log(phone)
-//console.log(res.body.lastname)
+  console.log(phone)
+    //console.log(res.body.lastname)
   res.redirect('/history');
 
   (req, res, next);
@@ -135,8 +132,8 @@ var historyPost = function(req, res, next) {
 
   console.log(sessionId)
 
-connection.query('INSERT INTO history (userId, username, sessionId, surgeryButton, surgeryComments, medicationButton, medicationComments, brainInjuries, seizures, eyeProblems, earProblems, heartProblems, paceMaker, highBloodPressure, highCholesterol, breathingProblems, lungDisease, kidneyProblems, stomachProblems, diabetes, insulin, anxiety, fainting, dizziness, unexplainedWeightLoss, stroke, missingLimbs, backProblems,  boneProblems, bloodClots, cancer, chronicDiseases, sleepDisorders, sleepTest, nightInHospital, brokenBone, useTobacco, drinkAlcohol, illegalSubstance, failedDrugTest, otherButton, otherComments, yesButton, yesDescribe) VALUES (' + "'" + user.attributes.userId + "'," + "'" + user.attributes.username + "'," + "'" + sessionId + "'," + "'" + req.body.surgeryButton + "'," + "'" + req.body.surgeryComments + "'," + "'" + req.body.medicationButton + "'," + "'" + req.body.medicationComments + "'," + "'" + req.body.brainInjuries + "'," + "'" + req.body.seizures + "'," + "'" + req.body.eyeProblems + "'," + "'" + req.body.earProblems + "'," + "'" + req.body.heartProblems + "'," + "'" + req.body.paceMaker + "'," + "'" + req.body.highBloodPressure + "'," + "'" + req.body.highCholesterol + "'," + "'" + req.body.breathingProblems + "'," + "'" + req.body.lungDisease + "'," + "'" + req.body.kidneyProblems + "'," + "'" + req.body.stomachProblems + "'," + "'" + req.body.diabetes + "'," + "'" + req.body.insulin + "'," + "'" + req.body.anxiety + "'," + "'" + req.body.fainting + "'," + "'" + req.body.dizziness + "'," + "'" + req.body.unexplainedWeightLoss + "'," + "'" + req.body.stroke + "'," + "'" + req.body.missingLimbs + "'," + "'" + req.body.backProblems + "'," + "'" + req.body.boneProblems + "'," + "'" + req.body.bloodClots + "'," + "'" + req.body.cancer + "'," + "'" + req.body.chronicDiseases + "'," + "'" + req.body.sleepDisorders + "'," + "'" + req.body.sleepTest + "'," + "'" + req.body.nightInHospital + "'," + "'" + req.body.brokenBone + "'," + "'" + req.body.useTobacco + "'," + "'" + req.body.drinkAlcohol + "'," + "'" + req.body.illegalSubstance + "'," + "'" + req.body.failedDrugTest + "'," + "'" + req.body.otherButton + "'," + "'" + req.body.otherComments + "'," + "'" + req.body.yesButton + "'," + "'" + req.body.yesDescribe + "')"),
-  function(err, rows) {}
+  connection.query('INSERT INTO history (userId, username, sessionId, surgeryButton, surgeryComments, medicationButton, medicationComments, brainInjuries, seizures, eyeProblems, earProblems, heartProblems, paceMaker, highBloodPressure, highCholesterol, breathingProblems, lungDisease, kidneyProblems, stomachProblems, diabetes, insulin, anxiety, fainting, dizziness, unexplainedWeightLoss, stroke, missingLimbs, backProblems,  boneProblems, bloodClots, cancer, chronicDiseases, sleepDisorders, sleepTest, nightInHospital, brokenBone, useTobacco, drinkAlcohol, illegalSubstance, failedDrugTest, otherButton, otherComments, yesButton, yesDescribe) VALUES (' + "'" + user.attributes.userId + "'," + "'" + user.attributes.username + "'," + "'" + sessionId + "'," + "'" + req.body.surgeryButton + "'," + "'" + req.body.surgeryComments + "'," + "'" + req.body.medicationButton + "'," + "'" + req.body.medicationComments + "'," + "'" + req.body.brainInjuries + "'," + "'" + req.body.seizures + "'," + "'" + req.body.eyeProblems + "'," + "'" + req.body.earProblems + "'," + "'" + req.body.heartProblems + "'," + "'" + req.body.paceMaker + "'," + "'" + req.body.highBloodPressure + "'," + "'" + req.body.highCholesterol + "'," + "'" + req.body.breathingProblems + "'," + "'" + req.body.lungDisease + "'," + "'" + req.body.kidneyProblems + "'," + "'" + req.body.stomachProblems + "'," + "'" + req.body.diabetes + "'," + "'" + req.body.insulin + "'," + "'" + req.body.anxiety + "'," + "'" + req.body.fainting + "'," + "'" + req.body.dizziness + "'," + "'" + req.body.unexplainedWeightLoss + "'," + "'" + req.body.stroke + "'," + "'" + req.body.missingLimbs + "'," + "'" + req.body.backProblems + "'," + "'" + req.body.boneProblems + "'," + "'" + req.body.bloodClots + "'," + "'" + req.body.cancer + "'," + "'" + req.body.chronicDiseases + "'," + "'" + req.body.sleepDisorders + "'," + "'" + req.body.sleepTest + "'," + "'" + req.body.nightInHospital + "'," + "'" + req.body.brokenBone + "'," + "'" + req.body.useTobacco + "'," + "'" + req.body.drinkAlcohol + "'," + "'" + req.body.illegalSubstance + "'," + "'" + req.body.failedDrugTest + "'," + "'" + req.body.otherButton + "'," + "'" + req.body.otherComments + "'," + "'" + req.body.yesButton + "'," + "'" + req.body.yesDescribe + "')"),
+    function(err, rows) {}
 
   res.redirect('/historyreview')
 };
@@ -149,58 +146,38 @@ var home = function(req, res, next) {
   } else {
 
     var user = req.user;
-    var arr =[];
+    var arr = [];
     var arr2 = [];
 
     if (user !== undefined) {
       user = user.toJSON();
     }
 
+    connection.query("SELECT * FROM history WHERE history.sessionId =" + '"' + sessionId + '"',
+      function(err, rows) {
 
-      connection.query("SELECT * FROM history WHERE history.sessionId =" +  '"' + sessionId + '"',
-        function(err, rows) {
+        var obj = rows[0];
 
-          var obj = rows[0];
-
-          for (var prop in obj) {
-            if(obj[prop] == "yes") {
-              arr.push("yes");
-            }
-            else {
-              arr.push("no")
-            }
+        for (var prop in obj) {
+          if (obj[prop] == "yes") {
+            arr.push("yes");
+          } else {
+            arr.push("no")
           }
+        }
 
-          for (i=4; i<arr.length; i++) {
-            arr2.push(arr[i])
-          }
+        for (i = 4; i < arr.length; i++) {
+          arr2.push(arr[i])
+        }
 
+        res.render('home', {
+          title: 'Home',
+          user: user,
+          arr: arr2
 
-    res.render('home', {
-      title: 'Home',
-      user: user,
-      arr: arr2
-
-    });
-
-
-
-
-
-
-
-
-
+        });
 
       });
-
-
-
-    // res.render('home', {
-    //   title: 'Home',
-    //   user: user,
-    //   rows: rows[0]
-    // });
   }
 };
 
@@ -256,8 +233,8 @@ var testingPost = function(req, res, next) {
 
   var user = req.user;
 
-connection.query('INSERT INTO testing(username, userId, sessionId, pulserate, pulserhythm, heightfeet, heightinches , weight, urinesp, urineprotein, urineblood, urinesugar, systolic1, diastolic1, systolic2, diastolic2, othertesting) VALUES(' + "'" + user.attributes.username + "'," + "'" + user.attributes.userId + "'," + "'" + sessionId + "'," + "'" + req.body.pulserate + "'," + "'" + req.body.pulserhythm + "'," + "'" + req.body.heightfeet + "'," + "'" + req.body.heightinches + "'," + "'" + req.body.weight + "'," + "'" + req.body.urinesp + "'," + "'" + req.body.urineprotein + "'," + "'" + req.body.urineblood + "'," + "'" + req.body.urinesugar + "'," + "'" + req.body.systolic1 + "'," + "'" + req.body.diastolic1 + "'," + "'" + req.body.systolic2 + "'," + "'" + req.body.diastolic2 + "'," + "'" + req.body.othertesting + "')"),
-  function(err, rows) {
+  connection.query('INSERT INTO testing(username, userId, sessionId, pulserate, pulserhythm, heightfeet, heightinches , weight, urinesp, urineprotein, urineblood, urinesugar, systolic1, diastolic1, systolic2, diastolic2, othertesting) VALUES(' + "'" + user.attributes.username + "'," + "'" + user.attributes.userId + "'," + "'" + sessionId + "'," + "'" + req.body.pulserate + "'," + "'" + req.body.pulserhythm + "'," + "'" + req.body.heightfeet + "'," + "'" + req.body.heightinches + "'," + "'" + req.body.weight + "'," + "'" + req.body.urinesp + "'," + "'" + req.body.urineprotein + "'," + "'" + req.body.urineblood + "'," + "'" + req.body.urinesugar + "'," + "'" + req.body.systolic1 + "'," + "'" + req.body.diastolic1 + "'," + "'" + req.body.systolic2 + "'," + "'" + req.body.diastolic2 + "'," + "'" + req.body.othertesting + "')"),
+    function(err, rows) {
 
     }
 
@@ -286,7 +263,7 @@ var visionPost = function(req, res, next) {
 
   var user = req.user;
 
-    connection.query('INSERT INTO vision(username, userId, sessionId, rightuncorrected, rightcorrected, fieldright, leftuncorrected, leftcorrected, fieldleft, bothuncorrected, bothcorrected, traficlight, monocular, optometrist, documentation) VALUES(' + "'" + user.attributes.username + "'," + "'" + user.attributes.userId + "'," + "'" + sessionId + "'," + "'" + req.body.rightuncorrected + "'," + "'" + req.body.rightcorrected + "'," + "'" + req.body.fieldright + "'," + "'" + req.body.leftuncorrected + "'," + "'" + req.body.leftcorrected + "'," + "'" + req.body.fieldleft + "'," + "'" + req.body.bothuncorrected + "'," + "'" + req.body.bothcorrected + "'," + "'" + req.body.traficlight + "'," + "'" + req.body.monocular + "'," + "'" + req.body.optometrist + "'," + "'" + req.body.documentation + "')"),
+  connection.query('INSERT INTO vision(username, userId, sessionId, rightuncorrected, rightcorrected, fieldright, leftuncorrected, leftcorrected, fieldleft, bothuncorrected, bothcorrected, traficlight, monocular, optometrist, documentation) VALUES(' + "'" + user.attributes.username + "'," + "'" + user.attributes.userId + "'," + "'" + sessionId + "'," + "'" + req.body.rightuncorrected + "'," + "'" + req.body.rightcorrected + "'," + "'" + req.body.fieldright + "'," + "'" + req.body.leftuncorrected + "'," + "'" + req.body.leftcorrected + "'," + "'" + req.body.fieldleft + "'," + "'" + req.body.bothuncorrected + "'," + "'" + req.body.bothcorrected + "'," + "'" + req.body.traficlight + "'," + "'" + req.body.monocular + "'," + "'" + req.body.optometrist + "'," + "'" + req.body.documentation + "')"),
     function(err, rows) {
 
     }
@@ -320,7 +297,7 @@ var hearingPost = function(req, res, next) {
 
   var user = req.user;
 
-  connection.query('INSERT INTO hearing(username, userId, sessionId, hearingaidright, hearingaidleft, hearingaidboth, rightear, leftear, right500, right1000, right2000, left500, left1000, left2000) VALUES(' + "'" + user.attributes.username + "'," + "'" + user.attributes.userId + "'," + "'" + sessionId + "'," + "'" + req.body.hearingaidright + "'," + "'" + req.body.hearingaidleft + "'," + "'" + req.body.hearingaidboth + "'," + "'" + req.body.rightear + "'," + "'" + req.body.leftear + "'," + "'" + req.body.right500 + "'," + "'" + req.body.right1000 + "'," + "'" + req.body.right2000 + "'," + "'" + req.body.left500 + "'," + "'" + req.body.left1000 + "'," + "'" + req.body.left2000 + "')"),
+  connection.query('INSERT INTO hearing(username, userId, sessionId, hearingaid,  rightear, leftear, right500, right1000, right2000, left500, left1000, left2000) VALUES(' + "'" + user.attributes.username + "'," + "'" + user.attributes.userId + "'," + "'" + sessionId + "'," + "'" + req.body.hearingaid + "'," + "'" + req.body.rightear + "'," + "'" + req.body.leftear + "'," + "'" + req.body.right500 + "'," + "'" + req.body.right1000 + "'," + "'" + req.body.right2000 + "'," + "'" + req.body.left500 + "'," + "'" + req.body.left1000 + "'," + "'" + req.body.left2000 + "')"),
     function(err, rows) {
 
     }
@@ -367,7 +344,7 @@ var physicalExaminationPost = function(req, res, next) {
 
   var user = req.user;
 
-    connection.query('INSERT INTO physicalexam(username, userId, sessionId, general, skin, eyes, mouth, cardiovascular, lungs, abdomen, back, joints, neuro, gait, vascular, textarea) VALUES(' + "'" + user.attributes.username + "'," + "'" + user.attributes.userId + "'," + "'" + sessionId + "'," + "'" + req.body.general + "'," + "'" + req.body.skin + "'," + "'" + req.body.eyes + "'," + "'" + req.body.mouth + "'," + "'" + req.body.cardiovascular + "'," + "'" + req.body.lungs + "'," + "'" + req.body.abdomen + "'," + "'" + req.body.back + "'," + "'" + req.body.joints + "'," + "'" + req.body.neuro + "'," + "'" + req.body.gait + "'," + "'" + req.body.vascular + "'," + "'" + req.body.textarea + "')"),
+  connection.query('INSERT INTO physicalexam(username, userId, sessionId, general, skin, eyes, mouth, cardiovascular, lungs, abdomen, back, joints, neuro, gait, vascular, textarea) VALUES(' + "'" + user.attributes.username + "'," + "'" + user.attributes.userId + "'," + "'" + sessionId + "'," + "'" + req.body.general + "'," + "'" + req.body.skin + "'," + "'" + req.body.eyes + "'," + "'" + req.body.mouth + "'," + "'" + req.body.cardiovascular + "'," + "'" + req.body.lungs + "'," + "'" + req.body.abdomen + "'," + "'" + req.body.back + "'," + "'" + req.body.joints + "'," + "'" + req.body.neuro + "'," + "'" + req.body.gait + "'," + "'" + req.body.vascular + "'," + "'" + req.body.textarea + "')"),
     function(err, rows) {
 
     }
@@ -382,254 +359,239 @@ var end = function(req, res, next) {
 
     var user = req.user;
 
-    var datas = connection.query('SELECT persons2.*, history.*, history_review.*, testing.*, vision.*, hearing.*, physicalexam.* FROM persons2, history, history_review, testing, vision, hearing, physicalexam WHERE' + "'" + sessionId + "'" + '=persons2.sessionId AND' + "'" + sessionId + "'" + '=history.sessionId AND' + "'" + sessionId + "'" + '=history_review.sessionId AND' + "'" + sessionId + "'" + '=testing.sessionId AND' + "'" + sessionId + "'" + '=vision.sessionId AND' + "'" + sessionId + "'" + '=hearing.sessionId AND' + "'" + sessionId + "'" + '=physicalexam.sessionId' , function(err, rows) {
+    var datas = connection.query('SELECT persons2.*, history.*, history_review.*, testing.*, vision.*, hearing.*, physicalexam.* FROM persons2, history, history_review, testing, vision, hearing, physicalexam WHERE' + "'" + sessionId + "'" + '=persons2.sessionId AND' + "'" + sessionId + "'" + '=history.sessionId AND' + "'" + sessionId + "'" + '=history_review.sessionId AND' + "'" + sessionId + "'" + '=testing.sessionId AND' + "'" + sessionId + "'" + '=vision.sessionId AND' + "'" + sessionId + "'" + '=hearing.sessionId AND' + "'" + sessionId + "'" + '=physicalexam.sessionId', function(err, rows) {
 
+      var fs = require('fs');
+      var pdfFiller = require('pdffiller');
 
-      // console.log("rows[0].lastname: " + rows[0].lastname)
-      // console.log("rows[0].firstname: " + rows[0].firstname)
-      // console.log("rows[0].middlename: " + rows[0].middlename)
-      // console.log("rows[0].dob: " + rows[0].dob)
-      // console.log("rows[0].leftcorrected: " + rows[0].leftcorrected)
-      // console.log("rows[0].rightear: " + rows[0].rightear)
-      // console.log("rows[0].mouth: " + rows[0].mouth)
-      // console.log("rows[0].lungs: " + rows[0].lungs)
+      var sourcePDF = "newFormSpecial.pdf";
+      // var destinationPDF =  "../../Desktop/watch8.pdf";
+      var destinationPDF = "watch9.pdf";
+      var shouldFlatten = true;
 
+      var d = new Date();
+      var monthFix = Number(d.getMonth()) + 1;
+      var date = monthFix + "/" + d.getDate() + "/" + d.getFullYear();
+      //console.log(str);
 
-var fs = require('fs');
-var pdfFiller   = require('pdffiller');
+      var avgRight = (parseInt(rows[0].right500) + parseInt(rows[0].right1000) + parseInt(rows[0].right2000)) / 3;
+      var avgLeft = (parseInt(rows[0].left500) + parseInt(rows[0].left1000) + parseInt(rows[0].left2000)) / 3;
 
-var sourcePDF = "newFormSpecial.pdf";
-// var destinationPDF =  "../../Desktop/watch8.pdf";
-var destinationPDF =  "watch9.pdf";
-var shouldFlatten = true;
+      var data = {
+        "MCSA-5875[0].Page1[0].privacyStatement[0].privacyDate[0]": "rows[0].",
+        "MCSA-5875[0].Page1[0].medRecord[0].medNumber[0]": "rows[0].",
+        "MCSA-5875[0].Page1[0].driverPersonal[0].nameLast[0]": rows[0].lastname,
+        "MCSA-5875[0].Page1[0].driverPersonal[0].nameFirst[0]": rows[0].firstname,
+        "MCSA-5875[0].Page1[0].driverPersonal[0].nameInitial[0]": rows[0].middlename,
+        "MCSA-5875[0].Page1[0].driverPersonal[0].birthDate[0]": rows[0].dob,
+        "MCSA-5875[0].Page1[0].driverPersonal[0].driverAge[0]": rows[0].age,
+        "MCSA-5875[0].Page1[0].driverPersonal[0].driverAddress[0]": rows[0].streetaddress,
+        "MCSA-5875[0].Page1[0].driverPersonal[0].driverCity[0]": rows[0].city,
+        "MCSA-5875[0].Page1[0].driverPersonal[0].driverState[0]": rows[0].state,
+        "MCSA-5875[0].Page1[0].driverPersonal[0].driverZip[0]": rows[0].zip,
+        "MCSA-5875[0].Page1[0].driverPersonal[0].driverLicense[0]": rows[0].dln,
+        "MCSA-5875[0].Page1[0].driverPersonal[0].licenseState[0]": rows[0].issuing,
+        "MCSA-5875[0].Page1[0].driverPersonal[0].driverPhone[0]": rows[0].phone,
+        "MCSA-5875[0].Page1[0].driverPersonal[0].genderGroup[0].genderButtons[0]": rows[0].gender,
+        "MCSA-5875[0].Page1[0].driverPersonal[0].emailAddress[0]": rows[0].email,
+        "MCSA-5875[0].Page1[0].driverPersonal[0].cdlLicense[0].cdlButtonList[0]": rows[0].holder,
+        "MCSA-5875[0].Page1[0].driverPersonal[0].driverVerify[0]": rows[0].verified,
+        "MCSA-5875[0].Page1[0].driverPersonal[0].certDenyGroup[0].certDenyButtons[0]": rows[0].denied,
+        "MCSA-5875[0].Page1[0].surgeryGroup[0].surgeryButtons[0]": rows[0].surgeryButton,
+        "MCSA-5875[0].Page1[0].surgeryGroup[0].surgeryDescribe[0]": rows[0].surgeryComments,
+        "MCSA-5875[0].Page1[0].medicineGroup[0].medicineButtons[0]": rows[0].medicationButton,
+        "MCSA-5875[0].Page1[0].medicineGroup[0].medicineDescribe[0]": rows[0].medicationComments,
+        "MCSA-5875[0].Page1[0].attachButton[0]": "rows[0].",
+        "MCSA-5875[0].Page2[0].pageHead2[0].nameLastHead2[0]": rows[0].lastname,
+        "MCSA-5875[0].Page2[0].pageHead2[0].nameFirstHead2[0]": rows[0].firstname,
+        "MCSA-5875[0].Page2[0].pageHead2[0].nameInitialHead2[0]": rows[0].middlename,
+        "MCSA-5875[0].Page2[0].pageHead2[0].dateBirth2[0]": rows[0].dob,
+        "MCSA-5875[0].Page2[0].pageHead2[0].dateForm2[0]": date,
+        "MCSA-5875[0].Page2[0].driverHealth[0].headGroup[0].headButtons[0]": rows[0].brainInjuries,
+        "MCSA-5875[0].Page2[0].driverHealth[0].seizeGroup[0].seizeButtons[0]": rows[0].seizures,
+        "MCSA-5875[0].Page2[0].driverHealth[0].eyeGroup[0].eyeButtons[0]": rows[0].eyeProblems,
+        "MCSA-5875[0].Page2[0].driverHealth[0].earGroup[0].earButtons[0]": rows[0].earProblems,
+        "MCSA-5875[0].Page2[0].driverHealth[0].heartGroup[0].heartButtons[0]": rows[0].heartProblems,
+        "MCSA-5875[0].Page2[0].driverHealth[0].paceGroup[0].paceButtons[0]": rows[0].paceMaker,
+        "MCSA-5875[0].Page2[0].driverHealth[0].highGroup[0].highButtons[0]": rows[0].highBloodPressure,
+        "MCSA-5875[0].Page2[0].driverHealth[0].cholesterolGroup[0].cholesterolButtons[0]": rows[0].highCholesterol,
+        "MCSA-5875[0].Page2[0].driverHealth[0].breathGroup[0].breathButtons[0]": rows[0].breathingProblems,
+        "MCSA-5875[0].Page2[0].driverHealth[0].lungGroup[0].lungButtons[0]": rows[0].lungDisease,
+        "MCSA-5875[0].Page2[0].driverHealth[0].kidneyGroup[0].kidneyButtons[0]": rows[0].kidneyProblems,
+        "MCSA-5875[0].Page2[0].driverHealth[0].stomachGroup[0].stomachButtons[0]": rows[0].stomachProblems,
+        "MCSA-5875[0].Page2[0].driverHealth[0].sugarGroup[0].sugarButtons[0]": rows[0].diabetes,
+        "MCSA-5875[0].Page2[0].driverHealth[0].insulinGroup[0].insulinButtons[0]": rows[0].insulin,
+        "MCSA-5875[0].Page2[0].driverHealth[0].mentalGroup[0].mentalButtons[0]": rows[0].anxiety,
+        "MCSA-5875[0].Page2[0].driverHealth[0].faintGroup[0].faintButtons[0]": rows[0].fainting,
+        "MCSA-5875[0].Page2[0].driverHealth[0].dizzyGroup[0].dizzyButtons[0]": rows[0].dizziness,
+        "MCSA-5875[0].Page2[0].driverHealth[0].weightGroup[0].weightButtons[0]": rows[0].unexplainedWeightLoss,
+        "MCSA-5875[0].Page2[0].driverHealth[0].strokeGroup[0].strokeButtons[0]": rows[0].stroke,
+        "MCSA-5875[0].Page2[0].driverHealth[0].uselimitGroup[0].uselimitButtons[0]": rows[0].missingLimbs,
+        "MCSA-5875[0].Page2[0].driverHealth[0].neckbackGroup[0].neckbackButtons[0]": rows[0].backProblems,
+        "MCSA-5875[0].Page2[0].driverHealth[0].boneGroup[0].boneButtons[0]": rows[0].boneProblems,
+        "MCSA-5875[0].Page2[0].driverHealth[0].bloodGroup[0].bloodButtons[0]": rows[0].bloodClots,
+        "MCSA-5875[0].Page2[0].driverHealth[0].cancerGroup[0].cancerButtons[0]": rows[0].cancer,
+        "MCSA-5875[0].Page2[0].driverHealth[0].infectGroup[0].infectButtons[0]": rows[0].chronicDiseases,
+        "MCSA-5875[0].Page2[0].driverHealth[0].apneaGroup[0].apneaButtons[0]": rows[0].sleepDisorders,
+        "MCSA-5875[0].Page2[0].driverHealth[0].sleeptestGroup[0].sleeptestButtons[0]": rows[0].sleepTest,
+        "MCSA-5875[0].Page2[0].driverHealth[0].hospitalGroup[0].hospitalButtons[0]": rows[0].nightInHospital,
+        "MCSA-5875[0].Page2[0].driverHealth[0].brokenGroup[0].brokenButtons[0]": rows[0].brokenBone,
+        "MCSA-5875[0].Page2[0].driverHealth[0].tobaccoGroup[0].tobaccoButtons[0]": rows[0].useTobacco,
+        "MCSA-5875[0].Page2[0].driverHealth[0].alcoholGroup[0].alcoholButtons[0]": rows[0].drinkAlcohol,
+        "MCSA-5875[0].Page2[0].driverHealth[0].illegalGroup[0].illegalButtons[0]": rows[0].illegalSubstance,
+        "MCSA-5875[0].Page2[0].driverHealth[0].failedGroup[0].failedButtons[0]": rows[0].failedDrugTest,
+        "MCSA-5875[0].Page2[0].otherGroup[0].otherButtons[0]": rows[0].otherButton,
+        "MCSA-5875[0].Page2[0].otherGroup[0].otherDescribe[0]": rows[0].otherComments,
+        "MCSA-5875[0].Page2[0].commentGroup[0].commentButtons[0]": rows[0].yesButton,
+        "MCSA-5875[0].Page2[0].commentGroup[0].commentDescribe[0]": rows[0].yesDescribe,
+        "MCSA-5875[0].Page2[0].attachButton[0]": "rows[0].",
+        "MCSA-5875[0].Page2[0].driverSignature[0].signatureDate[0]": "rows[0].",
+        "MCSA-5875[0].Page2[0].#area[2].driveReview[0].examinerComment[0]": "rows[0].",
+        "MCSA-5875[0].Page2[0].#area[2].driveReview[0].attachButton2[0]": "rows[0].",
+        "MCSA-5875[0].Page3[0].pageHead3[0].nameLastHead3[0]": rows[0].lastname,
+        "MCSA-5875[0].Page3[0].pageHead3[0].nameFirstHead3[0]": rows[0].firstname,
+        "MCSA-5875[0].Page3[0].pageHead3[0].nameInitialHead3[0]": rows[0].middlename,
+        "MCSA-5875[0].Page3[0].pageHead3[0].dateBirth3[0]": rows[0].dob,
+        "MCSA-5875[0].Page3[0].pageHead3[0].dateForm3[0]": date,
+        "MCSA-5875[0].Page3[0].driveTest[0].basicStats[0].pulseMeasure[0]": rows[0].pulserate,
+        "MCSA-5875[0].Page3[0].driveTest[0].basicStats[0].pulserhythmGroup[0].pulserhythmButtons[0]": rows[0].pulserhythm,
+        "MCSA-5875[0].Page3[0].driveTest[0].basicStats[0].#area[1].feetHeight[0]": rows[0].heightfeet,
+        "MCSA-5875[0].Page3[0].driveTest[0].basicStats[0].#area[1].inchesHeight[0]": rows[0].heightinches,
+        "MCSA-5875[0].Page3[0].driveTest[0].basicStats[0].#area[1].poundsWeight[0]": rows[0].weight,
+        "MCSA-5875[0].Page3[0].driveTest[0].bloodPressure[0].Row1[0].sitSys[0]": rows[0].systolic1,
+        "MCSA-5875[0].Page3[0].driveTest[0].bloodPressure[0].Row1[0].sitDias[0]": rows[0].diastolic1,
+        "MCSA-5875[0].Page3[0].driveTest[0].bloodPressure[0].Row2[0].secSys[0]": rows[0].systolic2,
+        "MCSA-5875[0].Page3[0].driveTest[0].bloodPressure[0].Row2[0].secDias[0]": rows[0].diastolic2,
+        "MCSA-5875[0].Page3[0].driveTest[0].otherTesting[0]": rows[0].othertesting,
+        "MCSA-5875[0].Page3[0].driveTest[0].urineTest[0].urineAnalysis[0].Row1[0].spgrNumber[0]": rows[0].urinesp,
+        "MCSA-5875[0].Page3[0].driveTest[0].urineTest[0].urineAnalysis[0].Row1[0].proteinNumber[0]": rows[0].urineprotein,
+        "MCSA-5875[0].Page3[0].driveTest[0].urineTest[0].urineAnalysis[0].Row1[0].bloodNumber[0]": rows[0].urineblood,
+        "MCSA-5875[0].Page3[0].driveTest[0].urineTest[0].urineAnalysis[0].Row1[0].sugarNumber[0]": rows[0].urinesugar,
+        "MCSA-5875[0].Page3[0].driveTest[0].visionTest[0].uncorrectRight[0]": rows[0].rightuncorrected,
+        "MCSA-5875[0].Page3[0].driveTest[0].visionTest[0].correctRight[0]": rows[0].rightcorrected,
+        "MCSA-5875[0].Page3[0].driveTest[0].visionTest[0].fieldRight[0]": rows[0].fieldright,
+        "MCSA-5875[0].Page3[0].driveTest[0].visionTest[0].uncorrectLeft[0]": rows[0].leftuncorrected,
+        "MCSA-5875[0].Page3[0].driveTest[0].visionTest[0].correctLeft[0]": rows[0].leftcorrected,
+        "MCSA-5875[0].Page3[0].driveTest[0].visionTest[0].fieldLeft[0]": rows[0].fieldleft,
+        "MCSA-5875[0].Page3[0].driveTest[0].visionTest[0].uncorrectBoth[0]": rows[0].bothuncorrected,
+        "MCSA-5875[0].Page3[0].driveTest[0].visionTest[0].correctBoth[0]": rows[0].bothcorrected,
+        "MCSA-5875[0].Page3[0].driveTest[0].visionTest[0].distinguishGroup[0].distinguishButtons[0]": rows[0].traficlight,
+        "MCSA-5875[0].Page3[0].driveTest[0].visionTest[0].monocularGroup[0].monocularButtons[0]": rows[0].monocular,
+        "MCSA-5875[0].Page3[0].driveTest[0].visionTest[0].referredGroup[0].referredButtons[0]": rows[0].optometrist,
+        "MCSA-5875[0].Page3[0].driveTest[0].visionTest[0].documentGroup[0].documentButtons[0]": rows[0].documentation,
+        "MCSA-5875[0].Page3[0].driveTest[0].hearingTest[0].#area[0].hearingaidGroup[0].hearingaidButtons[0]": rows[0].hearingaid,
+        "MCSA-5875[0].Page3[0].driveTest[0].hearingTest[0].#area[0].whisperRight[0]": rows[0].rightear,
+        "MCSA-5875[0].Page3[0].driveTest[0].hearingTest[0].#area[0].whisperLeft[0]": rows[0].leftear,
+        "MCSA-5875[0].Page3[0].driveTest[0].hearingTest[0].#area[0].#area[2].right500[0]": rows[0].right500,
+        "MCSA-5875[0].Page3[0].driveTest[0].hearingTest[0].#area[0].#area[2].right1000[0]": rows[0].right1000,
+        "MCSA-5875[0].Page3[0].driveTest[0].hearingTest[0].#area[0].#area[2].right2000[0]": rows[0].right2000,
+        "MCSA-5875[0].Page3[0].driveTest[0].hearingTest[0].#area[0].#area[2].left500[0]": rows[0].left500,
+        "MCSA-5875[0].Page3[0].driveTest[0].hearingTest[0].#area[0].#area[2].left1000[0]": rows[0].left1000,
+        "MCSA-5875[0].Page3[0].driveTest[0].hearingTest[0].#area[0].#area[2].left2000[0]": rows[0].left2000,
+        "MCSA-5875[0].Page3[0].driveTest[0].hearingTest[0].#area[0].#area[2].rightAverage[0]": avgRight,
+        "MCSA-5875[0].Page3[0].driveTest[0].hearingTest[0].#area[0].#area[2].leftAverage[0]": avgLeft,
+        "MCSA-5875[0].Page3[0].driveExam[0].bodysys1[0].generalButtons[0]": "rows[0].",
+        "MCSA-5875[0].Page3[0].driveExam[0].bodysys1[0].skinButtons[0]": "rows[0].",
+        "MCSA-5875[0].Page3[0].driveExam[0].bodysys1[0].eyesButtons[0]": "rows[0].",
+        "MCSA-5875[0].Page3[0].driveExam[0].bodysys1[0].earsButtons[0]": "rows[0].",
+        "MCSA-5875[0].Page3[0].driveExam[0].bodysys1[0].mouthButtons[0]": "rows[0].",
+        "MCSA-5875[0].Page3[0].driveExam[0].bodysys1[0].heartButtons[0]": "rows[0].",
+        "MCSA-5875[0].Page3[0].driveExam[0].bodysys1[0].chestButtons[0]": "rows[0].",
+        "MCSA-5875[0].Page3[0].driveExam[0].bodysys2[0].abdomenButtons[0]": "rows[0].",
+        "MCSA-5875[0].Page3[0].driveExam[0].bodysys2[0].herniaButtons[0]": "rows[0].",
+        "MCSA-5875[0].Page3[0].driveExam[0].bodysys2[0].backButtons[0]": "rows[0].",
+        "MCSA-5875[0].Page3[0].driveExam[0].bodysys2[0].jointsButtons[0]": "rows[0].",
+        "MCSA-5875[0].Page3[0].driveExam[0].bodysys2[0].neuroButtons[0]": "rows[0].",
+        "MCSA-5875[0].Page3[0].driveExam[0].bodysys2[0].gaitButtons[0]": "rows[0].",
+        "MCSA-5875[0].Page3[0].driveExam[0].bodysys2[0].vascularButtons[0]": "rows[0].",
+        "MCSA-5875[0].Page3[0].driveExam[0].examComment[0]": "rows[0].",
+        "MCSA-5875[0].Page3[0].driveExam[0].attachButton3[0]": "rows[0].",
+        "MCSA-5875[0].Page4[0].pageHead4[0].nameLastHead4[0]": rows[0].lastname,
+        "MCSA-5875[0].Page4[0].pageHead4[0].nameFirstHead4[0]": rows[0].firstname,
+        "MCSA-5875[0].Page4[0].pageHead4[0].nameInitialHead4[0]": rows[0].middlename,
+        "MCSA-5875[0].Page4[0].pageHead4[0].dateBirth4[0]": rows[0].dob,
+        "MCSA-5875[0].Page4[0].pageHead4[0].dateForm4[0]": date,
+        "MCSA-5875[0].Page4[0].fedDetermination[0].standardButtonList[0]": "rows[0].",
+        "MCSA-5875[0].Page4[0].fedDetermination[0].notStandardsWhy[0]": "rows[0].",
+        "MCSA-5875[0].Page4[0].fedDetermination[0].butStandardsWhy[0]": "rows[0].",
+        "MCSA-5875[0].Page4[0].fedDetermination[0].qualifiedButtonList[0]": "rows[0].",
+        "MCSA-5875[0].Page4[0].fedDetermination[0].otherQualify[0]": "rows[0].",
+        "MCSA-5875[0].Page4[0].fedDetermination[0].correctLenses[0]": "rows[0].",
+        "MCSA-5875[0].Page4[0].fedDetermination[0].hearingAid[0]": "rows[0].",
+        "MCSA-5875[0].Page4[0].fedDetermination[0].waiverQualify[0]": "rows[0].",
+        "MCSA-5875[0].Page4[0].fedDetermination[0].waiverEnter[0]": "rows[0].",
+        "MCSA-5875[0].Page4[0].fedDetermination[0].speQualify[0]": "rows[0].",
+        "MCSA-5875[0].Page4[0].fedDetermination[0].cfrQualify[0]": "rows[0].",
+        "MCSA-5875[0].Page4[0].fedDetermination[0].exemptQualify[0]": "rows[0].",
+        "MCSA-5875[0].Page4[0].fedDetermination[0].incompleteButtonList[0]": "rows[0].",
+        "MCSA-5875[0].Page4[0].fedDetermination[0].pendingWhy[0]": "rows[0].",
+        "MCSA-5875[0].Page4[0].fedDetermination[0].returnExam[0]": "rows[0].",
+        "MCSA-5875[0].Page4[0].fedDetermination[0].returnDate[0]": "rows[0].",
+        "MCSA-5875[0].Page4[0].fedDetermination[0].reportAmend[0]": "rows[0].",
+        "MCSA-5875[0].Page4[0].fedDetermination[0].amendWhy[0]": "rows[0].",
+        "MCSA-5875[0].Page4[0].fedDetermination[0].ifAmendDate[0]": "rows[0].",
+        "MCSA-5875[0].Page4[0].fedDetermination[0].incompleteWhy[0]": "rows[0].",
+        "MCSA-5875[0].Page4[0].fedDetermination[0].examName[0]": "rows[0].",
+        "MCSA-5875[0].Page4[0].fedDetermination[0].medicalAddress[0]": "rows[0].",
+        "MCSA-5875[0].Page4[0].fedDetermination[0].medicalCity[0]": "rows[0].",
+        "MCSA-5875[0].Page4[0].fedDetermination[0].medicalState[0]": "rows[0].",
+        "MCSA-5875[0].Page4[0].fedDetermination[0].medicalZip[0]": "rows[0].",
+        "MCSA-5875[0].Page4[0].fedDetermination[0].medicalPhone[0]": "rows[0].",
+        "MCSA-5875[0].Page4[0].fedDetermination[0].examDate[0]": "rows[0].",
+        "MCSA-5875[0].Page4[0].fedDetermination[0].certNumber[0]": "rows[0].",
+        "MCSA-5875[0].Page4[0].fedDetermination[0].issueState[0]": "rows[0].",
+        "MCSA-5875[0].Page4[0].fedDetermination[0].md[0]": "rows[0].",
+        "MCSA-5875[0].Page4[0].fedDetermination[0].do[0]": "rows[0].",
+        "MCSA-5875[0].Page4[0].fedDetermination[0].physAssist[0]": "rows[0].",
+        "MCSA-5875[0].Page4[0].fedDetermination[0].chiroPractor[0]": "rows[0].",
+        "MCSA-5875[0].Page4[0].fedDetermination[0].pracNurse[0]": "rows[0].",
+        "MCSA-5875[0].Page4[0].fedDetermination[0].otherPrac[0]": "rows[0].",
+        "MCSA-5875[0].Page4[0].fedDetermination[0].nationalRegister[0]": "rows[0].",
+        "MCSA-5875[0].Page4[0].fedDetermination[0].expireDate[0]": "rows[0].",
+        "MCSA-5875[0].Page4[0].fedDetermination[0].otherPracSpecify[0]": "rows[0].",
+        "MCSA-5875[0].Page5[0].pageHead5[0].nameLastHead5[0]": rows[0].lastname,
+        "MCSA-5875[0].Page5[0].pageHead5[0].nameFirstHead5[0]": rows[0].firstname,
+        "MCSA-5875[0].Page5[0].pageHead5[0].nameInitialHead5[0]": rows[0].middlename,
+        "MCSA-5875[0].Page5[0].pageHead5[0].dateBirth5[0]": rows[0].dob,
+        "MCSA-5875[0].Page5[0].pageHead5[0].dateForm5[0]": date,
+        "MCSA-5875[0].Page5[0].stateDetermination[0].standardButtonListState[0]": "rows[0].",
+        "MCSA-5875[0].Page5[0].stateDetermination[0].notStandardsWhyState[0]": "rows[0].",
+        "MCSA-5875[0].Page5[0].stateDetermination[0].butStandardsWhyState[0]": "rows[0].",
+        "MCSA-5875[0].Page5[0].stateDetermination[0].qualifiedButtonListState[0]": "rows[0].",
+        "MCSA-5875[0].Page5[0].stateDetermination[0].otherQualifyState[0]": "rows[0].",
+        "MCSA-5875[0].Page5[0].stateDetermination[0].correctLensesState[0]": "rows[0].",
+        "MCSA-5875[0].Page5[0].stateDetermination[0].hearingAidState[0]": "rows[0].",
+        "MCSA-5875[0].Page5[0].stateDetermination[0].waiverQualifyState[0]": "rows[0].",
+        "MCSA-5875[0].Page5[0].stateDetermination[0].waiverEnterState[0]": "rows[0].",
+        "MCSA-5875[0].Page5[0].stateDetermination[0].speQualifyState[0]": "rows[0].",
+        "MCSA-5875[0].Page5[0].stateDetermination[0].grandQualifyState[0]": "rows[0].",
+        "MCSA-5875[0].Page5[0].stateDetermination[0].examNameState[0]": "rows[0].",
+        "MCSA-5875[0].Page5[0].stateDetermination[0].examDateState[0]": "rows[0].",
+        "MCSA-5875[0].Page5[0].stateDetermination[0].medicalAddressState[0]": "rows[0].",
+        "MCSA-5875[0].Page5[0].stateDetermination[0].medicalCityState[0]": "rows[0].",
+        "MCSA-5875[0].Page5[0].stateDetermination[0].medicalStateState[0]": "rows[0].",
+        "MCSA-5875[0].Page5[0].stateDetermination[0].medicalZipState[0]": "rows[0].",
+        "MCSA-5875[0].Page5[0].stateDetermination[0].medicalPhoneState[0]": "rows[0].",
+        "MCSA-5875[0].Page5[0].stateDetermination[0].certNumberState[0]": "rows[0].",
+        "MCSA-5875[0].Page5[0].stateDetermination[0].issueStateState[0]": "rows[0].",
+        "MCSA-5875[0].Page5[0].stateDetermination[0].mdState[0]": "rows[0].",
+        "MCSA-5875[0].Page5[0].stateDetermination[0].doState[0]": "rows[0].",
+        "MCSA-5875[0].Page5[0].stateDetermination[0].physAssistState[0]": "rows[0].",
+        "MCSA-5875[0].Page5[0].stateDetermination[0].chiroPractorState[0]": "rows[0].",
+        "MCSA-5875[0].Page5[0].stateDetermination[0].pracNurseState[0]": "rows[0].",
+        "MCSA-5875[0].Page5[0].stateDetermination[0].otherPracState[0]": "rows[0].",
+        "MCSA-5875[0].Page5[0].stateDetermination[0].otherSpec[0]": "rows[0].",
+        "MCSA-5875[0].Page5[0].stateDetermination[0].nationalRegisterState[0]": "rows[0].",
+        "MCSA-5875[0].Page5[0].stateDetermination[0].expireDateState[0]": "rows[0]."
 
+      };
 
-var d = new Date();
-var monthFix = Number(d.getMonth()) + 1;
-var date = monthFix + "/" + d.getDate() + "/" + d.getFullYear();
-//console.log(str);
-
-var data = {
-"MCSA-5875[0].Page1[0].privacyStatement[0].privacyDate[0]": "rows[0].",
-"MCSA-5875[0].Page1[0].medRecord[0].medNumber[0]": "rows[0].",
-"MCSA-5875[0].Page1[0].driverPersonal[0].nameLast[0]": rows[0].lastname,
-"MCSA-5875[0].Page1[0].driverPersonal[0].nameFirst[0]": rows[0].firstname,
-"MCSA-5875[0].Page1[0].driverPersonal[0].nameInitial[0]": rows[0].middlename,
-"MCSA-5875[0].Page1[0].driverPersonal[0].birthDate[0]": rows[0].dob,
-"MCSA-5875[0].Page1[0].driverPersonal[0].driverAge[0]": rows[0].age,
-"MCSA-5875[0].Page1[0].driverPersonal[0].driverAddress[0]": rows[0].streetaddress,
-"MCSA-5875[0].Page1[0].driverPersonal[0].driverCity[0]": rows[0].city,
-"MCSA-5875[0].Page1[0].driverPersonal[0].driverState[0]": rows[0].state,
-"MCSA-5875[0].Page1[0].driverPersonal[0].driverZip[0]": rows[0].zip,
-"MCSA-5875[0].Page1[0].driverPersonal[0].driverLicense[0]": rows[0].dln,
-"MCSA-5875[0].Page1[0].driverPersonal[0].licenseState[0]": rows[0].issuing,
-"MCSA-5875[0].Page1[0].driverPersonal[0].driverPhone[0]": rows[0].phone,
-"MCSA-5875[0].Page1[0].driverPersonal[0].genderGroup[0].genderButtons[0]": rows[0].gender,
-"MCSA-5875[0].Page1[0].driverPersonal[0].emailAddress[0]": rows[0].email,
-"MCSA-5875[0].Page1[0].driverPersonal[0].cdlLicense[0].cdlButtonList[0]": rows[0].holder,
-"MCSA-5875[0].Page1[0].driverPersonal[0].driverVerify[0]": rows[0].verified,
-"MCSA-5875[0].Page1[0].driverPersonal[0].certDenyGroup[0].certDenyButtons[0]": rows[0].denied,
-"MCSA-5875[0].Page1[0].surgeryGroup[0].surgeryButtons[0]": rows[0].surgeryButton,
-"MCSA-5875[0].Page1[0].surgeryGroup[0].surgeryDescribe[0]": rows[0].surgeryComments,
-"MCSA-5875[0].Page1[0].medicineGroup[0].medicineButtons[0]": rows[0].medicationButton,
-"MCSA-5875[0].Page1[0].medicineGroup[0].medicineDescribe[0]": rows[0].medicationComments,
-"MCSA-5875[0].Page1[0].attachButton[0]": "rows[0].",
-"MCSA-5875[0].Page2[0].pageHead2[0].nameLastHead2[0]": rows[0].lastname,
-"MCSA-5875[0].Page2[0].pageHead2[0].nameFirstHead2[0]": rows[0].firstname,
-"MCSA-5875[0].Page2[0].pageHead2[0].nameInitialHead2[0]": rows[0].middlename,
-"MCSA-5875[0].Page2[0].pageHead2[0].dateBirth2[0]": rows[0].dob,
-"MCSA-5875[0].Page2[0].pageHead2[0].dateForm2[0]": date,
-"MCSA-5875[0].Page2[0].driverHealth[0].headGroup[0].headButtons[0]": rows[0].brainInjuries,
-"MCSA-5875[0].Page2[0].driverHealth[0].seizeGroup[0].seizeButtons[0]": rows[0].seizures,
-"MCSA-5875[0].Page2[0].driverHealth[0].eyeGroup[0].eyeButtons[0]": rows[0].eyeProblems,
-"MCSA-5875[0].Page2[0].driverHealth[0].earGroup[0].earButtons[0]": rows[0].earProblems,
-"MCSA-5875[0].Page2[0].driverHealth[0].heartGroup[0].heartButtons[0]": rows[0].heartProblems,
-"MCSA-5875[0].Page2[0].driverHealth[0].paceGroup[0].paceButtons[0]": rows[0].paceMaker,
-"MCSA-5875[0].Page2[0].driverHealth[0].highGroup[0].highButtons[0]": rows[0].highBloodPressure,
-"MCSA-5875[0].Page2[0].driverHealth[0].cholesterolGroup[0].cholesterolButtons[0]": rows[0].highCholesterol,
-"MCSA-5875[0].Page2[0].driverHealth[0].breathGroup[0].breathButtons[0]": rows[0].breathingProblems,
-"MCSA-5875[0].Page2[0].driverHealth[0].lungGroup[0].lungButtons[0]": rows[0].lungDisease,
-"MCSA-5875[0].Page2[0].driverHealth[0].kidneyGroup[0].kidneyButtons[0]": rows[0].kidneyProblems,
-"MCSA-5875[0].Page2[0].driverHealth[0].stomachGroup[0].stomachButtons[0]": rows[0].stomachProblems,
-"MCSA-5875[0].Page2[0].driverHealth[0].sugarGroup[0].sugarButtons[0]": rows[0].diabetes,
-"MCSA-5875[0].Page2[0].driverHealth[0].insulinGroup[0].insulinButtons[0]": rows[0].insulin,
-"MCSA-5875[0].Page2[0].driverHealth[0].mentalGroup[0].mentalButtons[0]": rows[0].anxiety,
-"MCSA-5875[0].Page2[0].driverHealth[0].faintGroup[0].faintButtons[0]": rows[0].fainting,
-"MCSA-5875[0].Page2[0].driverHealth[0].dizzyGroup[0].dizzyButtons[0]": rows[0].dizziness,
-"MCSA-5875[0].Page2[0].driverHealth[0].weightGroup[0].weightButtons[0]": rows[0].unexplainedWeightLoss,
-"MCSA-5875[0].Page2[0].driverHealth[0].strokeGroup[0].strokeButtons[0]": rows[0].stroke,
-"MCSA-5875[0].Page2[0].driverHealth[0].uselimitGroup[0].uselimitButtons[0]": rows[0].missingLimbs,
-"MCSA-5875[0].Page2[0].driverHealth[0].neckbackGroup[0].neckbackButtons[0]": rows[0].backProblems,
-"MCSA-5875[0].Page2[0].driverHealth[0].boneGroup[0].boneButtons[0]": rows[0].boneProblems,
-"MCSA-5875[0].Page2[0].driverHealth[0].bloodGroup[0].bloodButtons[0]": rows[0].bloodClots,
-"MCSA-5875[0].Page2[0].driverHealth[0].cancerGroup[0].cancerButtons[0]": rows[0].cancer,
-"MCSA-5875[0].Page2[0].driverHealth[0].infectGroup[0].infectButtons[0]": rows[0].chronicDiseases,
-"MCSA-5875[0].Page2[0].driverHealth[0].apneaGroup[0].apneaButtons[0]": rows[0].sleepDisorders,
-"MCSA-5875[0].Page2[0].driverHealth[0].sleeptestGroup[0].sleeptestButtons[0]": rows[0].sleepTest,
-"MCSA-5875[0].Page2[0].driverHealth[0].hospitalGroup[0].hospitalButtons[0]": rows[0].nightInHospital,
-"MCSA-5875[0].Page2[0].driverHealth[0].brokenGroup[0].brokenButtons[0]": rows[0].brokenBone,
-"MCSA-5875[0].Page2[0].driverHealth[0].tobaccoGroup[0].tobaccoButtons[0]": rows[0].useTobacco,
-"MCSA-5875[0].Page2[0].driverHealth[0].alcoholGroup[0].alcoholButtons[0]": rows[0].drinkAlcohol,
-"MCSA-5875[0].Page2[0].driverHealth[0].illegalGroup[0].illegalButtons[0]": rows[0].illegalSubstance,
-"MCSA-5875[0].Page2[0].driverHealth[0].failedGroup[0].failedButtons[0]": rows[0].failedDrugTest,
-"MCSA-5875[0].Page2[0].otherGroup[0].otherButtons[0]": rows[0].otherButton,
-"MCSA-5875[0].Page2[0].otherGroup[0].otherDescribe[0]": rows[0].otherComments,
-"MCSA-5875[0].Page2[0].commentGroup[0].commentButtons[0]": rows[0].yesButton,
-"MCSA-5875[0].Page2[0].commentGroup[0].commentDescribe[0]": rows[0].yesDescribe,
-"MCSA-5875[0].Page2[0].attachButton[0]": "rows[0].",
-"MCSA-5875[0].Page2[0].driverSignature[0].signatureDate[0]": "rows[0].",
-"MCSA-5875[0].Page2[0].#area[2].driveReview[0].examinerComment[0]": "rows[0].",
-"MCSA-5875[0].Page2[0].#area[2].driveReview[0].attachButton2[0]": "rows[0].",
-"MCSA-5875[0].Page3[0].pageHead3[0].nameLastHead3[0]": rows[0].lastname,
-"MCSA-5875[0].Page3[0].pageHead3[0].nameFirstHead3[0]": rows[0].firstname,
-"MCSA-5875[0].Page3[0].pageHead3[0].nameInitialHead3[0]": rows[0].middlename,
-"MCSA-5875[0].Page3[0].pageHead3[0].dateBirth3[0]": rows[0].dob,
-"MCSA-5875[0].Page3[0].pageHead3[0].dateForm3[0]": date,
-"MCSA-5875[0].Page3[0].driveTest[0].basicStats[0].pulseMeasure[0]": rows[0].pulserate,
-"MCSA-5875[0].Page3[0].driveTest[0].basicStats[0].pulserhythmGroup[0].pulserhythmButtons[0]": rows[0].pulserhythm,
-"MCSA-5875[0].Page3[0].driveTest[0].basicStats[0].#area[1].feetHeight[0]": rows[0].heightfeet,
-"MCSA-5875[0].Page3[0].driveTest[0].basicStats[0].#area[1].inchesHeight[0]": rows[0].heightinches,
-"MCSA-5875[0].Page3[0].driveTest[0].basicStats[0].#area[1].poundsWeight[0]": rows[0].weight,
-"MCSA-5875[0].Page3[0].driveTest[0].bloodPressure[0].Row1[0].sitSys[0]": rows[0].systolic1,
-"MCSA-5875[0].Page3[0].driveTest[0].bloodPressure[0].Row1[0].sitDias[0]": rows[0].diastolic1,
-"MCSA-5875[0].Page3[0].driveTest[0].bloodPressure[0].Row2[0].secSys[0]": rows[0].systolic2,
-"MCSA-5875[0].Page3[0].driveTest[0].bloodPressure[0].Row2[0].secDias[0]": rows[0].diastolic2,
-"MCSA-5875[0].Page3[0].driveTest[0].otherTesting[0]": rows[0].othertesting,
-"MCSA-5875[0].Page3[0].driveTest[0].urineTest[0].urineAnalysis[0].Row1[0].spgrNumber[0]": rows[0].urinesp,
-"MCSA-5875[0].Page3[0].driveTest[0].urineTest[0].urineAnalysis[0].Row1[0].proteinNumber[0]": rows[0].urineprotein,
-"MCSA-5875[0].Page3[0].driveTest[0].urineTest[0].urineAnalysis[0].Row1[0].bloodNumber[0]": rows[0].urineblood,
-"MCSA-5875[0].Page3[0].driveTest[0].urineTest[0].urineAnalysis[0].Row1[0].sugarNumber[0]": rows[0].urinesugar,
-"MCSA-5875[0].Page3[0].driveTest[0].visionTest[0].uncorrectRight[0]": rows[0].rightuncorrected,
-"MCSA-5875[0].Page3[0].driveTest[0].visionTest[0].correctRight[0]": rows[0].rightcorrected,
-"MCSA-5875[0].Page3[0].driveTest[0].visionTest[0].fieldRight[0]": rows[0].fieldright,
-"MCSA-5875[0].Page3[0].driveTest[0].visionTest[0].uncorrectLeft[0]": rows[0].leftuncorrected,
-"MCSA-5875[0].Page3[0].driveTest[0].visionTest[0].correctLeft[0]": rows[0].leftcorrected,
-"MCSA-5875[0].Page3[0].driveTest[0].visionTest[0].fieldLeft[0]": rows[0].fieldleft,
-"MCSA-5875[0].Page3[0].driveTest[0].visionTest[0].uncorrectBoth[0]": rows[0].bothuncorrected,
-"MCSA-5875[0].Page3[0].driveTest[0].visionTest[0].correctBoth[0]": rows[0].bothcorrected,
-"MCSA-5875[0].Page3[0].driveTest[0].visionTest[0].distinguishGroup[0].distinguishButtons[0]": rows[0].traficlight,
-"MCSA-5875[0].Page3[0].driveTest[0].visionTest[0].monocularGroup[0].monocularButtons[0]": rows[0].monocular,
-"MCSA-5875[0].Page3[0].driveTest[0].visionTest[0].referredGroup[0].referredButtons[0]": rows[0].optometrist,
-"MCSA-5875[0].Page3[0].driveTest[0].visionTest[0].documentGroup[0].documentButtons[0]": rows[0].documentation,
-"MCSA-5875[0].Page3[0].driveTest[0].hearingTest[0].#area[0].hearingaidGroup[0].hearingaidButtons[0]": "rows[0].",
-"MCSA-5875[0].Page3[0].driveTest[0].hearingTest[0].#area[0].whisperRight[0]": "rows[0].",
-"MCSA-5875[0].Page3[0].driveTest[0].hearingTest[0].#area[0].whisperLeft[0]": "rows[0].",
-"MCSA-5875[0].Page3[0].driveTest[0].hearingTest[0].#area[0].#area[2].right500[0]": "rows[0].",
-"MCSA-5875[0].Page3[0].driveTest[0].hearingTest[0].#area[0].#area[2].right1000[0]": "rows[0].",
-"MCSA-5875[0].Page3[0].driveTest[0].hearingTest[0].#area[0].#area[2].right2000[0]": "rows[0].",
-"MCSA-5875[0].Page3[0].driveTest[0].hearingTest[0].#area[0].#area[2].left500[0]": "rows[0].",
-"MCSA-5875[0].Page3[0].driveTest[0].hearingTest[0].#area[0].#area[2].left1000[0]": "rows[0].",
-"MCSA-5875[0].Page3[0].driveTest[0].hearingTest[0].#area[0].#area[2].left2000[0]": "rows[0].",
-"MCSA-5875[0].Page3[0].driveTest[0].hearingTest[0].#area[0].#area[2].rightAverage[0]": "rows[0].",
-"MCSA-5875[0].Page3[0].driveTest[0].hearingTest[0].#area[0].#area[2].leftAverage[0]": "rows[0].",
-"MCSA-5875[0].Page3[0].driveExam[0].bodysys1[0].generalButtons[0]": "rows[0].",
-"MCSA-5875[0].Page3[0].driveExam[0].bodysys1[0].skinButtons[0]": "rows[0].",
-"MCSA-5875[0].Page3[0].driveExam[0].bodysys1[0].eyesButtons[0]": "rows[0].",
-"MCSA-5875[0].Page3[0].driveExam[0].bodysys1[0].earsButtons[0]": "rows[0].",
-"MCSA-5875[0].Page3[0].driveExam[0].bodysys1[0].mouthButtons[0]": "rows[0].",
-"MCSA-5875[0].Page3[0].driveExam[0].bodysys1[0].heartButtons[0]": "rows[0].",
-"MCSA-5875[0].Page3[0].driveExam[0].bodysys1[0].chestButtons[0]": "rows[0].",
-"MCSA-5875[0].Page3[0].driveExam[0].bodysys2[0].abdomenButtons[0]": "rows[0].",
-"MCSA-5875[0].Page3[0].driveExam[0].bodysys2[0].herniaButtons[0]": "rows[0].",
-"MCSA-5875[0].Page3[0].driveExam[0].bodysys2[0].backButtons[0]": "rows[0].",
-"MCSA-5875[0].Page3[0].driveExam[0].bodysys2[0].jointsButtons[0]": "rows[0].",
-"MCSA-5875[0].Page3[0].driveExam[0].bodysys2[0].neuroButtons[0]": "rows[0].",
-"MCSA-5875[0].Page3[0].driveExam[0].bodysys2[0].gaitButtons[0]": "rows[0].",
-"MCSA-5875[0].Page3[0].driveExam[0].bodysys2[0].vascularButtons[0]": "rows[0].",
-"MCSA-5875[0].Page3[0].driveExam[0].examComment[0]": "rows[0].",
-"MCSA-5875[0].Page3[0].driveExam[0].attachButton3[0]": "rows[0].",
-"MCSA-5875[0].Page4[0].pageHead4[0].nameLastHead4[0]": rows[0].lastname,
-"MCSA-5875[0].Page4[0].pageHead4[0].nameFirstHead4[0]": rows[0].firstname,
-"MCSA-5875[0].Page4[0].pageHead4[0].nameInitialHead4[0]": rows[0].middlename,
-"MCSA-5875[0].Page4[0].pageHead4[0].dateBirth4[0]": rows[0].dob,
-"MCSA-5875[0].Page4[0].pageHead4[0].dateForm4[0]": date,
-"MCSA-5875[0].Page4[0].fedDetermination[0].standardButtonList[0]": "rows[0].",
-"MCSA-5875[0].Page4[0].fedDetermination[0].notStandardsWhy[0]": "rows[0].",
-"MCSA-5875[0].Page4[0].fedDetermination[0].butStandardsWhy[0]": "rows[0].",
-"MCSA-5875[0].Page4[0].fedDetermination[0].qualifiedButtonList[0]": "rows[0].",
-"MCSA-5875[0].Page4[0].fedDetermination[0].otherQualify[0]": "rows[0].",
-"MCSA-5875[0].Page4[0].fedDetermination[0].correctLenses[0]": "rows[0].",
-"MCSA-5875[0].Page4[0].fedDetermination[0].hearingAid[0]": "rows[0].",
-"MCSA-5875[0].Page4[0].fedDetermination[0].waiverQualify[0]": "rows[0].",
-"MCSA-5875[0].Page4[0].fedDetermination[0].waiverEnter[0]": "rows[0].",
-"MCSA-5875[0].Page4[0].fedDetermination[0].speQualify[0]": "rows[0].",
-"MCSA-5875[0].Page4[0].fedDetermination[0].cfrQualify[0]": "rows[0].",
-"MCSA-5875[0].Page4[0].fedDetermination[0].exemptQualify[0]": "rows[0].",
-"MCSA-5875[0].Page4[0].fedDetermination[0].incompleteButtonList[0]": "rows[0].",
-"MCSA-5875[0].Page4[0].fedDetermination[0].pendingWhy[0]": "rows[0].",
-"MCSA-5875[0].Page4[0].fedDetermination[0].returnExam[0]": "rows[0].",
-"MCSA-5875[0].Page4[0].fedDetermination[0].returnDate[0]": "rows[0].",
-"MCSA-5875[0].Page4[0].fedDetermination[0].reportAmend[0]": "rows[0].",
-"MCSA-5875[0].Page4[0].fedDetermination[0].amendWhy[0]": "rows[0].",
-"MCSA-5875[0].Page4[0].fedDetermination[0].ifAmendDate[0]": "rows[0].",
-"MCSA-5875[0].Page4[0].fedDetermination[0].incompleteWhy[0]": "rows[0].",
-"MCSA-5875[0].Page4[0].fedDetermination[0].examName[0]": "rows[0].",
-"MCSA-5875[0].Page4[0].fedDetermination[0].medicalAddress[0]": "rows[0].",
-"MCSA-5875[0].Page4[0].fedDetermination[0].medicalCity[0]": "rows[0].",
-"MCSA-5875[0].Page4[0].fedDetermination[0].medicalState[0]": "rows[0].",
-"MCSA-5875[0].Page4[0].fedDetermination[0].medicalZip[0]": "rows[0].",
-"MCSA-5875[0].Page4[0].fedDetermination[0].medicalPhone[0]": "rows[0].",
-"MCSA-5875[0].Page4[0].fedDetermination[0].examDate[0]": "rows[0].",
-"MCSA-5875[0].Page4[0].fedDetermination[0].certNumber[0]": "rows[0].",
-"MCSA-5875[0].Page4[0].fedDetermination[0].issueState[0]": "rows[0].",
-"MCSA-5875[0].Page4[0].fedDetermination[0].md[0]": "rows[0].",
-"MCSA-5875[0].Page4[0].fedDetermination[0].do[0]": "rows[0].",
-"MCSA-5875[0].Page4[0].fedDetermination[0].physAssist[0]": "rows[0].",
-"MCSA-5875[0].Page4[0].fedDetermination[0].chiroPractor[0]": "rows[0].",
-"MCSA-5875[0].Page4[0].fedDetermination[0].pracNurse[0]": "rows[0].",
-"MCSA-5875[0].Page4[0].fedDetermination[0].otherPrac[0]": "rows[0].",
-"MCSA-5875[0].Page4[0].fedDetermination[0].nationalRegister[0]": "rows[0].",
-"MCSA-5875[0].Page4[0].fedDetermination[0].expireDate[0]": "rows[0].",
-"MCSA-5875[0].Page4[0].fedDetermination[0].otherPracSpecify[0]": "rows[0].",
-"MCSA-5875[0].Page5[0].pageHead5[0].nameLastHead5[0]": rows[0].lastname,
-"MCSA-5875[0].Page5[0].pageHead5[0].nameFirstHead5[0]": rows[0].firstname,
-"MCSA-5875[0].Page5[0].pageHead5[0].nameInitialHead5[0]": rows[0].middlename,
-"MCSA-5875[0].Page5[0].pageHead5[0].dateBirth5[0]": rows[0].dob,
-"MCSA-5875[0].Page5[0].pageHead5[0].dateForm5[0]": date,
-"MCSA-5875[0].Page5[0].stateDetermination[0].standardButtonListState[0]": "rows[0].",
-"MCSA-5875[0].Page5[0].stateDetermination[0].notStandardsWhyState[0]": "rows[0].",
-"MCSA-5875[0].Page5[0].stateDetermination[0].butStandardsWhyState[0]": "rows[0].",
-"MCSA-5875[0].Page5[0].stateDetermination[0].qualifiedButtonListState[0]": "rows[0].",
-"MCSA-5875[0].Page5[0].stateDetermination[0].otherQualifyState[0]": "rows[0].",
-"MCSA-5875[0].Page5[0].stateDetermination[0].correctLensesState[0]": "rows[0].",
-"MCSA-5875[0].Page5[0].stateDetermination[0].hearingAidState[0]": "rows[0].",
-"MCSA-5875[0].Page5[0].stateDetermination[0].waiverQualifyState[0]": "rows[0].",
-"MCSA-5875[0].Page5[0].stateDetermination[0].waiverEnterState[0]": "rows[0].",
-"MCSA-5875[0].Page5[0].stateDetermination[0].speQualifyState[0]": "rows[0].",
-"MCSA-5875[0].Page5[0].stateDetermination[0].grandQualifyState[0]": "rows[0].",
-"MCSA-5875[0].Page5[0].stateDetermination[0].examNameState[0]": "rows[0].",
-"MCSA-5875[0].Page5[0].stateDetermination[0].examDateState[0]": "rows[0].",
-"MCSA-5875[0].Page5[0].stateDetermination[0].medicalAddressState[0]": "rows[0].",
-"MCSA-5875[0].Page5[0].stateDetermination[0].medicalCityState[0]": "rows[0].",
-"MCSA-5875[0].Page5[0].stateDetermination[0].medicalStateState[0]": "rows[0].",
-"MCSA-5875[0].Page5[0].stateDetermination[0].medicalZipState[0]": "rows[0].",
-"MCSA-5875[0].Page5[0].stateDetermination[0].medicalPhoneState[0]": "rows[0].",
-"MCSA-5875[0].Page5[0].stateDetermination[0].certNumberState[0]": "rows[0].",
-"MCSA-5875[0].Page5[0].stateDetermination[0].issueStateState[0]": "rows[0].",
-"MCSA-5875[0].Page5[0].stateDetermination[0].mdState[0]": "rows[0].",
-"MCSA-5875[0].Page5[0].stateDetermination[0].doState[0]": "rows[0].",
-"MCSA-5875[0].Page5[0].stateDetermination[0].physAssistState[0]": "rows[0].",
-"MCSA-5875[0].Page5[0].stateDetermination[0].chiroPractorState[0]": "rows[0].",
-"MCSA-5875[0].Page5[0].stateDetermination[0].pracNurseState[0]": "rows[0].",
-"MCSA-5875[0].Page5[0].stateDetermination[0].otherPracState[0]": "rows[0].",
-"MCSA-5875[0].Page5[0].stateDetermination[0].otherSpec[0]": "rows[0].",
-"MCSA-5875[0].Page5[0].stateDetermination[0].nationalRegisterState[0]": "rows[0].",
-"MCSA-5875[0].Page5[0].stateDetermination[0].expireDateState[0]": "rows[0]."
-
-};
-
-pdfFiller.fillForm( sourcePDF, destinationPDF, data, shouldFlatten, function(err) {
-    if (err) throw err;
-    console.log("In callback (we're done).");
-});
-
-
-
+      pdfFiller.fillForm(sourcePDF, destinationPDF, data, shouldFlatten, function(err) {
+        if (err) throw err;
+        console.log("In callback (we're done).");
+      });
 
     });
-
-
-
 
     if (user !== undefined) {
       user = user.toJSON();
@@ -644,7 +606,6 @@ pdfFiller.fillForm( sourcePDF, destinationPDF, data, shouldFlatten, function(err
 var endPost = function(req, res, next) {
 
   var user = req.user;
-
 
   res.redirect('/pdf')
 
@@ -664,17 +625,10 @@ var pdf = function(req, res, next) {
 
     res.download('watch9.pdf')
 
-    // res.render('pdf', {
-    //   title: 'PDF',
-    //   user: user
-    // });
   }
 };
 //-------------------------------------------------------
 //res.download('watch9.pdf')
-
-
-
 
 //-------------------------------------------------------
 var dropdown = function(req, res, next) {

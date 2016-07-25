@@ -9,13 +9,28 @@
       <div class="row">
         <div>Standard: Must first perceive whispered voice at not less than 5 feet OR average hearing loss of less than or equal to 40 dB, in better ear (with or without hearing aid).</div>
         <div class="col-md-12">
-          <table class="hearingtable" style="width:100%">
+          <table class="hearingtable" id="hearing-table-top" style="width:100%">
             <tr>
               <td class="hearingtable">Check if hearing aid used for test:</td>
-              <td class="hearingtable">Right ear<input name="hearingaidright" value="yes" class="" type="radio"></td>
-              <td class="hearingtable">Left ear<input name="hearingaidleft" value="yes" class="close" type="radio"></td>
-              <td class="hearingtable">Neither<input name="hearingaidboth" value="neither" class="" type="radio"></td>
+              <td class="hearingtable">Right ear:<input id="hearing-input" name="hearingaid" value="1" type="radio"></td>
+              <td class="hearingtable">Left ear:<input name="hearingaid" value="2" id="hearing-input" type="radio"></td>
+              <td class="hearingtable">Neither:<input name="hearingaid" value="3" id="hearing-input" type="radio"></td>
             </tr>
+
+<!--             <tr>
+
+
+                <td><p>Check if hearing aid used for test:</p></td>
+                <td><input type="radio"></td>
+                <td class="moveleft"><input type="radio"></td>
+                <td><input type="radio"></td>
+
+
+            </tr> -->
+
+
+</table>
+<table>
             <tr class="">
               <th class="hearingtable">Whisper Test Results</th>
             </tr>
