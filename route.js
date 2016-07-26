@@ -516,13 +516,13 @@ var end = function(req, res, next) {
         "MCSA-5875[0].Page4[0].pageHead4[0].nameInitialHead4[0]": rows[0].middlename,
         "MCSA-5875[0].Page4[0].pageHead4[0].dateBirth4[0]": rows[0].dob,
         "MCSA-5875[0].Page4[0].pageHead4[0].dateForm4[0]": date,
-        "MCSA-5875[0].Page4[0].fedDetermination[0].standardButtonList[0]": "rows[0].",
+        "MCSA-5875[0].Page4[0].fedDetermination[0].standardButtonList[0]": "2",
         "MCSA-5875[0].Page4[0].fedDetermination[0].notStandardsWhy[0]": "rows[0].",
         "MCSA-5875[0].Page4[0].fedDetermination[0].butStandardsWhy[0]": "rows[0].",
         "MCSA-5875[0].Page4[0].fedDetermination[0].qualifiedButtonList[0]": "rows[0].",
         "MCSA-5875[0].Page4[0].fedDetermination[0].otherQualify[0]": "rows[0].",
-        "MCSA-5875[0].Page4[0].fedDetermination[0].correctLenses[0]": "rows[0].",
-        "MCSA-5875[0].Page4[0].fedDetermination[0].hearingAid[0]": "rows[0].",
+        "MCSA-5875[0].Page4[0].fedDetermination[0].correctLenses[0]": "2",
+        "MCSA-5875[0].Page4[0].fedDetermination[0].hearingAid[0]": "2",
         "MCSA-5875[0].Page4[0].fedDetermination[0].waiverQualify[0]": "rows[0].",
         "MCSA-5875[0].Page4[0].fedDetermination[0].waiverEnter[0]": "rows[0].",
         "MCSA-5875[0].Page4[0].fedDetermination[0].speQualify[0]": "rows[0].",
@@ -559,14 +559,14 @@ var end = function(req, res, next) {
         "MCSA-5875[0].Page5[0].pageHead5[0].nameInitialHead5[0]": rows[0].middlename,
         "MCSA-5875[0].Page5[0].pageHead5[0].dateBirth5[0]": rows[0].dob,
         "MCSA-5875[0].Page5[0].pageHead5[0].dateForm5[0]": date,
-        "MCSA-5875[0].Page5[0].stateDetermination[0].standardButtonListState[0]": "rows[0].",
-        "MCSA-5875[0].Page5[0].stateDetermination[0].notStandardsWhyState[0]": "rows[0].",
-        "MCSA-5875[0].Page5[0].stateDetermination[0].butStandardsWhyState[0]": "rows[0].",
-        "MCSA-5875[0].Page5[0].stateDetermination[0].qualifiedButtonListState[0]": "rows[0].",
+        "MCSA-5875[0].Page5[0].stateDetermination[0].standardButtonListState[0]": "3",
+        "MCSA-5875[0].Page5[0].stateDetermination[0].notStandardsWhyState[0]": "because",
+        "MCSA-5875[0].Page5[0].stateDetermination[0].butStandardsWhyState[0]": "1",
+        "MCSA-5875[0].Page5[0].stateDetermination[0].qualifiedButtonListState[0]": "2",
         "MCSA-5875[0].Page5[0].stateDetermination[0].otherQualifyState[0]": "rows[0].",
-        "MCSA-5875[0].Page5[0].stateDetermination[0].correctLensesState[0]": "rows[0].",
-        "MCSA-5875[0].Page5[0].stateDetermination[0].hearingAidState[0]": "rows[0].",
-        "MCSA-5875[0].Page5[0].stateDetermination[0].waiverQualifyState[0]": "rows[0].",
+        "MCSA-5875[0].Page5[0].stateDetermination[0].correctLensesState[0]": "0",
+        "MCSA-5875[0].Page5[0].stateDetermination[0].hearingAidState[0]": "2",
+        "MCSA-5875[0].Page5[0].stateDetermination[0].waiverQualifyState[0]": "x",
         "MCSA-5875[0].Page5[0].stateDetermination[0].waiverEnterState[0]": "rows[0].",
         "MCSA-5875[0].Page5[0].stateDetermination[0].speQualifyState[0]": "rows[0].",
         "MCSA-5875[0].Page5[0].stateDetermination[0].grandQualifyState[0]": "rows[0].",
@@ -784,13 +784,44 @@ var signUpPost = function(req, res, next) {
         password: hash
       });
 
-      signUpUser.save().then(function(model) {
-        // sign in the newly registered user
-        signInPost(req, res, next);
-      });
+      // signUpUser.save().then(function(model) {
+      //   // sign in the newly registered user
+      //   //signInPost(req, res, next);
+      //   res.redirect('/moreinfo')
+      // });
+
+      signUpUser.save();
+      res.redirect('/moreinfo')
     }
   });
+
 };
+
+//-----------------------------------------------------------------------------------------
+//-------------------------------------------------------
+var moreInfo = function(req, res, next) {
+
+    // var user = req.user;
+
+    // if (user !== undefined) {
+    //   user = user.toJSON();
+    // }
+    res.render('moreinfo', {
+      title: 'More Info'
+      // user: user
+    });
+  }
+
+//-------------------------------------------------------
+var moreInfoPost = function(req, res, next) {
+
+  var user = req.user;
+
+  res.redirect('/signin')
+
+
+};
+
 
 //-------------------------------------------------------------------------------------------
 
@@ -872,6 +903,8 @@ module.exports.signIn = signIn;
 module.exports.signInPost = signInPost;
 module.exports.signUp = signUp;
 module.exports.signUpPost = signUpPost;
+module.exports.moreInfo = moreInfo;
+module.exports.moreInfoPost = moreInfoPost;
 module.exports.signOut = signOut;
 module.exports.warn = warn;
 module.exports.notFound404 = notFound404;
