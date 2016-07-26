@@ -1,11 +1,32 @@
 <!DOCTYPE html>
 <% include header.ejs %>
-<h1>END page</h1>
+<div class="end-super-container">
+  <div class="end-conteiner">
+    <div class="end-text-container">
+      <h3 class="end-session-text">The exam has successfully been completed.</h3>
+    </div>
 
 
-<form method="post" action="/end" role="form">
-<input type="submit" value="download PDF">
+                  <form class="end-form" method="post" action="/end" role="form">
+                    <div class="end-option-text end-padding">
+                      Click to download a PDF of the exam.
+                    </div>
+                  <div class="email-input-container end-padding">
+                    <label class="email-text">Also email a copy:     <input class="end-padding" id="radio-end" type="radio" name="alsoemail"></label>
+
+                    <label class="end-padding">Email:    </label><input class="email-input" type="text" name="endemail">
+                  </div>
 
 
-</form>
+
+
+
+
+
+                    <input class="end-padding" type="submit" value="download PDF">
+                  </form>
+
+
+  </div>
+</div>
 <% include footer.ejs %>

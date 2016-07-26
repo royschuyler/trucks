@@ -698,9 +698,44 @@ tr.non-border {
   margin-left: 5px;
 }
 
+.end-super-container {
+  width: 90%;
 
+}
 
+.end-conteiner {
+  width: 86%;
+  float: right;
+  border: solid 2px black;
+}
 
+.end-session-text {
+  color: darkgreen;
+  margin-top:;
+  text-align: center;
+  padding-bottom: 10px;
+
+}
+
+.end-text-container {
+  width: 100%;
+  border: solid lightgray;
+  background: lightgray;
+}
+
+.end-padding {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  margin-left: 7px;
+}
+
+.email-text {
+  padding-right: 5px !important;
+}
+
+#radio-end {
+  padding-left: 8px;
+}
 
 
 
