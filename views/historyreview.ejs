@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <% include header.ejs %>
 <h5 class="top-header">SECTION 2. Examination Report (to be filled out by the medical examiner)</h5>
   <div class="header-container">
@@ -27,4 +27,215 @@
   </div>
 
 
-  <% include footer.ejs %>
+  <% include footer.ejs %> -->
+
+  <!DOCTYPE html>
+<% include header.ejs %>
+<!-- <div>  <%= arr %>  </div> -->
+
+<table>
+<% for(var i=0; i < arr.length; i++) { %>
+   <tr>
+     <td><a class="followup-links" href="/<%= arr[i] %>"><%= arr[i] %></a></td>
+   </tr>
+<% } %>
+</table>
+
+
+<!-- <div class="followup-container">
+  <div class="followup-sub-container">
+    <form>
+      <div class="followup-question">
+        <strong>The patient has had or is not sure if they have had brain/head injuries.</br>
+        How would you best describe the patients status?</strong>
+      </div>
+      <select class="select" name="select">
+        <option value="none-mild">mild - without seizures</option>
+        <option value="mild-with" selected>mild - with seizures</option>
+        <option value="moderate-without">moderate - without seizures</option>
+        <option value="N/A">N/A</option>
+      </select>
+      <input class="type1" type="submit">
+    </form>
+  </div>
+</div> -->
+
+<!-- <h1>OR</h1> -->
+
+<div class="followup-container">
+  <div class="followup-sub-container">
+    <div class="followup-form-container">
+      <form class="follup-form" action="/historyreview">
+
+        <div class="followup-brain-container" id=<%= arr[0] %>>
+          <div class="followup-question">
+            <strong>The patient has had or is not sure if they have had brain/head injuries.</br>
+            How would you best describe the patients status?</strong>
+          </div>
+          <div class="followup-radio-container">
+            <input type="radio" value="mild-none" name="followupseizures">mild - without seizures</br>
+            <input type="radio" value="mild-with" name="followupseizures" selected>mild - with seizures</br>
+            <input type="radio" value="moderate-none" name="followupseizures">moderate - without seizures</br>
+            <input type="radio" value="na" name="followupseizures">N/A</br>
+          </div>
+          <div>Notes (optinal)</div>
+          <textarea name="followupBrainNotes" class="followup-textarea"></textarea>
+          <hr>
+        </div>
+
+
+
+        <div class="followup-seizures-container" id=<%= arr[1] %>>
+          <div class="seizures-question">
+            <strong>The patient has had or is not sure if they have had epilepsy/seizures. How would you best describe the patients status?</strong>
+          </div>
+          <div class="followup-radio-container">
+            <input type="radio" value="epilepsy" name="epilepsy">has epilepsy</br>
+            <input type="radio" value="no-epilepsy" name="epilepsy" selected>does not have epilepsy</br>
+            <input type="radio" value="na" name="followupseizures">N/A</br>
+          </div>
+          <div>Notes (optinal)</div>
+          <textarea name="followupEpilepsyNotes" class="followup-textarea"></textarea>
+          <hr>
+         </div>
+
+        <div class="followup-brain-container" id=<%= arr[2] %>>
+          <div class="followup-question">
+            <strong>The patient has had or is not sure if they have had brain/head injuries.</br>
+            How would you best describe the patients status?</strong>
+          </div>
+          <div class="followup-radio-container">
+            <input type="radio" value="mild-none" name="followupseizures">mild - without seizures</br>
+            <input type="radio" value="mild-with" name="followupseizures" selected>mild - with seizures</br>
+            <input type="radio" value="moderate-none" name="followupseizures">moderate - without seizures</br>
+            <input type="radio" value="na" name="followupseizures">N/A</br>
+          </div>
+          <div>Notes (optinal)</div>
+          <textarea name="followupBrainNotes" class="followup-textarea"></textarea>
+          <hr>
+        </div>
+
+        <div class="followup-brain-container" id=<%= arr[3] %>>
+          <div class="followup-question">
+            <strong>The patient has had or is not sure if they have had brain/head injuries.</br>
+            How would you best describe the patients status?</strong>
+          </div>
+          <div class="followup-radio-container">
+            <input type="radio" value="mild-none" name="followupseizures">mild - without seizures</br>
+            <input type="radio" value="mild-with" name="followupseizures" selected>mild - with seizures</br>
+            <input type="radio" value="moderate-none" name="followupseizures">moderate - without seizures</br>
+            <input type="radio" value="na" name="followupseizures">N/A</br>
+          </div>
+          <div>Notes (optinal)</div>
+          <textarea name="followupBrainNotes" class="followup-textarea"></textarea>
+          <hr>
+        </div>
+
+        <div class="followup-brain-container" id=<%= arr[4] %>>
+          <div class="followup-question">
+            <strong>The patient has had or is not sure if they have had brain/head injuries.</br>
+            How would you best describe the patients status?</strong>
+          </div>
+          <div class="followup-radio-container">
+            <input type="radio" value="mild-none" name="followupseizures">mild - without seizures</br>
+            <input type="radio" value="mild-with" name="followupseizures" selected>mild - with seizures</br>
+            <input type="radio" value="moderate-none" name="followupseizures">moderate - without seizures</br>
+            <input type="radio" value="na" name="followupseizures">N/A</br>
+          </div>
+          <div>Notes (optinal)</div>
+          <textarea name="followupBrainNotes" class="followup-textarea"></textarea>
+          <hr>
+        </div>
+
+
+
+         <div class="followup-pacemaker-container" id= <%= arr[5] %>>
+           <div class="pacemaker-question">
+              <strong>The patient has had or is not sure if they have had a pacemaker. How would you best describe the patients status?</strong>
+           </div>
+           <div class="pacemaker-button">
+             <input type="radio" value="AV-block" name="epilepsy">AV block/sinus node dysfunction</br>
+             <input type="radio" value="no-epilepsy" name="epilepsy" selected>Neurocardiogenic syncope</br>
+             <input type="radio" value="no-epilepsy" name="epilepsy" selected>ICD defibralation</br>
+             <input type="radio" value="na" name="followupseizures">N/A</br>
+           </div>
+             <div>Notes (optinal)</div>
+           <textarea name="followupPacemakerNotes" class="followup-textarea"></textarea>
+           <hr>
+         </div>
+
+
+         <div class="followup-bloodpressure-container" id=<%= arr[6] %>>
+           <div class="bloodpressure-question">
+              <strong>The patient has had or is not sure if they have had a history of high blood pressure. Is the patient currently taking any of the current medication?</strong>
+           </div>
+           <div class="bloodpressure-button">
+            <select class="select" name="select">
+              <option value="none">none of these</option>
+              <option value="Bumetanide">Bumetanide (Bumex)</option>
+              <option value="ChlorthalidoneH" selected>Chlorthalidone (Hygroton)</option>
+              <option value="ChlorothiazideD">Chlorothiazide (Diuril)</option>
+              <option value="Ethacrynate">Ethacrynate (Edecrin)</option>
+              <option value="Furosemide">Furosemide (Lasix)</option>
+              <option value="N/A">N/A</option>
+            </select>
+           </div>
+             <div>Notes (optinal)</div>
+           <textarea name="followupBloodpressureNotes" class="followup-textarea"></textarea>
+           <hr>
+         </div>
+
+         <div class="followup-brain-container" id=<%= arr[7] %>>
+          <div class="followup-question">
+            <strong>The patient has had or is not sure if they have had brain/head injuries.</br>
+            How would you best describe the patients status?</strong>
+          </div>
+          <div class="followup-radio-container">
+            <input type="radio" value="mild-none" name="followupseizures">mild - without seizures</br>
+            <input type="radio" value="mild-with" name="followupseizures" selected>mild - with seizures</br>
+            <input type="radio" value="moderate-none" name="followupseizures">moderate - without seizures</br>
+            <input type="radio" value="na" name="followupseizures">N/A</br>
+          </div>
+          <div>Notes (optinal)</div>
+          <textarea name="followupBrainNotes" class="followup-textarea"></textarea>
+          <hr>
+        </div>
+
+<h5 class="top-header">SECTION 2. Examination Report (to be filled out by the medical examiner)</h5>
+  <div class="header-container">
+    <div class="table-header table-header2">DRIVER HEALTH HISTORY REVIEW</div>
+  </div>
+  <div class=" container full-container full-container2">
+    <!-- <form action="/historyreview" method="post" name="frmSurvey"> -->
+      <div class="row">
+        <div class="col-md-12 history-table">
+        <div>Review and discuss pertinent driver answers and any available medical records. Comment on the driver's responses to the "health history" questions that may affect the driver's safe operation of a commercial motor vehicle (CMV).</div>
+        <div class= "col-md-13">
+          <textarea class="textareaborder" rows="5" cols="80" name="review">
+          </textarea>
+        </div>
+        </div>
+        </div>
+            <div class="form-group">
+              <label class="col-md-3 control-label"></label>
+              <div class="col-md-8">
+                <input type="submit" value="Save Changes" class="btn btn-primary submitBtn"/><span></span>
+                <input type="reset" value="Clear form" class="btn btn-default clearBtn"/>
+              </div>
+            </div>
+      </div>
+    <!-- </form> -->
+  </div>
+
+
+
+
+
+
+        <input class="type2" type="submit">
+      </form>
+    </div>
+  </div>
+</div>
+<% include footer.ejs %>
+

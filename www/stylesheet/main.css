@@ -83,7 +83,7 @@ a {
 }
 
 .top-header {
-  margin-left: 195px;
+  margin-left: 192px;
 }
 
 .table-header2 {
@@ -406,6 +406,10 @@ label {
 
 #no {
   display: none;
+}
+
+#yes {
+  margin-left: 390px;
 }
 
 a {
@@ -735,6 +739,18 @@ tr.non-border {
 
 #radio-end {
   padding-left: 8px;
+}
+
+#tbl-head {
+  padding-right: 10px;
+}
+
+.header-container {
+  margin-left: -3px;
+}
+
+.mr {
+  margin-left: 100px !important;
 }
 
 

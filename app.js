@@ -299,6 +299,7 @@ app.get('/physicalexamination', route.physicalExamination)
 
 app.post('/signin', route.signInPost);
 app.post('/signup', route.signUpPost);
+app.post('/home', route.homePost);
 app.post('/end', route.endPost);
 app.post('/demographics', route.demographicsPost);
 app.post('/history', route.historyPost);
