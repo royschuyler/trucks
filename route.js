@@ -617,15 +617,40 @@ var end = function(req, res, next) {
       user = user.toJSON();
     }
 
-    var followupData = connection.query('SELECT * FROM history_review WHERE history_review.sessionId = ' + "'" + sessionId + "'",
+    var followupData = connection.query('SELECT followupseizures FROM history_review WHERE history_review.sessionId = ' + "'" + sessionId + "'",
       function(err, rows) {
-        console.log(rows[0])
+        console.log(rows)
+
+
+        var rows = rows[0];
+        //var obj;
+        var target;
+        var introText = "Due to the patient's brain/head injuries";
+        var noProblemsText = "The patient has no disqualifiers. A 3 year certificate can be issued.";
+        var obj = rows;
+        // if (rows == undefined){
+        //   obj = rows;
+        // } else {
+        //   obj = rows[0];
+        // }
+
+       for (prop in obj) {
+          if(obj[prop] == 'undefined') {
+            target = noProblemsText;
+          } else {
+            target = introText + ', a maximum of ' + obj[prop] + ' year certificate can be issued.';
+          }
+       }
+
+
+ console.log(target)
+
 
 
     res.render('end', {
       title: 'End',
       user: user,
-      data: rows[0]
+      data: target
       });
     });
   }
