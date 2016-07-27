@@ -1,6 +1,7 @@
 var passport = require('passport');
 var bcrypt = require('bcrypt-nodejs');
 var Model = require('./model');
+var bodyParser = require('body-parser');
 
 var mysql = require('mysql');
 var connection = mysql.createConnection({
@@ -74,6 +75,11 @@ var demographics = function(req, res, next) {
     if (user !== undefined) {
       user = user.toJSON();
     }
+
+    connection.query("SELECT * FROM tblUsers WHERE tblUsers.username =" + '"' + req.user.attributes.username + '"',
+      function(err, rows) {
+        console.log(rows[0])
+      });
 
     res.render('demographics', {
       title: 'Demographics',
@@ -165,9 +171,9 @@ var home = function(req, res, next) {
             arr.push("no")
           }
         }
-        console.log(arr);
+        //console.log(arr);
         arr.splice(0, 8);
-        console.log(arr);
+        //console.log(arr);
         // for (i = 4; i < arr.length; i++) {
         //   arr2.push(arr[i])
         // }
@@ -207,6 +213,7 @@ var historyReview = function(req, res, next) {
     if (user !== undefined) {
       user = user.toJSON();
     }
+
     res.render('historyreview', {
       title: 'History Review',
       user: user
@@ -219,7 +226,7 @@ var historyReviewPost = function(req, res, next) {
 
   var user = req.user;
 
-  connection.query('INSERT INTO history_review(username, userId, sessionId, historyReview)VALUES(' + "'" + user.attributes.userId + "'," + "'" + user.attributes.username + "'," + "'" + sessionId + "'," + "'" + req.body.review + "')"),
+  connection.query('INSERT INTO history_review(username, userId, sessionId, followupseizures, historyReview)VALUES(' + "'" + user.attributes.userId + "'," + "'" + user.attributes.username + "'," + "'" + sessionId + "'," + "'" + req.body.followupseizures + "'," + "'" + req.body.review + "')"),
     function(err, rows) {}
 
   res.redirect('/testing')
@@ -363,6 +370,11 @@ var end = function(req, res, next) {
   } else {
 
     var user = req.user;
+
+    // var followupData = connection.query('SELECT * FROM history_review WHERE history_review.sessionId = ' + "'" + sessionId + "'",
+    //   function(err, rows) {
+    //     console.log(rows[0])
+    //   });
 
     var datas = connection.query('SELECT persons2.*, history.*, history_review.*, testing.*, vision.*, hearing.*, physicalexam.* FROM persons2, history, history_review, testing, vision, hearing, physicalexam WHERE' + "'" + sessionId + "'" + '=persons2.sessionId AND' + "'" + sessionId + "'" + '=history.sessionId AND' + "'" + sessionId + "'" + '=history_review.sessionId AND' + "'" + sessionId + "'" + '=testing.sessionId AND' + "'" + sessionId + "'" + '=vision.sessionId AND' + "'" + sessionId + "'" + '=hearing.sessionId AND' + "'" + sessionId + "'" + '=physicalexam.sessionId', function(err, rows) {
 
@@ -591,6 +603,9 @@ var end = function(req, res, next) {
 
       };
 
+
+
+
       pdfFiller.fillForm(sourcePDF, destinationPDF, data, shouldFlatten, function(err) {
         if (err) throw err;
         console.log("In callback (we're done).");
@@ -601,9 +616,17 @@ var end = function(req, res, next) {
     if (user !== undefined) {
       user = user.toJSON();
     }
+
+    var followupData = connection.query('SELECT * FROM history_review WHERE history_review.sessionId = ' + "'" + sessionId + "'",
+      function(err, rows) {
+        console.log(rows[0])
+
+
     res.render('end', {
       title: 'End',
-      user: user
+      user: user,
+      data: rows[0]
+      });
     });
   }
 };
@@ -726,6 +749,7 @@ var signInPost = function(req, res, next) {
         errorMessage: info.message
       });
     }
+
     return req.logIn(user, function(err) {
       if (err) {
         return res.render('signin', {
@@ -736,8 +760,10 @@ var signInPost = function(req, res, next) {
 
         connection.query('INSERT INTO session(username, userId, sessionId)VALUES(' + '"' + user.username + '",' + '"' + user.userId + '",' + '"' + sessionId + '")'),
           function(err, rows) {
-
+            //console.log(rows[0])
           };
+
+
 
         return res.redirect('/demographics');
       }
@@ -779,6 +805,7 @@ var signUpPost = function(req, res, next) {
       var password = user.password;
       var hash = bcrypt.hashSync(password);
 
+
       var signUpUser = new Model.User({
         username: user.username,
         password: hash
@@ -786,12 +813,13 @@ var signUpPost = function(req, res, next) {
 
       // signUpUser.save().then(function(model) {
       //   // sign in the newly registered user
-      //   //signInPost(req, res, next);
-      //   res.redirect('/moreinfo')
+      //   signInPost(req, res, next);
+      //   res.redirect('/moreinfo/' + signUpUser.username)
       // });
 
       signUpUser.save();
-      res.redirect('/moreinfo')
+      console.log(username)
+      res.redirect('/signIn')
     }
   });
 
@@ -801,11 +829,17 @@ var signUpPost = function(req, res, next) {
 //-------------------------------------------------------
 var moreInfo = function(req, res, next) {
 
-    // var user = req.user;
+    var user = req.user;
 
-    // if (user !== undefined) {
-    //   user = user.toJSON();
-    // }
+    if (user !== undefined) {
+      user = user.toJSON();
+    }
+
+    // connection.query('SELECT * FROM moreinfo WHERE moreinfo.username = ' + "'" + user.attributes.username + "'"),
+    //   function(err, rows) {
+    //     console.log(rows[0])
+    //   }
+
     res.render('moreinfo', {
       title: 'More Info'
       // user: user
@@ -815,7 +849,11 @@ var moreInfo = function(req, res, next) {
 //-------------------------------------------------------
 var moreInfoPost = function(req, res, next) {
 
-  var user = req.user;
+// connection.query('INSERT INTO moreinfo(registerAddress, registerCity, registerState, registerZip, registerPhone, registerEmail, stateLicense, nationalLicense)VALUES(' + "'" + req.body.registerAddress  + "'," + "'" + req.body.registerCity + "'," + "'" + req.body.registerState + "'," + "'" + req.body.registerZip + "'," + "'" + req.body.registerPhone + "'," + "'" + req.body.registerEmail + "'," + "'" + req.body.stateLicense + "'," + "'" + req.body.nationalLicense + "')"),
+//     function(err, rows) {
+
+//     }
+
 
   res.redirect('/signin')
 

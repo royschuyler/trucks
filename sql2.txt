@@ -1,22 +1,15 @@
 pdftk pdfForm3.pdf fill_form data.fdf output form.filled.pdf
 
-INSERT INTO session
+
+
+CREATE TABLE test
 (
-ID, username, userId, sessionId
-)
-VALUES
-(
-1,"tod", "1234", "sessionGUID"
+ID Integer PRIMARY KEY AUTO_INCREMENT,
+test varchar(255)
 );
 
-INSERT INTO session
-(
-username, userId, sessionId
-)
-VALUES
-(
-"tod", "1234", "sessionGUID"
-);
+
+//********************** SESSION *************************************************
 
 CREATE TABLE session
 (
@@ -25,6 +18,14 @@ username varchar(255) NOT NULL,
 userId varchar(255),
 sessionId varchar(255)
 );
+
+
+
+connection.query('INSERT INTO session(username, userId, sessionId, loginCount)VALUES(' + '"' + user.username + '",' + '"' + user.userId + '",' + '"' + sessionId + '",' + '"' + loginCount + '")'),
+  function(err, rows) {
+  };
+
+//*************************** PERSON *********************************************
 
 CREATE TABLE persons2 (ID Integer PRIMARY KEY AUTO_INCREMENT, userId varchar(255), username varchar(255), sessionId varchar(255), lastname varchar(255), firstname varchar(255), middlename varchar(255), dob varchar(255), age varchar(255), streetaddress varchar(255), city varchar(255), state varchar(255), zip varchar(255), dln varchar(255), issuing varchar(255), phone varchar(255), gender varchar(255), email varchar(255), holder varchar(255), verified varchar(255), denied varchar(255));
 
@@ -46,17 +47,12 @@ ID Integer PRIMARY KEY AUTO_INCREMENT,
 username varchar(255) NOT NULL,
 userId varchar(255),
 sessionId varchar(255),
+followupseizures varchar(255),
 historyReview varchar(8000)
 );
 
-INSERT INTO history_review
-(
-username, userId, sessionId, historyReview
-)
-VALUES
-(
-"tod", "1234", "sessionGUID", "historyReviewTest"
-);
+  connection.query('INSERT INTO history_review(username, userId, sessionId, followupseizures, historyReview)VALUES(' + "'" + user.attributes.userId + "'," + "'" + user.attributes.username + "'," + "'" + sessionId + "'," + "'" + req.body.followupseizures + "'," + "'" + req.body.review + "')"),
+    function(err, rows) {}
 
 //*****************************TESTING*********************************
 CREATE TABLE testing
@@ -217,10 +213,25 @@ connection.query('INSERT INTO history_review(username, userId, sessionId, histor
 
 
 
+//*********************** MORE INFO ***************************************************
 
+CREATE TABLE moreinfo
+(
+ID Integer PRIMARY KEY AUTO_INCREMENT,
+registerAddress varchar(8000),
+registerCity varchar(255),
+registerState varchar(255),
+registerZip varchar(255),
+registerPhone varchar(255),
+registerEmail varchar(255),
+stateLicense varchar(255),
+nationalLicense varchar(255)
+);
 
+connection.query('INSERT INTO moreinfo(registerAddress, registerCity, registerState, registerZip, registerPhone, registerEmail, stateLicense, nationalLicense)VALUES(' + "'" + req.body.registerAddress  + "'," + "'" + req.body.registerCity + "'," + "'" + req.body.registerState + "'," + "'" + req.body.registerZip + "'," + "'" + req.body.registerPhone + "'," + "'" + req.body.registerEmail + "'," + "'" + req.body.stateLicense + "'," + "'" + req.body.nationalLicense + "')"),
+    function(err, rows) {
 
-
+    }
 
 
 

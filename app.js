@@ -11,6 +11,11 @@ var LocalStrategy = require('passport-local').Strategy;
 var route = require('./route');
 var Model = require('./model');
 
+app.use(bodyParser.urlencoded({
+  extended: false
+}));
+app.use(bodyParser.json());
+
 
 passport.use(new LocalStrategy(function(username, password, done) {
    new Model.User({username: username}).fetch().then(function(data) {
