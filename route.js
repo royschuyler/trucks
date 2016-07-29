@@ -194,43 +194,43 @@ var homePost = function(req, res, next) {
 
   var user = req.user;
 
-connection.query('INSERT INTO history_review(username, userId, sessionId, historyReview, followupseizures, followupBrainNotes, epilepsy, followupEpilepsyNotes, bloodPressureSelect, followupBloodpressureNotes)VALUES(' + "'" + user.attributes.username + "'," + "'" + user.attributes.userId + "'," + "'" + sessionId + "'," + "'" + req.body.historyReview + "'," + "'" + req.body.followupseizures + "'," + "'" + req.body.followupBrainNotes + "'," + "'" + req.body.epilepsy + "'," + "'" + req.body.followupEpilepsyNotes + "'," + "'" + req.body.bloodPressureSelect + "'," + "'" + req.body.followupBloodpressureNotes + "')"),
+connection.query('INSERT INTO history_review(username, userId, sessionId, followUpBrainInjury, followUpEpilepsy, followUpPacemaker, followupBloodPressure, historyReview)VALUES(' + "'" + user.attributes.username + "'," + "'" + user.attributes.userId + "'," + "'" + sessionId + "'," + "'" + req.body.followUpBrainInjury + "'," + "'" + req.body.followUpEpilepsy + "'," + "'" + req.body.followUpPacemaker + "'," + "'" + req.body.followupBloodPressure + "'," + "'" + req.body.historyReview + "')"),
     function(err, rows) {
-
+      console.log(rows[0])
     }
 
   res.redirect('/testing')
 };
 
 //-------------------------------------------------------
-var historyReview = function(req, res, next) {
-  if (!req.isAuthenticated()) {
-    res.redirect('/signin');
-  } else {
+// var historyReview = function(req, res, next) {
+//   if (!req.isAuthenticated()) {
+//     res.redirect('/signin');
+//   } else {
 
-    var user = req.user;
+//     var user = req.user;
 
-    if (user !== undefined) {
-      user = user.toJSON();
-    }
+//     if (user !== undefined) {
+//       user = user.toJSON();
+//     }
 
-    res.render('historyreview', {
-      title: 'History Review',
-      user: user
-    });
-  }
-};
+//     res.render('historyreview', {
+//       title: 'History Review',
+//       user: user
+//     });
+//   }
+// };
 
 //-------------------------------------------------------
-var historyReviewPost = function(req, res, next) {
+// var historyReviewPost = function(req, res, next) {
 
-  var user = req.user;
+//   var user = req.user;
 
-  connection.query('INSERT INTO history_review(username, userId, sessionId, followupseizures, historyReview)VALUES(' + "'" + user.attributes.userId + "'," + "'" + user.attributes.username + "'," + "'" + sessionId + "'," + "'" + req.body.followupseizures + "'," + "'" + req.body.review + "')"),
-    function(err, rows) {}
+//   connection.query('INSERT INTO history_review(username, userId, sessionId, followupseizures, historyReview)VALUES(' + "'" + user.attributes.userId + "'," + "'" + user.attributes.username + "'," + "'" + sessionId + "'," + "'" + req.body.followupseizures + "'," + "'" + req.body.review + "')"),
+//     function(err, rows) {}
 
-  res.redirect('/testing')
-};
+//   res.redirect('/testing')
+// };
 
 //-------------------------------------------------------
 var testing = function(req, res, next) {
@@ -617,40 +617,67 @@ var end = function(req, res, next) {
       user = user.toJSON();
     }
 
-    var followupData = connection.query('SELECT followupseizures FROM history_review WHERE history_review.sessionId = ' + "'" + sessionId + "'",
+    var followupData = connection.query('SELECT followUpBrainInjury, followUpEpilepsy, followUpPacemaker, followupBloodPressure FROM history_review WHERE history_review.sessionId = ' + "'" + sessionId + "'",
       function(err, rows) {
         console.log(rows)
 
+        var obj = rows[0];
 
-        var rows = rows[0];
-        //var obj;
-        var target;
-        var introText = "Due to the patient's brain/head injuries";
-        var noProblemsText = "The patient has no disqualifiers. A 3 year certificate can be issued.";
-        var obj = rows;
-        // if (rows == undefined){
-        //   obj = rows;
-        // } else {
-        //   obj = rows[0];
-        // }
+        var followUpBrainInjury = "Due to head/brain injuries";
+        var followUpEpilepsy = "Due to seizures/epilepsy";
+        var followUpPacemaker = "Due to issues with a pacemaker";
+        var followupBloodPressure = "Due to blood pressure";
 
-       for (prop in obj) {
-          if(obj[prop] == 'undefined') {
-            target = noProblemsText;
-          } else {
-            target = introText + ', a maximum of ' + obj[prop] + ' year certificate can be issued.';
+        var certificate_0 = "a maximum of 1 year certificate can be issued."
+        var certificate_1 = "a maximum of 2 year certificate can be issued."
+        var certificate_2 = "a maximum of 1 year certificate can be issued with a neurologist's release."
+        var certificate_3 = "a maximum of 2 year certificate can be issued with a neurologist's release."
+        var certificate_4 = "no certificate can be issued."
+        var certificate_5 = "there is a three month wait period before a re-exam."
+        var certificate_6 = "a maximum of 1 year certificate can be issued."
+        var certificate_7 = "a maximum of 1 year certificate can be issued."
+
+
+
+
+
+        for(prop in obj) {
+          if(obj[prop] == 'undefined' || obj[prop] == 'na'){
+          delete obj[prop]
           }
-       }
+        }
 
+        //console.log(obj)
+        var str = JSON.stringify(obj);
+        str = str.replace(/followUpBrainInjury/g, followUpBrainInjury);
+        str = str.replace(/followUpEpilepsy/g, followUpEpilepsy);
+        str = str.replace(/followUpPacemaker/g, followUpPacemaker);
+        str = str.replace(/followupBloodPressure/g, followupBloodPressure);
 
- console.log(target)
+        str = str.replace(/0/g, certificate_0);
+        str = str.replace(/1/g, certificate_1);
+        str = str.replace(/2/g, certificate_2);
+        str = str.replace(/3/g, certificate_3);
+        str = str.replace(/4/g, certificate_4);
+        str = str.replace(/5/g, certificate_5);
+        str = str.replace(/6/g, certificate_6);
+        str = str.replace(/7/g, certificate_7);
+
+        obj = JSON.parse(str);
+
+        var arr = [];
+        for (prop in obj){
+          arr.push(prop + ', ' + obj[prop])
+        }
+
+        console.log(arr)
 
 
 
     res.render('end', {
       title: 'End',
       user: user,
-      data: target
+      data: arr
       });
     });
   }
@@ -948,8 +975,8 @@ module.exports.demographics = demographics;
 module.exports.demographicsPost = demographicsPost;
 module.exports.history = history;
 module.exports.historyPost = historyPost;
-module.exports.historyReview = historyReview;
-module.exports.historyReviewPost = historyReviewPost;
+// module.exports.historyReview = historyReview;
+// module.exports.historyReviewPost = historyReviewPost;
 module.exports.testing = testing;
 module.exports.testingPost = testingPost;
 module.exports.vision = vision;

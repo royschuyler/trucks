@@ -197,16 +197,14 @@ ID Integer PRIMARY KEY AUTO_INCREMENT,
 username varchar(255) NOT NULL,
 userId varchar(255),
 sessionId varchar(255),
-historyReview varchar(8000),
-followupseizures varchar(255),
-followupBrainNotes varchar(255),
-epilepsy varchar(255),
-followupEpilepsyNotes varchar(255),
-bloodPressureSelect varchar(255),
-followupBloodpressureNotes varchar(255)
+followUpBrainInjury varchar(255),
+followUpEpilepsy varchar(255),
+followUpPacemaker varchar(255),
+followupBloodPressure varchar(255),
+historyReview varchar(8000)
 );
 
-connection.query('INSERT INTO history_review(username, userId, sessionId, historyReview, followupseizures, followupBrainNotes, epilepsy, followupEpilepsyNotes, bloodPressureSelect, followupBloodpressureNotes)VALUES(' + "'" + user.attributes.username + "'," + "'" + user.attributes.userId + "'," + "'" + sessionId + "'," + "'" + req.body.historyReview + "'," + "'" + req.body.followupseizures + "'," + "'" + req.body.followupBrainNotes + "'," + "'" + req.body.epilepsy + "'," + "'" + req.body.followupEpilepsyNotes + "'," + "'" + req.body.bloodPressureSelect + "'," + "'" + req.body.followupBloodpressureNotes + "')"),
+connection.query('INSERT INTO history_review(username, userId, sessionId, followUpBrainInjury, followUpEpilepsy, followUpPacemaker, followupBloodPressure, historyReview)VALUES(' + "'" + user.attributes.username + "'," + "'" + user.attributes.userId + "'," + "'" + sessionId + "'," + "'" + req.body.followUpBrainInjury + "'," + "'" + req.body.followUpEpilepsy + "'," + "'" + req.body.followUpPacemaker + "'," + "'" + req.body.followupBloodPressure + "'," + "'" + req.body.historyReview + "')"),
     function(err, rows) {
 
     }
@@ -234,5 +232,14 @@ connection.query('INSERT INTO moreinfo(registerAddress, registerCity, registerSt
     }
 
 
+
+
+<!-- <table>
+<% for(var i=0; i < arr.length; i++) { %>
+   <tr>
+     <td><a class="followup-links" href="/<%= arr[i] %>"><%= arr[i] %></a></td>
+   </tr>
+<% } %>
+</table> -->
 
 
