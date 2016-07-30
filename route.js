@@ -178,6 +178,8 @@ var home = function(req, res, next) {
         //   arr2.push(arr[i])
         // }
 
+        console.log(arr)
+
         res.render('home', {
           title: 'Home',
           user: user,
@@ -194,7 +196,144 @@ var homePost = function(req, res, next) {
 
   var user = req.user;
 
-connection.query('INSERT INTO history_review(username, userId, sessionId, followUpBrainInjury, followUpBrainInjuryNotes, followUpEpilepsy, followUpEpilepsyNotes, followUpPacemaker, followUpPacemakerNotes, followupBloodPressure, followupBloodPressureNotes,followUpHighCholesterol, followUpHighCholesterolNotes, followUpBreathingProblems, followUpBreathingProblemsNotes, followUpLungDisease, followUpLungDiseaseNotes, followUpKidneyProblems, followUpKidneyProblemsNotes, followUpStomachProblems, followUpStomachProblemsNotes, followUpDiabetes, followUpDiabetesNotes, followUpInsulin, followUpInsulinNotes, followUpAnxiety, followUpAnxietyNotes, followUpFainting, followUpFaintingNotes, followUpDizziness, followUpDizzinessNotes, followUpStroke, followUpStrokeNotes, followUpMissingLimbs, followUpMissingLimbsNotes, followUpBackProblems, followUpBackProblemsNotes, followUpBoneProblems, followUpBoneProblemsNotes, followUpBloodClots,followUpBloodClotsNotes, followUpCancer, followUpCancerNotes, followUpChronicDiseases, followUpChronicDiseasesNotes, followUpSleepDisorders, followUpSleepDisordersNotes, followUpSleepTest, followUpSleepTestNotes, followUpNightInHospital, followUpNightInHospitalNotes, followUpBrokenBone, followUpBrokenBoneNotes, followUpUseTobacco, followUpUseTobaccoNotes, followUpDrinkAlcohol,followUpDrinkAlcoholNotes, followUpIllegalSubstance, followUpIllegalSubstanceNotes, followUpFailedDrugTest, followUpFailedDrugTestNotes, historyReview)VALUES('+ "'" +user.attributes.username+ "'," + "'" +user.attributes.userId+ "'," + "'" +sessionId+ "'," + "'" +req.body.followUpBrainInjury+ "'," + "'" +req.body.followUpBrainInjuryNotes+ "'," + "'" +req.body.followUpEpilepsy+ "'," + "'" +req.body.followUpEpilepsyNotes+ "'," + "'" +req.body.followUpPacemaker+ "'," + "'" +req.body.followUpPacemakerNotes+ "'," + "'" +req.body.followupBloodPressure+ "'," + "'" +req.body.followupBloodPressureNotes+ "'," + "'" +req.body.followUpHighCholesterol+ "'," + "'" +req.body.followUpHighCholesterolNotes+ "'," + "'" +req.body.followUpBreathingProblems+ "'," + "'" +req.body.followUpBreathingProblemsNotes+ "'," + "'" +req.body.followUpLungDisease+ "'," + "'" +req.body.followUpLungDiseaseNotes+ "'," + "'" +req.body.followUpBackProblems+ "'," + "'" +req.body.followUpBackProblemsNotes+ "'," + "'" +req.body.followUpKidneyProblems+ "'," + "'" +req.body.followUpKidneyProblemsNotes+ "'," + "'" +req.body.followUpStomachProblems+ "'," + "'" +req.body.followUpStomachProblemsNotes+ "'," + "'" +req.body.followUpDiabetes+ "'," + "'" +req.body.followUpDiabetesNotes+ "'," + "'" +req.body.followUpInsulin+ "'," + "'" +req.body.followUpInsulinNotes+ "'," + "'" +req.body.followUpAnxiety+ "'," + "'" +req.body.followUpAnxietyNotes+ "'," + "'" +req.body.followUpFainting+ "'," + "'" +req.body.followUpFaintingNotes+ "'," + "'" +req.body.followUpDizziness+ "'," + "'" +req.body.followUpDizzinessNotes+ "'," + "'" +req.body.followUpStroke+ "'," + "'" +req.body.followUpStrokeNotes+ "'," + "'" +req.body.followUpMissingLimbs+ "'," + "'" +req.body.followUpMissingLimbsNotes+ "'," + "'" +req.body.followUpBoneProblems+ "'," + "'" +req.body.followUpBoneProblemsNotes+ "'," + "'" +req.body.followUpBloodClots+ "'," + "'" +req.body.followUpBloodClotsNotes+ "'," + "'" +req.body.followUpCancer+ "'," + "'" +req.body.followUpCancerNotes+ "'," + "'" +req.body.followUpChronicDiseases+ "'," + "'" +req.body.followUpChronicDiseasesNotes+ "'," + "'" +req.body.followUpSleepDisorders+ "'," + "'" +req.body.followUpSleepDisordersNotes+ "'," + "'" +req.body.followUpSleepTest+ "'," + "'" +req.body.followUpSleepTestNotes+ "'," + "'" +req.body.followUpNightInHospital+ "'," + "'" +req.body.followUpNightInHospitalNotes+ "'," + "'" +req.body.followUpBrokenBone+ "'," + "'" +req.body.followUpBrokenBoneNotes+ "'," + "'" +req.body.followUpUseTobacco+ "'," + "'" +req.body.followUpUseTobaccoNotes+ "'," + "'" +req.body.followUpDrinkAlcohol+ "'," + "'" +req.body.followUpDrinkAlcoholNotes+ "'," + "'" +req.body.followUpIllegalSubstance+ "'," + "'" +req.body.followUpIllegalSubstanceNotes+ "'," + "'" +req.body.followUpFailedDrugTest+ "'," + "'" +req.body.followUpFailedDrugTestNotes+ "'," + "'" +req.body.historyReview+ "')"),
+connection.query('INSERT INTO history_review(username, userId, sessionId, followUpBrainInjury, followUpBrainInjuryNotes, followUpEpilepsy, followUpEpilepsyNotes, followUpEye,followUpEyeNotes,followUpEar, followUpEarNotes, followUpHeart,followUpHeartNotes, followUpPacemaker, followUpPacemakerNotes,followupBloodPressure, followupBloodPressureNotes,followUpHighCholesterol, followUpHighCholesterolNotes, followUpBreathingProblems, followUpBreathingProblemsNotes, followUpLungDisease, followUpLungDiseaseNotes, followUpKidneyProblems, followUpKidneyProblemsNotes, followUpStomachProblems, followUpStomachProblemsNotes, followUpDiabetes, followUpDiabetesNotes, followUpInsulin, followUpInsulinNotes, followUpAnxiety, followUpAnxietyNotes, followUpFainting, followUpFaintingNotes, followUpDizziness, followUpDizzinessNotes, followUpStroke, followUpStrokeNotes, followUpMissingLimbs, followUpMissingLimbsNotes, followUpBackProblems, followUpBackProblemsNotes, followUpBoneProblems, followUpBoneProblemsNotes, followUpBloodClots,followUpBloodClotsNotes, followUpCancer, followUpCancerNotes, followUpChronicDiseases, followUpChronicDiseasesNotes, followUpSleepDisorders, followUpSleepDisordersNotes, followUpSleepTest, followUpSleepTestNotes, followUpNightInHospital, followUpNightInHospitalNotes, followUpBrokenBone, followUpBrokenBoneNotes, followUpUseTobacco, followUpUseTobaccoNotes, followUpDrinkAlcohol,followUpDrinkAlcoholNotes, followUpIllegalSubstance, followUpIllegalSubstanceNotes, followUpFailedDrugTest, followUpFailedDrugTestNotes, historyReview) VALUES('
++ "'" +
+user.attributes.username
++ "'," + "'" +
+user.attributes.userId
++ "'," + "'" +
+sessionId
++ "'," + "'" +
+req.body.followUpBrainInjury
++ "'," + "'" +
+req.body.followUpBrainInjuryNotes
++ "'," + "'" +
+req.body.followUpEpilepsy
++ "'," + "'" +
+req.body.followUpEpilepsyNotes
++ "'," + "'" +
+req.body.followUpEye
++ "'," + "'" +
+req.body.followUpEyeNotes
++ "'," + "'" +
+req.body.followUpEar
++ "'," + "'" +
+req.body.followUpEarNotes
++ "'," + "'" +
+req.body.followUpHeart
++ "'," + "'" +
+req.body.followUpHeartNotes
++ "'," + "'" +
+req.body.followUpPacemaker
++ "'," + "'" +
+req.body.followUpPacemakerNotes
++ "'," + "'" +
+req.body.followupBloodPressure
++ "'," + "'" +
+req.body.followupBloodPressureNotes
++ "'," + "'" +
+req.body.followUpHighCholesterol
++ "'," + "'" +
+req.body.followUpHighCholesterolNotes
++ "'," + "'" +
+req.body.followUpBreathingProblems
++ "'," + "'" +
+req.body.followUpBreathingProblemsNotes
++ "'," + "'" +
+req.body.followUpLungDisease
++ "'," + "'" +
+req.body.followUpLungDiseaseNotes
++ "'," + "'" +
+req.body.followUpBackProblems
++ "'," + "'" +
+req.body.followUpBackProblemsNotes
++ "'," + "'" +
+req.body.followUpKidneyProblems
++ "'," + "'" +
+req.body.followUpKidneyProblemsNotes
++ "'," + "'" +
+req.body.followUpStomachProblems
++ "'," + "'" +
+req.body.followUpStomachProblemsNotes
++ "'," + "'" +
+req.body.followUpDiabetes
++ "'," + "'" +
+req.body.followUpDiabetesNotes
++ "'," + "'" +
+req.body.followUpInsulin
++ "'," + "'" +
+req.body.followUpInsulinNotes
++ "'," + "'" +
+req.body.followUpAnxiety
++ "'," + "'" +
+req.body.followUpAnxietyNotes
++ "'," + "'" +
+req.body.followUpFainting
++ "'," + "'" +
+req.body.followUpFaintingNotes
++ "'," + "'" +
+req.body.followUpDizziness
++ "'," + "'" +
+req.body.followUpDizzinessNotes
++ "'," + "'" +
+req.body.followUpStroke
++ "'," + "'" +
+req.body.followUpStrokeNotes
++ "'," + "'" +
+req.body.followUpMissingLimbs
++ "'," + "'" +
+req.body.followUpMissingLimbsNotes
++ "'," + "'" +
+req.body.followUpBoneProblems
++ "'," + "'" +
+req.body.followUpBoneProblemsNotes
++ "'," + "'" +
+req.body.followUpBloodClots
++ "'," + "'" +
+req.body.followUpBloodClotsNotes
++ "'," + "'" +
+req.body.followUpCancer
++ "'," + "'" +
+req.body.followUpCancerNotes
++ "'," + "'" +
+req.body.followUpChronicDiseases
++ "'," + "'" +
+req.body.followUpChronicDiseasesNotes
++ "'," + "'" +
+req.body.followUpSleepDisorders
++ "'," + "'" +
+req.body.followUpSleepDisordersNotes
++ "'," + "'" +
+req.body.followUpSleepTest
++ "'," + "'" +
+req.body.followUpSleepTestNotes
++ "'," + "'" +
+req.body.followUpNightInHospital
++ "'," + "'" +
+req.body.followUpNightInHospitalNotes
++ "'," + "'" +
+req.body.followUpBrokenBone
++ "'," + "'" +
+req.body.followUpBrokenBoneNotes
++ "'," + "'" +
+req.body.followUpUseTobacco
++ "'," + "'" +
+req.body.followUpUseTobaccoNotes
++ "'," + "'" +
+req.body.followUpDrinkAlcohol
++ "'," + "'" +
+req.body.followUpDrinkAlcoholNotes
++ "'," + "'" +
+req.body.followUpIllegalSubstance
++ "'," + "'" +
+req.body.followUpIllegalSubstanceNotes
++ "'," + "'" +
+req.body.followUpFailedDrugTest
++ "'," + "'" +
+req.body.followUpFailedDrugTestNotes
++ "'," + "'" +
+req.body.historyReview
++ "')"),
 
     function(err, rows) {
 
@@ -357,7 +496,7 @@ var physicalExaminationPost = function(req, res, next) {
 
   var user = req.user;
 
-connection.query('INSERT INTO physicalexam(username, userId, sessionId, general, skin, eyes, ears, mouth, cardiovascular, lungs, abdomen, back, hernia, joints, neuro, gait, vascular, examtextarea) VALUES(' + "'" + user.attributes.username + "'," + "'" + user.attributes.userId + "'," + "'" + sessionId + "'," + "'" + req.body.general + "'," + "'" + req.body.skin + "'," + "'" + req.body.eyes + "'," + "'" + req.body.ears + "'," + "'" + req.body.mouth + "'," + "'" + req.body.cardiovascular + "'," + "'" + req.body.lungs + "'," + "'" + req.body.abdomen + "'," + "'" + req.body.back + "'," + "'" + req.body.hernia + "'," + "'" + req.body.joints + "'," + "'" + req.body.neuro + "'," + "'" + req.body.gait + "'," + "'" + req.body.vascular + "'," + "'" + req.body.examtextarea + "')"),
+  connection.query('INSERT INTO physicalexam(username, userId, sessionId, general, skin, eyes, ears, mouth, cardiovascular, lungs, abdomen, back, hernia, joints, neuro, gait, vascular, examtextarea) VALUES(' + "'" + user.attributes.username + "'," + "'" + user.attributes.userId + "'," + "'" + sessionId + "'," + "'" + req.body.general + "'," + "'" + req.body.skin + "'," + "'" + req.body.eyes + "'," + "'" + req.body.ears + "'," + "'" + req.body.mouth + "'," + "'" + req.body.cardiovascular + "'," + "'" + req.body.lungs + "'," + "'" + req.body.abdomen + "'," + "'" + req.body.back + "'," + "'" + req.body.hernia + "'," + "'" + req.body.joints + "'," + "'" + req.body.neuro + "'," + "'" + req.body.gait + "'," + "'" + req.body.vascular + "'," + "'" + req.body.examtextarea + "')"),
     function(err, rows) {
 
     }
@@ -377,7 +516,8 @@ var end = function(req, res, next) {
     //     console.log(rows[0])
     //   });
 
-    var datas = connection.query('SELECT persons2.*, history.*, history_review.*, testing.*, vision.*, hearing.*, physicalexam.* FROM persons2, history, history_review, testing, vision, hearing, physicalexam WHERE' + "'" + sessionId + "'" + '=persons2.sessionId AND' + "'" + sessionId + "'" + '=history.sessionId AND' + "'" + sessionId + "'" + '=history_review.sessionId AND' + "'" + sessionId + "'" + '=testing.sessionId AND' + "'" + sessionId + "'" + '=vision.sessionId AND' + "'" + sessionId + "'" + '=hearing.sessionId AND' + "'" + sessionId + "'" + '=physicalexam.sessionId', function(err, rows) {
+    var datas = connection.query('SELECT persons2.*, history.*, history_review.*, testing.*, vision.*, hearing.*, physicalexam.* FROM persons2, history, history_review, testing, vision, hearing, physicalexam WHERE' + "'" + sessionId + "'" + '=persons2.sessionId AND' + "'" + sessionId + "'" + '=history.sessionId AND' + "'" + sessionId + "'" + '=history_review.sessionId AND' + "'" + sessionId + "'" + '=testing.sessionId AND' + "'" + sessionId + "'" + '=vision.sessionId AND' + "'" + sessionId + "'" + '=hearing.sessionId AND' + "'" + sessionId + "'" + '=physicalexam.sessionId',
+        function(err, rows) {
 
       var fs = require('fs');
       var pdfFiller = require('pdffiller');
@@ -604,9 +744,6 @@ var end = function(req, res, next) {
 
       };
 
-
-
-
       pdfFiller.fillForm(sourcePDF, destinationPDF, data, shouldFlatten, function(err) {
         if (err) throw err;
         console.log("In callback (we're done).");
@@ -618,16 +755,13 @@ var end = function(req, res, next) {
       user = user.toJSON();
     }
 
-
-
-
-connection.query('SELECT followUpBrainInjury, followUpEpilepsy, followUpPacemaker, followupBloodPressure, followUpHighCholesterol, followUpBreathingProblems, followUpLungDisease, followUpKidneyProblems, followUpStomachProblems, followUpDiabetes, followUpInsulin, followUpAnxiety, followUpFainting, followUpDizziness, followUpStroke, followUpMissingLimbs, followUpBackProblems, followUpBoneProblems, followUpBloodClots, followUpCancer, followUpChronicDiseases, followUpSleepDisorders, followUpSleepTest, followUpNightInHospital, followUpBrokenBone, followUpUseTobacco, followUpDrinkAlcohol, followUpIllegalSubstance, followUpFailedDrugTest FROM history_review WHERE history_review.sessionId = ' + "'" + sessionId + "'",
+    connection.query('SELECT followUpBrainInjury, followUpEpilepsy, followUpPacemaker, followupBloodPressure, followUpHighCholesterol, followUpBreathingProblems, followUpLungDisease, followUpKidneyProblems, followUpStomachProblems, followUpDiabetes, followUpInsulin, followUpAnxiety, followUpFainting, followUpDizziness, followUpStroke, followUpMissingLimbs, followUpBackProblems, followUpBoneProblems, followUpBloodClots, followUpCancer, followUpChronicDiseases, followUpSleepDisorders, followUpSleepTest, followUpNightInHospital, followUpBrokenBone, followUpUseTobacco, followUpDrinkAlcohol, followUpIllegalSubstance, followUpFailedDrugTest FROM history_review WHERE history_review.sessionId = ' + "'" + sessionId + "'",
       function(err, rows) {
         //console.log(rows)
 
         var obj = rows[0];
-        console.log("obj before:")
-        console.log(obj)
+        //console.log("obj before:")
+        //console.log(obj)
 
         var followUpBrainInjury = "Due to head/brain injuries, ";
         var followUpEpilepsy = "Due to seizures/epilepsy, ";
@@ -659,7 +793,6 @@ connection.query('SELECT followUpBrainInjury, followUpEpilepsy, followUpPacemake
         var followUpIllegalSubstance = "Due to illegal drug issues, ";
         var followUpFailedDrugTest = "Due to failed drug test history, ";
 
-
         var certificate_0 = "a maximum of 1 year certificate can be issued.";
         var certificate_1 = "a maximum of 2 year certificate can be issued.";
         var certificate_2 = "tester ? a maximum of 1 year certificate can be issued with a neurologist's release.";
@@ -669,16 +802,15 @@ connection.query('SELECT followUpBrainInjury, followUpEpilepsy, followUpPacemake
         var certificate_6 = "a maximum of 1 year certificate can be issued.";
         var certificate_7 = "a maximum of 1 year certificate can be issued.";
 
-        for(prop in obj) {
-          if(obj[prop] == 'undefined' || obj[prop] == 'na'){
-          delete obj[prop]
+        for (prop in obj) {
+          if (obj[prop] == 'undefined' || obj[prop] == 'na') {
+            delete obj[prop]
           }
         }
 
-        console.log("c1: " + certificate_1)
-        console.log("obj after:")
-        console.log(obj)
-
+        //console.log("c1: " + certificate_1)
+        //console.log("obj after:")
+        //console.log(obj)
 
         var str = JSON.stringify(obj);
 
@@ -721,33 +853,24 @@ connection.query('SELECT followUpBrainInjury, followUpEpilepsy, followUpPacemake
         str = str.replace(/followUpIllegalSubstance/g, followUpIllegalSubstance);
         str = str.replace(/followUpFailedDrugTest/g, followUpFailedDrugTest);
 
+        obj = JSON.parse(str);
 
-
-
-
-            obj = JSON.parse(str);
-
-
-
-
-         var arr = [];
-        for (prop in obj){
+        var arr = [];
+        for (prop in obj) {
           arr.push(prop + ' ' + obj[prop])
-          //arr.push(prop)
-          console.log(prop)
-          console.log(obj[prop])
+            //arr.push(prop)
+          //console.log(prop)
+          //console.log(obj[prop])
         }
 
-        console.log(arr)
+        //console.log(arr)
 
-
-
-    res.render('end', {
-      title: 'End',
-      user: user,
-      data: arr
+        res.render('end', {
+          title: 'End',
+          user: user,
+          data: arr
+        });
       });
-    });
   }
 };
 //-------------------------------------------------------
@@ -883,8 +1006,6 @@ var signInPost = function(req, res, next) {
             //console.log(rows[0])
           };
 
-
-
         return res.redirect('/demographics');
       }
     });
@@ -925,7 +1046,6 @@ var signUpPost = function(req, res, next) {
       var password = user.password;
       var hash = bcrypt.hashSync(password);
 
-
       var signUpUser = new Model.User({
         username: user.username,
         password: hash
@@ -949,37 +1069,34 @@ var signUpPost = function(req, res, next) {
 //-------------------------------------------------------
 var moreInfo = function(req, res, next) {
 
-    var user = req.user;
+  var user = req.user;
 
-    if (user !== undefined) {
-      user = user.toJSON();
-    }
-
-    // connection.query('SELECT * FROM moreinfo WHERE moreinfo.username = ' + "'" + user.attributes.username + "'"),
-    //   function(err, rows) {
-    //     console.log(rows[0])
-    //   }
-
-    res.render('moreinfo', {
-      title: 'More Info'
-      // user: user
-    });
+  if (user !== undefined) {
+    user = user.toJSON();
   }
+
+  // connection.query('SELECT * FROM moreinfo WHERE moreinfo.username = ' + "'" + user.attributes.username + "'"),
+  //   function(err, rows) {
+  //     console.log(rows[0])
+  //   }
+
+  res.render('moreinfo', {
+    title: 'More Info'
+      // user: user
+  });
+}
 
 //-------------------------------------------------------
 var moreInfoPost = function(req, res, next) {
 
-// connection.query('INSERT INTO moreinfo(registerAddress, registerCity, registerState, registerZip, registerPhone, registerEmail, stateLicense, nationalLicense)VALUES(' + "'" + req.body.registerAddress  + "'," + "'" + req.body.registerCity + "'," + "'" + req.body.registerState + "'," + "'" + req.body.registerZip + "'," + "'" + req.body.registerPhone + "'," + "'" + req.body.registerEmail + "'," + "'" + req.body.stateLicense + "'," + "'" + req.body.nationalLicense + "')"),
-//     function(err, rows) {
+  // connection.query('INSERT INTO moreinfo(registerAddress, registerCity, registerState, registerZip, registerPhone, registerEmail, stateLicense, nationalLicense)VALUES(' + "'" + req.body.registerAddress  + "'," + "'" + req.body.registerCity + "'," + "'" + req.body.registerState + "'," + "'" + req.body.registerZip + "'," + "'" + req.body.registerPhone + "'," + "'" + req.body.registerEmail + "'," + "'" + req.body.stateLicense + "'," + "'" + req.body.nationalLicense + "')"),
+  //     function(err, rows) {
 
-//     }
-
+  //     }
 
   res.redirect('/signin')
 
-
 };
-
 
 //-------------------------------------------------------------------------------------------
 

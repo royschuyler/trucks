@@ -252,6 +252,12 @@ followUpBrainInjury varchar(255),
 followUpBrainInjuryNotes varchar(255),
 followUpEpilepsy varchar(255),
 followUpEpilepsyNotes varchar(255),
+followUpEye varchar(255),
+followUpEyeNotes varchar(255),
+followUpEar varchar(255),
+followUpEarNotes varchar(255),
+followUpHeart varchar(255),
+followUpHeartNotes varchar(255),
 followUpPacemaker varchar(255),
 followUpPacemakerNotes varchar(255),
 followupBloodPressure varchar(255),
@@ -311,11 +317,10 @@ historyReview varchar(8000)
 
 
 //***************** 62 INSERTS ****************************************************
-connection.query('INSERT INTO history_review(username, userId, sessionId, followUpBrainInjury, followUpBrainInjuryNotes, followUpEpilepsy, followUpEpilepsyNotes, followUpPacemaker, followUpPacemakerNotes, followupBloodPressure, followupBloodPressureNotes,
+connection.query('INSERT INTO history_review(username, userId, sessionId, followUpBrainInjury, followUpBrainInjuryNotes, followUpEpilepsy, followUpEpilepsyNotes, followUpEye,followUpEyeNotes,followUpEar, followUpEarNotes, followUpHeart,
+followUpHeartNotes varchar,followUpPacemaker, followUpPacemakerNotes,followupBloodPressure, followupBloodPressureNotes,
 followUpHighCholesterol, followUpHighCholesterolNotes, followUpBreathingProblems, followUpBreathingProblemsNotes, followUpLungDisease, followUpLungDiseaseNotes, followUpKidneyProblems, followUpKidneyProblemsNotes, followUpStomachProblems, followUpStomachProblemsNotes, followUpDiabetes, followUpDiabetesNotes, followUpInsulin, followUpInsulinNotes, followUpAnxiety, followUpAnxietyNotes, followUpFainting, followUpFaintingNotes, followUpDizziness, followUpDizzinessNotes, followUpStroke, followUpStrokeNotes, followUpMissingLimbs, followUpMissingLimbsNotes, followUpBackProblems, followUpBackProblemsNotes, followUpBoneProblems, followUpBoneProblemsNotes, followUpBloodClots,followUpBloodClotsNotes, followUpCancer, followUpCancerNotes, followUpChronicDiseases, followUpChronicDiseasesNotes, followUpSleepDisorders, followUpSleepDisordersNotes, followUpSleepTest, followUpSleepTestNotes, followUpNightInHospital, followUpNightInHospitalNotes, followUpBrokenBone, followUpBrokenBoneNotes, followUpUseTobacco, followUpUseTobaccoNotes, followUpDrinkAlcohol,
 followUpDrinkAlcoholNotes, followUpIllegalSubstance, followUpIllegalSubstanceNotes, followUpFailedDrugTest, followUpFailedDrugTestNotes, historyReview)
-
-
 VALUES('
 + "'" +
 user.attributes.username
@@ -331,6 +336,18 @@ req.body.followUpBrainInjuryNotes
 req.body.followUpEpilepsy
 + "'," + "'" +
 req.body.followUpEpilepsyNotes
++ "'," + "'" +
+req.body.followUpEye
++ "'," + "'" +
+req.body.followUpEyeNotes
++ "'," + "'" +
+req.body.followUpEar
++ "'," + "'" +
+req.body.followUpEarNotes
++ "'," + "'" +
+req.body.followUpHeart
++ "'," + "'" +
+req.body.followUpHeartNotes
 + "'," + "'" +
 req.body.followUpPacemaker
 + "'," + "'" +
@@ -448,19 +465,77 @@ req.body.historyReview
     }
 
 //************************ HISTORY REVIW FOR ROUTE *******************************
-connection.query('INSERT INTO history_review(username, userId, sessionId, followUpBrainInjury, followUpBrainInjuryNotes, followUpEpilepsy, followUpEpilepsyNotes, followUpPacemaker, followUpPacemakerNotes, followupBloodPressure, followupBloodPressureNotes,
+connection.query('INSERT INTO history_review(username, userId, sessionId, followUpBrainInjury, followUpBrainInjuryNotes, followUpEpilepsy, followUpEpilepsyNotes, followUpEye,followUpEyeNotes,followUpEar, followUpEarNotes, followUpHeart,
+followUpHeartNotes varchar,followUpPacemaker, followUpPacemakerNotes,followupBloodPressure, followupBloodPressureNotes,
 followUpHighCholesterol, followUpHighCholesterolNotes, followUpBreathingProblems, followUpBreathingProblemsNotes, followUpLungDisease, followUpLungDiseaseNotes, followUpKidneyProblems, followUpKidneyProblemsNotes, followUpStomachProblems, followUpStomachProblemsNotes, followUpDiabetes, followUpDiabetesNotes, followUpInsulin, followUpInsulinNotes, followUpAnxiety, followUpAnxietyNotes, followUpFainting, followUpFaintingNotes, followUpDizziness, followUpDizzinessNotes, followUpStroke, followUpStrokeNotes, followUpMissingLimbs, followUpMissingLimbsNotes, followUpBackProblems, followUpBackProblemsNotes, followUpBoneProblems, followUpBoneProblemsNotes, followUpBloodClots,followUpBloodClotsNotes, followUpCancer, followUpCancerNotes, followUpChronicDiseases, followUpChronicDiseasesNotes, followUpSleepDisorders, followUpSleepDisordersNotes, followUpSleepTest, followUpSleepTestNotes, followUpNightInHospital, followUpNightInHospitalNotes, followUpBrokenBone, followUpBrokenBoneNotes, followUpUseTobacco, followUpUseTobaccoNotes, followUpDrinkAlcohol,
-followUpDrinkAlcoholNotes, followUpIllegalSubstance, followUpIllegalSubstanceNotes, followUpFailedDrugTest, followUpFailedDrugTestNotes, historyReview)VALUES('+ "'" +user.attributes.username+ "'," + "'" +user.attributes.userId+ "'," + "'" +sessionId+ "'," + "'" +req.body.followUpBrainInjury+ "'," + "'" +req.body.followUpBrainInjuryNotes+ "'," + "'" +req.body.followUpEpilepsy+ "'," + "'" +req.body.followUpEpilepsyNotes+ "'," + "'" +req.body.followUpPacemaker+ "'," + "'" +req.body.followUpPacemakerNotes+ "'," + "'" +req.body.followupBloodPressure+ "'," + "'" +req.body.followupBloodPressureNotes+ "'," + "'" +req.body.followUpHighCholesterol+ "'," + "'" +req.body.followUpHighCholesterolNotes+ "'," + "'" +req.body.followUpBreathingProblems+ "'," + "'" +req.body.followUpBreathingProblemsNotes+ "'," + "'" +req.body.followUpLungDisease+ "'," + "'" +req.body.followUpLungDiseaseNotes+ "'," + "'" +req.body.followUpBackProblems+ "'," + "'" +req.body.followUpBackProblemsNotes+ "'," + "'" +req.body.followUpKidneyProblems+ "'," + "'" +req.body.followUpKidneyProblemsNotes+ "'," + "'" +req.body.followUpStomachProblems+ "'," + "'" +req.body.followUpStomachProblemsNotes+ "'," + "'" +req.body.followUpDiabetes+ "'," + "'" +req.body.followUpDiabetesNotes+ "'," + "'" +req.body.followUpInsulin+ "'," + "'" +req.body.followUpInsulinNotes+ "'," + "'" +req.body.followUpAnxiety+ "'," + "'" +req.body.followUpAnxietyNotes+ "'," + "'" +req.body.followUpFainting+ "'," + "'" +req.body.followUpFaintingNotes+ "'," + "'" +req.body.followUpDizziness+ "'," + "'" +req.body.followUpDizzinessNotes+ "'," + "'" +req.body.followUpStroke+ "'," + "'" +req.body.followUpStrokeNotes+ "'," + "'" +req.body.followUpMissingLimbs+ "'," + "'" +req.body.followUpMissingLimbsNotes+ "'," + "'" +req.body.followUpBoneProblems+ "'," + "'" +
-req.body.followUpBoneProblemsNotes+ "'," + "'" +req.body.followUpBloodClots+ "'," + "'" +req.body.followUpBloodClotsNotes+ "'," + "'" +req.body.followUpCancer+ "'," + "'" +req.body.followUpCancerNotes+ "'," + "'" +req.body.followUpChronicDiseases+ "'," + "'" +req.body.followUpChronicDiseasesNotes+ "'," + "'" +req.body.followUpSleepDisorders+ "'," + "'" +req.body.followUpSleepDisordersNotes+ "'," + "'" +req.body.followUpSleepTest+ "'," + "'" +req.body.followUpSleepTestNotes+ "'," + "'" +req.body.followUpNightInHospital+ "'," + "'" +req.body.followUpNightInHospitalNotes+ "'," + "'" +req.body.followUpBrokenBone+ "'," + "'" +req.body.followUpBrokenBoneNotes+ "'," + "'" +req.body.followUpUseTobacco+ "'," + "'" +req.body.followUpUseTobaccoNotes+ "'," + "'" +req.body.followUpDrinkAlcohol+ "'," + "'" +req.body.followUpDrinkAlcoholNotes+ "'," + "'" +req.body.followUpIllegalSubstance+ "'," + "'" +req.body.followUpIllegalSubstanceNotes+ "'," + "'" +req.body.followUpFailedDrugTest+ "'," + "'" +req.body.followUpFailedDrugTestNotes+ "'," + "'" +req.body.historyReview+ "')"),
+followUpDrinkAlcoholNotes, followUpIllegalSubstance, followUpIllegalSubstanceNotes, followUpFailedDrugTest, followUpFailedDrugTestNotes, historyReview)VALUES('+ "'" +user.attributes.username+ "'," + "'" +user.attributes.userId+ "'," + "'" +sessionId+ "'," + "'" +req.body.followUpBrainInjury+ "'," + "'" +req.body.followUpBrainInjuryNotes+ "'," + "'" +req.body.followUpEpilepsy+ "'," + "'" +req.body.followUpEpilepsyNotes+ "'," + "'" +req.body.followUpEye+ "'," + "'" +req.body.followUpEyeNotes+ "'," + "'" +req.body.followUpEar+ "'," + "'" +req.body.followUpEarNotes+ "'," + "'" +req.body.followUpHeart+ "'," + "'" +req.body.followUpHeartNotes+ "'," + "'" +req.body.followUpPacemaker+ "'," + "'" +req.body.followUpPacemakerNotes+ "'," + "'" +req.body.followupBloodPressure+ "'," + "'" +req.body.followupBloodPressureNotes+ "'," + "'" +req.body.followUpHighCholesterol+ "'," + "'" +req.body.followUpHighCholesterolNotes+ "'," + "'" +req.body.followUpBreathingProblems+ "'," + "'" +req.body.followUpBreathingProblemsNotes+ "'," + "'" +req.body.followUpLungDisease+ "'," + "'" +req.body.followUpLungDiseaseNotes+ "'," + "'" +req.body.followUpBackProblems+ "'," + "'" +req.body.followUpBackProblemsNotes+ "'," + "'" +req.body.followUpKidneyProblems+ "'," + "'" +req.body.followUpKidneyProblemsNotes+ "'," + "'" +req.body.followUpStomachProblems+ "'," + "'" +req.body.followUpStomachProblemsNotes+ "'," + "'" +req.body.followUpDiabetes+ "'," + "'" +req.body.followUpDiabetesNotes+ "'," + "'" +req.body.followUpInsulin+ "'," + "'" +req.body.followUpInsulinNotes+ "'," + "'" +req.body.followUpAnxiety+ "'," + "'" +req.body.followUpAnxietyNotes+ "'," + "'" +req.body.followUpFainting+ "'," + "'" +req.body.followUpFaintingNotes+ "'," + "'" +req.body.followUpDizziness+ "'," + "'" +req.body.followUpDizzinessNotes+ "'," + "'" +req.body.followUpStroke+ "'," + "'" +req.body.followUpStrokeNotes+ "'," + "'" +req.body.followUpMissingLimbs+ "'," + "'" +req.body.followUpMissingLimbsNotes
++ "'," + "'" +
+req.body.followUpBoneProblems
++ "'," + "'" +
+req.body.followUpBoneProblemsNotes
++ "'," + "'" +
+req.body.followUpBloodClots
++ "'," + "'" +
+req.body.followUpBloodClotsNotes
++ "'," + "'" +
+req.body.followUpCancer
++ "'," + "'" +
+req.body.followUpCancerNotes
++ "'," + "'" +
+req.body.followUpChronicDiseases
++ "'," + "'" +
+req.body.followUpChronicDiseasesNotes
++ "'," + "'" +
+req.body.followUpSleepDisorders
++ "'," + "'" +
+req.body.followUpSleepDisordersNotes
++ "'," + "'" +
+req.body.followUpSleepTest
++ "'," + "'" +
+req.body.followUpSleepTestNotes
++ "'," + "'" +
+req.body.followUpNightInHospital
++ "'," + "'" +
+req.body.followUpNightInHospitalNotes
++ "'," + "'" +
+req.body.followUpBrokenBone
++ "'," + "'" +
+req.body.followUpBrokenBoneNotes
++ "'," + "'" +
+req.body.followUpUseTobacco
++ "'," + "'" +
+req.body.followUpUseTobaccoNotes
++ "'," + "'" +
+req.body.followUpDrinkAlcohol
++ "'," + "'" +
+req.body.followUpDrinkAlcoholNotes
++ "'," + "'" +
+req.body.followUpIllegalSubstance
++ "'," + "'" +
+req.body.followUpIllegalSubstanceNotes
++ "'," + "'" +
+req.body.followUpFailedDrugTest
++ "'," + "'" +
+req.body.followUpFailedDrugTestNotes
++ "'," + "'" +
+req.body.historyReview
++ "')"),
 
     function(err, rows) {
 
     }
 
 
+
 //************************* SELECT xxx FROM HISTORY REVIEW *****************************
 followUpBrainInjury varchar(255),
 followUpBrainInjuryNotes varchar(255),
+followUpEye varchar(255),
+followUpEyeNotes varchar(255),
+followUpEar varchar(255),
+followUpEarNotes varchar(255),
+followUpHeart varchar(255),
+followUpHeartNotes varchar(255),
 followUpEpilepsy varchar(255),
 followUpEpilepsyNotes varchar(255),
 followUpPacemaker varchar(255),
