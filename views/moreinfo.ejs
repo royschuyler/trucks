@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<% include sign-header.ejs %>
+    <div class="container log-form" id="register-form">
+      <h2>Register Form</h2>
+      <form method="post" action="/moreinfo">
+<!--        <% if(typeof(errorMessage) !== 'undefined') {%>
+       <span><%= errorMessage %></span>
+       <% } %> -->
+       <fieldset class="fieldset">
+
+       <hr>
+       <p>
+        <label class="register-address" for="password">Address: </label>
+        <input type="text" name="registerAddress" id="password"
+           placeholder="password" required="true"/>
+       </p>
+       <p>
+        <label class="register-city"for="password">City: </label>
+        <input type="text" name="registerCity" id="password"
+           placeholder="password" required="true"/>
+       </p>
+       <p>
+        <label class="register-state"for="password">State: </label>
+        <input type="text" name="registerState" id="password"
+           placeholder="password" required="true"/>
+       </p>
+       <p>
+        <label class="register-zip"for="zip">Zip: </label>
+        <input type="text" name="registerZip" id="password"
+           placeholder="password" required="true"/>
+       </p>
+       <p>
+        <label class="register-phone" for="password">Phone: </label>
+        <input type="text" name="registerPhone" id="password"
+           placeholder="password" required="true"/>
+       </p>
+       <p>
+        <label class="register-email" for="username">Email: </label>
+        <input type="text" name="registerEmail" id="username"
+           placeholder="username" required="true"/>
+       </p>
+
+       <p>
+        <label class="register-license" for="password">License number: </label>
+        <input type="text" name="stateLicense" id="password"
+           placeholder="password" required="true"/>
+       </p>
+       <p>
+        <label class="register-national" for="password">Registry number: </label>
+        <input type="text" name="nationalLicense" id="password"
+           placeholder="password" required="true"/>
+       </p>
+
+       <p>
+        <input type="submit" name="signup" id="signup" value="register"/>
+        <!-- <a href="/signin" title="sign in">sign in</a> -->
+       </p>
+       </fieldset>
+
+      </form>
+    </div>
+<% include footer.ejs %>

@@ -827,3 +827,11 @@ tr.non-border {
   margin-top: -10px;
   margin-left: -20px;
 }
+
+.end-table {
+  color: red;
+}
+
+.followup-radio-button {
+  margin-right: 5px !important;
+}

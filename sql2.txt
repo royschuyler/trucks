@@ -242,4 +242,52 @@ connection.query('INSERT INTO moreinfo(registerAddress, registerCity, registerSt
 <% } %>
 </table> -->
 
+CREATE TABLE history_review
+(
+ID Integer PRIMARY KEY AUTO_INCREMENT,
+username varchar(255) NOT NULL,
+userId varchar(255),
+sessionId varchar(255),
+followUpBrainInjury varchar(255),
+followUpEpilepsy varchar(255),
+followUpPacemaker varchar(255),
+followupBloodPressure varchar(255),
+followUpHighCholesterol varchar(255),
+followUpBreathingProblems varchar(255),
+followUpLungDisease varchar(255),
+followUpKidneyProblems varchar(255),
+followUpStomachProblems varchar(255),
+followUpDiabetes varchar(255),
+followUpInsulin varchar(255),
+followUpAnxiety varchar(255),
+followUpFainting varchar(255),
+followUpDizziness varchar(255),
+followUpUnExplainedWeightLoss varchar(255),
+followUpStroke varchar(255),
+followUpMissingLimbs varchar(255),
+followUpBackProblems varchar(255),
+followUpBoneProblems varchar(255),
+followUpBloodClots varchar(255),
+followUpCancer varchar(255),
+followUpChronicDiseases varchar(255),
+followUpSleepDisorders varchar(255),
+followUpSleepTest varchar(255),
+followUpNightInHospital varchar(255),
+followUpBrokenBone varchar(255),
+followUpUseTobacco varchar(255),
+followUpDrinkAlcohol varchar(255),
+followUpIllegalSubstance varchar(255),
+followUpFailedDrugTest varchar(255)
+
+
+
+
+
+historyReview varchar(8000)
+);
+
+userId varchar(255), username varchar(255), sessionId varchar(255), surgeryButton varchar(255), surgeryComments varchar (4000), medicationButton varchar(255), medicationComments varchar(255), brainInjuries varchar(255),seizures varchar(255), eyeProblems varchar(255), earProblems varchar(255), heartProblems varchar(255), paceMaker varchar(255), highBloodPressure varchar(255), highCholesterol varchar(255), breathingProblems varchar(255), lungDisease varchar(255), kidneyProblems varchar(255), stomachProblems varchar(255), diabetes varchar(255), insulin varchar(255), anxiety varchar(255), fainting varchar(255), dizziness varchar(255), unexplainedWeightLoss varchar(255), stroke varchar(255), missingLimbs varchar(255), backProblems varchar(255), boneProblems varchar(255), bloodClots varchar(255), cancer varchar(255), chronicDiseases varchar(255), sleepDisorders varchar(255), sleepTest varchar(255), nightInHospital varchar(255), brokenBone varchar(255), useTobacco varchar(255), drinkAlcohol varchar(255), illegalSubstance varchar(255), failedDrugTest varchar(255), otherButton varchar(255), otherComments varchar(4000), yesButton varchar(255), yesDescribe varchar(4000));
+
+
+
 

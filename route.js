@@ -623,7 +623,7 @@ var end = function(req, res, next) {
 
         var obj = rows[0];
 
-        var followUpBrainInjury = "Due to head/brain injuries";
+        var followUpBrainInjury = "Due to head/brain injuries,";
         var followUpEpilepsy = "Due to seizures/epilepsy";
         var followUpPacemaker = "Due to issues with a pacemaker";
         var followupBloodPressure = "Due to blood pressure";
@@ -667,7 +667,7 @@ var end = function(req, res, next) {
 
         var arr = [];
         for (prop in obj){
-          arr.push(prop + ', ' + obj[prop])
+          arr.push(prop + ' ' + obj[prop])
         }
 
         console.log(arr)

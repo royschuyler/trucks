@@ -6,7 +6,18 @@
       <h3 class="end-session-text">The exam has successfully been completed.</h3>
     </div>
 
-      <h2><%= data %></h2>
+      <!-- <h2><%= data %></h2> -->
+            <table>
+              <% for(var i=0; i < data.length; i++) { %>
+                 <tr>
+                   <td class="end-table"><%= data[i] %></td>
+                 </tr>
+              <% } %>
+            </table>
+
+
+
+
                   <form class="end-form" method="post" action="/end" role="form">
                     <div class="end-option-text end-padding">
                       Click to download a PDF of the exam.
