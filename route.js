@@ -621,7 +621,7 @@ var end = function(req, res, next) {
 
 
 
-connection.query('SELECT followUpBrainInjury,followUpEpilepsy,followUpPacemaker,followupBloodPressure,followUpHighCholesterol,followUpBreathingProblems,followUpLungDisease,followUpKidneyProblems,followUpStomachProblems,followUpDiabetes,followUpInsulin,followUpAnxiety,followUpFainting,followUpDizziness,followUpStroke,followUpMissingLimbs,followUpBackProblems,followUpBoneProblems,followUpBloodClots,followUpCancer,followUpChronicDiseases,followUpSleepDisorders,followUpSleepTest,followUpNightInHospital,followUpBrokenBone,followUpUseTobacco,followUpDrinkAlcohol,followUpIllegalSubstance,followUpFailedDrugTest FROM history_review WHERE history_review.sessionId = ' + "'" + sessionId + "'",
+connection.query('SELECT followUpBrainInjury, followUpEpilepsy, followUpPacemaker, followupBloodPressure, followUpHighCholesterol, followUpBreathingProblems, followUpLungDisease, followUpKidneyProblems, followUpStomachProblems, followUpDiabetes, followUpInsulin, followUpAnxiety, followUpFainting, followUpDizziness, followUpStroke, followUpMissingLimbs, followUpBackProblems, followUpBoneProblems, followUpBloodClots, followUpCancer, followUpChronicDiseases, followUpSleepDisorders, followUpSleepTest, followUpNightInHospital, followUpBrokenBone, followUpUseTobacco, followUpDrinkAlcohol, followUpIllegalSubstance, followUpFailedDrugTest FROM history_review WHERE history_review.sessionId = ' + "'" + sessionId + "'",
       function(err, rows) {
         //console.log(rows)
 
@@ -629,10 +629,36 @@ connection.query('SELECT followUpBrainInjury,followUpEpilepsy,followUpPacemaker,
         console.log("obj before:")
         console.log(obj)
 
-        var followUpBrainInjury = "Due to head/brain injuries,";
-        var followUpEpilepsy = "Due to seizures/epilepsy";
-        var followUpPacemaker = "Due to issues with a pacemaker";
-        var followupBloodPressure = "Due to blood pressure";
+        var followUpBrainInjury = "Due to head/brain injuries, ";
+        var followUpEpilepsy = "Due to seizures/epilepsy, ";
+        var followUpPacemaker = "Due to issues with a pacemaker, ";
+        var followupBloodPressure = "Due to blood pressure, ";
+        var followUpHighCholesterol = "Due to cholesterol issues, ";
+        var followUpBreathingProblems = "Due to breathing issues, ";
+        var followUpLungDisease = "Due to lung issues, ";
+        var followUpKidneyProblems = "Due to kidney issues, ";
+        var followUpStomachProblems = "Due to stomach issues, ";
+        var followUpDiabetes = "Due to diabetes issues, ";
+        var followUpInsulin = "Due to insulin use, ";
+        var followUpAnxiety = "Due to anxiety issues, ";
+        var followUpFainting = "Due to faintin issues, ";
+        var followUpDizziness = "Due to dizziness issues, ";
+        var followUpStroke = "Due to stroke issues, ";
+        var followUpMissingLimbs = "Due to missing limbs, ";
+        var followUpBackProblems = "Due to back/neck issues, ";
+        var followUpBoneProblems = "Due to bone issues, ";
+        var followUpBloodClots = "Due to blood clot issues, ";
+        var followUpCancer = "Due to cancer issues, ";
+        var followUpChronicDiseases = "Due to infections/chronic diseases, ";
+        var followUpSleepDisorders = "Due to sleep disorders, ";
+        var followUpSleepTest = "Due to sleep test issues, ";
+        var followUpNightInHospital = "Due to hospital visits, ";
+        var followUpBrokenBone = "Due to broken bone issues, ";
+        var followUpUseTobacco = "Due to tobacco use, ";
+        var followUpDrinkAlcohol = "Due to alcohol issues, ";
+        var followUpIllegalSubstance = "Due to illegal drug issues, ";
+        var followUpFailedDrugTest = "Due to failed drug test history, ";
+
 
         var certificate_0 = "a maximum of 1 year certificate can be issued."
         var certificate_1 = "a maximum of 2 year certificate can be issued."
@@ -656,6 +682,33 @@ connection.query('SELECT followUpBrainInjury,followUpEpilepsy,followUpPacemaker,
         str = str.replace(/followUpEpilepsy/g, followUpEpilepsy);
         str = str.replace(/followUpPacemaker/g, followUpPacemaker);
         str = str.replace(/followupBloodPressure/g, followupBloodPressure);
+        str = str.replace(/followUpHighCholesterol/g, followUpHighCholesterol);
+        str = str.replace(/followUpBreathingProblems/g, followUpBreathingProblems);
+        str = str.replace(/followUpLungDisease/g, followUpLungDisease);
+        str = str.replace(/followUpKidneyProblems/g, followUpKidneyProblems);
+        str = str.replace(/followUpStomachProblems/g, followUpStomachProblems);
+        str = str.replace(/followUpDiabetes/g, followUpDiabetes);
+        str = str.replace(/followUpInsulin/g, followUpInsulin);
+        str = str.replace(/followUpAnxiety/g, followUpAnxiety);
+        str = str.replace(/followUpFainting/g, followUpFainting);
+        str = str.replace(/followUpDizziness/g, followUpDizziness);
+        str = str.replace(/followUpStroke/g, followUpStroke);
+        str = str.replace(/followUpMissingLimbs/g, followUpMissingLimbs);
+        str = str.replace(/followUpBackProblems/g, followUpBackProblems);
+        str = str.replace(/followUpBoneProblems/g, followUpBoneProblems);
+        str = str.replace(/followUpBloodClots/g, followUpBloodClots);
+        str = str.replace(/followUpCancer/g, followUpCancer);
+        str = str.replace(/followUpChronicDiseases/g, followUpChronicDiseases);
+        str = str.replace(/followUpSleepDisorders/g, followUpSleepDisorders);
+        str = str.replace(/followUpSleepTest/g, followUpSleepTest);
+        str = str.replace(/followUpNightInHospital/g, followUpNightInHospital);
+        str = str.replace(/followUpBrokenBone/g, followUpBrokenBone);
+        str = str.replace(/followUpUseTobacco/g, followUpUseTobacco);
+        str = str.replace(/followUpDrinkAlcohol/g, followUpDrinkAlcohol);
+        str = str.replace(/followUpIllegalSubstance/g, followUpIllegalSubstance);
+        str = str.replace(/followUpFailedDrugTest/g, followUpFailedDrugTest);
+
+
 
         str = str.replace(/0/g, certificate_0);
         str = str.replace(/1/g, certificate_1);
