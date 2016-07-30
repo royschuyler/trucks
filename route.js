@@ -194,9 +194,10 @@ var homePost = function(req, res, next) {
 
   var user = req.user;
 
-connection.query('INSERT INTO history_review(username, userId, sessionId, followUpBrainInjury, followUpEpilepsy, followUpPacemaker, followupBloodPressure, historyReview)VALUES(' + "'" + user.attributes.username + "'," + "'" + user.attributes.userId + "'," + "'" + sessionId + "'," + "'" + req.body.followUpBrainInjury + "'," + "'" + req.body.followUpEpilepsy + "'," + "'" + req.body.followUpPacemaker + "'," + "'" + req.body.followupBloodPressure + "'," + "'" + req.body.historyReview + "')"),
+connection.query('INSERT INTO history_review(username, userId, sessionId, followUpBrainInjury, followUpBrainInjuryNotes, followUpEpilepsy, followUpEpilepsyNotes, followUpPacemaker, followUpPacemakerNotes, followupBloodPressure, followupBloodPressureNotes,followUpHighCholesterol, followUpHighCholesterolNotes, followUpBreathingProblems, followUpBreathingProblemsNotes, followUpLungDisease, followUpLungDiseaseNotes, followUpKidneyProblems, followUpKidneyProblemsNotes, followUpStomachProblems, followUpStomachProblemsNotes, followUpDiabetes, followUpDiabetesNotes, followUpInsulin, followUpInsulinNotes, followUpAnxiety, followUpAnxietyNotes, followUpFainting, followUpFaintingNotes, followUpDizziness, followUpDizzinessNotes, followUpStroke, followUpStrokeNotes, followUpMissingLimbs, followUpMissingLimbsNotes, followUpBackProblems, followUpBackProblemsNotes, followUpBoneProblems, followUpBoneProblemsNotes, followUpBloodClots,followUpBloodClotsNotes, followUpCancer, followUpCancerNotes, followUpChronicDiseases, followUpChronicDiseasesNotes, followUpSleepDisorders, followUpSleepDisordersNotes, followUpSleepTest, followUpSleepTestNotes, followUpNightInHospital, followUpNightInHospitalNotes, followUpBrokenBone, followUpBrokenBoneNotes, followUpUseTobacco, followUpUseTobaccoNotes, followUpDrinkAlcohol,followUpDrinkAlcoholNotes, followUpIllegalSubstance, followUpIllegalSubstanceNotes, followUpFailedDrugTest, followUpFailedDrugTestNotes, historyReview)VALUES('+ "'" +user.attributes.username+ "'," + "'" +user.attributes.userId+ "'," + "'" +sessionId+ "'," + "'" +req.body.followUpBrainInjury+ "'," + "'" +req.body.followUpBrainInjuryNotes+ "'," + "'" +req.body.followUpEpilepsy+ "'," + "'" +req.body.followUpEpilepsyNotes+ "'," + "'" +req.body.followUpPacemaker+ "'," + "'" +req.body.followUpPacemakerNotes+ "'," + "'" +req.body.followupBloodPressure+ "'," + "'" +req.body.followupBloodPressureNotes+ "'," + "'" +req.body.followUpHighCholesterol+ "'," + "'" +req.body.followUpHighCholesterolNotes+ "'," + "'" +req.body.followUpBreathingProblems+ "'," + "'" +req.body.followUpBreathingProblemsNotes+ "'," + "'" +req.body.followUpLungDisease+ "'," + "'" +req.body.followUpLungDiseaseNotes+ "'," + "'" +req.body.followUpBackProblems+ "'," + "'" +req.body.followUpBackProblemsNotes+ "'," + "'" +req.body.followUpKidneyProblems+ "'," + "'" +req.body.followUpKidneyProblemsNotes+ "'," + "'" +req.body.followUpStomachProblems+ "'," + "'" +req.body.followUpStomachProblemsNotes+ "'," + "'" +req.body.followUpDiabetes+ "'," + "'" +req.body.followUpDiabetesNotes+ "'," + "'" +req.body.followUpInsulin+ "'," + "'" +req.body.followUpInsulinNotes+ "'," + "'" +req.body.followUpAnxiety+ "'," + "'" +req.body.followUpAnxietyNotes+ "'," + "'" +req.body.followUpFainting+ "'," + "'" +req.body.followUpFaintingNotes+ "'," + "'" +req.body.followUpDizziness+ "'," + "'" +req.body.followUpDizzinessNotes+ "'," + "'" +req.body.followUpStroke+ "'," + "'" +req.body.followUpStrokeNotes+ "'," + "'" +req.body.followUpMissingLimbs+ "'," + "'" +req.body.followUpMissingLimbsNotes+ "'," + "'" +req.body.followUpBoneProblems+ "'," + "'" +req.body.followUpBoneProblemsNotes+ "'," + "'" +req.body.followUpBloodClots+ "'," + "'" +req.body.followUpBloodClotsNotes+ "'," + "'" +req.body.followUpCancer+ "'," + "'" +req.body.followUpCancerNotes+ "'," + "'" +req.body.followUpChronicDiseases+ "'," + "'" +req.body.followUpChronicDiseasesNotes+ "'," + "'" +req.body.followUpSleepDisorders+ "'," + "'" +req.body.followUpSleepDisordersNotes+ "'," + "'" +req.body.followUpSleepTest+ "'," + "'" +req.body.followUpSleepTestNotes+ "'," + "'" +req.body.followUpNightInHospital+ "'," + "'" +req.body.followUpNightInHospitalNotes+ "'," + "'" +req.body.followUpBrokenBone+ "'," + "'" +req.body.followUpBrokenBoneNotes+ "'," + "'" +req.body.followUpUseTobacco+ "'," + "'" +req.body.followUpUseTobaccoNotes+ "'," + "'" +req.body.followUpDrinkAlcohol+ "'," + "'" +req.body.followUpDrinkAlcoholNotes+ "'," + "'" +req.body.followUpIllegalSubstance+ "'," + "'" +req.body.followUpIllegalSubstanceNotes+ "'," + "'" +req.body.followUpFailedDrugTest+ "'," + "'" +req.body.followUpFailedDrugTestNotes+ "'," + "'" +req.body.historyReview+ "')"),
+
     function(err, rows) {
-      console.log(rows[0])
+
     }
 
   res.redirect('/testing')
@@ -617,60 +618,65 @@ var end = function(req, res, next) {
       user = user.toJSON();
     }
 
-    var followupData = connection.query('SELECT followUpBrainInjury, followUpEpilepsy, followUpPacemaker, followupBloodPressure FROM history_review WHERE history_review.sessionId = ' + "'" + sessionId + "'",
+
+
+//var followupData = connection.query('SELECT followUpBrainInjury, followUpEpilepsy, followUpPacemaker, followupBloodPressure, followUpHighCholesterol, followUpBreathingProblems, followUpLungDisease, followUpKidneyProblems, followUpStomachProblems, followUpDiabetes, followUpInsulin,followUpAnxiety,followUpFainting,followUpDizziness,followUpStroke,followUpMissingLimbs,followUpBackProblems,followUpBoneProblems,followUpBloodClots,followUpCancer,followUpChronicDiseases,followUpSleepDisorders,followUpSleepTest,followUpNightInHospital,followUpBrokenBone,followUpUseTobacco,followUpDrinkAlcohol,followUpIllegalSubstance,followUpFailedDrugTest,FROM history_review WHERE history_review.sessionId = ' + "'" + sessionId + "'",
+
+connection.query('SELECT followUpBrainInjury,followUpEpilepsy,followUpPacemaker,followupBloodPressure,followUpHighCholesterol,followUpBreathingProblems,followUpLungDisease,followUpKidneyProblems,followUpStomachProblems,followUpDiabetes,followUpInsulin,followUpAnxiety,followUpFainting,followUpDizziness,followUpStroke,followUpMissingLimbs,followUpBackProblems,followUpBoneProblems,followUpBloodClots,followUpCancer,followUpChronicDiseases,followUpSleepDisorders,followUpSleepTest,followUpNightInHospital,followUpBrokenBone,followUpUseTobacco,followUpDrinkAlcohol,followUpIllegalSubstance,followUpFailedDrugTest FROM history_review WHERE history_review.sessionId = ' + "'" + sessionId + "'",
       function(err, rows) {
-        console.log(rows)
+        //console.log(rows)
 
         var obj = rows[0];
+        console.log(obj)
 
-        var followUpBrainInjury = "Due to head/brain injuries,";
-        var followUpEpilepsy = "Due to seizures/epilepsy";
-        var followUpPacemaker = "Due to issues with a pacemaker";
-        var followupBloodPressure = "Due to blood pressure";
+        // var followUpBrainInjury = "Due to head/brain injuries,";
+        // var followUpEpilepsy = "Due to seizures/epilepsy";
+        // var followUpPacemaker = "Due to issues with a pacemaker";
+        // var followupBloodPressure = "Due to blood pressure";
 
-        var certificate_0 = "a maximum of 1 year certificate can be issued."
-        var certificate_1 = "a maximum of 2 year certificate can be issued."
-        var certificate_2 = "a maximum of 1 year certificate can be issued with a neurologist's release."
-        var certificate_3 = "a maximum of 2 year certificate can be issued with a neurologist's release."
-        var certificate_4 = "no certificate can be issued."
-        var certificate_5 = "there is a three month wait period before a re-exam."
-        var certificate_6 = "a maximum of 1 year certificate can be issued."
-        var certificate_7 = "a maximum of 1 year certificate can be issued."
-
-
-
+        // var certificate_0 = "a maximum of 1 year certificate can be issued."
+        // var certificate_1 = "a maximum of 2 year certificate can be issued."
+        // var certificate_2 = "a maximum of 1 year certificate can be issued with a neurologist's release."
+        // var certificate_3 = "a maximum of 2 year certificate can be issued with a neurologist's release."
+        // var certificate_4 = "no certificate can be issued."
+        // var certificate_5 = "there is a three month wait period before a re-exam."
+        // var certificate_6 = "a maximum of 1 year certificate can be issued."
+        // var certificate_7 = "a maximum of 1 year certificate can be issued."
 
 
-        for(prop in obj) {
-          if(obj[prop] == 'undefined' || obj[prop] == 'na'){
-          delete obj[prop]
-          }
-        }
 
-        //console.log(obj)
-        var str = JSON.stringify(obj);
-        str = str.replace(/followUpBrainInjury/g, followUpBrainInjury);
-        str = str.replace(/followUpEpilepsy/g, followUpEpilepsy);
-        str = str.replace(/followUpPacemaker/g, followUpPacemaker);
-        str = str.replace(/followupBloodPressure/g, followupBloodPressure);
 
-        str = str.replace(/0/g, certificate_0);
-        str = str.replace(/1/g, certificate_1);
-        str = str.replace(/2/g, certificate_2);
-        str = str.replace(/3/g, certificate_3);
-        str = str.replace(/4/g, certificate_4);
-        str = str.replace(/5/g, certificate_5);
-        str = str.replace(/6/g, certificate_6);
-        str = str.replace(/7/g, certificate_7);
 
-        obj = JSON.parse(str);
+        // for(prop in obj) {
+        //   if(obj[prop] == 'undefined' || obj[prop] == 'na'){
+        //   delete obj[prop]
+        //   }
+        // }
 
-        var arr = [];
-        for (prop in obj){
-          arr.push(prop + ' ' + obj[prop])
-        }
+        // console.log("After delete: " + obj)
+        // var str = JSON.stringify(obj);
+        // str = str.replace(/followUpBrainInjury/g, followUpBrainInjury);
+        // str = str.replace(/followUpEpilepsy/g, followUpEpilepsy);
+        // str = str.replace(/followUpPacemaker/g, followUpPacemaker);
+        // str = str.replace(/followupBloodPressure/g, followupBloodPressure);
 
-        console.log(arr)
+        // str = str.replace(/0/g, certificate_0);
+        // str = str.replace(/1/g, certificate_1);
+        // str = str.replace(/2/g, certificate_2);
+        // str = str.replace(/3/g, certificate_3);
+        // str = str.replace(/4/g, certificate_4);
+        // str = str.replace(/5/g, certificate_5);
+        // str = str.replace(/6/g, certificate_6);
+        // str = str.replace(/7/g, certificate_7);
+
+        // obj = JSON.parse(str);
+
+         var arr = [];
+        // for (prop in obj){
+        //   arr.push(prop + ' ' + obj[prop])
+        // }
+
+        // console.log(arr)
 
 
 
