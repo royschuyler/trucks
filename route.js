@@ -620,63 +620,60 @@ var end = function(req, res, next) {
 
 
 
-//var followupData = connection.query('SELECT followUpBrainInjury, followUpEpilepsy, followUpPacemaker, followupBloodPressure, followUpHighCholesterol, followUpBreathingProblems, followUpLungDisease, followUpKidneyProblems, followUpStomachProblems, followUpDiabetes, followUpInsulin,followUpAnxiety,followUpFainting,followUpDizziness,followUpStroke,followUpMissingLimbs,followUpBackProblems,followUpBoneProblems,followUpBloodClots,followUpCancer,followUpChronicDiseases,followUpSleepDisorders,followUpSleepTest,followUpNightInHospital,followUpBrokenBone,followUpUseTobacco,followUpDrinkAlcohol,followUpIllegalSubstance,followUpFailedDrugTest,FROM history_review WHERE history_review.sessionId = ' + "'" + sessionId + "'",
 
 connection.query('SELECT followUpBrainInjury,followUpEpilepsy,followUpPacemaker,followupBloodPressure,followUpHighCholesterol,followUpBreathingProblems,followUpLungDisease,followUpKidneyProblems,followUpStomachProblems,followUpDiabetes,followUpInsulin,followUpAnxiety,followUpFainting,followUpDizziness,followUpStroke,followUpMissingLimbs,followUpBackProblems,followUpBoneProblems,followUpBloodClots,followUpCancer,followUpChronicDiseases,followUpSleepDisorders,followUpSleepTest,followUpNightInHospital,followUpBrokenBone,followUpUseTobacco,followUpDrinkAlcohol,followUpIllegalSubstance,followUpFailedDrugTest FROM history_review WHERE history_review.sessionId = ' + "'" + sessionId + "'",
       function(err, rows) {
         //console.log(rows)
 
         var obj = rows[0];
+        console.log("obj before:")
         console.log(obj)
 
-        // var followUpBrainInjury = "Due to head/brain injuries,";
-        // var followUpEpilepsy = "Due to seizures/epilepsy";
-        // var followUpPacemaker = "Due to issues with a pacemaker";
-        // var followupBloodPressure = "Due to blood pressure";
+        var followUpBrainInjury = "Due to head/brain injuries,";
+        var followUpEpilepsy = "Due to seizures/epilepsy";
+        var followUpPacemaker = "Due to issues with a pacemaker";
+        var followupBloodPressure = "Due to blood pressure";
 
-        // var certificate_0 = "a maximum of 1 year certificate can be issued."
-        // var certificate_1 = "a maximum of 2 year certificate can be issued."
-        // var certificate_2 = "a maximum of 1 year certificate can be issued with a neurologist's release."
-        // var certificate_3 = "a maximum of 2 year certificate can be issued with a neurologist's release."
-        // var certificate_4 = "no certificate can be issued."
-        // var certificate_5 = "there is a three month wait period before a re-exam."
-        // var certificate_6 = "a maximum of 1 year certificate can be issued."
-        // var certificate_7 = "a maximum of 1 year certificate can be issued."
+        var certificate_0 = "a maximum of 1 year certificate can be issued."
+        var certificate_1 = "a maximum of 2 year certificate can be issued."
+        var certificate_2 = "a maximum of 1 year certificate can be issued with a neurologist's release."
+        var certificate_3 = "a maximum of 2 year certificate can be issued with a neurologist's release."
+        var certificate_4 = "no certificate can be issued."
+        var certificate_5 = "there is a three month wait period before a re-exam."
+        var certificate_6 = "a maximum of 1 year certificate can be issued."
+        var certificate_7 = "a maximum of 1 year certificate can be issued."
 
+        for(prop in obj) {
+          if(obj[prop] == 'undefined' || obj[prop] == 'na'){
+          delete obj[prop]
+          }
+        }
 
+        console.log("obj after:")
+        console.log(obj)
+        var str = JSON.stringify(obj);
+        str = str.replace(/followUpBrainInjury/g, followUpBrainInjury);
+        str = str.replace(/followUpEpilepsy/g, followUpEpilepsy);
+        str = str.replace(/followUpPacemaker/g, followUpPacemaker);
+        str = str.replace(/followupBloodPressure/g, followupBloodPressure);
 
+        str = str.replace(/0/g, certificate_0);
+        str = str.replace(/1/g, certificate_1);
+        str = str.replace(/2/g, certificate_2);
+        str = str.replace(/3/g, certificate_3);
+        str = str.replace(/4/g, certificate_4);
+        str = str.replace(/5/g, certificate_5);
+        str = str.replace(/6/g, certificate_6);
+        str = str.replace(/7/g, certificate_7);
 
-
-        // for(prop in obj) {
-        //   if(obj[prop] == 'undefined' || obj[prop] == 'na'){
-        //   delete obj[prop]
-        //   }
-        // }
-
-        // console.log("After delete: " + obj)
-        // var str = JSON.stringify(obj);
-        // str = str.replace(/followUpBrainInjury/g, followUpBrainInjury);
-        // str = str.replace(/followUpEpilepsy/g, followUpEpilepsy);
-        // str = str.replace(/followUpPacemaker/g, followUpPacemaker);
-        // str = str.replace(/followupBloodPressure/g, followupBloodPressure);
-
-        // str = str.replace(/0/g, certificate_0);
-        // str = str.replace(/1/g, certificate_1);
-        // str = str.replace(/2/g, certificate_2);
-        // str = str.replace(/3/g, certificate_3);
-        // str = str.replace(/4/g, certificate_4);
-        // str = str.replace(/5/g, certificate_5);
-        // str = str.replace(/6/g, certificate_6);
-        // str = str.replace(/7/g, certificate_7);
-
-        // obj = JSON.parse(str);
+        obj = JSON.parse(str);
 
          var arr = [];
-        // for (prop in obj){
-        //   arr.push(prop + ' ' + obj[prop])
-        // }
+        for (prop in obj){
+          arr.push(prop + ' ' + obj[prop])
+        }
 
-        // console.log(arr)
+        //console.log(arr)
 
 
 
