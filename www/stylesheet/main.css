@@ -835,3 +835,7 @@ tr.non-border {
 .followup-radio-button {
   margin-right: 5px !important;
 }
+
+#followUpPacemaker_2 {
+  visibility: hidden;
+}

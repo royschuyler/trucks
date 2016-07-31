@@ -753,7 +753,7 @@ var end = function(req, res, next) {
       user = user.toJSON();
     }
 
-    connection.query('SELECT followUpBrainInjury, followUpEpilepsy, followUpPacemaker, followupBloodPressure, followUpHighCholesterol, followUpBreathingProblems, followUpLungDisease, followUpKidneyProblems, followUpStomachProblems, followUpDiabetes, followUpInsulin, followUpAnxiety, followUpFainting, followUpDizziness, followUpStroke, followUpMissingLimbs, followUpBackProblems, followUpBoneProblems, followUpBloodClots, followUpCancer, followUpChronicDiseases, followUpSleepDisorders, followUpSleepTest, followUpNightInHospital, followUpBrokenBone, followUpUseTobacco, followUpDrinkAlcohol, followUpIllegalSubstance, followUpFailedDrugTest FROM history_review WHERE history_review.sessionId = ' + "'" + sessionId + "'",
+    connection.query('SELECT followUpBrainInjury, followUpEpilepsy, followUpEye, followUpEar, followUpHeart, followUpPacemaker, followupBloodPressure, followUpHighCholesterol, followUpBreathingProblems, followUpLungDisease, followUpKidneyProblems, followUpStomachProblems, followUpDiabetes, followUpInsulin, followUpAnxiety, followUpFainting, followUpDizziness, followUpStroke, followUpMissingLimbs, followUpBackProblems, followUpBoneProblems, followUpBloodClots, followUpCancer, followUpChronicDiseases, followUpSleepDisorders, followUpSleepTest, followUpNightInHospital, followUpBrokenBone, followUpUseTobacco, followUpDrinkAlcohol, followUpIllegalSubstance, followUpFailedDrugTest FROM history_review WHERE history_review.sessionId = ' + "'" + sessionId + "'",
       function(err, rows) {
         //console.log(rows)
 
@@ -763,6 +763,7 @@ var end = function(req, res, next) {
 
         var followUpBrainInjury = "Due to head/brain injuries, ";
         var followUpEpilepsy = "Due to seizures/epilepsy, ";
+        var followUpHeart = "Due to heart issues, ";
         var followUpPacemaker = "Due to issues with a pacemaker, ";
         var followupBloodPressure = "Due to blood pressure, ";
         var followUpHighCholesterol = "Due to cholesterol issues, ";
@@ -794,14 +795,17 @@ var end = function(req, res, next) {
         var certificate_0 = "a maximum of 1 year certificate can be issued.";
         var certificate_1 = "a neurologist's release is required and a maximum of 1 year certificate can be issued.";
         var certificate_2 = "a maximum of 2 year certificate can be issued.";
-        var certificate_3 = "a maximum of 2 year certificate can be issued with a neurologist's release.";
-        var certificate_4 = "no certificate can be issued.";
-        var certificate_5 = "there is a three month wait period before a re-exam.";
-        var certificate_6 = "a maximum of 1 year certificate can be issued.";
-        var certificate_7 = "a maximum of 1 year certificate can be issued.";
+        var certificate_3 = "a maximum of 1 year certificate can be issued after a two month wait period. A cadiologist release is needed and an exersize tolerance test must be administered every two years.";
+        var certificate_4 = "a cardiologist release is needed. A maximum of 2 year certificate can be issued after a 3 month wait period. After 5 years, an annual ETT is required.";
+        var certificate_5 = "AV block / sinus node dysfunction, a maximum of one year certificate can be issued after a 1 month wait period.";
+        var certificate_6 = "ICD (defibrillator), the driver is disqualified.";
+        var certificate_7 = "a neurologist's release is required or there is a 10 year wait period before a certificate can be issued.";
+        var certificate_8 = "neurocardiogenic syncope, a maximum of one year certificate can be issued after a 3 month wait period.";;
+        var certificate_9 = "";
+        var certificate_10 = "";
 
         for (prop in obj) {
-          if (obj[prop] == 'undefined' || obj[prop] == 'na' || obj[prop] == '') {
+          if (obj[prop] == 'undefined' || obj[prop] == 'na' || obj[prop] == '' || obj[prop] == 'valueZero') {
             delete obj[prop]
           }
         }
@@ -820,9 +824,15 @@ var end = function(req, res, next) {
         str = str.replace(/valueFive/g, certificate_5);
         str = str.replace(/valueSix/g, certificate_6);
         str = str.replace(/valueSeven/g, certificate_7);
+        str = str.replace(/valueEight/g, certificate_8);
+        str = str.replace(/valueNine/g, certificate_9);
+        str = str.replace(/valueTen/g, certificate_10);
+
+
 
         str = str.replace(/followUpBrainInjury/g, followUpBrainInjury);
         str = str.replace(/followUpEpilepsy/g, followUpEpilepsy);
+        str = str.replace(/followUpHeart/g, followUpHeart);
         str = str.replace(/followUpPacemaker/g, followUpPacemaker);
         str = str.replace(/followupBloodPressure/g, followupBloodPressure);
         str = str.replace(/followUpHighCholesterol/g, followUpHighCholesterol);
