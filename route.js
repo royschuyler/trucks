@@ -336,7 +336,7 @@ req.body.historyReview
 + "')"),
 
     function(err, rows) {
-
+      //console.log(req.body)
     }
 
   res.redirect('/testing')
@@ -464,13 +464,11 @@ var hearingPost = function(req, res, next) {
 
     }
 
-  console.log(req.body.hearingaid)
+  //console.log(req.body.hearingaid)
 
-  if (req.body.rightear >= 5 || req.body.leftear >= 5) {
     res.redirect('/physicalexamination')
-  } else {
-    res.redirect('/warn')
-  }
+
+
 
 };
 
@@ -760,8 +758,8 @@ var end = function(req, res, next) {
         //console.log(rows)
 
         var obj = rows[0];
-        //console.log("obj before:")
-        //console.log(obj)
+        console.log("obj before:")
+        console.log(obj)
 
         var followUpBrainInjury = "Due to head/brain injuries, ";
         var followUpEpilepsy = "Due to seizures/epilepsy, ";
@@ -794,8 +792,8 @@ var end = function(req, res, next) {
         var followUpFailedDrugTest = "Due to failed drug test history, ";
 
         var certificate_0 = "a maximum of 1 year certificate can be issued.";
-        var certificate_1 = "a maximum of 2 year certificate can be issued.";
-        var certificate_2 = "tester ? a maximum of 1 year certificate can be issued with a neurologist's release.";
+        var certificate_1 = "a neurologist's release is required and a maximum of 1 year certificate can be issued.";
+        var certificate_2 = "a maximum of 2 year certificate can be issued.";
         var certificate_3 = "a maximum of 2 year certificate can be issued with a neurologist's release.";
         var certificate_4 = "no certificate can be issued.";
         var certificate_5 = "there is a three month wait period before a re-exam.";
@@ -803,7 +801,7 @@ var end = function(req, res, next) {
         var certificate_7 = "a maximum of 1 year certificate can be issued.";
 
         for (prop in obj) {
-          if (obj[prop] == 'undefined' || obj[prop] == 'na') {
+          if (obj[prop] == 'undefined' || obj[prop] == 'na' || obj[prop] == '') {
             delete obj[prop]
           }
         }
@@ -858,12 +856,12 @@ var end = function(req, res, next) {
         var arr = [];
         for (prop in obj) {
           arr.push(prop + ' ' + obj[prop])
-            //arr.push(prop)
+          //arr.push(prop)
           //console.log(prop)
           //console.log(obj[prop])
         }
 
-        //console.log(arr)
+        console.log(arr)
 
         res.render('end', {
           title: 'End',
