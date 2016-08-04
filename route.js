@@ -761,6 +761,7 @@ var end = function(req, res, next) {
         console.log("obj before:")
         console.log(obj)
 
+        var noIssues = "The patient has no issues. A 3 year certificate can be issued."
         var followUpBrainInjury = "Due to head/brain injuries, ";
         var followUpEpilepsy = "Due to seizures/epilepsy, ";
         var followUpHeart = "Due to heart issues, ";
@@ -801,8 +802,8 @@ var end = function(req, res, next) {
         var certificate_6 = "ICD (defibrillator), the driver is disqualified.";
         var certificate_7 = "a neurologist's release is required or there is a 10 year wait period before a certificate can be issued.";
         var certificate_8 = "neurocardiogenic syncope, a maximum of one year certificate can be issued after a 3 month wait period.";;
-        var certificate_9 = "";
-        var certificate_10 = "";
+        var certificate_9 = "oxygen therapy, the driver is disqualified.";
+        var certificate_10 = "cough syncope, the driver is disqualified.";
 
         for (prop in obj) {
           if (obj[prop] == 'undefined' || obj[prop] == 'na' || obj[prop] == '' || obj[prop] == 'valueZero') {
@@ -810,9 +811,13 @@ var end = function(req, res, next) {
           }
         }
 
+
+
+
+
         //console.log("c1: " + certificate_1)
-        //console.log("obj after:")
-        //console.log(obj)
+        console.log("obj after:")
+        console.log(obj)
 
         var str = JSON.stringify(obj);
 
@@ -866,9 +871,12 @@ var end = function(req, res, next) {
         var arr = [];
         for (prop in obj) {
           arr.push(prop + ' ' + obj[prop])
-          //arr.push(prop)
-          //console.log(prop)
-          //console.log(obj[prop])
+        }
+
+        console.log("arr.length: " + arr.length)
+
+        if(arr.length == 0){
+          arr.push(noIssues)
         }
 
         console.log(arr)

@@ -109,11 +109,11 @@
               <strong>The patient has had or is not sure if they have had a history of high </br>blood pressure. Is the patient currently taking any of the current </br>medication?</strong>
            </div>
            <div class="bloodpressure-button">
-            <select class="select" name="followupBloodPressure">
+            <select class="select" name="followUpBloodPressure">
               <option value="na">none of these</option>
               <option value="0">Bumetanide (Bumex)</option>
               <option value="valueTwo" >Chlorthalidone (Hygroton)</option>
-              <option value="valueTwo"     >Chlorothiazide (Diuril)</option>
+              <option value="valueTwo">Chlorothiazide (Diuril)</option>
               <option value="3">Ethacrynate (Edecrin)</option>
               <option value="0">Furosemide (Lasix)</option>
               <option value="na">N/A</option>
@@ -134,12 +134,17 @@
             <strong>The patient has had or is not sure if they have had high cholesterol.</br>
             How would you best describe the patients status?</strong>
           </div>
-          <div class="followup-radio-container">
-            <input class="followup-radio-button" type="radio" value="valueTwo"      name="followUpHighCholesterol">mild - without seizures</br>
-            <input class="followup-radio-button" type="radio" value="valueTwo" name="followUpHighCholesterol">mild - with seizures</br>
-            <input type="radio" value="valueTwo" name="followUpHighCholesterol">moderate - without seizures</br>
-            <input class="followup-radio-button" type="radio" value="na" name="followUpHighCholesterol">N/A</br>
-          </div>
+           <div class="bloodpressure-button">
+            <select class="select" name="followUpHighCholesterol">
+              <option value="na">none of these</option>
+              <option value="0">Bumetanide (Bumex)</option>
+              <option value="valueTwo">Chlorthalidone (Hygroton)</option>
+              <option value="valueTwo">Chlorothiazide (Diuril)</option>
+              <option value="3">Ethacrynate (Edecrin)</option>
+              <option value="0">Furosemide (Lasix)</option>
+              <option value="na">N/A</option>
+            </select>
+           </div>
           <div>Notes (optinal)</div>
           <textarea name="followUpHighCholesterolNotes" class="followup-textarea"></textarea>
           <hr>
@@ -167,12 +172,13 @@
             How would you best describe the patients status?</strong>
           </div>
           <div class="followup-radio-container">
-            <input class="followup-radio-button" type="radio" value="valueTwo"      name="followUpLungDisease">mild - without seizures</br>
-            <input class="followup-radio-button" type="radio" value="valueTwo" name="followUpLungDisease" >mild - with seizures</br>
-            <input type="radio" value="valueTwo" name="followUp">moderate - without seizures</br>
+            <input class="followup-radio-button" type="radio" value="valueNine"      name="followUpLungDisease">Oxygen therapy</br>
+            <input class="followup-radio-button" type="radio" value="valueTen" name="followUpLungDisease" >Cough syncope</br>
+
             <input class="followup-radio-button" type="radio" value="na" name="followUpLungDisease">N/A</br>
           </div>
           <div>Notes (optinal)</div>
+          <span>What type/treatment of lung disease?</span>
           <textarea name="followupLungDiseaseNotes" class="followup-textarea"></textarea>
           <hr>
         </div>
