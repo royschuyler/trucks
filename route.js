@@ -753,6 +753,14 @@ var end = function(req, res, next) {
       user = user.toJSON();
     }
 
+    connection.query('SELECT * from vision WHERE vision.sessionId = ' + "'" + sessionId + "'",
+      function(err, rows4) {
+        var visionObj = rows4[0]
+
+    connection.query('SELECT * from hearing WHERE hearing.sessionId = ' + "'" + sessionId + "'",
+      function(err, rows3) {
+        var hearingObj = rows3[0]
+
 
     connection.query('SELECT * FROM testing WHERE testing.sessionId = ' + "'" + sessionId + "'",
       function(err, rows2){
@@ -919,15 +927,31 @@ var end = function(req, res, next) {
         arr.push(bloodPressureIssue)
 
 
+        var hearingIssue = '';
+        if (parseInt(hearingObj.rightear) < 5 &&
+            parseInt(hearingObj.leftear) < 5 &&
+            parseInt(hearingObj.right500) < 40 ||
+            parseInt(hearingObj.right1000) < 40 ||
+            parseInt(hearingObj.right2000) < 40 ||
+            parseInt(hearingObj.left500) < 40 ||
+            parseInt(hearingObj.left1000) < 40 ||
+            parseInt(hearingObj.left2000) < 40  ){
+            hearingIssue = "Due to hearing issues, the driver is disqualified."
+            arr.push(hearingIssue)
+        }
 
 
 
+
+
+
+console.log(visionObj)
 
         if(arr.length == 0){
           arr.push(noIssues)
         }
 
-        console.log(rows2)
+        //console.log(rows2)
         // console.log(arr)
 
         res.render('end', {
@@ -936,6 +960,8 @@ var end = function(req, res, next) {
           data: arr
         });
       });
+})
+})
 })
 
   }
