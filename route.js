@@ -881,9 +881,20 @@ var end = function(req, res, next) {
 
         console.log(parseInt(testingObj.systolic1))
 
-        if(parseInt(testingObj.systolic1) >= 140 && parseInt(testingObj.systolic1) <= 159) {
-             console.log("It Worked, it's logging")
-             arr.push("Due to high blood pressure, a 1 year certificate can be issued")
+        var bloodPressureIssue1 = '';
+        if(parseInt(testingObj.systolic1) >= 140 &&
+           parseInt(testingObj.systolic1) <= 159 &&
+           parseInt(testingObj.systolic2) >= 140 &&
+           parseInt(testingObj.systolic2) <= 159 ||
+           parseInt(testingObj.diastolic1) >= 90 &&
+           parseInt(testingObj.diastolic1) <= 99 &&
+           parseInt(testingObj.diastolic2) >= 90 &&
+           parseInt(testingObj.diastolic2) <= 99) {
+
+
+           bloodPressureIssue1 = "Due to high blood pressure, a 1 year certificate can be issued.";
+
+             arr.push(bloodPressureIssue1)
         }
 
 
