@@ -753,13 +753,19 @@ var end = function(req, res, next) {
       user = user.toJSON();
     }
 
+
+    connection.query('SELECT * FROM testing WHERE testing.sessionId = ' + "'" + sessionId + "'",
+      function(err, rows2){
+        var testingObj = rows2[0];
+
+
     connection.query('SELECT followUpBrainInjury, followUpEpilepsy, followUpEye, followUpEar, followUpHeart, followUpPacemaker, followupBloodPressure, followUpHighCholesterol, followUpBreathingProblems, followUpLungDisease, followUpKidneyProblems, followUpStomachProblems, followUpDiabetes, followUpInsulin, followUpAnxiety, followUpFainting, followUpDizziness, followUpStroke, followUpMissingLimbs, followUpBackProblems, followUpBoneProblems, followUpBloodClots, followUpCancer, followUpChronicDiseases, followUpSleepDisorders, followUpSleepTest, followUpNightInHospital, followUpBrokenBone, followUpUseTobacco, followUpDrinkAlcohol, followUpIllegalSubstance, followUpFailedDrugTest FROM history_review WHERE history_review.sessionId = ' + "'" + sessionId + "'",
       function(err, rows) {
         //console.log(rows)
 
         var obj = rows[0];
-        console.log("obj before:")
-        console.log(obj)
+        // console.log("obj before:")
+        // console.log(obj)
 
         var noIssues = "The patient has no issues. A 3 year certificate can be issued."
         var followUpBrainInjury = "Due to head/brain injuries, ";
@@ -815,9 +821,9 @@ var end = function(req, res, next) {
 
 
 
-        //console.log("c1: " + certificate_1)
-        console.log("obj after:")
-        console.log(obj)
+
+        // console.log("obj after:")
+        // console.log(obj)
 
         var str = JSON.stringify(obj);
 
@@ -873,13 +879,23 @@ var end = function(req, res, next) {
           arr.push(prop + ' ' + obj[prop])
         }
 
-        console.log("arr.length: " + arr.length)
+        console.log(parseInt(testingObj.systolic1))
+
+        if(parseInt(testingObj.systolic1) >= 140 && parseInt(testingObj.systolic1) <= 159) {
+             console.log("It Worked, it's logging")
+             arr.push("Due to high blood pressure, a 1 year certificate can be issued")
+        }
+
+
+
+
 
         if(arr.length == 0){
           arr.push(noIssues)
         }
 
-        console.log(arr)
+        console.log(rows2)
+        // console.log(arr)
 
         res.render('end', {
           title: 'End',
@@ -887,6 +903,8 @@ var end = function(req, res, next) {
           data: arr
         });
       });
+})
+
   }
 };
 //-------------------------------------------------------
