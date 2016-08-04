@@ -879,9 +879,9 @@ var end = function(req, res, next) {
           arr.push(prop + ' ' + obj[prop])
         }
 
-        console.log(parseInt(testingObj.systolic1))
 
-        var bloodPressureIssue1 = '';
+
+        var bloodPressureIssue = '';
         if(parseInt(testingObj.systolic1) >= 140 &&
            parseInt(testingObj.systolic1) <= 159 &&
            parseInt(testingObj.systolic2) >= 140 &&
@@ -890,12 +890,34 @@ var end = function(req, res, next) {
            parseInt(testingObj.diastolic1) <= 99 &&
            parseInt(testingObj.diastolic2) >= 90 &&
            parseInt(testingObj.diastolic2) <= 99) {
-
-
-           bloodPressureIssue1 = "Due to high blood pressure, a 1 year certificate can be issued.";
-
-             arr.push(bloodPressureIssue1)
+           bloodPressureIssue = "Due to stage 1 hypertension, a 1 year certificate can be issued.";
+           //arr.push(bloodPressureIssue1)
         }
+
+        //var bloodPressureIssue2 = '';
+        if(parseInt(testingObj.systolic1) >= 160 &&
+           parseInt(testingObj.systolic1) <= 179 &&
+           parseInt(testingObj.systolic2) >= 160 &&
+           parseInt(testingObj.systolic2) <= 179 ||
+           parseInt(testingObj.diastolic1) >= 100 &&
+           parseInt(testingObj.diastolic1) <= 109 &&
+           parseInt(testingObj.diastolic2) >= 100 &&
+           parseInt(testingObj.diastolic2) <= 109) {
+           bloodPressureIssue = "Due to stage 2 hypertension, a 3 month certificate can be issued.";
+           //arr.push(bloodPressureIssue2)
+        }
+
+        //var bloodPressureIssue3 = '';
+        if(parseInt(testingObj.systolic1) >= 180 &&
+           parseInt(testingObj.systolic2) >= 180 ||
+           parseInt(testingObj.diastolic1) >= 110 &&
+           parseInt(testingObj.diastolic2) >= 110) {
+           bloodPressureIssue = "Due to stage 3 hypertension, The driver may not be qualified, even temporarily, until reduced to 140/90 or less.";
+           //arr.push(bloodPressureIssue3)
+        }
+
+        arr.push(bloodPressureIssue)
+
 
 
 
