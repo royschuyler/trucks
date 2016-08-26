@@ -593,7 +593,23 @@ followUpIllegalSubstanceNotes varchar(255),
 followUpFailedDrugTest varchar(255),
 followUpFailedDrugTestNotes varchar(255),
 
-    connection.query('SELECTfollowUpBrainInjury,followUpEpilepsy,followUpPacemaker,followupBloodPressure,followUpHighCholesterol,followUpBreathingProblems,followUpLungDisease,followUpKidneyProblems,followUpStomachProblems,followUpDiabetes,followUpInsulin,followUpAnxiety,followUpFainting,followUpDizziness,followUpStroke,followUpMissingLimbs,followUpBackProblems,followUpBoneProblems,followUpBloodClots,followUpCancer,followUpChronicDiseases,followUpSleepDisorders,followUpSleepTest,followUpNightInHospital,followUpBrokenBone,followUpUseTobacco,followUpDrinkAlcohol,followUpIllegalSubstance,followUpFailedDrugTest,FROM history_review WHERE history_review.sessionId = ' + "'" + sessionId + "'",
+    connection.query('SELECT followUpBrainInjury,followUpEpilepsy,followUpPacemaker,followupBloodPressure,followUpHighCholesterol,followUpBreathingProblems,followUpLungDisease,followUpKidneyProblems,followUpStomachProblems,followUpDiabetes,followUpInsulin,followUpAnxiety,followUpFainting,followUpDizziness,followUpStroke,followUpMissingLimbs,followUpBackProblems,followUpBoneProblems,followUpBloodClots,followUpCancer,followUpChronicDiseases,followUpSleepDisorders,followUpSleepTest,followUpNightInHospital,followUpBrokenBone,followUpUseTobacco,followUpDrinkAlcohol,followUpIllegalSubstance,followUpFailedDrugTest,FROM history_review WHERE history_review.sessionId = ' + "'" + sessionId + "'",
 
 
+
+
+//*******************FIRST TIME SIGNIN CHECK**********************************
+
+CREATE TABLE signInCheck
+(
+ID Integer PRIMARY KEY AUTO_INCREMENT,
+username varchar(255) NOT NULL,
+userId varchar(255),
+firstTime varchar(255)
+);
+
+connection.query('SELECT * FROM signInCheck WHERE sessionId = ' + "'" + sessionId + "'",
+function(err, rows) {
+  console.log(rows[0])
+})
 

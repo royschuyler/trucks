@@ -174,9 +174,7 @@ var home = function(req, res, next) {
         //console.log(arr);
         arr.splice(0, 8);
         //console.log(arr);
-        // for (i = 4; i < arr.length; i++) {
-        //   arr2.push(arr[i])
-        // }
+
 
         console.log(arr)
 
@@ -943,13 +941,16 @@ var end = function(req, res, next) {
                       arr.push(noIssues)
                     }
 
+                    var historyCount = arr.length;
+
 
                     // console.log(arr)
 
                     res.render('end', {
                       title: 'End',
                       user: user,
-                      data: arr
+                      data: arr,
+                      count: historyCount
                     });
                   });
               })
@@ -1049,53 +1050,7 @@ var medication = function(req, res, next) {
 
 //-------------------------------------------------------
 
-var signIn = function(req, res, next) {
-  if (req.isAuthenticated()) res.redirect('/');
-  res.render('signin', {
-    title: 'Sign In'
-  });
 
-};
-
-//-------------------------------------------------------
-
-var signInPost = function(req, res, next) {
-  passport.authenticate('local', {
-    successRedirect: '/',
-    failureRedirect: '/signin'
-  }, function(err, user, info) {
-    if (err) {
-      return res.render('signin', {
-        title: 'Sign In',
-        errorMessage: err.message
-      });
-    }
-
-    if (!user) {
-      return res.render('signin', {
-        title: 'Sign In',
-        errorMessage: info.message
-      });
-    }
-
-    return req.logIn(user, function(err) {
-      if (err) {
-        return res.render('signin', {
-          title: 'Sign In',
-          errorMessage: err.message
-        });
-      } else {
-
-        connection.query('INSERT INTO session(username, userId, sessionId)VALUES(' + '"' + user.username + '",' + '"' + user.userId + '",' + '"' + sessionId + '")'),
-          function(err, rows) {
-            //console.log(rows[0])
-          };
-
-        return res.redirect('/demographics');
-      }
-    });
-  })(req, res, next);
-};
 
 //-----------------------------------------------------------------------------------
 
@@ -1143,8 +1098,11 @@ var signUpPost = function(req, res, next) {
       // });
 
       signUpUser.save();
-      console.log(username)
-      res.redirect('/signIn')
+
+
+
+      //console.log(username)
+      res.redirect('/moreInfo')
     }
   });
 
@@ -1259,8 +1217,8 @@ module.exports.hearingPost = hearingPost;
 module.exports.medication = medication;
 module.exports.dropdown = dropdown;
 module.exports.dropdownPost = dropdownPost;
-module.exports.signIn = signIn;
-module.exports.signInPost = signInPost;
+// module.exports.signIn = signIn;
+// module.exports.signInPost = signInPost;
 module.exports.signUp = signUp;
 module.exports.signUpPost = signUpPost;
 module.exports.moreInfo = moreInfo;

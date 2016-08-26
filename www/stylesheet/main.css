@@ -839,3 +839,11 @@ tr.non-border {
 #followUpPacemaker_2 {
   visibility: hidden;
 }
+
+.followup-brain-container {
+  width: 36%;
+}
+
+#want-a-link {
+  color: blue;
+}

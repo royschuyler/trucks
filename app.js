@@ -10,6 +10,7 @@ var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var route = require('./route');
 var Model = require('./model');
+var signIn = require('./signIn')
 
 app.use(bodyParser.urlencoded({
   extended: false
@@ -57,7 +58,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.get('/', route.index);
-app.get('/signin', route.signIn);
+app.get('/signin', signIn.signIn);
 app.get('/signup', route.signUp);
 app.get('/moreinfo', route.moreInfo);
 app.get('/home', route.home);
@@ -78,7 +79,7 @@ app.get('/physicalexamination', route.physicalExamination)
 
 
 
-app.post('/signin', route.signInPost);
+app.post('/signin', signIn.signInPost);
 app.post('/signup', route.signUpPost);
 app.post('/moreinfo', route.moreInfoPost);
 app.post('/home', route.homePost);
