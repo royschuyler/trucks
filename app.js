@@ -13,7 +13,8 @@ var Model = require('./model');
 var signIn = require('./signIn');
 var demographics = require('./demographics');
 var history = require('./history');
-var home = require('./home')
+var home = require('./home');
+var testing = require('./testing');
 
 app.use(bodyParser.urlencoded({
   extended: false
@@ -70,7 +71,7 @@ app.get('/pdf', route.pdf);
 app.get('/demographics/:sessionId', demographics.demographics);
 app.get('/history/:sessionId', history.history);
 // app.get('/historyreview', route.historyReview);
-app.get('/testing', route.testing);
+app.get('/testing/:sessionId', testing.testing);
 app.get('/vision', route.vision);
 app.get('/hearing', route.hearing);
 app.get('/medication', route.medication);
@@ -90,7 +91,7 @@ app.post('/end', route.endPost);
 app.post('/demographics/:sessionId', demographics.demographicsPost);
 app.post('/history/:sessionId', history.historyPost);
 // app.post('/historyreview', route.historyReviewPost);
-app.post('/testing', route.testingPost);
+app.post('/testing/:sessionId', testing.testingPost);
 app.post('/vision', route.visionPost);
 app.post('/hearing', route.hearingPost);
 app.post('/dropdown', route.dropdownPost);
