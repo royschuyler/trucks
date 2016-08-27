@@ -25,8 +25,11 @@ var demographics = function(req, res, next) {
     console.log("newId: " + sessionId)
     console.log("Arr: " + sessionIdArr)
 
+
     var user = req.user;
-    var userId = req.user.attributes.userId
+    var userId = req.user.attributes.userId;
+    var username = req.user.attributes.username;
+    console.log("domoUsername: " + username)
 
     if (user !== undefined) {
       user = user.toJSON();

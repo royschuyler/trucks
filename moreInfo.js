@@ -11,22 +11,14 @@ var connection = mysql.createConnection({
   database: 'dbUsers'
 });
 
-var sessionIdArr = [];
+var usernameArr = [];
 
 //**************************************************************
 
 var moreInfo = function(req, res, next) {
 
-  var user = req.user;
-
-  if (user !== undefined) {
-    user = user.toJSON();
-  }
-
-  // connection.query('SELECT * FROM moreinfo WHERE moreinfo.username = ' + "'" + user.attributes.username + "'"),
-  //   function(err, rows) {
-  //     console.log(rows[0])
-  //   }
+    var username = req.params.username;
+    usernameArr.push(username);
 
   res.render('moreinfo', {
     title: 'More Info'
@@ -37,10 +29,13 @@ var moreInfo = function(req, res, next) {
 //-------------------------------------------------------
 var moreInfoPost = function(req, res, next) {
 
-  // connection.query('INSERT INTO moreinfo(registerAddress, registerCity, registerState, registerZip, registerPhone, registerEmail, stateLicense, nationalLicense)VALUES(' + "'" + req.body.registerAddress  + "'," + "'" + req.body.registerCity + "'," + "'" + req.body.registerState + "'," + "'" + req.body.registerZip + "'," + "'" + req.body.registerPhone + "'," + "'" + req.body.registerEmail + "'," + "'" + req.body.stateLicense + "'," + "'" + req.body.nationalLicense + "')"),
-  //     function(err, rows) {
+var username = usernameArr;
+console.log(username)
 
-  //     }
+connection.query('INSERT INTO moreinfo(username, registerAddress, registerCity, registerState, registerZip, registerPhone, registerEmail, stateLicense, nationalLicense)VALUES(' + "'" + username  + "'," + "'" + req.body.registerAddress  + "'," + "'" + req.body.registerCity + "'," + "'" + req.body.registerState + "'," + "'" + req.body.registerZip + "'," + "'" + req.body.registerPhone + "'," + "'" + req.body.registerEmail + "'," + "'" + req.body.stateLicense + "'," + "'" + req.body.nationalLicense + "')"),
+    function(err, rows) {
+
+    }
 
   res.redirect('/signin')
 

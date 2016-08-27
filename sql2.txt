@@ -216,6 +216,7 @@ connection.query('INSERT INTO history_review(username, userId, sessionId, follow
 CREATE TABLE moreinfo
 (
 ID Integer PRIMARY KEY AUTO_INCREMENT,
+username varchar(255),
 registerAddress varchar(8000),
 registerCity varchar(255),
 registerState varchar(255),
@@ -226,7 +227,7 @@ stateLicense varchar(255),
 nationalLicense varchar(255)
 );
 
-connection.query('INSERT INTO moreinfo(registerAddress, registerCity, registerState, registerZip, registerPhone, registerEmail, stateLicense, nationalLicense)VALUES(' + "'" + req.body.registerAddress  + "'," + "'" + req.body.registerCity + "'," + "'" + req.body.registerState + "'," + "'" + req.body.registerZip + "'," + "'" + req.body.registerPhone + "'," + "'" + req.body.registerEmail + "'," + "'" + req.body.stateLicense + "'," + "'" + req.body.nationalLicense + "')"),
+connection.query('INSERT INTO moreinfo(username, registerAddress, registerCity, registerState, registerZip, registerPhone, registerEmail, stateLicense, nationalLicense)VALUES(' + "'" + username  + "'," + "'" + req.body.registerAddress  + "'," + "'" + req.body.registerCity + "'," + "'" + req.body.registerState + "'," + "'" + req.body.registerZip + "'," + "'" + req.body.registerPhone + "'," + "'" + req.body.registerEmail + "'," + "'" + req.body.stateLicense + "'," + "'" + req.body.nationalLicense + "')"),
     function(err, rows) {
 
     }
