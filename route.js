@@ -60,37 +60,6 @@ var index = function(req, res, next) {
   }
 };
 
-
-//-------------------------------------------------------
-
-var physicalExamination = function(req, res, next) {
-  if (!req.isAuthenticated()) {
-    res.redirect('/signin');
-  } else {
-
-    var user = req.user;
-
-    if (user !== undefined) {
-      user = user.toJSON();
-    }
-    res.render('physicalexamination', {
-      title: 'Physical examination',
-      user: user
-    });
-  }
-};
-//-------------------------------------------------------
-var physicalExaminationPost = function(req, res, next) {
-
-  var user = req.user;
-
-  connection.query('INSERT INTO physicalexam(username, userId, sessionId, general, skin, eyes, ears, mouth, cardiovascular, lungs, abdomen, back, hernia, joints, neuro, gait, vascular, examtextarea) VALUES(' + "'" + user.attributes.username + "'," + "'" + user.attributes.userId + "'," + "'" + sessionId + "'," + "'" + req.body.general + "'," + "'" + req.body.skin + "'," + "'" + req.body.eyes + "'," + "'" + req.body.ears + "'," + "'" + req.body.mouth + "'," + "'" + req.body.cardiovascular + "'," + "'" + req.body.lungs + "'," + "'" + req.body.abdomen + "'," + "'" + req.body.back + "'," + "'" + req.body.hernia + "'," + "'" + req.body.joints + "'," + "'" + req.body.neuro + "'," + "'" + req.body.gait + "'," + "'" + req.body.vascular + "'," + "'" + req.body.examtextarea + "')"),
-    function(err, rows) {
-
-    }
-
-  res.redirect('/end')
-};
 //-------------------------------------------------------
 var end = function(req, res, next) {
   if (!req.isAuthenticated()) {
@@ -580,73 +549,6 @@ var pdf = function(req, res, next) {
 
   }
 };
-//-------------------------------------------------------
-//res.download('watch9.pdf')
-
-//-------------------------------------------------------
-var dropdown = function(req, res, next) {
-  if (!req.isAuthenticated()) {
-    res.redirect('/signin');
-  } else {
-
-    var user = req.user;
-
-    if (user !== undefined) {
-      user = user.toJSON();
-    }
-    res.render('dropdown', {
-      title: 'dropdown',
-      user: user
-    });
-  }
-};
-
-//-------------------------------------------------------
-var form = function(req, res, next) {
-  if (!req.isAuthenticated()) {
-    res.redirect('/signin');
-  } else {
-
-    var user = req.user;
-
-    if (user !== undefined) {
-      user = user.toJSON();
-    }
-    res.render('form', {
-      title: 'form',
-      user: user
-    });
-  }
-};
-//-------------------------------------------------------
-var dropdownPost = function(req, res, next) {
-
-  var user = req.user;
-
-  res.redirect('/home')
-};
-
-//-------------------------------------------------------
-var medication = function(req, res, next) {
-  if (!req.isAuthenticated()) {
-    res.redirect('/signin');
-  } else {
-
-    var user = req.user;
-
-    if (user !== undefined) {
-      user = user.toJSON();
-    }
-    res.render('medication', {
-      title: 'Medication',
-      user: user
-    });
-  }
-};
-
-//-------------------------------------------------------
-
-
 
 //-----------------------------------------------------------------------------------
 
@@ -750,25 +652,6 @@ var signOut = function(req, res, next) {
 
 //-------------------------------------------------------
 
-var warn = function(req, res, next) {
-  if (!req.isAuthenticated()) {
-    res.redirect('/signin');
-  } else {
-
-    var user = req.user;
-
-    if (user !== undefined) {
-      user = user.toJSON();
-    }
-    res.render('warn', {
-      title: 'warn',
-      user: user
-    });
-  }
-};
-
-//-------------------------------------------------------
-
 var notFound404 = function(req, res, next) {
   if (!req.isAuthenticated()) {
     res.redirect('/signin');
@@ -788,7 +671,7 @@ var notFound404 = function(req, res, next) {
 
 //--------------------------------------------------------
 
-module.exports.form = form;
+
 module.exports.index = index;
 // module.exports.home = home;
 // module.exports.homePost = homePost;
@@ -807,11 +690,11 @@ module.exports.pdf = pdf;
 // module.exports.visionPost = visionPost;
 // module.exports.hearing = hearing;
 // module.exports.hearingPost = hearingPost;
-module.exports.physicalExamination = physicalExamination;
-module.exports.physicalExaminationPost = physicalExaminationPost;
-module.exports.medication = medication;
-module.exports.dropdown = dropdown;
-module.exports.dropdownPost = dropdownPost;
+// module.exports.physicalExamination = physicalExamination;
+// module.exports.physicalExaminationPost = physicalExaminationPost;
+// module.exports.medication = medication;
+// module.exports.dropdown = dropdown;
+// module.exports.dropdownPost = dropdownPost;
 // module.exports.signIn = signIn;
 // module.exports.signInPost = signInPost;
 module.exports.signUp = signUp;
@@ -819,5 +702,5 @@ module.exports.signUpPost = signUpPost;
 module.exports.moreInfo = moreInfo;
 module.exports.moreInfoPost = moreInfoPost;
 module.exports.signOut = signOut;
-module.exports.warn = warn;
+// module.exports.warn = warn;
 module.exports.notFound404 = notFound404;

@@ -17,6 +17,7 @@ var home = require('./home');
 var testing = require('./testing');
 var vision = require('./vision');
 var hearing = require('./hearing');
+var physicalexamination = require('./physicalExam')
 
 app.use(bodyParser.urlencoded({
   extended: false
@@ -76,12 +77,8 @@ app.get('/history/:sessionId', history.history);
 app.get('/testing/:sessionId', testing.testing);
 app.get('/vision/:sessionId', vision.vision);
 app.get('/hearing/:sessionId', hearing.hearing);
-app.get('/medication', route.medication);
 app.get('/signout', route.signOut);
-app.get('/dropdown', route.dropdown);
-app.get('/warn', route.warn);
-app.get('/form', route.form);
-app.get('/physicalexamination', route.physicalExamination)
+app.get('/physicalexamination/:sessionId', physicalexamination.physicalExamination)
 
 
 
@@ -96,8 +93,7 @@ app.post('/history/:sessionId', history.historyPost);
 app.post('/testing/:sessionId', testing.testingPost);
 app.post('/vision/:sessionId', vision.visionPost);
 app.post('/hearing/:sessionId', hearing.hearingPost);
-app.post('/dropdown', route.dropdownPost);
-app.post('/physicalexamination', route.physicalExaminationPost)
+app.post('/physicalexamination/:sessionId', physicalexamination.physicalExaminationPost)
 
 
 
