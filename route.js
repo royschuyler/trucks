@@ -62,67 +62,10 @@ var index = function(req, res, next) {
 
 
 //-------------------------------------------------------
-var testing = function(req, res, next) {
-  if (!req.isAuthenticated()) {
-    res.redirect('/signin');
-  } else {
 
-    var user = req.user;
-
-    if (user !== undefined) {
-      user = user.toJSON();
-    }
-    res.render('testing', {
-      title: 'Testing',
-      user: user
-    });
-  }
-};
 
 //-------------------------------------------------------
-var testingPost = function(req, res, next) {
 
-  var user = req.user;
-
-  connection.query('INSERT INTO testing(username, userId, sessionId, pulserate, pulserhythm, heightfeet, heightinches , weight, urinesp, urineprotein, urineblood, urinesugar, systolic1, diastolic1, systolic2, diastolic2, othertesting) VALUES(' + "'" + user.attributes.username + "'," + "'" + user.attributes.userId + "'," + "'" + sessionId + "'," + "'" + req.body.pulserate + "'," + "'" + req.body.pulserhythm + "'," + "'" + req.body.heightfeet + "'," + "'" + req.body.heightinches + "'," + "'" + req.body.weight + "'," + "'" + req.body.urinesp + "'," + "'" + req.body.urineprotein + "'," + "'" + req.body.urineblood + "'," + "'" + req.body.urinesugar + "'," + "'" + req.body.systolic1 + "'," + "'" + req.body.diastolic1 + "'," + "'" + req.body.systolic2 + "'," + "'" + req.body.diastolic2 + "'," + "'" + req.body.othertesting + "')"),
-    function(err, rows) {
-
-    }
-
-  res.redirect('/vision')
-};
-
-//-------------------------------------------------------
-var vision = function(req, res, next) {
-  if (!req.isAuthenticated()) {
-    res.redirect('/signin');
-  } else {
-
-    var user = req.user;
-
-    if (user !== undefined) {
-      user = user.toJSON();
-    }
-    res.render('vision', {
-      title: 'Vision',
-      user: user
-    });
-  }
-};
-//-------------------------------------------------------
-var visionPost = function(req, res, next) {
-
-  var user = req.user;
-
-  connection.query('INSERT INTO vision(username, userId, sessionId, rightuncorrected, rightcorrected, fieldright, leftuncorrected, leftcorrected, fieldleft, bothuncorrected, bothcorrected, traficlight, monocular, optometrist, documentation) VALUES(' + "'" + user.attributes.username + "'," + "'" + user.attributes.userId + "'," + "'" + sessionId + "'," + "'" + req.body.rightuncorrected + "'," + "'" + req.body.rightcorrected + "'," + "'" + req.body.fieldright + "'," + "'" + req.body.leftuncorrected + "'," + "'" + req.body.leftcorrected + "'," + "'" + req.body.fieldleft + "'," + "'" + req.body.bothuncorrected + "'," + "'" + req.body.bothcorrected + "'," + "'" + req.body.traficlight + "'," + "'" + req.body.monocular + "'," + "'" + req.body.optometrist + "'," + "'" + req.body.documentation + "')"),
-    function(err, rows) {
-
-    }
-
-
-    res.redirect('/hearing')
-
-};
 
 //-------------------------------------------------------
 var hearing = function(req, res, next) {
@@ -898,8 +841,8 @@ module.exports.pdf = pdf;
 // module.exports.historyReviewPost = historyReviewPost;
 // module.exports.testing = testing;
 // module.exports.testingPost = testingPost;
-module.exports.vision = vision;
-module.exports.visionPost = visionPost;
+// module.exports.vision = vision;
+// module.exports.visionPost = visionPost;
 module.exports.hearing = hearing;
 module.exports.hearingPost = hearingPost;
 module.exports.physicalExamination = physicalExamination;

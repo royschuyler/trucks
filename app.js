@@ -15,6 +15,7 @@ var demographics = require('./demographics');
 var history = require('./history');
 var home = require('./home');
 var testing = require('./testing');
+var vision = require('./vision');
 
 app.use(bodyParser.urlencoded({
   extended: false
@@ -72,7 +73,7 @@ app.get('/demographics/:sessionId', demographics.demographics);
 app.get('/history/:sessionId', history.history);
 // app.get('/historyreview', route.historyReview);
 app.get('/testing/:sessionId', testing.testing);
-app.get('/vision', route.vision);
+app.get('/vision/:sessionId', vision.vision);
 app.get('/hearing', route.hearing);
 app.get('/medication', route.medication);
 app.get('/signout', route.signOut);
@@ -92,7 +93,7 @@ app.post('/demographics/:sessionId', demographics.demographicsPost);
 app.post('/history/:sessionId', history.historyPost);
 // app.post('/historyreview', route.historyReviewPost);
 app.post('/testing/:sessionId', testing.testingPost);
-app.post('/vision', route.visionPost);
+app.post('/vision/:sessionId', vision.visionPost);
 app.post('/hearing', route.hearingPost);
 app.post('/dropdown', route.dropdownPost);
 app.post('/physicalexamination', route.physicalExaminationPost)
