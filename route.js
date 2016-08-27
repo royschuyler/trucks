@@ -63,97 +63,6 @@ var index = function(req, res, next) {
 //-------------------------------------------------------
 
 
-//-------------------------------------------------------
-
-
-//-----------------------------------------------------------------------------------
-
-var signUp = function(req, res, next) {
-  if (req.isAuthenticated()) {
-    res.redirect('/');
-  } else {
-    res.render('signup', {
-      title: 'Sign Up'
-    });
-  }
-};
-
-//----------------------------------------------------------------------------
-
-var signUpPost = function(req, res, next) {
-  var user = req.body;
-  var usernamePromise = null;
-  usernamePromise = new Model.User({
-    username: user.username
-  }).fetch();
-
-  return usernamePromise.then(function(model) {
-    if (model) {
-      res.render('signup', {
-        title: 'signup',
-        errorMessage: 'username already exists'
-      });
-    } else {
-      //****************************************************//
-      // MORE VALIDATION GOES HERE(E.G. PASSWORD VALIDATION)
-      //****************************************************//
-      var password = user.password;
-      var hash = bcrypt.hashSync(password);
-
-      var signUpUser = new Model.User({
-        username: user.username,
-        password: hash
-      });
-
-      // signUpUser.save().then(function(model) {
-      //   // sign in the newly registered user
-      //   signInPost(req, res, next);
-      //   res.redirect('/moreinfo/' + signUpUser.username)
-      // });
-
-      signUpUser.save();
-
-
-
-      //console.log(username)
-      res.redirect('/moreInfo')
-    }
-  });
-
-};
-
-//-----------------------------------------------------------------------------------------
-//-------------------------------------------------------
-var moreInfo = function(req, res, next) {
-
-  var user = req.user;
-
-  if (user !== undefined) {
-    user = user.toJSON();
-  }
-
-  // connection.query('SELECT * FROM moreinfo WHERE moreinfo.username = ' + "'" + user.attributes.username + "'"),
-  //   function(err, rows) {
-  //     console.log(rows[0])
-  //   }
-
-  res.render('moreinfo', {
-    title: 'More Info'
-      // user: user
-  });
-}
-
-//-------------------------------------------------------
-var moreInfoPost = function(req, res, next) {
-
-  // connection.query('INSERT INTO moreinfo(registerAddress, registerCity, registerState, registerZip, registerPhone, registerEmail, stateLicense, nationalLicense)VALUES(' + "'" + req.body.registerAddress  + "'," + "'" + req.body.registerCity + "'," + "'" + req.body.registerState + "'," + "'" + req.body.registerZip + "'," + "'" + req.body.registerPhone + "'," + "'" + req.body.registerEmail + "'," + "'" + req.body.stateLicense + "'," + "'" + req.body.nationalLicense + "')"),
-  //     function(err, rows) {
-
-  //     }
-
-  res.redirect('/signin')
-
-};
 
 //-------------------------------------------------------------------------------------------
 
@@ -213,10 +122,10 @@ module.exports.index = index;
 // module.exports.dropdownPost = dropdownPost;
 // module.exports.signIn = signIn;
 // module.exports.signInPost = signInPost;
-module.exports.signUp = signUp;
-module.exports.signUpPost = signUpPost;
-module.exports.moreInfo = moreInfo;
-module.exports.moreInfoPost = moreInfoPost;
+// module.exports.signUp = signUp;
+// module.exports.signUpPost = signUpPost;
+// module.exports.moreInfo = moreInfo;
+// module.exports.moreInfoPost = moreInfoPost;
 module.exports.signOut = signOut;
 // module.exports.warn = warn;
 module.exports.notFound404 = notFound404;

@@ -20,6 +20,8 @@ var hearing = require('./hearing');
 var physicalexamination = require('./physicalExam');
 var end = require('./end');
 var pdf = require('./pdf');
+var signup = require('./signup');
+var moreInfo = require('./moreInfo')
 
 app.use(bodyParser.urlencoded({
   extended: false
@@ -68,8 +70,8 @@ app.use(passport.session());
 
 app.get('/', route.index);
 app.get('/signin', signIn.signIn);
-app.get('/signup', route.signUp);
-app.get('/moreinfo', route.moreInfo);
+app.get('/signup', signup.signUp);
+app.get('/moreinfo/:username', moreInfo.moreInfo);
 app.get('/home/:sessionId', home.home);
 app.get('/end/:sessionId', end.end);
 app.get('/pdf/:sessionId', pdf.pdf);
@@ -85,8 +87,8 @@ app.get('/physicalexamination/:sessionId', physicalexamination.physicalExaminati
 
 
 app.post('/signin', signIn.signInPost);
-app.post('/signup', route.signUpPost);
-app.post('/moreinfo', route.moreInfoPost);
+app.post('/signup', signup.signUpPost);
+app.post('/moreinfo/:username', moreInfo.moreInfoPost);
 app.post('/home/:sessionId', home.homePost);
 app.post('/end/:sessionId', end.endPost);
 app.post('/demographics/:sessionId', demographics.demographicsPost);
