@@ -10,7 +10,10 @@ var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var route = require('./route');
 var Model = require('./model');
-var signIn = require('./signIn')
+var signIn = require('./signIn');
+var demographics = require('./demographics');
+var history = require('./history');
+var home = require('./home')
 
 app.use(bodyParser.urlencoded({
   extended: false
@@ -61,11 +64,11 @@ app.get('/', route.index);
 app.get('/signin', signIn.signIn);
 app.get('/signup', route.signUp);
 app.get('/moreinfo', route.moreInfo);
-app.get('/home', route.home);
+app.get('/home/:sessionId', home.home);
 app.get('/end', route.end);
 app.get('/pdf', route.pdf);
-app.get('/demographics', route.demographics);
-app.get('/history', route.history);
+app.get('/demographics/:sessionId', demographics.demographics);
+app.get('/history/:sessionId', history.history);
 // app.get('/historyreview', route.historyReview);
 app.get('/testing', route.testing);
 app.get('/vision', route.vision);
@@ -82,10 +85,10 @@ app.get('/physicalexamination', route.physicalExamination)
 app.post('/signin', signIn.signInPost);
 app.post('/signup', route.signUpPost);
 app.post('/moreinfo', route.moreInfoPost);
-app.post('/home', route.homePost);
+app.post('/home/:sessionId', home.homePost);
 app.post('/end', route.endPost);
-app.post('/demographics', route.demographicsPost);
-app.post('/history', route.historyPost);
+app.post('/demographics/:sessionId', demographics.demographicsPost);
+app.post('/history/:sessionId', history.historyPost);
 // app.post('/historyreview', route.historyReviewPost);
 app.post('/testing', route.testingPost);
 app.post('/vision', route.visionPost);

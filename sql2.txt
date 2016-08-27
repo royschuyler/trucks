@@ -613,3 +613,7 @@ function(err, rows) {
   console.log(rows[0])
 })
 
+
+
+    var sessionId = req.params.sessionId;
+    sessionIdArr.push(sessionId)
