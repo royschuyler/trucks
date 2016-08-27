@@ -17,7 +17,9 @@ var home = require('./home');
 var testing = require('./testing');
 var vision = require('./vision');
 var hearing = require('./hearing');
-var physicalexamination = require('./physicalExam')
+var physicalexamination = require('./physicalExam');
+var end = require('./end');
+var pdf = require('./pdf');
 
 app.use(bodyParser.urlencoded({
   extended: false
@@ -69,8 +71,8 @@ app.get('/signin', signIn.signIn);
 app.get('/signup', route.signUp);
 app.get('/moreinfo', route.moreInfo);
 app.get('/home/:sessionId', home.home);
-app.get('/end', route.end);
-app.get('/pdf', route.pdf);
+app.get('/end/:sessionId', end.end);
+app.get('/pdf/:sessionId', pdf.pdf);
 app.get('/demographics/:sessionId', demographics.demographics);
 app.get('/history/:sessionId', history.history);
 // app.get('/historyreview', route.historyReview);
@@ -86,7 +88,7 @@ app.post('/signin', signIn.signInPost);
 app.post('/signup', route.signUpPost);
 app.post('/moreinfo', route.moreInfoPost);
 app.post('/home/:sessionId', home.homePost);
-app.post('/end', route.endPost);
+app.post('/end/:sessionId', end.endPost);
 app.post('/demographics/:sessionId', demographics.demographicsPost);
 app.post('/history/:sessionId', history.historyPost);
 // app.post('/historyreview', route.historyReviewPost);
