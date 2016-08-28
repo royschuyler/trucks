@@ -35,10 +35,10 @@ var end = function(req, res, next) {
         var fs = require('fs');
         var pdfFiller = require('pdffiller');
 
-        var sourcePDF = "newFormSpecial.pdf";
+        var sourcePDF = "medForm.pdf";
         // var destinationPDF =  "../../Desktop/watch8.pdf";
         var destinationPDF = "watch9.pdf";
-        var shouldFlatten = true;
+        var shouldFlatten = false;
 
         var d = new Date();
         var monthFix = Number(d.getMonth()) + 1;
@@ -150,7 +150,7 @@ var end = function(req, res, next) {
           "MCSA-5875[0].Page3[0].driveTest[0].visionTest[0].monocularGroup[0].monocularButtons[0]": rows[0].monocular,
           "MCSA-5875[0].Page3[0].driveTest[0].visionTest[0].referredGroup[0].referredButtons[0]": rows[0].optometrist,
           "MCSA-5875[0].Page3[0].driveTest[0].visionTest[0].documentGroup[0].documentButtons[0]": rows[0].documentation,
-          "MCSA-5875[0].Page3[0].driveTest[0].hearingTest[0].#area[0].hearingaidGroup[0].hearingaidButtons[0]": rows[0].hearingaid,
+          "MCSA-5875[0].Page3[0].driveTest[0].hearingTest[0].#area[0].hearingaidGroup[0].rightBox[0]": "1",
           "MCSA-5875[0].Page3[0].driveTest[0].hearingTest[0].#area[0].whisperRight[0]": rows[0].rightear,
           "MCSA-5875[0].Page3[0].driveTest[0].hearingTest[0].#area[0].whisperLeft[0]": rows[0].leftear,
           "MCSA-5875[0].Page3[0].driveTest[0].hearingTest[0].#area[0].#area[2].right500[0]": rows[0].right500,

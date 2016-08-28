@@ -1,0 +1,1907 @@
+---
+FieldType: Signature
+FieldName: MCSA-5875[0].Page1[0].privacyStatement[0].cmvDriverSignature[0]
+FieldNameAlt: Driver acknowledges Privacy Act Statement by signing here.
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: MCSA-5875[0].Page1[0].privacyStatement[0].privacyDate[0]
+FieldNameAlt: Enter the date when driver signed the Privacy Act Statement acknowledgment.
+FieldFlags: 0
+FieldJustification: Center
+---
+FieldType: Text
+FieldName: MCSA-5875[0].Page1[0].medRecord[0].medNumber[0]
+FieldNameAlt: Enter medical record number here.
+FieldFlags: 0
+FieldJustification: Center
+---
+FieldType: Text
+FieldName: MCSA-5875[0].Page1[0].driverPersonal[0].nameLast[0]
+FieldNameAlt: Enter the driver's last name.
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: MCSA-5875[0].Page1[0].driverPersonal[0].nameFirst[0]
+FieldNameAlt: Enter the driver's first name.
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: MCSA-5875[0].Page1[0].driverPersonal[0].nameInitial[0]
+FieldNameAlt: Use the drop-down box to enter the driver's middle initial.
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: MCSA-5875[0].Page1[0].driverPersonal[0].birthDate[0]
+FieldNameAlt: Enter the driver's date of birth here.
+FieldFlags: 0
+FieldJustification: Center
+---
+FieldType: Text
+FieldName: MCSA-5875[0].Page1[0].driverPersonal[0].driverAge[0]
+FieldNameAlt: Enter driver's age (two digits).
+FieldFlags: 8388608
+FieldJustification: Center
+---
+FieldType: Text
+FieldName: MCSA-5875[0].Page1[0].driverPersonal[0].driverAddress[0]
+FieldNameAlt: Enter the driver's street address.
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: MCSA-5875[0].Page1[0].driverPersonal[0].driverCity[0]
+FieldNameAlt: Enter the driver's city address.
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Choice
+FieldName: MCSA-5875[0].Page1[0].driverPersonal[0].driverState[0]
+FieldNameAlt: Use the drop-down menu to enter the driver's state.
+FieldFlags: 67239936
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: MCSA-5875[0].Page1[0].driverPersonal[0].driverZip[0]
+FieldNameAlt: Enter driver's zip code using 5 or 9 numbers (00000 or 00000-0000).
+FieldFlags: 0
+FieldJustification: Center
+---
+FieldType: Text
+FieldName: MCSA-5875[0].Page1[0].driverPersonal[0].driverLicense[0]
+FieldNameAlt: Enter the driver's license number.
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Choice
+FieldName: MCSA-5875[0].Page1[0].driverPersonal[0].licenseState[0]
+FieldNameAlt: Use the drop-down menu to enter the state that issued the driver's license.
+FieldFlags: 67239936
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: MCSA-5875[0].Page1[0].driverPersonal[0].driverPhone[0]
+FieldNameAlt: Enter driver's phone contact number. Please use numerical characters only (e.g., enter (222) 333-4444 as 2223334444).
+FieldFlags: 0
+FieldJustification: Center
+---
+FieldType: Button
+FieldName: MCSA-5875[0].Page1[0].driverPersonal[0].genderGroup[0].genderButtons[0]
+FieldFlags: 49152
+FieldValue: Off
+FieldJustification: Left
+FieldStateOption: 0
+FieldStateOption: 1
+FieldStateOption: 2
+FieldStateOption: Off
+---
+FieldType: 
+FieldName: MCSA-5875[0].Page1[0].driverPersonal[0].genderGroup[0]
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: MCSA-5875[0].Page1[0].driverPersonal[0].emailAddress[0]
+FieldNameAlt: Enter CMV driver's e-mail address here (&quot;name@example.com&quot;).
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Button
+FieldName: MCSA-5875[0].Page1[0].driverPersonal[0].cdlLicense[0].cdlButtonList[0]
+FieldFlags: 49152
+FieldValue: Off
+FieldJustification: Left
+FieldStateOption: 0
+FieldStateOption: 1
+FieldStateOption: No
+FieldStateOption: Off
+FieldStateOption: Yes
+---
+FieldType: 
+FieldName: MCSA-5875[0].Page1[0].driverPersonal[0].cdlLicense[0]
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: MCSA-5875[0].Page1[0].driverPersonal[0].driverVerify[0]
+FieldNameAlt: Enter the means by which the driver's identity is verified (e.g., photo ID, CDL, driver's license, passport, etc.).
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Button
+FieldName: MCSA-5875[0].Page1[0].driverPersonal[0].certDenyGroup[0].certDenyButtons[0]
+FieldFlags: 49152
+FieldValue: Off
+FieldJustification: Left
+FieldStateOption: 0
+FieldStateOption: 1
+FieldStateOption: 2
+FieldStateOption: 3
+FieldStateOption: Off
+---
+FieldType: 
+FieldName: MCSA-5875[0].Page1[0].driverPersonal[0].certDenyGroup[0]
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Button
+FieldName: MCSA-5875[0].Page1[0].surgeryGroup[0].surgeryButtons[0]
+FieldFlags: 49152
+FieldValue: Off
+FieldJustification: Left
+FieldStateOption: 0
+FieldStateOption: 1
+FieldStateOption: 2
+FieldStateOption: 3
+FieldStateOption: Off
+---
+FieldType: Text
+FieldName: MCSA-5875[0].Page1[0].surgeryGroup[0].surgeryDescribe[0]
+FieldNameAlt: Enter a list and description of the driver's surgeries. Use the &quot;Attach file&quot; button below if more space is needed.
+FieldFlags: 8392704
+FieldJustification: Left
+---
+FieldType: Button
+FieldName: MCSA-5875[0].Page1[0].medicineGroup[0].medicineButtons[0]
+FieldFlags: 49152
+FieldValue: Off
+FieldJustification: Left
+FieldStateOption: 0
+FieldStateOption: 1
+FieldStateOption: 2
+FieldStateOption: 3
+FieldStateOption: Off
+---
+FieldType: Text
+FieldName: MCSA-5875[0].Page1[0].medicineGroup[0].medicineDescribe[0]
+FieldNameAlt: Enter a list and description of the driver's medications. Use the &quot;Attach file&quot; button below if more space is needed.
+FieldFlags: 8392704
+FieldJustification: Left
+---
+FieldType: Button
+FieldName: MCSA-5875[0].Page1[0].attachButton[0]
+FieldNameAlt: If more space is needed, click this button to attach files to this form.
+FieldFlags: 65536
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: MCSA-5875[0].Page2[0].pageHead2[0].nameLastHead2[0]
+FieldNameAlt: Driver's last name has been entered automatically from page 1.
+FieldFlags: 1
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: MCSA-5875[0].Page2[0].pageHead2[0].nameFirstHead2[0]
+FieldNameAlt: Driver's first name has been entered automatically from page 1.
+FieldFlags: 1
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: MCSA-5875[0].Page2[0].pageHead2[0].dateBirth2[0]
+FieldNameAlt: Driver's date of birth has been entered automatically from page 1.
+FieldFlags: 1
+FieldJustification: Center
+---
+FieldType: Text
+FieldName: MCSA-5875[0].Page2[0].pageHead2[0].dateForm2[0]
+FieldNameAlt: Enter the date when the driver examination took place.
+FieldFlags: 0
+FieldJustification: Center
+---
+FieldType: Button
+FieldName: MCSA-5875[0].Page2[0].driverHealth[0].headGroup[0].headButtons[0]
+FieldFlags: 49152
+FieldValue: Off
+FieldJustification: Left
+FieldStateOption: 0
+FieldStateOption: 1
+FieldStateOption: 2
+FieldStateOption: 3
+FieldStateOption: Off
+---
+FieldType: 
+FieldName: MCSA-5875[0].Page2[0].driverHealth[0].headGroup[0]
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Button
+FieldName: MCSA-5875[0].Page2[0].driverHealth[0].seizeGroup[0].seizeButtons[0]
+FieldFlags: 49152
+FieldValue: Off
+FieldJustification: Left
+FieldStateOption: 0
+FieldStateOption: 1
+FieldStateOption: 2
+FieldStateOption: 3
+FieldStateOption: Off
+---
+FieldType: 
+FieldName: MCSA-5875[0].Page2[0].driverHealth[0].seizeGroup[0]
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Button
+FieldName: MCSA-5875[0].Page2[0].driverHealth[0].eyeGroup[0].eyeButtons[0]
+FieldFlags: 49152
+FieldValue: Off
+FieldJustification: Left
+FieldStateOption: 0
+FieldStateOption: 1
+FieldStateOption: 2
+FieldStateOption: 3
+FieldStateOption: Off
+---
+FieldType: 
+FieldName: MCSA-5875[0].Page2[0].driverHealth[0].eyeGroup[0]
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Button
+FieldName: MCSA-5875[0].Page2[0].driverHealth[0].earGroup[0].earButtons[0]
+FieldFlags: 49152
+FieldValue: Off
+FieldJustification: Left
+FieldStateOption: 0
+FieldStateOption: 1
+FieldStateOption: 2
+FieldStateOption: 3
+FieldStateOption: Off
+---
+FieldType: 
+FieldName: MCSA-5875[0].Page2[0].driverHealth[0].earGroup[0]
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Button
+FieldName: MCSA-5875[0].Page2[0].driverHealth[0].heartGroup[0].heartButtons[0]
+FieldFlags: 49152
+FieldValue: Off
+FieldJustification: Left
+FieldStateOption: 0
+FieldStateOption: 1
+FieldStateOption: 2
+FieldStateOption: 3
+FieldStateOption: Off
+---
+FieldType: 
+FieldName: MCSA-5875[0].Page2[0].driverHealth[0].heartGroup[0]
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Button
+FieldName: MCSA-5875[0].Page2[0].driverHealth[0].paceGroup[0].paceButtons[0]
+FieldFlags: 49152
+FieldValue: Off
+FieldJustification: Left
+FieldStateOption: 0
+FieldStateOption: 1
+FieldStateOption: 2
+FieldStateOption: 3
+FieldStateOption: Off
+---
+FieldType: 
+FieldName: MCSA-5875[0].Page2[0].driverHealth[0].paceGroup[0]
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Button
+FieldName: MCSA-5875[0].Page2[0].driverHealth[0].highGroup[0].highButtons[0]
+FieldFlags: 49152
+FieldValue: Off
+FieldJustification: Left
+FieldStateOption: 0
+FieldStateOption: 1
+FieldStateOption: 2
+FieldStateOption: 3
+FieldStateOption: Off
+---
+FieldType: 
+FieldName: MCSA-5875[0].Page2[0].driverHealth[0].highGroup[0]
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Button
+FieldName: MCSA-5875[0].Page2[0].driverHealth[0].cholesterolGroup[0].cholesterolButtons[0]
+FieldFlags: 49152
+FieldValue: Off
+FieldJustification: Left
+FieldStateOption: 0
+FieldStateOption: 1
+FieldStateOption: 2
+FieldStateOption: 3
+FieldStateOption: Off
+---
+FieldType: 
+FieldName: MCSA-5875[0].Page2[0].driverHealth[0].cholesterolGroup[0]
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Button
+FieldName: MCSA-5875[0].Page2[0].driverHealth[0].breathGroup[0].breathButtons[0]
+FieldFlags: 49152
+FieldValue: Off
+FieldJustification: Left
+FieldStateOption: 0
+FieldStateOption: 1
+FieldStateOption: 2
+FieldStateOption: 3
+FieldStateOption: Off
+---
+FieldType: 
+FieldName: MCSA-5875[0].Page2[0].driverHealth[0].breathGroup[0]
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Button
+FieldName: MCSA-5875[0].Page2[0].driverHealth[0].lungGroup[0].lungButtons[0]
+FieldFlags: 49152
+FieldValue: Off
+FieldJustification: Left
+FieldStateOption: 0
+FieldStateOption: 1
+FieldStateOption: 2
+FieldStateOption: 3
+FieldStateOption: Off
+---
+FieldType: 
+FieldName: MCSA-5875[0].Page2[0].driverHealth[0].lungGroup[0]
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Button
+FieldName: MCSA-5875[0].Page2[0].driverHealth[0].kidneyGroup[0].kidneyButtons[0]
+FieldFlags: 49152
+FieldValue: Off
+FieldJustification: Left
+FieldStateOption: 0
+FieldStateOption: 1
+FieldStateOption: 2
+FieldStateOption: 3
+FieldStateOption: Off
+---
+FieldType: 
+FieldName: MCSA-5875[0].Page2[0].driverHealth[0].kidneyGroup[0]
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Button
+FieldName: MCSA-5875[0].Page2[0].driverHealth[0].stomachGroup[0].stomachButtons[0]
+FieldFlags: 49152
+FieldValue: Off
+FieldJustification: Left
+FieldStateOption: 0
+FieldStateOption: 1
+FieldStateOption: 2
+FieldStateOption: 3
+FieldStateOption: Off
+---
+FieldType: 
+FieldName: MCSA-5875[0].Page2[0].driverHealth[0].stomachGroup[0]
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Button
+FieldName: MCSA-5875[0].Page2[0].driverHealth[0].sugarGroup[0].sugarButtons[0]
+FieldFlags: 49152
+FieldValue: Off
+FieldJustification: Left
+FieldStateOption: 0
+FieldStateOption: 1
+FieldStateOption: 2
+FieldStateOption: 3
+FieldStateOption: Off
+---
+FieldType: 
+FieldName: MCSA-5875[0].Page2[0].driverHealth[0].sugarGroup[0]
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Button
+FieldName: MCSA-5875[0].Page2[0].driverHealth[0].insulinGroup[0].insulinButtons[0]
+FieldFlags: 49152
+FieldValue: Off
+FieldJustification: Left
+FieldStateOption: 0
+FieldStateOption: 1
+FieldStateOption: 2
+FieldStateOption: 3
+FieldStateOption: Off
+---
+FieldType: 
+FieldName: MCSA-5875[0].Page2[0].driverHealth[0].insulinGroup[0]
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Button
+FieldName: MCSA-5875[0].Page2[0].driverHealth[0].mentalGroup[0].mentalButtons[0]
+FieldFlags: 49152
+FieldValue: Off
+FieldJustification: Left
+FieldStateOption: 0
+FieldStateOption: 1
+FieldStateOption: 2
+FieldStateOption: 3
+FieldStateOption: Off
+---
+FieldType: 
+FieldName: MCSA-5875[0].Page2[0].driverHealth[0].mentalGroup[0]
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Button
+FieldName: MCSA-5875[0].Page2[0].driverHealth[0].faintGroup[0].faintButtons[0]
+FieldFlags: 49152
+FieldValue: Off
+FieldJustification: Left
+FieldStateOption: 0
+FieldStateOption: 1
+FieldStateOption: 2
+FieldStateOption: 3
+FieldStateOption: Off
+---
+FieldType: 
+FieldName: MCSA-5875[0].Page2[0].driverHealth[0].faintGroup[0]
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Button
+FieldName: MCSA-5875[0].Page2[0].driverHealth[0].dizzyGroup[0].dizzyButtons[0]
+FieldFlags: 49152
+FieldValue: Off
+FieldJustification: Left
+FieldStateOption: 0
+FieldStateOption: 1
+FieldStateOption: 2
+FieldStateOption: 3
+FieldStateOption: Off
+---
+FieldType: 
+FieldName: MCSA-5875[0].Page2[0].driverHealth[0].dizzyGroup[0]
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Button
+FieldName: MCSA-5875[0].Page2[0].driverHealth[0].weightGroup[0].weightButtons[0]
+FieldFlags: 49152
+FieldValue: Off
+FieldJustification: Left
+FieldStateOption: 0
+FieldStateOption: 1
+FieldStateOption: 2
+FieldStateOption: 3
+FieldStateOption: Off
+---
+FieldType: 
+FieldName: MCSA-5875[0].Page2[0].driverHealth[0].weightGroup[0]
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Button
+FieldName: MCSA-5875[0].Page2[0].driverHealth[0].strokeGroup[0].strokeButtons[0]
+FieldFlags: 49152
+FieldValue: Off
+FieldJustification: Left
+FieldStateOption: 0
+FieldStateOption: 1
+FieldStateOption: 2
+FieldStateOption: 3
+FieldStateOption: Off
+---
+FieldType: 
+FieldName: MCSA-5875[0].Page2[0].driverHealth[0].strokeGroup[0]
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Button
+FieldName: MCSA-5875[0].Page2[0].driverHealth[0].uselimitGroup[0].uselimitButtons[0]
+FieldFlags: 49152
+FieldValue: Off
+FieldJustification: Left
+FieldStateOption: 0
+FieldStateOption: 1
+FieldStateOption: 2
+FieldStateOption: 3
+FieldStateOption: Off
+---
+FieldType: 
+FieldName: MCSA-5875[0].Page2[0].driverHealth[0].uselimitGroup[0]
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Button
+FieldName: MCSA-5875[0].Page2[0].driverHealth[0].neckbackGroup[0].neckbackButtons[0]
+FieldFlags: 49152
+FieldValue: Off
+FieldJustification: Left
+FieldStateOption: 0
+FieldStateOption: 1
+FieldStateOption: 2
+FieldStateOption: 3
+FieldStateOption: Off
+---
+FieldType: 
+FieldName: MCSA-5875[0].Page2[0].driverHealth[0].neckbackGroup[0]
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Button
+FieldName: MCSA-5875[0].Page2[0].driverHealth[0].boneGroup[0].boneButtons[0]
+FieldFlags: 49152
+FieldValue: Off
+FieldJustification: Left
+FieldStateOption: 0
+FieldStateOption: 1
+FieldStateOption: 2
+FieldStateOption: 3
+FieldStateOption: Off
+---
+FieldType: 
+FieldName: MCSA-5875[0].Page2[0].driverHealth[0].boneGroup[0]
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Button
+FieldName: MCSA-5875[0].Page2[0].driverHealth[0].bloodGroup[0].bloodButtons[0]
+FieldFlags: 49152
+FieldValue: Off
+FieldJustification: Left
+FieldStateOption: 0
+FieldStateOption: 1
+FieldStateOption: 2
+FieldStateOption: 3
+FieldStateOption: Off
+---
+FieldType: 
+FieldName: MCSA-5875[0].Page2[0].driverHealth[0].bloodGroup[0]
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Button
+FieldName: MCSA-5875[0].Page2[0].driverHealth[0].cancerGroup[0].cancerButtons[0]
+FieldFlags: 49152
+FieldValue: Off
+FieldJustification: Left
+FieldStateOption: 0
+FieldStateOption: 1
+FieldStateOption: 2
+FieldStateOption: 3
+FieldStateOption: Off
+---
+FieldType: 
+FieldName: MCSA-5875[0].Page2[0].driverHealth[0].cancerGroup[0]
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Button
+FieldName: MCSA-5875[0].Page2[0].driverHealth[0].infectGroup[0].infectButtons[0]
+FieldFlags: 49152
+FieldValue: Off
+FieldJustification: Left
+FieldStateOption: 0
+FieldStateOption: 1
+FieldStateOption: 2
+FieldStateOption: 3
+FieldStateOption: Off
+---
+FieldType: 
+FieldName: MCSA-5875[0].Page2[0].driverHealth[0].infectGroup[0]
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Button
+FieldName: MCSA-5875[0].Page2[0].driverHealth[0].apneaGroup[0].apneaButtons[0]
+FieldFlags: 49152
+FieldValue: Off
+FieldJustification: Left
+FieldStateOption: 0
+FieldStateOption: 1
+FieldStateOption: 2
+FieldStateOption: 3
+FieldStateOption: Off
+---
+FieldType: 
+FieldName: MCSA-5875[0].Page2[0].driverHealth[0].apneaGroup[0]
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Button
+FieldName: MCSA-5875[0].Page2[0].driverHealth[0].sleeptestGroup[0].sleeptestButtons[0]
+FieldFlags: 49152
+FieldValue: Off
+FieldJustification: Left
+FieldStateOption: 0
+FieldStateOption: 1
+FieldStateOption: 2
+FieldStateOption: 3
+FieldStateOption: Off
+---
+FieldType: 
+FieldName: MCSA-5875[0].Page2[0].driverHealth[0].sleeptestGroup[0]
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Button
+FieldName: MCSA-5875[0].Page2[0].driverHealth[0].hospitalGroup[0].hospitalButtons[0]
+FieldFlags: 49152
+FieldValue: Off
+FieldJustification: Left
+FieldStateOption: 0
+FieldStateOption: 1
+FieldStateOption: 2
+FieldStateOption: 3
+FieldStateOption: Off
+---
+FieldType: 
+FieldName: MCSA-5875[0].Page2[0].driverHealth[0].hospitalGroup[0]
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Button
+FieldName: MCSA-5875[0].Page2[0].driverHealth[0].brokenGroup[0].brokenButtons[0]
+FieldFlags: 49152
+FieldValue: Off
+FieldJustification: Left
+FieldStateOption: 0
+FieldStateOption: 1
+FieldStateOption: 2
+FieldStateOption: 3
+FieldStateOption: Off
+---
+FieldType: 
+FieldName: MCSA-5875[0].Page2[0].driverHealth[0].brokenGroup[0]
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Button
+FieldName: MCSA-5875[0].Page2[0].driverHealth[0].tobaccoGroup[0].tobaccoButtons[0]
+FieldFlags: 49152
+FieldValue: Off
+FieldJustification: Left
+FieldStateOption: 0
+FieldStateOption: 1
+FieldStateOption: 2
+FieldStateOption: 3
+FieldStateOption: Off
+---
+FieldType: 
+FieldName: MCSA-5875[0].Page2[0].driverHealth[0].tobaccoGroup[0]
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Button
+FieldName: MCSA-5875[0].Page2[0].driverHealth[0].alcoholGroup[0].alcoholButtons[0]
+FieldFlags: 49152
+FieldValue: Off
+FieldJustification: Left
+FieldStateOption: 0
+FieldStateOption: 1
+FieldStateOption: 2
+FieldStateOption: 3
+FieldStateOption: Off
+---
+FieldType: 
+FieldName: MCSA-5875[0].Page2[0].driverHealth[0].alcoholGroup[0]
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Button
+FieldName: MCSA-5875[0].Page2[0].driverHealth[0].illegalGroup[0].illegalButtons[0]
+FieldFlags: 49152
+FieldValue: Off
+FieldJustification: Left
+FieldStateOption: 0
+FieldStateOption: 1
+FieldStateOption: 2
+FieldStateOption: 3
+FieldStateOption: Off
+---
+FieldType: 
+FieldName: MCSA-5875[0].Page2[0].driverHealth[0].illegalGroup[0]
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Button
+FieldName: MCSA-5875[0].Page2[0].driverHealth[0].failedGroup[0].failedButtons[0]
+FieldFlags: 49152
+FieldValue: Off
+FieldJustification: Left
+FieldStateOption: 0
+FieldStateOption: 1
+FieldStateOption: 2
+FieldStateOption: 3
+FieldStateOption: Off
+---
+FieldType: 
+FieldName: MCSA-5875[0].Page2[0].driverHealth[0].failedGroup[0]
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: 
+FieldName: MCSA-5875[0].Page2[0].driverHealth[0]
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Button
+FieldName: MCSA-5875[0].Page2[0].otherGroup[0].otherButtons[0]
+FieldFlags: 49152
+FieldValue: Off
+FieldJustification: Left
+FieldStateOption: 0
+FieldStateOption: 1
+FieldStateOption: 2
+FieldStateOption: 3
+FieldStateOption: Off
+---
+FieldType: Text
+FieldName: MCSA-5875[0].Page2[0].otherGroup[0].otherDescribe[0]
+FieldNameAlt: Enter a list and description of the other health conditions. Use the &quot;Attach file&quot; button below if more space is needed.
+FieldFlags: 8392704
+FieldJustification: Left
+---
+FieldType: Button
+FieldName: MCSA-5875[0].Page2[0].commentGroup[0].commentButtons[0]
+FieldFlags: 49152
+FieldValue: Off
+FieldJustification: Left
+FieldStateOption: 0
+FieldStateOption: 1
+FieldStateOption: 2
+FieldStateOption: 3
+FieldStateOption: Off
+---
+FieldType: Text
+FieldName: MCSA-5875[0].Page2[0].commentGroup[0].commentDescribe[0]
+FieldNameAlt: Enter additional comments on any health conditions noted in questions 1-32. Use the &quot;Attach file&quot; button below if more space is needed.
+FieldFlags: 8392704
+FieldJustification: Left
+---
+FieldType: Button
+FieldName: MCSA-5875[0].Page2[0].attachButton[0]
+FieldNameAlt: If more space is needed, click this button to attach files to this form.
+FieldFlags: 65536
+FieldJustification: Left
+---
+FieldType: Signature
+FieldName: MCSA-5875[0].Page2[0].driverSignature[0].signatureDriver[0]
+FieldNameAlt: Driver should sign form here.
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: MCSA-5875[0].Page2[0].driverSignature[0].signatureDate[0]
+FieldNameAlt: Enter the date when the CMV driver signed this form.
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: MCSA-5875[0].Page2[0].#area[2].driveReview[0].examinerComment[0]
+FieldNameAlt: Enter comments about the driver's fitness to operate a commercial motor vehicle, based on the responses to the &quot;health history&quot; questions on page 1 of this form. Use the &quot;Attach file&quot; button below if more space is needed.
+FieldFlags: 8392704
+FieldJustification: Left
+---
+FieldType: Button
+FieldName: MCSA-5875[0].Page2[0].#area[2].driveReview[0].attachButton2[0]
+FieldNameAlt: If more space is needed, click this button to attach files to this form.
+FieldFlags: 65536
+FieldJustification: Left
+---
+FieldType: 
+FieldName: MCSA-5875[0].Page2[0].#area[2]
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: MCSA-5875[0].Page3[0].pageHead3[0].nameLastHead3[0]
+FieldNameAlt: Driver's last name has been entered automatically from page 1.
+FieldFlags: 1
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: MCSA-5875[0].Page3[0].pageHead3[0].nameFirstHead3[0]
+FieldNameAlt: Driver's first name has been entered automatically from page 1.
+FieldFlags: 1
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: MCSA-5875[0].Page3[0].pageHead3[0].dateForm3[0]
+FieldNameAlt: Enter the date when the driver examination took place.
+FieldFlags: 0
+FieldJustification: Center
+---
+FieldType: Text
+FieldName: MCSA-5875[0].Page3[0].pageHead3[0].dateBirth3[0]
+FieldNameAlt: Driver's date of birth has been entered automatically from page 1.
+FieldFlags: 1
+FieldJustification: Center
+---
+FieldType: Text
+FieldName: MCSA-5875[0].Page3[0].driveTest[0].basicStats[0].pulseMeasure[0]
+FieldNameAlt: Enter the measured pulse rate of the driver.
+FieldFlags: 8388608
+FieldJustification: Left
+---
+FieldType: Button
+FieldName: MCSA-5875[0].Page3[0].driveTest[0].basicStats[0].pulserhythmGroup[0].pulserhythmButtons[0]
+FieldFlags: 49152
+FieldValue: Off
+FieldJustification: Left
+FieldStateOption: 0
+FieldStateOption: 1
+FieldStateOption: 2
+FieldStateOption: Off
+---
+FieldType: 
+FieldName: MCSA-5875[0].Page3[0].driveTest[0].basicStats[0].pulserhythmGroup[0]
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: MCSA-5875[0].Page3[0].driveTest[0].basicStats[0].#area[1].feetHeight[0]
+FieldNameAlt: Enter the height in feet of the driver (rounded down).
+FieldFlags: 8388608
+FieldJustification: Center
+---
+FieldType: Text
+FieldName: MCSA-5875[0].Page3[0].driveTest[0].basicStats[0].#area[1].inchesHeight[0]
+FieldNameAlt: Enter the additional height in inches of the driver (rounded to nearest whole number).
+FieldFlags: 8388608
+FieldJustification: Center
+---
+FieldType: Text
+FieldName: MCSA-5875[0].Page3[0].driveTest[0].basicStats[0].#area[1].poundsWeight[0]
+FieldNameAlt: Enter the weight in pounds of the driver, rounded to the nearest whole number.
+FieldFlags: 8388608
+FieldJustification: Center
+---
+FieldType: Text
+FieldName: MCSA-5875[0].Page3[0].driveTest[0].bloodPressure[0].Row1[0].sitSys[0]
+FieldNameAlt: Enter sitting systolic blood pressure reading.
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: MCSA-5875[0].Page3[0].driveTest[0].bloodPressure[0].Row1[0].sitDias[0]
+FieldNameAlt: Enter sitting diastolic blood pressure reading.
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: MCSA-5875[0].Page3[0].driveTest[0].bloodPressure[0].Row2[0].secSys[0]
+FieldNameAlt: Enter a second measurement of systolic blood pressure. This is optional.
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: MCSA-5875[0].Page3[0].driveTest[0].bloodPressure[0].Row2[0].secDias[0]
+FieldNameAlt: Enter a second measurement of diastolic blood pressure. This is optional.
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: 
+FieldName: MCSA-5875[0].Page3[0].driveTest[0].bloodPressure[0]
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: MCSA-5875[0].Page3[0].driveTest[0].otherTesting[0]
+FieldNameAlt: If urinalysis results suggest the need for further tests, please list those tests here.
+FieldFlags: 8392704
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: MCSA-5875[0].Page3[0].driveTest[0].urineTest[0].urineAnalysis[0].Row1[0].spgrNumber[0]
+FieldNameAlt: Enter the specific gravity measurement results from the urinalysis.
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: MCSA-5875[0].Page3[0].driveTest[0].urineTest[0].urineAnalysis[0].Row1[0].proteinNumber[0]
+FieldNameAlt: Enter the protein measurement results from the urinalysis.
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: MCSA-5875[0].Page3[0].driveTest[0].urineTest[0].urineAnalysis[0].Row1[0].bloodNumber[0]
+FieldNameAlt: Enter the blood measurement results from the urinalysis.
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: MCSA-5875[0].Page3[0].driveTest[0].urineTest[0].urineAnalysis[0].Row1[0].sugarNumber[0]
+FieldNameAlt: Enter the sugar measurement results from the urinalysis.
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: 
+FieldName: MCSA-5875[0].Page3[0].driveTest[0].urineTest[0].urineAnalysis[0]
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: 
+FieldName: MCSA-5875[0].Page3[0].driveTest[0].urineTest[0]
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: MCSA-5875[0].Page3[0].driveTest[0].visionTest[0].uncorrectRight[0]
+FieldNameAlt: Enter the visual acuity measurement for the driver's right eye without corrective lenses.
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: MCSA-5875[0].Page3[0].driveTest[0].visionTest[0].correctRight[0]
+FieldNameAlt: Enter the visual acuity measurement for the driver's right eye with corrective lenses.
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: MCSA-5875[0].Page3[0].driveTest[0].visionTest[0].fieldRight[0]
+FieldNameAlt: Enter the horizontal field of vision measurement in degrees for the driver's right eye (3 digits maximum).
+FieldFlags: 8388608
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: MCSA-5875[0].Page3[0].driveTest[0].visionTest[0].uncorrectLeft[0]
+FieldNameAlt: Enter the visual acuity measurement for the driver's left eye without corrective lenses.
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: MCSA-5875[0].Page3[0].driveTest[0].visionTest[0].correctLeft[0]
+FieldNameAlt: Enter the visual acuity measurement for the driver's left eye with corrective lenses.
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: MCSA-5875[0].Page3[0].driveTest[0].visionTest[0].fieldLeft[0]
+FieldNameAlt: Enter the horizontal field of vision measurement in degrees for the driver's left eye (3 digits maximum).
+FieldFlags: 8388608
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: MCSA-5875[0].Page3[0].driveTest[0].visionTest[0].uncorrectBoth[0]
+FieldNameAlt: Enter the visual acuity measurement for both of the driver's eyes without corrective lenses.
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: MCSA-5875[0].Page3[0].driveTest[0].visionTest[0].correctBoth[0]
+FieldNameAlt: Enter the visual acuity measurement for both of the driver's eyes with corrective lenses.
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Button
+FieldName: MCSA-5875[0].Page3[0].driveTest[0].visionTest[0].distinguishGroup[0].distinguishButtons[0]
+FieldFlags: 49152
+FieldValue: Off
+FieldJustification: Left
+FieldStateOption: 0
+FieldStateOption: 1
+FieldStateOption: 2
+FieldStateOption: Off
+---
+FieldType: 
+FieldName: MCSA-5875[0].Page3[0].driveTest[0].visionTest[0].distinguishGroup[0]
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Button
+FieldName: MCSA-5875[0].Page3[0].driveTest[0].visionTest[0].monocularGroup[0].monocularButtons[0]
+FieldFlags: 49152
+FieldValue: Off
+FieldJustification: Left
+FieldStateOption: 0
+FieldStateOption: 1
+FieldStateOption: 2
+FieldStateOption: Off
+---
+FieldType: 
+FieldName: MCSA-5875[0].Page3[0].driveTest[0].visionTest[0].monocularGroup[0]
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Button
+FieldName: MCSA-5875[0].Page3[0].driveTest[0].visionTest[0].referredGroup[0].referredButtons[0]
+FieldFlags: 49152
+FieldValue: Off
+FieldJustification: Left
+FieldStateOption: 0
+FieldStateOption: 1
+FieldStateOption: 2
+FieldStateOption: Off
+---
+FieldType: 
+FieldName: MCSA-5875[0].Page3[0].driveTest[0].visionTest[0].referredGroup[0]
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Button
+FieldName: MCSA-5875[0].Page3[0].driveTest[0].visionTest[0].documentGroup[0].documentButtons[0]
+FieldFlags: 49152
+FieldValue: Off
+FieldJustification: Left
+FieldStateOption: 0
+FieldStateOption: 1
+FieldStateOption: 2
+FieldStateOption: Off
+---
+FieldType: 
+FieldName: MCSA-5875[0].Page3[0].driveTest[0].visionTest[0].documentGroup[0]
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Button
+FieldName: MCSA-5875[0].Page3[0].driveTest[0].hearingTest[0].#area[0].hearingaidGroup[0].rightBox[0]
+FieldNameAlt: Check if a hearing aid was used in the driver's right ear.
+FieldFlags: 0
+FieldValue: Off
+FieldJustification: Left
+FieldStateOption: 1
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: MCSA-5875[0].Page3[0].driveTest[0].hearingTest[0].#area[0].hearingaidGroup[0].leftBox[0]
+FieldNameAlt: Check if a hearing aid was used in the driver's left ear.
+FieldFlags: 0
+FieldValue: Off
+FieldJustification: Left
+FieldStateOption: 1
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: MCSA-5875[0].Page3[0].driveTest[0].hearingTest[0].#area[0].hearingaidGroup[0].nichtBox[0]
+FieldNameAlt: Check if no hearing aid was used.
+FieldFlags: 0
+FieldValue: Off
+FieldJustification: Left
+FieldStateOption: 1
+FieldStateOption: Off
+---
+FieldType: Text
+FieldName: MCSA-5875[0].Page3[0].driveTest[0].hearingTest[0].#area[0].whisperRight[0]
+FieldNameAlt: Enter the distance (in feet) from driver's right ear at which a forced whispered voice can first be heard.
+FieldFlags: 8388608
+FieldJustification: Center
+---
+FieldType: Text
+FieldName: MCSA-5875[0].Page3[0].driveTest[0].hearingTest[0].#area[0].whisperLeft[0]
+FieldNameAlt: Enter the distance (in feet) from driver's left ear at which a forced whispered voice can first be heard.
+FieldFlags: 8388608
+FieldJustification: Center
+---
+FieldType: Text
+FieldName: MCSA-5875[0].Page3[0].driveTest[0].hearingTest[0].#area[0].#area[2].right500[0]
+FieldNameAlt: Enter average hearing loss in right ear at 500 Hz and 40 dB.
+FieldFlags: 8388608
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: MCSA-5875[0].Page3[0].driveTest[0].hearingTest[0].#area[0].#area[2].right1000[0]
+FieldNameAlt: Enter average hearing loss in right ear at 1000 Hz and 40 dB.
+FieldFlags: 8388608
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: MCSA-5875[0].Page3[0].driveTest[0].hearingTest[0].#area[0].#area[2].right2000[0]
+FieldNameAlt: Enter average hearing loss in right ear at 2000 Hz and 40 dB.
+FieldFlags: 8388608
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: MCSA-5875[0].Page3[0].driveTest[0].hearingTest[0].#area[0].#area[2].left500[0]
+FieldNameAlt: Enter average hearing loss in left ear at 500 Hz and 40 dB.
+FieldFlags: 8388608
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: MCSA-5875[0].Page3[0].driveTest[0].hearingTest[0].#area[0].#area[2].left1000[0]
+FieldNameAlt: Enter average hearing loss in left ear at 1000 Hz and 40 dB.
+FieldFlags: 8388608
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: MCSA-5875[0].Page3[0].driveTest[0].hearingTest[0].#area[0].#area[2].left2000[0]
+FieldNameAlt: Enter average hearing loss in left ear at 2000 Hz and 40 dB.
+FieldFlags: 8388608
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: MCSA-5875[0].Page3[0].driveTest[0].hearingTest[0].#area[0].#area[2].rightAverage[0]
+FieldNameAlt: Average (right):
+FieldFlags: 0
+FieldJustification: Center
+---
+FieldType: Text
+FieldName: MCSA-5875[0].Page3[0].driveTest[0].hearingTest[0].#area[0].#area[2].leftAverage[0]
+FieldNameAlt: Average (left):
+FieldFlags: 0
+FieldJustification: Center
+---
+FieldType: 
+FieldName: MCSA-5875[0].Page3[0].driveTest[0].hearingTest[0]
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Button
+FieldName: MCSA-5875[0].Page3[0].driveExam[0].bodysys1[0].generalButtons[0]
+FieldFlags: 49152
+FieldValue: Off
+FieldJustification: Left
+FieldStateOption: 0
+FieldStateOption: 1
+FieldStateOption: 2
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: MCSA-5875[0].Page3[0].driveExam[0].bodysys1[0].skinButtons[0]
+FieldFlags: 49152
+FieldValue: Off
+FieldJustification: Left
+FieldStateOption: 0
+FieldStateOption: 1
+FieldStateOption: 2
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: MCSA-5875[0].Page3[0].driveExam[0].bodysys1[0].eyesButtons[0]
+FieldFlags: 49152
+FieldValue: Off
+FieldJustification: Left
+FieldStateOption: 0
+FieldStateOption: 1
+FieldStateOption: 2
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: MCSA-5875[0].Page3[0].driveExam[0].bodysys1[0].earsButtons[0]
+FieldFlags: 49152
+FieldValue: Off
+FieldJustification: Left
+FieldStateOption: 0
+FieldStateOption: 1
+FieldStateOption: 2
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: MCSA-5875[0].Page3[0].driveExam[0].bodysys1[0].mouthButtons[0]
+FieldFlags: 49152
+FieldValue: Off
+FieldJustification: Left
+FieldStateOption: 0
+FieldStateOption: 1
+FieldStateOption: 2
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: MCSA-5875[0].Page3[0].driveExam[0].bodysys1[0].heartButtons[0]
+FieldFlags: 49152
+FieldValue: Off
+FieldJustification: Left
+FieldStateOption: 0
+FieldStateOption: 1
+FieldStateOption: 2
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: MCSA-5875[0].Page3[0].driveExam[0].bodysys1[0].chestButtons[0]
+FieldFlags: 49152
+FieldValue: Off
+FieldJustification: Left
+FieldStateOption: 0
+FieldStateOption: 1
+FieldStateOption: 2
+FieldStateOption: Off
+---
+FieldType: 
+FieldName: MCSA-5875[0].Page3[0].driveExam[0].bodysys1[0]
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Button
+FieldName: MCSA-5875[0].Page3[0].driveExam[0].bodysys2[0].abdomenButtons[0]
+FieldFlags: 49152
+FieldValue: Off
+FieldJustification: Left
+FieldStateOption: 0
+FieldStateOption: 1
+FieldStateOption: 2
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: MCSA-5875[0].Page3[0].driveExam[0].bodysys2[0].herniaButtons[0]
+FieldFlags: 49152
+FieldValue: Off
+FieldJustification: Left
+FieldStateOption: 0
+FieldStateOption: 1
+FieldStateOption: 2
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: MCSA-5875[0].Page3[0].driveExam[0].bodysys2[0].backButtons[0]
+FieldFlags: 49152
+FieldValue: Off
+FieldJustification: Left
+FieldStateOption: 0
+FieldStateOption: 1
+FieldStateOption: 2
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: MCSA-5875[0].Page3[0].driveExam[0].bodysys2[0].jointsButtons[0]
+FieldFlags: 49152
+FieldValue: Off
+FieldJustification: Left
+FieldStateOption: 0
+FieldStateOption: 1
+FieldStateOption: 2
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: MCSA-5875[0].Page3[0].driveExam[0].bodysys2[0].neuroButtons[0]
+FieldFlags: 49152
+FieldValue: Off
+FieldJustification: Left
+FieldStateOption: 0
+FieldStateOption: 1
+FieldStateOption: 2
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: MCSA-5875[0].Page3[0].driveExam[0].bodysys2[0].gaitButtons[0]
+FieldFlags: 49152
+FieldValue: Off
+FieldJustification: Left
+FieldStateOption: 0
+FieldStateOption: 1
+FieldStateOption: 2
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: MCSA-5875[0].Page3[0].driveExam[0].bodysys2[0].vascularButtons[0]
+FieldFlags: 49152
+FieldValue: Off
+FieldJustification: Left
+FieldStateOption: 0
+FieldStateOption: 1
+FieldStateOption: 2
+FieldStateOption: Off
+---
+FieldType: 
+FieldName: MCSA-5875[0].Page3[0].driveExam[0].bodysys2[0]
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: MCSA-5875[0].Page3[0].driveExam[0].examComment[0]
+FieldNameAlt: Discuss any &quot;abnormal&quot; answers in detail. Use the &quot;Attach file&quot; button below if more space is needed.
+FieldFlags: 8392704
+FieldJustification: Left
+---
+FieldType: Button
+FieldName: MCSA-5875[0].Page3[0].driveExam[0].attachButton3[0]
+FieldNameAlt: Click this button to attach files to this form.
+FieldFlags: 65536
+FieldJustification: Left
+---
+FieldType: 
+FieldName: MCSA-5875[0].Page3[0]
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: MCSA-5875[0].Page4[0].pageHead4[0].nameLastHead4[0]
+FieldNameAlt: Driver's last name has been entered automatically from page 1.
+FieldFlags: 1
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: MCSA-5875[0].Page4[0].pageHead4[0].nameFirstHead4[0]
+FieldNameAlt: Driver's first name has been entered automatically from page 1.
+FieldFlags: 1
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: MCSA-5875[0].Page4[0].pageHead4[0].dateForm4[0]
+FieldNameAlt: Enter the date when the driver examination took place.
+FieldFlags: 0
+FieldJustification: Center
+---
+FieldType: Text
+FieldName: MCSA-5875[0].Page4[0].pageHead4[0].dateBirth4[0]
+FieldNameAlt: Driver's date of birth has been entered automatically from page 1.
+FieldFlags: 1
+FieldJustification: Center
+---
+FieldType: Button
+FieldName: MCSA-5875[0].Page4[0].fedDetermination[0].standardButtonList[0]
+FieldFlags: 49152
+FieldValue: Off
+FieldJustification: Left
+FieldStateOption: 0
+FieldStateOption: 1
+FieldStateOption: 2
+FieldStateOption: 3
+FieldStateOption: Off
+---
+FieldType: Text
+FieldName: MCSA-5875[0].Page4[0].fedDetermination[0].notStandardsWhy[0]
+FieldNameAlt: Please explain why the driver does not meet the standards outlined in 49 CFR 391.41.
+FieldFlags: 1
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: MCSA-5875[0].Page4[0].fedDetermination[0].butStandardsWhy[0]
+FieldNameAlt: Please explain why periodic monitoring will be required for the driver to meet the standards outlined in 49 CFR 391.41.
+FieldFlags: 1
+FieldJustification: Left
+---
+FieldType: Button
+FieldName: MCSA-5875[0].Page4[0].fedDetermination[0].qualifiedButtonList[0]
+FieldFlags: 49153
+FieldValue: Off
+FieldJustification: Left
+FieldStateOption: 0
+FieldStateOption: 1
+FieldStateOption: 2
+FieldStateOption: 3
+FieldStateOption: 4
+FieldStateOption: Off
+---
+FieldType: Text
+FieldName: MCSA-5875[0].Page4[0].fedDetermination[0].otherQualify[0]
+FieldNameAlt: otherQualify
+FieldFlags: 1
+FieldJustification: Left
+---
+FieldType: Button
+FieldName: MCSA-5875[0].Page4[0].fedDetermination[0].restrictVary[0].correctLenses[0]
+FieldNameAlt: Check if driver wears corrective lenses.
+FieldFlags: 1
+FieldValue: Off
+FieldJustification: Left
+FieldStateOption: 1
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: MCSA-5875[0].Page4[0].fedDetermination[0].restrictVary[0].hearingAid[0]
+FieldNameAlt: Check if driver wears a hearing aid.
+FieldFlags: 1
+FieldValue: Off
+FieldJustification: Left
+FieldStateOption: 1
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: MCSA-5875[0].Page4[0].fedDetermination[0].restrictVary[0].waiverQualify[0]
+FieldNameAlt: Check if driver has an exemption certificate (please specify the type in the following field).
+FieldFlags: 1
+FieldValue: Off
+FieldJustification: Left
+FieldStateOption: 1
+FieldStateOption: Off
+---
+FieldType: Text
+FieldName: MCSA-5875[0].Page4[0].fedDetermination[0].restrictVary[0].waiverEnter[0]
+FieldNameAlt: Please enter the type of waiver or exemption here.
+FieldFlags: 1
+FieldJustification: Left
+---
+FieldType: Button
+FieldName: MCSA-5875[0].Page4[0].fedDetermination[0].restrictVary[0].speQualify[0]
+FieldNameAlt: Check if driver has a Skill Performance Evaluation Certificate.
+FieldFlags: 1
+FieldValue: Off
+FieldJustification: Left
+FieldStateOption: 1
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: MCSA-5875[0].Page4[0].fedDetermination[0].restrictVary[0].cfrQualify[0]
+FieldNameAlt: Check if driver is qualified by operation of 49 CFR 391.64
+FieldFlags: 1
+FieldValue: Off
+FieldJustification: Left
+FieldStateOption: 1
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: MCSA-5875[0].Page4[0].fedDetermination[0].restrictVary[0].exemptQualify[0]
+FieldNameAlt: Check if driver is qualified for driving within an exempt intracity zone.
+FieldFlags: 1
+FieldValue: Off
+FieldJustification: Left
+FieldStateOption: 1
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: MCSA-5875[0].Page4[0].fedDetermination[0].deterPending[0]
+FieldNameAlt: Check button if if you are unable to make a qualification determination at this time and need more information; please specify the reason(s) in the box to the right.
+FieldFlags: 0
+FieldValue: Off
+FieldJustification: Left
+FieldStateOption: 1
+FieldStateOption: Off
+---
+FieldType: Text
+FieldName: MCSA-5875[0].Page4[0].fedDetermination[0].pendingWhy[0]
+FieldNameAlt: Please explain why the determination is still pending.
+FieldFlags: 1
+FieldJustification: Left
+---
+FieldType: Button
+FieldName: MCSA-5875[0].Page4[0].fedDetermination[0].returnExam[0]
+FieldNameAlt: Check if a follow-up examination is needed and specify the date of that exam in the following field (must be within 45 days or less).
+FieldFlags: 1
+FieldValue: Off
+FieldJustification: Left
+FieldStateOption: 1
+FieldStateOption: Off
+---
+FieldType: Text
+FieldName: MCSA-5875[0].Page4[0].fedDetermination[0].returnDate[0]
+FieldNameAlt: Enter the date of the return examination.
+FieldFlags: 1
+FieldJustification: Center
+---
+FieldType: Button
+FieldName: MCSA-5875[0].Page4[0].fedDetermination[0].reportAmend[0]
+FieldNameAlt: Check if MER is being amended from a determination pending status and specify the reason in the following field.
+FieldFlags: 1
+FieldValue: Off
+FieldJustification: Left
+FieldStateOption: 1
+FieldStateOption: Off
+---
+FieldType: Text
+FieldName: MCSA-5875[0].Page4[0].fedDetermination[0].amendWhy[0]
+FieldNameAlt: Please explain why the report has been amended.
+FieldFlags: 1
+FieldJustification: Left
+---
+FieldType: Signature
+FieldName: MCSA-5875[0].Page4[0].fedDetermination[0].ifAmendSignature[0]
+FieldNameAlt: If form has been amended, enter Medical Examiner's signature here.
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: MCSA-5875[0].Page4[0].fedDetermination[0].ifAmendDate[0]
+FieldNameAlt: Enter the date when Medical Examiner amended and re-signed form.
+FieldFlags: 1
+FieldJustification: Center
+---
+FieldType: Button
+FieldName: MCSA-5875[0].Page4[0].fedDetermination[0].examIncomplete[0]
+FieldNameAlt: Check button if the examination was not completed for any reason; please specify the reason.
+FieldFlags: 0
+FieldValue: Off
+FieldJustification: Left
+FieldStateOption: 1
+FieldStateOption: Off
+---
+FieldType: Text
+FieldName: MCSA-5875[0].Page4[0].fedDetermination[0].incompleteWhy[0]
+FieldNameAlt: Please explain why the examination is incomplete.
+FieldFlags: 1
+FieldJustification: Left
+---
+FieldType: Signature
+FieldName: MCSA-5875[0].Page4[0].fedDetermination[0].examSignature[0]
+FieldNameAlt: Medical Examiner enters signature here.
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: MCSA-5875[0].Page4[0].fedDetermination[0].examName[0]
+FieldNameAlt: Medical Examiner enters name here.
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: MCSA-5875[0].Page4[0].fedDetermination[0].medicalAddress[0]
+FieldNameAlt: Enter the medical examiner's street address.
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: MCSA-5875[0].Page4[0].fedDetermination[0].medicalCity[0]
+FieldNameAlt: Enter the medical examiner's city address.
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Choice
+FieldName: MCSA-5875[0].Page4[0].fedDetermination[0].medicalState[0]
+FieldNameAlt: Use the drop-down menu to enter the medical examiner's state.
+FieldFlags: 67239936
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: MCSA-5875[0].Page4[0].fedDetermination[0].medicalZip[0]
+FieldNameAlt: Enter medical examiner's zip code using 5 or 9 numbers (00000 or 00000-0000).
+FieldFlags: 0
+FieldJustification: Center
+---
+FieldType: Text
+FieldName: MCSA-5875[0].Page4[0].fedDetermination[0].medicalPhone[0]
+FieldNameAlt: Enter medical examiner's phone contact number. Please use numerical characters only (e.g., enter (222) 333-4444 as 2223334444).
+FieldFlags: 0
+FieldJustification: Center
+---
+FieldType: Text
+FieldName: MCSA-5875[0].Page4[0].fedDetermination[0].examDate[0]
+FieldNameAlt: Enter the date when the Medical Examiner signed the certificate.
+FieldFlags: 0
+FieldJustification: Center
+---
+FieldType: Text
+FieldName: MCSA-5875[0].Page4[0].fedDetermination[0].certNumber[0]
+FieldNameAlt: Enter the medical examiner's license, certificate, or registration number.
+FieldFlags: 0
+FieldJustification: Center
+---
+FieldType: Choice
+FieldName: MCSA-5875[0].Page4[0].fedDetermination[0].issueState[0]
+FieldNameAlt: Use the drop-down menu to enter the state that issued the medical examiner's license, certificate, or registration.
+FieldFlags: 67239936
+FieldJustification: Left
+---
+FieldType: Button
+FieldName: MCSA-5875[0].Page4[0].fedDetermination[0].md[0]
+FieldNameAlt: Check if medical examiner is an MD.
+FieldFlags: 0
+FieldValue: Off
+FieldJustification: Left
+FieldStateOption: 1
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: MCSA-5875[0].Page4[0].fedDetermination[0].do[0]
+FieldNameAlt: Check if medical examiner is a DO.
+FieldFlags: 0
+FieldValue: Off
+FieldJustification: Left
+FieldStateOption: 1
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: MCSA-5875[0].Page4[0].fedDetermination[0].physAssist[0]
+FieldNameAlt: Check if medical examiner is an Physician Assistant.
+FieldFlags: 0
+FieldValue: Off
+FieldJustification: Left
+FieldStateOption: 1
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: MCSA-5875[0].Page4[0].fedDetermination[0].chiroPractor[0]
+FieldNameAlt: Check if medical examiner is a chiropractor.
+FieldFlags: 0
+FieldValue: Off
+FieldJustification: Left
+FieldStateOption: 1
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: MCSA-5875[0].Page4[0].fedDetermination[0].pracNurse[0]
+FieldNameAlt: Check if medical examiner is an advanced practice nurse.
+FieldFlags: 0
+FieldValue: Off
+FieldJustification: Left
+FieldStateOption: 1
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: MCSA-5875[0].Page4[0].fedDetermination[0].otherPrac[0]
+FieldNameAlt: Check if medical examiner is an other category of practitioner; please specify that category in the following field.
+FieldFlags: 0
+FieldValue: Off
+FieldJustification: Left
+FieldStateOption: 1
+FieldStateOption: Off
+---
+FieldType: Text
+FieldName: MCSA-5875[0].Page4[0].fedDetermination[0].otherPracSpecify[0]
+FieldNameAlt: Please enter the practitioner's category here.
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: MCSA-5875[0].Page4[0].fedDetermination[0].nationalRegister[0]
+FieldNameAlt: Enter the medical examiner's 10-digit national registry number.
+FieldFlags: 8388608
+FieldJustification: Center
+---
+FieldType: Text
+FieldName: MCSA-5875[0].Page4[0].fedDetermination[0].expireDate[0]
+FieldNameAlt: Enter the expiration date of the Medical Examiner's Certificate being used. This is a required field.
+FieldFlags: 2
+FieldJustification: Center
+---
+FieldType: 
+FieldName: MCSA-5875[0].Page4[0]
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: MCSA-5875[0].Page5[0].pageHead5[0].nameLastHead5[0]
+FieldNameAlt: Driver's last name has been entered automatically from page 1.
+FieldFlags: 1
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: MCSA-5875[0].Page5[0].pageHead5[0].nameFirstHead5[0]
+FieldNameAlt: Driver's first name has been entered automatically from page 1.
+FieldFlags: 1
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: MCSA-5875[0].Page5[0].pageHead5[0].dateForm5[0]
+FieldNameAlt: Enter the date when the driver examination took place.
+FieldFlags: 0
+FieldJustification: Center
+---
+FieldType: Text
+FieldName: MCSA-5875[0].Page5[0].pageHead5[0].dateBirth5[0]
+FieldNameAlt: Driver's date of birth has been entered automatically from page 1.
+FieldFlags: 1
+FieldJustification: Center
+---
+FieldType: Button
+FieldName: MCSA-5875[0].Page5[0].stateDetermination[0].standardButtonListState[0]
+FieldFlags: 49152
+FieldValue: Off
+FieldJustification: Left
+FieldStateOption: 0
+FieldStateOption: 1
+FieldStateOption: 2
+FieldStateOption: 3
+FieldStateOption: 4
+FieldStateOption: Off
+---
+FieldType: Text
+FieldName: MCSA-5875[0].Page5[0].stateDetermination[0].notStandardsWhyState[0]
+FieldNameAlt: Please explain why the driver does not meet the standards outlined in 49 CFR 391.41 with any applicable State variances.
+FieldFlags: 1
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: MCSA-5875[0].Page5[0].stateDetermination[0].butStandardsWhyState[0]
+FieldNameAlt: Please explain why periodic monitoring will be required for the driver to meet the standards outlined in 49 CFR 391.41.
+FieldFlags: 1
+FieldJustification: Left
+---
+FieldType: Button
+FieldName: MCSA-5875[0].Page5[0].stateDetermination[0].qualifiedButtonListState[0]
+FieldFlags: 49153
+FieldValue: Off
+FieldJustification: Left
+FieldStateOption: 0
+FieldStateOption: 1
+FieldStateOption: 2
+FieldStateOption: 3
+FieldStateOption: 4
+FieldStateOption: Off
+---
+FieldType: Text
+FieldName: MCSA-5875[0].Page5[0].stateDetermination[0].otherQualifyState[0]
+FieldNameAlt: Enter driver qualification period here.
+FieldFlags: 1
+FieldJustification: Left
+---
+FieldType: Button
+FieldName: MCSA-5875[0].Page5[0].stateDetermination[0].varyRestrict[0].correctLensesState[0]
+FieldNameAlt: Check if driver wears corrective lenses.
+FieldFlags: 1
+FieldValue: Off
+FieldJustification: Left
+FieldStateOption: 1
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: MCSA-5875[0].Page5[0].stateDetermination[0].varyRestrict[0].hearingAidState[0]
+FieldNameAlt: Check if driver wears a hearing aid.
+FieldFlags: 1
+FieldValue: Off
+FieldJustification: Left
+FieldStateOption: 1
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: MCSA-5875[0].Page5[0].stateDetermination[0].varyRestrict[0].waiverQualifyState[0]
+FieldNameAlt: Check if driver has an exemption certificate.
+FieldFlags: 1
+FieldValue: Off
+FieldJustification: Left
+FieldStateOption: 1
+FieldStateOption: Off
+---
+FieldType: Text
+FieldName: MCSA-5875[0].Page5[0].stateDetermination[0].varyRestrict[0].waiverEnterState[0]
+FieldNameAlt: Please enter the type of waiver or exemption here.
+FieldFlags: 1
+FieldJustification: Left
+---
+FieldType: Button
+FieldName: MCSA-5875[0].Page5[0].stateDetermination[0].varyRestrict[0].speQualifyState[0]
+FieldNameAlt: Check if driver has a Skill Performance Evaluation certificate.
+FieldFlags: 1
+FieldValue: Off
+FieldJustification: Left
+FieldStateOption: 1
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: MCSA-5875[0].Page5[0].stateDetermination[0].varyRestrict[0].grandQualifyState[0]
+FieldNameAlt: Check if the driver is grandfathered from State requirements.
+FieldFlags: 1
+FieldValue: Off
+FieldJustification: Left
+FieldStateOption: 1
+FieldStateOption: Off
+---
+FieldType: Signature
+FieldName: MCSA-5875[0].Page5[0].stateDetermination[0].examSignatureState[0]
+FieldNameAlt: Medical Examiner enters signature here.
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: MCSA-5875[0].Page5[0].stateDetermination[0].examNameState[0]
+FieldNameAlt: Medical Examiner enters name here.
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: MCSA-5875[0].Page5[0].stateDetermination[0].examDateState[0]
+FieldNameAlt: Enter the date of Medical Examiner's signature.
+FieldFlags: 0
+FieldJustification: Center
+---
+FieldType: Text
+FieldName: MCSA-5875[0].Page5[0].stateDetermination[0].medicalAddressState[0]
+FieldNameAlt: Enter the medical examiner's street address.
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: MCSA-5875[0].Page5[0].stateDetermination[0].medicalCityState[0]
+FieldNameAlt: Enter the medical examiner's city address.
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Choice
+FieldName: MCSA-5875[0].Page5[0].stateDetermination[0].medicalStateState[0]
+FieldNameAlt: Use the drop-down menu to enter the medical examiner's state.
+FieldFlags: 67239936
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: MCSA-5875[0].Page5[0].stateDetermination[0].medicalZipState[0]
+FieldNameAlt: Enter medical examiner's zip code using 5 or 9 numbers (00000 or 00000-0000).
+FieldFlags: 0
+FieldJustification: Center
+---
+FieldType: Text
+FieldName: MCSA-5875[0].Page5[0].stateDetermination[0].medicalPhoneState[0]
+FieldNameAlt: Enter medical examiner's phone contact number. Please use numerical characters only (e.g., enter (222) 333-4444 as 2223334444).
+FieldFlags: 0
+FieldJustification: Center
+---
+FieldType: Text
+FieldName: MCSA-5875[0].Page5[0].stateDetermination[0].certNumberState[0]
+FieldNameAlt: Enter the medical examiner's license, certificate, or registration number.
+FieldFlags: 0
+FieldJustification: Center
+---
+FieldType: Choice
+FieldName: MCSA-5875[0].Page5[0].stateDetermination[0].issueStateState[0]
+FieldNameAlt: Use the drop-down menu to enter the state that issued the medical examiner's license, certificate, or registration.
+FieldFlags: 67239936
+FieldJustification: Left
+---
+FieldType: Button
+FieldName: MCSA-5875[0].Page5[0].stateDetermination[0].mdState[0]
+FieldNameAlt: Check if medical examiner is an MD.
+FieldFlags: 0
+FieldValue: Off
+FieldJustification: Left
+FieldStateOption: 1
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: MCSA-5875[0].Page5[0].stateDetermination[0].doState[0]
+FieldNameAlt: Check if medical examiner is a DO.
+FieldFlags: 0
+FieldValue: Off
+FieldJustification: Left
+FieldStateOption: 1
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: MCSA-5875[0].Page5[0].stateDetermination[0].physAssistState[0]
+FieldNameAlt: Check if medical examiner is an Physician Assistant.
+FieldFlags: 0
+FieldValue: Off
+FieldJustification: Left
+FieldStateOption: 1
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: MCSA-5875[0].Page5[0].stateDetermination[0].chiroPractorState[0]
+FieldNameAlt: Check if medical examiner is a chiropractor.
+FieldFlags: 0
+FieldValue: Off
+FieldJustification: Left
+FieldStateOption: 1
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: MCSA-5875[0].Page5[0].stateDetermination[0].pracNurseState[0]
+FieldNameAlt: Check if medical examiner is an advanced practice nurse.
+FieldFlags: 0
+FieldValue: Off
+FieldJustification: Left
+FieldStateOption: 1
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: MCSA-5875[0].Page5[0].stateDetermination[0].otherPracState[0]
+FieldNameAlt: Check if medical examiner is an other category of practitioner.
+FieldFlags: 0
+FieldValue: Off
+FieldJustification: Left
+FieldStateOption: 1
+FieldStateOption: Off
+---
+FieldType: Text
+FieldName: MCSA-5875[0].Page5[0].stateDetermination[0].otherSpec[0]
+FieldNameAlt: Specify medical examiner's category of practitioner here.
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: MCSA-5875[0].Page5[0].stateDetermination[0].nationalRegisterState[0]
+FieldNameAlt: Enter the medical examiner's 10-digit national registry number.
+FieldFlags: 8388608
+FieldJustification: Center
+---
+FieldType: Text
+FieldName: MCSA-5875[0].Page5[0].stateDetermination[0].expireDateState[0]
+FieldNameAlt: Enter the expiration date of the Medical Examiner's Certificate being used. This is a required field.
+FieldFlags: 2
+FieldJustification: Center
+---
+FieldType: 
+FieldName: MCSA-5875[0].Page5[0]
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: 
+FieldName: MCSA-5875[0]
+FieldFlags: 0
+FieldJustification: Left
