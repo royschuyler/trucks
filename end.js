@@ -28,6 +28,10 @@ var end = function(req, res, next) {
     var datas = connection.query('SELECT persons2.*, history.*, history_review.*, testing.*, vision.*, hearing.*, physicalexam.* FROM persons2, history, history_review, testing, vision, hearing, physicalexam WHERE' + "'" + sessionId + "'" + '=persons2.sessionId AND' + "'" + sessionId + "'" + '=history.sessionId AND' + "'" + sessionId + "'" + '=history_review.sessionId AND' + "'" + sessionId + "'" + '=testing.sessionId AND' + "'" + sessionId + "'" + '=vision.sessionId AND' + "'" + sessionId + "'" + '=hearing.sessionId AND' + "'" + sessionId + "'" + '=physicalexam.sessionId',
       function(err, rows) {
 
+        connection.query('SELECT * FROM moreinfo', function(err,moreInfoRows){
+          console.log("moreInfoEnd" + moreInfoRows[0].username)
+
+
         var fs = require('fs');
         var pdfFiller = require('pdffiller');
 
@@ -178,49 +182,51 @@ var end = function(req, res, next) {
           "MCSA-5875[0].Page4[0].pageHead4[0].nameInitialHead4[0]": rows[0].middlename,
           "MCSA-5875[0].Page4[0].pageHead4[0].dateBirth4[0]": rows[0].dob,
           "MCSA-5875[0].Page4[0].pageHead4[0].dateForm4[0]": date,
-          "MCSA-5875[0].Page4[0].fedDetermination[0].standardButtonList[0]": "2",
-          "MCSA-5875[0].Page4[0].fedDetermination[0].notStandardsWhy[0]": "rows[0].",
-          "MCSA-5875[0].Page4[0].fedDetermination[0].butStandardsWhy[0]": "rows[0].",
-          "MCSA-5875[0].Page4[0].fedDetermination[0].qualifiedButtonList[0]": "rows[0].",
-          "MCSA-5875[0].Page4[0].fedDetermination[0].otherQualify[0]": "rows[0].",
-          "MCSA-5875[0].Page4[0].fedDetermination[0].correctLenses[0]": "2",
-          "MCSA-5875[0].Page4[0].fedDetermination[0].hearingAid[0]": "2",
-          "MCSA-5875[0].Page4[0].fedDetermination[0].waiverQualify[0]": "rows[0].",
-          "MCSA-5875[0].Page4[0].fedDetermination[0].waiverEnter[0]": "rows[0].",
-          "MCSA-5875[0].Page4[0].fedDetermination[0].speQualify[0]": "rows[0].",
-          "MCSA-5875[0].Page4[0].fedDetermination[0].cfrQualify[0]": "rows[0].",
-          "MCSA-5875[0].Page4[0].fedDetermination[0].exemptQualify[0]": "rows[0].",
-          "MCSA-5875[0].Page4[0].fedDetermination[0].incompleteButtonList[0]": "rows[0].",
-          "MCSA-5875[0].Page4[0].fedDetermination[0].pendingWhy[0]": "rows[0].",
-          "MCSA-5875[0].Page4[0].fedDetermination[0].returnExam[0]": "rows[0].",
-          "MCSA-5875[0].Page4[0].fedDetermination[0].returnDate[0]": "rows[0].",
-          "MCSA-5875[0].Page4[0].fedDetermination[0].reportAmend[0]": "rows[0].",
-          "MCSA-5875[0].Page4[0].fedDetermination[0].amendWhy[0]": "rows[0].",
-          "MCSA-5875[0].Page4[0].fedDetermination[0].ifAmendDate[0]": "rows[0].",
-          "MCSA-5875[0].Page4[0].fedDetermination[0].incompleteWhy[0]": "rows[0].",
-          "MCSA-5875[0].Page4[0].fedDetermination[0].examName[0]": "rows[0].",
-          "MCSA-5875[0].Page4[0].fedDetermination[0].medicalAddress[0]": "rows[0].",
-          "MCSA-5875[0].Page4[0].fedDetermination[0].medicalCity[0]": "rows[0].",
-          "MCSA-5875[0].Page4[0].fedDetermination[0].medicalState[0]": "rows[0].",
-          "MCSA-5875[0].Page4[0].fedDetermination[0].medicalZip[0]": "rows[0].",
-          "MCSA-5875[0].Page4[0].fedDetermination[0].medicalPhone[0]": "rows[0].",
-          "MCSA-5875[0].Page4[0].fedDetermination[0].examDate[0]": "rows[0].",
-          "MCSA-5875[0].Page4[0].fedDetermination[0].certNumber[0]": "rows[0].",
+          //federal page
+          "MCSA-5875[0].Page4[0].fedDetermination[0].standardButtonList[0]": "1",
+          "MCSA-5875[0].Page4[0].fedDetermination[0].notStandardsWhy[0]": "not standard text",
+          "MCSA-5875[0].Page4[0].fedDetermination[0].butStandardsWhy[0]": "1",
+          "MCSA-5875[0].Page4[0].fedDetermination[0].qualifiedButtonList[0]": "4",
+          "MCSA-5875[0].Page4[0].fedDetermination[0].otherQualify[0]": "other qualify text",
+          "MCSA-5875[0].Page4[0].fedDetermination[0].correctLenses[0]": 1,
+          "MCSA-5875[0].Page4[0].fedDetermination[0].hearingAid[0]": "1",
+          "MCSA-5875[0].Page4[0].fedDetermination[0].waiverQualify[0]": "on",
+          "MCSA-5875[0].Page4[0].fedDetermination[0].waiverEnter[0]": "yes",
+          "MCSA-5875[0].Page4[0].fedDetermination[0].speQualify[0]": "1",
+          "MCSA-5875[0].Page4[0].fedDetermination[0].cfrQualify[0]": "1",
+          "MCSA-5875[0].Page4[0].fedDetermination[0].exemptQualify[0]": "1",
+          "MCSA-5875[0].Page4[0].fedDetermination[0].incompleteButtonList[0]": "1",
+          "MCSA-5875[0].Page4[0].fedDetermination[0].pendingWhy[0]": "determination pendin why text",
+          "MCSA-5875[0].Page4[0].fedDetermination[0].returnExam[0]": "1",
+          "MCSA-5875[0].Page4[0].fedDetermination[0].returnDate[0]": "1",
+          "MCSA-5875[0].Page4[0].fedDetermination[0].reportAmend[0]": "1",
+          "MCSA-5875[0].Page4[0].fedDetermination[0].amendWhy[0]": "1",
+          "MCSA-5875[0].Page4[0].fedDetermination[0].ifAmendDate[0]": "1",
+          "MCSA-5875[0].Page4[0].fedDetermination[0].incompleteWhy[0]": "1",
+          "MCSA-5875[0].Page4[0].fedDetermination[0].examName[0]": moreInfoRows[0].username,
+          "MCSA-5875[0].Page4[0].fedDetermination[0].medicalAddress[0]": moreInfoRows[0].registerAddress,
+          "MCSA-5875[0].Page4[0].fedDetermination[0].medicalCity[0]": moreInfoRows[0].registerCity,
+          "MCSA-5875[0].Page4[0].fedDetermination[0].medicalState[0]": moreInfoRows[0].registerState,
+          "MCSA-5875[0].Page4[0].fedDetermination[0].medicalZip[0]": moreInfoRows[0].registerZip,
+          "MCSA-5875[0].Page4[0].fedDetermination[0].medicalPhone[0]": moreInfoRows[0].registerPhone,
+          "MCSA-5875[0].Page4[0].fedDetermination[0].examDate[0]": date,
+          "MCSA-5875[0].Page4[0].fedDetermination[0].certNumber[0]": moreInfoRows[0].stateLicense,
           "MCSA-5875[0].Page4[0].fedDetermination[0].issueState[0]": "rows[0].",
-          "MCSA-5875[0].Page4[0].fedDetermination[0].md[0]": "rows[0].",
-          "MCSA-5875[0].Page4[0].fedDetermination[0].do[0]": "rows[0].",
-          "MCSA-5875[0].Page4[0].fedDetermination[0].physAssist[0]": "rows[0].",
-          "MCSA-5875[0].Page4[0].fedDetermination[0].chiroPractor[0]": "rows[0].",
-          "MCSA-5875[0].Page4[0].fedDetermination[0].pracNurse[0]": "rows[0].",
-          "MCSA-5875[0].Page4[0].fedDetermination[0].otherPrac[0]": "rows[0].",
-          "MCSA-5875[0].Page4[0].fedDetermination[0].nationalRegister[0]": "rows[0].",
-          "MCSA-5875[0].Page4[0].fedDetermination[0].expireDate[0]": "rows[0].",
-          "MCSA-5875[0].Page4[0].fedDetermination[0].otherPracSpecify[0]": "rows[0].",
+          "MCSA-5875[0].Page4[0].fedDetermination[0].md[0]": "1",
+          "MCSA-5875[0].Page4[0].fedDetermination[0].do[0]": "1",
+          "MCSA-5875[0].Page4[0].fedDetermination[0].physAssist[0]": "1",
+          "MCSA-5875[0].Page4[0].fedDetermination[0].chiroPractor[0]": "1",
+          "MCSA-5875[0].Page4[0].fedDetermination[0].pracNurse[0]": "1",
+          "MCSA-5875[0].Page4[0].fedDetermination[0].otherPrac[0]": "1",
+          "MCSA-5875[0].Page4[0].fedDetermination[0].nationalRegister[0]": "1",
+          "MCSA-5875[0].Page4[0].fedDetermination[0].expireDate[0]": "1",
+          "MCSA-5875[0].Page4[0].fedDetermination[0].otherPracSpecify[0]": "1",
           "MCSA-5875[0].Page5[0].pageHead5[0].nameLastHead5[0]": rows[0].lastname,
           "MCSA-5875[0].Page5[0].pageHead5[0].nameFirstHead5[0]": rows[0].firstname,
           "MCSA-5875[0].Page5[0].pageHead5[0].nameInitialHead5[0]": rows[0].middlename,
           "MCSA-5875[0].Page5[0].pageHead5[0].dateBirth5[0]": rows[0].dob,
           "MCSA-5875[0].Page5[0].pageHead5[0].dateForm5[0]": date,
+          //state page
           "MCSA-5875[0].Page5[0].stateDetermination[0].standardButtonListState[0]": "3",
           "MCSA-5875[0].Page5[0].stateDetermination[0].notStandardsWhyState[0]": "because",
           "MCSA-5875[0].Page5[0].stateDetermination[0].butStandardsWhyState[0]": "1",
@@ -473,7 +479,7 @@ var end = function(req, res, next) {
               })
           })
       })
-
+    })
   }
 };
 //-------------------------------------------------------
