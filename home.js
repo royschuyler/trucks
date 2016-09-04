@@ -208,7 +208,7 @@ var homePost = function(req, res, next) {
       //console.log(req.body)
     }
 
-  res.redirect('/testing/' + sessionId)
+  res.redirect('/landing/' + sessionId)
 };
 
 module.exports.home = home;

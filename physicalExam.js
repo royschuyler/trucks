@@ -44,7 +44,7 @@ var physicalExaminationPost = function(req, res, next) {
 
     }
 
-  res.redirect('/end/' + sessionId)
+  res.redirect('/landing/' + sessionId)
 };
 
 module.exports.physicalExamination = physicalExamination;

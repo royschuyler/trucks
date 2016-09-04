@@ -46,7 +46,7 @@ var testingPost = function(req, res, next) {
 
     }
 
-  res.redirect('/vision/' + sessionId)
+  res.redirect('/landing/' + sessionId)
 };
 
 module.exports.testing = testing;

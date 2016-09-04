@@ -47,7 +47,7 @@ var visionPost = function(req, res, next) {
     }
 
 
-    res.redirect('/hearing/' + sessionId)
+    res.redirect('/landing/' + sessionId)
 
 };
 

@@ -46,7 +46,7 @@ var hearingPost = function(req, res, next) {
 
   //console.log(req.body.hearingaid)
 
-  res.redirect('/physicalexamination/' + sessionId)
+  res.redirect('/landing/' + sessionId)
 
 };
 
