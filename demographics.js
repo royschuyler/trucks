@@ -52,6 +52,7 @@ var demographics = function(req, res, next) {
 
 var demographicsPost = function(req, res, next) {
 
+  var posted = 'd';
   var sessionId = sessionIdArr;
   var user = req.user;
   var phone = req.body.phone1 + req.body.phone2 + req.body.phone3;
@@ -60,7 +61,7 @@ var demographicsPost = function(req, res, next) {
     function(err, rows) {
     }
 
-  res.redirect('/landing/' + sessionId);
+  res.redirect('/landing/' + sessionId + '?' + posted);
 
   (req, res, next);
 };

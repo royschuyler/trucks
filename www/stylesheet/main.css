@@ -860,11 +860,13 @@ tr.non-border {
   border: solid 1px black;
   background-color: lightblue;
   color: black !important;
+
 }
 
 .land-a:hover {
   background-color: blue;
   color: white !important;
+
 }
 
 .land-li {
@@ -892,6 +894,16 @@ tr.non-border {
   width: 18%;
   border-right: solid black 1px;
 }
+
+
+.land-ul-new {
+  list-style-type: square;
+}
+
+li.d {
+  list-style: none;
+}
+
 
 
 

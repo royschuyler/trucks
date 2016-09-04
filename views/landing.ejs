@@ -6,8 +6,8 @@
       Welcome to the exam home page. You will be redirected back here after each exam segment. There are seven segments to complete before the exam is finished. The links are on the left. I recommend going in order.
     </div>
     <div class="link-container">
-      <ul class="land-ul">
-        <li class="land-li"><a class="land-a" href="../demographics/<%= sessionId %>">Demographics</a></li>
+      <ul class="land-ul-new">
+        <li class="land-li <%= hasDemographics %>"><a class="land-a" id="<%= hasDemographics %>" href="../demographics/<%= sessionId %>">Demographics</a></li>
         <li class="land-li"><a class="land-a" href="../history/<%= sessionId %>">History</a></li>
         <li class="land-li"><a class="land-a" href="../home/<%= sessionId %>">History Review</a></li>
         <li class="land-li"><a class="land-a" href="../testing/<%= sessionId %>">Testing</a></li>

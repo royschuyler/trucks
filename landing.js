@@ -2,6 +2,7 @@ var passport = require('passport');
 var bcrypt = require('bcrypt-nodejs');
 var Model = require('./model');
 var bodyParser = require('body-parser');
+var url = require('url')
 
 var mysql = require('mysql');
 var connection = mysql.createConnection({
@@ -20,9 +21,14 @@ var landing = function(req, res, next) {
     res.redirect('/signin');
   } else {
 
+    //console.log("url " + req.url)
+    var str = req.url
+    var hasDemographics = str.split('?')[1]
 
+    console.log('demo: ' + hasDemographics)
     var sessionId = req.params.sessionId;
     sessionIdArr.push(sessionId);
+    console.log(sessionId)
 
     if (user !== undefined) {
       user = user.toJSON();
@@ -30,16 +36,13 @@ var landing = function(req, res, next) {
 
     var user = req.user;
 
-    setTimeout(function(){}, 1000)
-    connection.query('SELECT * FROM landing WHERE sessionId = ' + '"' + sessionId + '"',
-      function(err, rows, fields) {
-      console.log(rows[0])
-      });
+
 
     res.render('landing', {
       title: 'Landing',
       user: user,
-      sessionId: sessionId
+      sessionId: sessionId,
+      hasDemographics: hasDemographics
     });
   }
 };
