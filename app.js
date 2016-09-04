@@ -22,6 +22,7 @@ var end = require('./end');
 var pdf = require('./pdf');
 var signup = require('./signup');
 var moreInfo = require('./moreInfo')
+var landing = require('./landing')
 
 app.use(bodyParser.urlencoded({
   extended: false
@@ -72,6 +73,7 @@ app.get('/', route.index);
 app.get('/signin', signIn.signIn);
 app.get('/signup', signup.signUp);
 app.get('/moreinfo/:username', moreInfo.moreInfo);
+app.get('/landing/:sessionId', landing.landing);
 app.get('/home/:sessionId', home.home);
 app.get('/end/:sessionId', end.end);
 app.get('/pdf/:sessionId', pdf.pdf);

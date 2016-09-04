@@ -72,7 +72,7 @@ var signInPost = function(req, res, next) {
 
 
 
-        return res.redirect('/demographics/' + sessionId);
+        return res.redirect('/landing/' + sessionId);
       }
     });
   })(req, res, next);
