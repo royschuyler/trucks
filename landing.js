@@ -29,7 +29,6 @@ var landing = function(req, res, next) {
     }
 
 
-
     var user = req.user;
 
     res.render('landing', {

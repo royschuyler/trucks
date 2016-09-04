@@ -25,6 +25,30 @@ connection.query('INSERT INTO session(username, userId, sessionId, loginCount)VA
   function(err, rows) {
   };
 
+//********************** LANDING *************************************************
+
+CREATE TABLE landing
+(
+ID Integer PRIMARY KEY AUTO_INCREMENT,
+username varchar(255) NOT NULL,
+userId varchar(255),
+sessionId varchar(255),
+demographics varchar(255),
+history varchar(255),
+historyreview varchar(255),
+testing varchar(255),
+vision varchar(255),
+hearing varchar(255),
+physicalexam varchar(255)
+);
+
+
+
+connection.query('INSERT INTO landing(username, userId, sessionId, demographics, history, historyreview, testing, vision, hearing, physicalexam)VALUES(' + '"' + user.username + '",' + '"' + user.userId + '",' + '"' + sessionId + '",' + '"' + 0 + '",' + '"' + 0 + '",' + '"' + 0 + '",' + '"' + 0 + '",' + '"' + 0 + '",' + '"' + 0 + '",' + '"' + 0 + '")'),
+  function(err, rows) {
+  console.log(rows[0])
+  };
+
 //*************************** PERSON *********************************************
 
 CREATE TABLE persons2 (ID Integer PRIMARY KEY AUTO_INCREMENT, userId varchar(255), username varchar(255), sessionId varchar(255), lastname varchar(255), firstname varchar(255), middlename varchar(255), dob varchar(255), age varchar(255), streetaddress varchar(255), city varchar(255), state varchar(255), zip varchar(255), dln varchar(255), issuing varchar(255), phone varchar(255), gender varchar(255), email varchar(255), holder varchar(255), verified varchar(255), denied varchar(255));

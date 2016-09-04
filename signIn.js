@@ -70,6 +70,12 @@ var signInPost = function(req, res, next) {
             //console.log(rows[0])
           };
 
+        connection.query('INSERT INTO landing(username, userId, sessionId, demographics, history, historyreview, testing, vision, hearing, physicalexam)VALUES(' + '"' + user.username + '",' + '"' + user.userId + '",' + '"' + sessionId + '",' + '"' + 0 + '",' + '"' + 0 + '",' + '"' + 0 + '",' + '"' + 0 + '",' + '"' + 0 + '",' + '"' + 0 + '",' + '"' + 0 + '")'),
+          function(err, landingrows) {
+          //console.log(landingrows[0])
+          };
+
+
 
 
         return res.redirect('/landing/' + sessionId);
