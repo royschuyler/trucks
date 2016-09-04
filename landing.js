@@ -28,8 +28,13 @@ var landing = function(req, res, next) {
       user = user.toJSON();
     }
 
-
     var user = req.user;
+
+    setTimeout(function(){}, 1000)
+    connection.query('SELECT * FROM landing WHERE sessionId = ' + '"' + sessionId + '"',
+      function(err, rows, fields) {
+      console.log(rows[0])
+      });
 
     res.render('landing', {
       title: 'Landing',

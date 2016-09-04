@@ -26,7 +26,7 @@ function GUID() {
   return uuid;
 }
 
-var sessionId = GUID();
+//var sessionId = GUID();
 
 var signIn = function(req, res, next) {
   if (req.isAuthenticated()) res.redirect('/');
@@ -64,6 +64,8 @@ var signInPost = function(req, res, next) {
           errorMessage: err.message
         });
       } else {
+
+        var sessionId = GUID();
 
         connection.query('INSERT INTO session(username, userId, sessionId)VALUES(' + '"' + user.username + '",' + '"' + user.userId + '",' + '"' + sessionId + '")'),
           function(err, rows) {
