@@ -33,7 +33,6 @@
     "node-pdffiller": "0.0.7",
     "passport": "*",
     "passport-local": "*",
-    "path": "^0.12.7",
     "pdffiller": "^0.4.0",
     "pdffiller-concurrent": "0.0.9",
     "pdfkit": "^0.7.2",
