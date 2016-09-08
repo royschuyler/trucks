@@ -70,7 +70,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 //app.get('/', route.index);
-app.get('/signin', signIn.signIn);
+app.get('/signin', route.signIn);
 app.get('/signup', signup.signUp);
 app.get('/moreinfo/:username', moreInfo.moreInfo);
 app.get('/landing/:sessionId', landing.landing);
@@ -88,7 +88,7 @@ app.get('/physicalexamination/:sessionId', physicalexamination.physicalExaminati
 
 
 
-app.post('/signin', signIn.signInPost);
+app.post('/signin', route.signInPost);
 app.post('/signup', signup.signUpPost);
 app.post('/moreinfo/:username', moreInfo.moreInfoPost);
 app.post('/home/:sessionId', home.homePost);
