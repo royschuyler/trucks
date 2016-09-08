@@ -40,5 +40,10 @@
   },
   "scripts": {
   "start": "node app.js"
-  }
+  },
+  "engines": {
+  "node": "v0.12.7",
+  "npm": "3.10.5"
+  },
+
 }
