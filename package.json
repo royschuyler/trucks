@@ -4,7 +4,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js"
   },
   "repository": {
     "type": "git",
@@ -33,12 +33,10 @@
     "node-pdffiller": "0.0.7",
     "passport": "*",
     "passport-local": "*",
+    "path": "^0.12.7",
     "pdffiller": "^0.4.0",
     "pdffiller-concurrent": "0.0.9",
     "pdfkit": "^0.7.2",
     "pdftk-formfill": "0.0.1"
-  },
-  "scripts": {
-  "start": "node app.js"
   }
 }
