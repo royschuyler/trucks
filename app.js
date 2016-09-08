@@ -20,7 +20,7 @@ var hearing = require('./hearing');
 var physicalexamination = require('./physicalExam');
 var end = require('./end');
 var pdf = require('./pdf');
-var signup = require('./signup');
+var signup = require('./signUp');
 var moreInfo = require('./moreInfo')
 var landing = require('./landing')
 
