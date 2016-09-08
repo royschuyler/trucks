@@ -36,6 +36,7 @@
     "pdffiller": "^0.4.0",
     "pdffiller-concurrent": "0.0.9",
     "pdfkit": "^0.7.2",
-    "pdftk-formfill": "0.0.1"
+    "pdftk-formfill": "0.0.1",
+    "ruby": "^0.6.1"
   }
 }
