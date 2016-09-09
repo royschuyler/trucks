@@ -5,7 +5,7 @@ var bodyParser = require('body-parser');
 
 var mysql = require('mysql');
 var connection = mysql.createConnection({
-  host: 'localhost',
+  host: 'mysql://b9777c526cd36f:98fe641b@us-cdbr-iron-east-04.cleardb.net/heroku_5a0c317d331b7d8?reconnect=true',
   user: 'root',
   password: 'Hollie12123',
   database: 'dbUsers'
