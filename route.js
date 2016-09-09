@@ -6,8 +6,8 @@ var bodyParser = require('body-parser');
 var mysql = require('mysql');
 var connection = mysql.createConnection({
   host: 'us-cdbr-iron-east-04.cleardb.net',
-  user: 'b9777c526cd36f',
-  password: '98fe641b ',
+  user: 'b92d757f64dfcb',
+  password: '8e8e5d6c ',
   database: 'heroku_5a0c317d331b7d8'
 });
 
