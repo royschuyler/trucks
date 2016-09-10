@@ -2,10 +2,10 @@ var bookshelf = require('bookshelf');
 var Promise = require('bluebird');
 
 var config = {
-   host: 'localhost',  // your host
-   user: 'root', // your database user
-   password: 'Hollie12123', // your database password
-   database: 'dbUsers',
+  host: 'localhost',
+  user: 'root',
+  password: 'Hollie12123',
+  database: 'dbUsers',
    charset: 'UTF8_GENERAL_CI'
 };
 
