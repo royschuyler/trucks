@@ -4,7 +4,8 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "forever app.js"
   },
   "repository": {
     "type": "git",
@@ -28,6 +29,7 @@
     "express-session": "*",
     "fdf": "0.0.0",
     "fill-pdf": "^0.5.0",
+    "forever": "^0.15.2",
     "jade": "*",
     "mysql": "*",
     "node-pdffiller": "0.0.7",
