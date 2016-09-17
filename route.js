@@ -10,6 +10,7 @@ var connection = mysql.createConnection({
   password: '8e8e5d6c',
   database: 'heroku_0a3af633b949104'
 });
+
 connection.connect(function(err) {
   if (!err) {
     console.log("Database is connected ... \n\n");
@@ -43,20 +44,25 @@ var sessionId = GUID();
 
 //var GUIDReady = GUIDText + GUID();
 
-//-----------------------------------------------------
 
-var index = function(req, res, next) {
+//-----------------------------------------
+var landing = function(req, res, next) {
   if (!req.isAuthenticated()) {
     res.redirect('/signin');
   } else {
 
-    var user = req.user;
+
 
     if (user !== undefined) {
       user = user.toJSON();
     }
-    res.render('index', {
-      title: 'Home',
+
+    var user = req.user;
+
+
+
+    res.render('landing', {
+      title: 'Landing',
       user: user
     });
   }
@@ -64,6 +70,7 @@ var index = function(req, res, next) {
 
 //-------------------------------------------------------
 var demographics = function(req, res, next) {
+
   if (!req.isAuthenticated()) {
     res.redirect('/signin');
   } else {
@@ -85,8 +92,6 @@ var demographics = function(req, res, next) {
       user: user,
       userId: userId
     });
-
-    // res.download('watch9.pdf');
   }
 };
 //------------------------------------------------------
@@ -104,7 +109,7 @@ var demographicsPost = function(req, res, next) {
 
   console.log(phone)
     //console.log(res.body.lastname)
-  res.redirect('/history');
+  res.redirect('/landing');
 
   (req, res, next);
 };
@@ -140,7 +145,7 @@ var historyPost = function(req, res, next) {
   connection.query('INSERT INTO history (userId, username, sessionId, surgeryButton, surgeryComments, medicationButton, medicationComments, brainInjuries, seizures, eyeProblems, earProblems, heartProblems, paceMaker, highBloodPressure, highCholesterol, breathingProblems, lungDisease, kidneyProblems, stomachProblems, diabetes, insulin, anxiety, fainting, dizziness, unexplainedWeightLoss, stroke, missingLimbs, backProblems,  boneProblems, bloodClots, cancer, chronicDiseases, sleepDisorders, sleepTest, nightInHospital, brokenBone, useTobacco, drinkAlcohol, illegalSubstance, failedDrugTest, otherButton, otherComments, yesButton, yesDescribe) VALUES (' + "'" + user.attributes.userId + "'," + "'" + user.attributes.username + "'," + "'" + sessionId + "'," + "'" + req.body.surgeryButton + "'," + "'" + req.body.surgeryComments + "'," + "'" + req.body.medicationButton + "'," + "'" + req.body.medicationComments + "'," + "'" + req.body.brainInjuries + "'," + "'" + req.body.seizures + "'," + "'" + req.body.eyeProblems + "'," + "'" + req.body.earProblems + "'," + "'" + req.body.heartProblems + "'," + "'" + req.body.paceMaker + "'," + "'" + req.body.highBloodPressure + "'," + "'" + req.body.highCholesterol + "'," + "'" + req.body.breathingProblems + "'," + "'" + req.body.lungDisease + "'," + "'" + req.body.kidneyProblems + "'," + "'" + req.body.stomachProblems + "'," + "'" + req.body.diabetes + "'," + "'" + req.body.insulin + "'," + "'" + req.body.anxiety + "'," + "'" + req.body.fainting + "'," + "'" + req.body.dizziness + "'," + "'" + req.body.unexplainedWeightLoss + "'," + "'" + req.body.stroke + "'," + "'" + req.body.missingLimbs + "'," + "'" + req.body.backProblems + "'," + "'" + req.body.boneProblems + "'," + "'" + req.body.bloodClots + "'," + "'" + req.body.cancer + "'," + "'" + req.body.chronicDiseases + "'," + "'" + req.body.sleepDisorders + "'," + "'" + req.body.sleepTest + "'," + "'" + req.body.nightInHospital + "'," + "'" + req.body.brokenBone + "'," + "'" + req.body.useTobacco + "'," + "'" + req.body.drinkAlcohol + "'," + "'" + req.body.illegalSubstance + "'," + "'" + req.body.failedDrugTest + "'," + "'" + req.body.otherButton + "'," + "'" + req.body.otherComments + "'," + "'" + req.body.yesButton + "'," + "'" + req.body.yesDescribe + "')"),
     function(err, rows) {}
 
-  res.redirect('/home')
+  res.redirect('/landing');
 };
 
 //-------------------------------------------------------
@@ -338,38 +343,8 @@ var homePost = function(req, res, next) {
       //console.log(req.body)
     }
 
-  res.redirect('/testing')
+  res.redirect('/landing')
 };
-
-//-------------------------------------------------------
-// var historyReview = function(req, res, next) {
-//   if (!req.isAuthenticated()) {
-//     res.redirect('/signin');
-//   } else {
-
-//     var user = req.user;
-
-//     if (user !== undefined) {
-//       user = user.toJSON();
-//     }
-
-//     res.render('historyreview', {
-//       title: 'History Review',
-//       user: user
-//     });
-//   }
-// };
-
-//-------------------------------------------------------
-// var historyReviewPost = function(req, res, next) {
-
-//   var user = req.user;
-
-//   connection.query('INSERT INTO history_review(username, userId, sessionId, followupseizures, historyReview)VALUES(' + "'" + user.attributes.userId + "'," + "'" + user.attributes.username + "'," + "'" + sessionId + "'," + "'" + req.body.followupseizures + "'," + "'" + req.body.review + "')"),
-//     function(err, rows) {}
-
-//   res.redirect('/testing')
-// };
 
 //-------------------------------------------------------
 var testing = function(req, res, next) {
@@ -399,7 +374,7 @@ var testingPost = function(req, res, next) {
 
     }
 
-  res.redirect('/vision')
+  res.redirect('/landing')
 };
 
 //-------------------------------------------------------
@@ -430,7 +405,7 @@ var visionPost = function(req, res, next) {
     }
 
 
-    res.redirect('/hearing')
+    res.redirect('/landing')
 
 };
 
@@ -463,7 +438,7 @@ var hearingPost = function(req, res, next) {
 
   //console.log(req.body.hearingaid)
 
-  res.redirect('/physicalexamination')
+  res.redirect('/landing')
 
 };
 
@@ -494,7 +469,7 @@ var physicalExaminationPost = function(req, res, next) {
 
     }
 
-  res.redirect('/end')
+  res.redirect('/landing')
 };
 //-------------------------------------------------------
 var end = function(req, res, next) {
@@ -982,69 +957,7 @@ var pdf = function(req, res, next) {
 
   }
 };
-//-------------------------------------------------------
-//res.download('watch9.pdf')
 
-//-------------------------------------------------------
-var dropdown = function(req, res, next) {
-  if (!req.isAuthenticated()) {
-    res.redirect('/signin');
-  } else {
-
-    var user = req.user;
-
-    if (user !== undefined) {
-      user = user.toJSON();
-    }
-    res.render('dropdown', {
-      title: 'dropdown',
-      user: user
-    });
-  }
-};
-
-//-------------------------------------------------------
-var form = function(req, res, next) {
-  if (!req.isAuthenticated()) {
-    res.redirect('/signin');
-  } else {
-
-    var user = req.user;
-
-    if (user !== undefined) {
-      user = user.toJSON();
-    }
-    res.render('form', {
-      title: 'form',
-      user: user
-    });
-  }
-};
-//-------------------------------------------------------
-var dropdownPost = function(req, res, next) {
-
-  var user = req.user;
-
-  res.redirect('/home')
-};
-
-//-------------------------------------------------------
-var medication = function(req, res, next) {
-  if (!req.isAuthenticated()) {
-    res.redirect('/signin');
-  } else {
-
-    var user = req.user;
-
-    if (user !== undefined) {
-      user = user.toJSON();
-    }
-    res.render('medication', {
-      title: 'Medication',
-      user: user
-    });
-  }
-};
 
 //-------------------------------------------------------
 
@@ -1090,7 +1003,7 @@ var signInPost = function(req, res, next) {
             //console.log(rows[0])
           };
 
-        return res.redirect('/demographics');
+        return res.redirect('/landing');
       }
     });
   })(req, res, next);
@@ -1193,24 +1106,6 @@ var signOut = function(req, res, next) {
   }
   // };
 
-//-------------------------------------------------------
-
-var warn = function(req, res, next) {
-  if (!req.isAuthenticated()) {
-    res.redirect('/signin');
-  } else {
-
-    var user = req.user;
-
-    if (user !== undefined) {
-      user = user.toJSON();
-    }
-    res.render('warn', {
-      title: 'warn',
-      user: user
-    });
-  }
-};
 
 //-------------------------------------------------------
 
@@ -1233,8 +1128,8 @@ var notFound404 = function(req, res, next) {
 
 //--------------------------------------------------------
 
-module.exports.form = form;
-module.exports.index = index;
+
+module.exports.landing = landing;
 module.exports.home = home;
 module.exports.homePost = homePost;
 module.exports.end = end;
@@ -1244,8 +1139,6 @@ module.exports.demographics = demographics;
 module.exports.demographicsPost = demographicsPost;
 module.exports.history = history;
 module.exports.historyPost = historyPost;
-// module.exports.historyReview = historyReview;
-// module.exports.historyReviewPost = historyReviewPost;
 module.exports.testing = testing;
 module.exports.testingPost = testingPost;
 module.exports.vision = vision;
@@ -1255,9 +1148,6 @@ module.exports.hearingPost = hearingPost;
 module.exports.physicalExamination = physicalExamination;
 module.exports.physicalExaminationPost = physicalExaminationPost;
 module.exports.hearingPost = hearingPost;
-module.exports.medication = medication;
-module.exports.dropdown = dropdown;
-module.exports.dropdownPost = dropdownPost;
 module.exports.signIn = signIn;
 module.exports.signInPost = signInPost;
 module.exports.signUp = signUp;
@@ -1265,5 +1155,4 @@ module.exports.signUpPost = signUpPost;
 module.exports.moreInfo = moreInfo;
 module.exports.moreInfoPost = moreInfoPost;
 module.exports.signOut = signOut;
-module.exports.warn = warn;
 module.exports.notFound404 = notFound404;

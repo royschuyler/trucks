@@ -56,7 +56,8 @@ app.use(session({secret: 'secret strategic xxzzz code'}));
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.get('/', route.index);
+
+app.get('/landing', route.landing);
 app.get('/signin', route.signIn);
 app.get('/signup', route.signUp);
 app.get('/moreinfo', route.moreInfo);
@@ -69,11 +70,7 @@ app.get('/history', route.history);
 app.get('/testing', route.testing);
 app.get('/vision', route.vision);
 app.get('/hearing', route.hearing);
-app.get('/medication', route.medication);
 app.get('/signout', route.signOut);
-app.get('/dropdown', route.dropdown);
-app.get('/warn', route.warn);
-app.get('/form', route.form);
 app.get('/physicalexamination', route.physicalExamination)
 
 
@@ -89,7 +86,7 @@ app.post('/history', route.historyPost);
 app.post('/testing', route.testingPost);
 app.post('/vision', route.visionPost);
 app.post('/hearing', route.hearingPost);
-app.post('/dropdown', route.dropdownPost);
+
 app.post('/physicalexamination', route.physicalExaminationPost)
 
 

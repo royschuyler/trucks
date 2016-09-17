@@ -209,9 +209,7 @@ body {
 /*.main-box {
   border: solid darkgreen 1px;
 }
-
 .main-header {
-
   background-color: darkgreen;
 }*/
 
@@ -839,3 +837,69 @@ tr.non-border {
 #followUpPacemaker_2 {
   visibility: hidden;
 }
+
+.followup-brain-container {
+  width: 36%;
+}
+
+#want-a-link {
+  color: blue;
+}
+
+.land-ul
+{
+    list-style-type: none;
+
+}
+
+.land-a {
+  /*text-decoration: none;*/
+  padding: 5px;
+  border: solid 1px black;
+  background-color: lightblue;
+  color: black !important;
+
+}
+
+.land-a:hover {
+  background-color: blue;
+  color: white !important;
+
+}
+
+.land-li {
+  margin: 12px;
+}
+
+.land-super-container {
+  width: 90%;
+}
+
+.land-container {
+  width: 90%;
+  float: right;
+  border: solid black 1px;
+}
+
+.welcome-text {
+  font-weight: bold;
+  width: 80%;
+  float: right;
+  margin: 5px;
+}
+
+.link-container {
+  width: 18%;
+  border-right: solid black 1px;
+}
+
+
+.land-ul-new {
+  list-style-type: square;
+}
+
+li.d {
+  list-style: none;
+}
+
+
