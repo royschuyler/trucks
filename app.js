@@ -56,7 +56,7 @@ app.use(session({secret: 'secret strategic xxzzz code'}));
 app.use(passport.initialize());
 app.use(passport.session());
 
-
+app.get('/', route.index);
 app.get('/landing', route.landing);
 app.get('/signin', route.signIn);
 app.get('/signup', route.signUp);

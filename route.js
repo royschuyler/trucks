@@ -1126,9 +1126,17 @@ var notFound404 = function(req, res, next) {
   }
 };
 
+var index = function(req, res, next) {
+
+    res.render('landing', {
+      title: 'landing'
+    })
+  }
+
+
 //--------------------------------------------------------
 
-
+module.exports.index = index;
 module.exports.landing = landing;
 module.exports.home = home;
 module.exports.homePost = homePost;
