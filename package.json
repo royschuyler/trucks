@@ -4,7 +4,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js"
+    "start": "forever app.js"
   },
   "repository": {
     "type": "git",
@@ -28,8 +28,9 @@
     "express-session": "*",
     "fdf": "0.0.0",
     "fill-pdf": "^0.5.0",
+    "forever": "^0.15.2",
     "jade": "*",
-    "mysql": "*",
+    "mysql": "github:mysqljs/mysql",
     "node-pdffiller": "0.0.7",
     "passport": "*",
     "passport-local": "*",
@@ -37,6 +38,7 @@
     "pdffiller-concurrent": "0.0.9",
     "pdfkit": "^0.7.2",
     "pdftk-formfill": "0.0.1",
+    "pm2": "^2.0.12",
     "ruby": "^0.6.1"
   }
 }

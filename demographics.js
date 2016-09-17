@@ -4,12 +4,26 @@ var Model = require('./model');
 var bodyParser = require('body-parser');
 
 var mysql = require('mysql');
-var connection = mysql.createConnection({
-  host: 'us-cdbr-iron-east-04.cleardb.net',
-  user: 'b92d757f64dfcb',
-  password: '8e8e5d6c',
-  database: 'heroku_0a3af633b949104'
-});
+var db_config = {
+      host: 'us-cdbr-iron-east-04.cleardb.net',
+      user: 'b92d757f64dfcb',
+      password: '8e8e5d6c',
+      database: 'heroku_0a3af633b949104'
+    };
+
+function handleDisconnect() {
+  console.log('handleDisconnect()');
+  connection.destroy();
+  connection = mysql.createConnection(db_config);
+  connection.connect(function(err) {
+      if(err) {
+      console.log(' Error when connecting to db  (DBERR001):', err);
+      setTimeout(handleDisconnect, 1000);
+      }
+  });
+
+}
+
 
 var sessionIdArr = [];
 
@@ -25,7 +39,6 @@ var demographics = function(req, res, next) {
     console.log("newId: " + sessionId)
     console.log("Arr: " + sessionIdArr)
 
-
     var user = req.user;
     var userId = req.user.attributes.userId;
     var username = req.user.attributes.username;
@@ -35,10 +48,19 @@ var demographics = function(req, res, next) {
       user = user.toJSON();
     }
 
+    var connection = mysql.createConnection(db_config);
+    connection.connect(function(err) {
+    if(err) {
+    console.log('Connection is asleep (time to wake it up): ', err);
+    setTimeout(handleDisconnect, 1000);
+    handleDisconnect();
+    }
+    });
     connection.query("SELECT * FROM tblUsers WHERE tblUsers.username =" + '"' + req.user.attributes.username + '"',
       function(err, rows) {
         console.log(rows[0])
       });
+    connection.destroy();
 
     res.render('demographics', {
       title: 'Demographics',
@@ -57,17 +79,15 @@ var demographicsPost = function(req, res, next) {
   var user = req.user;
   var phone = req.body.phone1 + req.body.phone2 + req.body.phone3;
 
-  connection.query('INSERT INTO persons2 (userId, username, sessionId, lastname, firstname, middlename, dob, age, streetaddress, city, state, zip, dln, issuing, phone, gender, email, holder, verified, denied) VALUES(' + '"' + user.attributes.userId + '",' + '"' + user.attributes.username + '",' + '"' + sessionId + '",' + "'" + req.body.lastname + "'," + "'" + req.body.firstname + "'," + "'" + req.body.middlename + "'," + "'" + req.body.dob + "'," + "'" + req.body.age + "'," + "'" + req.body.streetaddress + "'," + "'" + req.body.city + "'," + "'" + req.body.state + "'," + "'" + req.body.zip + "'," + "'" + req.body.dln + "'," + "'" + req.body.issuing + "'," + "'" + phone + "'," + "'" + req.body.gender + "'," + "'" + req.body.email + "'," + "'" + req.body.holder + "'," + "'" + req.body.verified + "'," + "'" + req.body.denied + "')"),
-    function(err, rows) {
-    }
 
-  res.redirect('/landing/' + sessionId + '?' + posted);
+  var connection = mysql.createConnection(db_config);
+  connection.query('INSERT INTO persons2 (userId, username, sessionId, lastname, firstname, middlename, dob, age, streetaddress, city, state, zip, dln, issuing, phone, gender, email, holder, verified, denied) VALUES(' + '"' + user.attributes.userId + '",' + '"' + user.attributes.username + '",' + '"' + sessionId + '",' + "'" + req.body.lastname + "'," + "'" + req.body.firstname + "'," + "'" + req.body.middlename + "'," + "'" + req.body.dob + "'," + "'" + req.body.age + "'," + "'" + req.body.streetaddress + "'," + "'" + req.body.city + "'," + "'" + req.body.state + "'," + "'" + req.body.zip + "'," + "'" + req.body.dln + "'," + "'" + req.body.issuing + "'," + "'" + phone + "'," + "'" + req.body.gender + "'," + "'" + req.body.email + "'," + "'" + req.body.holder + "'," + "'" + req.body.verified + "'," + "'" + req.body.denied + "')"),
+    function(err, rows) {}
+  connection.destroy();
+  res.redirect('/landing/' + sessionId);
 
   (req, res, next);
 };
-
-
-
 
 module.exports.demographics = demographics;
 module.exports.demographicsPost = demographicsPost;
