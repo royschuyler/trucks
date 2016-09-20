@@ -70,7 +70,7 @@ var home = function(req, res, next) {
 
         arr.splice(0, 8);
         //console.log(arr)
-connection.destroy();
+connection.end();
         res.render('home', {
           title: 'Home',
           user: user,

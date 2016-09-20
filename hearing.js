@@ -66,7 +66,7 @@ var hearingPost = function(req, res, next) {
     function(err, rows) {
 
     }
-
+    connection.end();
   //console.log(req.body.hearingaid)
 
   res.redirect('/landing/' + sessionId)
