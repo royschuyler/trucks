@@ -5,11 +5,12 @@ var bodyParser = require('body-parser');
 
 var mysql = require('mysql');
 var connection = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: 'Hollie12123',
-  database: 'dbUsers'
+  host: 'us-cdbr-iron-east-04.cleardb.net',
+  user: 'b92d757f64dfcb',
+  password: '8e8e5d6c',
+  database: 'heroku_0a3af633b949104'
 });
+
 
 var sessionIdArr = [];
 
@@ -26,7 +27,7 @@ var end = function(req, res, next) {
 
     var datas = connection.query('SELECT persons2.*, history.*, history_review.*, testing.*, vision.*, hearing.*, physicalexam.* FROM persons2, history, history_review, testing, vision, hearing, physicalexam WHERE' + "'" + sessionId + "'" + '=persons2.sessionId AND' + "'" + sessionId + "'" + '=history.sessionId AND' + "'" + sessionId + "'" + '=history_review.sessionId AND' + "'" + sessionId + "'" + '=testing.sessionId AND' + "'" + sessionId + "'" + '=vision.sessionId AND' + "'" + sessionId + "'" + '=hearing.sessionId AND' + "'" + sessionId + "'" + '=physicalexam.sessionId',
       function(err, rows) {
-        console.log(rows[0])
+        //console.log(rows[0])
     //     connection.query('SELECT * FROM moreinfo', function(err,moreInfoRows){
     //       console.log("moreInfoEnd" + moreInfoRows[0].username)
 
