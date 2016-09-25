@@ -4,25 +4,12 @@ var Model = require('./model');
 var bodyParser = require('body-parser');
 
 var mysql = require('mysql');
-var db_config = {
-      host: 'us-cdbr-iron-east-04.cleardb.net',
-      user: 'b92d757f64dfcb',
-      password: '8e8e5d6c',
-      database: 'heroku_0a3af633b949104'
-    };
-
-function handleDisconnect() {
-  console.log('handleDisconnect()');
-  connection.destroy();
-  connection = mysql.createConnection(db_config);
-  connection.connect(function(err) {
-      if(err) {
-      console.log(' Error when connecting to db  (DBERR001):', err);
-      setTimeout(handleDisconnect, 1000);
-      }
-  });
-
-}
+var connection = mysql.createConnection({
+  host: 'localhost',
+  user: 'root',
+  password: 'Hollie12123',
+  database: 'dbUsers'
+});
 
 var sessionIdArr = [];
 var userArr = [];
@@ -53,21 +40,11 @@ var hearingPost = function(req, res, next) {
   var user = req.user;
   var sessionId = sessionIdArr;
 
-    var connection = mysql.createConnection(db_config);
-    connection.connect(function(err) {
-    if(err) {
-    console.log('Connection is asleep (time to wake it up): ', err);
-    setTimeout(handleDisconnect, 1000);
-    handleDisconnect();
-    }
-    });
-
   connection.query('INSERT INTO hearing(username, userId, sessionId, hearingaid, rightear, leftear, right500, right1000, right2000, left500, left1000, left2000) VALUES(' + "'" + user.attributes.username + "'," + "'" + user.attributes.userId + "'," + "'" + sessionId + "'," + "'" + req.body.hearingaid + "'," + "'" + req.body.rightear + "'," + "'" + req.body.leftear + "'," + "'" + req.body.right500 + "'," + "'" + req.body.right1000 + "'," + "'" + req.body.right2000 + "'," + "'" + req.body.left500 + "'," + "'" + req.body.left1000 + "'," + "'" + req.body.left2000 + "')"),
     function(err, rows) {
 
     }
-
-  //console.log(req.body.hearingaid)
+    //connection.end();
 
   res.redirect('/landing/' + sessionId)
 

@@ -4,25 +4,13 @@ var Model = require('./model');
 var bodyParser = require('body-parser');
 
 var mysql = require('mysql');
-var db_config = {
-      host: 'us-cdbr-iron-east-04.cleardb.net',
-      user: 'b92d757f64dfcb',
-      password: '8e8e5d6c',
-      database: 'heroku_0a3af633b949104'
-    };
+var connection = mysql.createConnection({
+  host: 'localhost',
+  user: 'root',
+  password: 'Hollie12123',
+  database: 'dbUsers'
+});
 
-function handleDisconnect() {
-  console.log('handleDisconnect()');
-  connection.destroy();
-  connection = mysql.createConnection(db_config);
-  connection.connect(function(err) {
-      if(err) {
-      console.log(' Error when connecting to db  (DBERR001):', err);
-      setTimeout(handleDisconnect, 1000);
-      }
-  });
-
-}
 var sessionIdArr = [];
 
 //**************************************************
@@ -52,20 +40,11 @@ var testingPost = function(req, res, next) {
   var user = req.user;
   var sessionId = sessionIdArr;
 
-    var connection = mysql.createConnection(db_config);
-    connection.connect(function(err) {
-    if(err) {
-    console.log('Connection is asleep (time to wake it up): ', err);
-    setTimeout(handleDisconnect, 1000);
-    handleDisconnect();
-    }
-    });
-
   connection.query('INSERT INTO testing(username, userId, sessionId, pulserate, pulserhythm, heightfeet, heightinches , weight, urinesp, urineprotein, urineblood, urinesugar, systolic1, diastolic1, systolic2, diastolic2, othertesting) VALUES(' + "'" + user.attributes.username + "'," + "'" + user.attributes.userId + "'," + "'" + sessionId + "'," + "'" + req.body.pulserate + "'," + "'" + req.body.pulserhythm + "'," + "'" + req.body.heightfeet + "'," + "'" + req.body.heightinches + "'," + "'" + req.body.weight + "'," + "'" + req.body.urinesp + "'," + "'" + req.body.urineprotein + "'," + "'" + req.body.urineblood + "'," + "'" + req.body.urinesugar + "'," + "'" + req.body.systolic1 + "'," + "'" + req.body.diastolic1 + "'," + "'" + req.body.systolic2 + "'," + "'" + req.body.diastolic2 + "'," + "'" + req.body.othertesting + "')"),
     function(err, rows) {
 
     }
-  connection.destroy();
+  //connection.end();
   res.redirect('/landing/' + sessionId)
 };
 

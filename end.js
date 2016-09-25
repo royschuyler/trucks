@@ -4,25 +4,12 @@ var Model = require('./model');
 var bodyParser = require('body-parser');
 
 var mysql = require('mysql');
-var db_config = {
-      host: 'us-cdbr-iron-east-04.cleardb.net',
-      user: 'b92d757f64dfcb',
-      password: '8e8e5d6c',
-      database: 'heroku_0a3af633b949104'
-    };
-
-function handleDisconnect() {
-  console.log('handleDisconnect()');
-  connection.destroy();
-  connection = mysql.createConnection(db_config);
-  connection.connect(function(err) {
-      if(err) {
-      console.log(' Error when connecting to db  (DBERR001):', err);
-      setTimeout(handleDisconnect, 1000);
-      }
-  });
-
-}
+var connection = mysql.createConnection({
+  host: 'localhost',
+  user: 'root',
+  password: 'Hollie12123',
+  database: 'dbUsers'
+});
 
 var sessionIdArr = [];
 
@@ -36,16 +23,6 @@ var end = function(req, res, next) {
     var user = req.user;
     var sessionId = req.params.sessionId;
     sessionIdArr.push(sessionId);
-
-
-    var connection = mysql.createConnection(db_config);
-    connection.connect(function(err) {
-    if(err) {
-    console.log('Connection is asleep (time to wake it up): ', err);
-    setTimeout(handleDisconnect, 1000);
-    handleDisconnect();
-    }
-    });
 
     var datas = connection.query('SELECT persons2.*, history.*, history_review.*, testing.*, vision.*, hearing.*, physicalexam.* FROM persons2, history, history_review, testing, vision, hearing, physicalexam WHERE' + "'" + sessionId + "'" + '=persons2.sessionId AND' + "'" + sessionId + "'" + '=history.sessionId AND' + "'" + sessionId + "'" + '=history_review.sessionId AND' + "'" + sessionId + "'" + '=testing.sessionId AND' + "'" + sessionId + "'" + '=vision.sessionId AND' + "'" + sessionId + "'" + '=hearing.sessionId AND' + "'" + sessionId + "'" + '=physicalexam.sessionId',
       function(err, rows) {
@@ -493,7 +470,7 @@ var end = function(req, res, next) {
 
 
                     // console.log(arr)
-                    connection.end();
+                    //connection.end();
 
                     res.render('end', {
                       title: 'End',

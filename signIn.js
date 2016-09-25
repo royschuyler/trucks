@@ -4,34 +4,12 @@ var Model = require('./model');
 var bodyParser = require('body-parser');
 
 var mysql = require('mysql');
-var db_config = {
-      host: 'us-cdbr-iron-east-04.cleardb.net',
-      user: 'b92d757f64dfcb',
-      password: '8e8e5d6c',
-      database: 'heroku_0a3af633b949104'
-    };
-
-function handleDisconnect() {
-  console.log('handleDisconnect()');
-  connection.destroy();
-  connection = mysql.createConnection(db_config);
-  connection.connect(function(err) {
-      if(err) {
-      console.log(' Error when connecting to db  (DBERR001):', err);
-      setTimeout(handleDisconnect, 1000);
-      }
-  });
-
-}
-
-    var connection = mysql.createConnection(db_config);
-    connection.connect(function(err) {
-    if(err) {
-    console.log('Connection is asleep (time to wake it up): ', err);
-    setTimeout(handleDisconnect, 1000);
-    handleDisconnect();
-    }
-    });
+var connection = mysql.createConnection({
+  host: 'localhost',
+  user: 'root',
+  password: 'Hollie12123',
+  database: 'dbUsers'
+});
 
 function GUID() {
   // http://www.ietf.org/rfc/rfc4122.txt
@@ -92,8 +70,9 @@ var signInPost = function(req, res, next) {
 
         connection.query('INSERT INTO session(username, userId, sessionId)VALUES(' + '"' + user.username + '",' + '"' + user.userId + '",' + '"' + sessionId + '")'),
           function(err, rows) {
-            //console.log(rows[0])
+
           };
+          //connection.end();
 
         // connection.query('INSERT INTO landing(username, userId, sessionId, demographics, history, historyreview, testing, vision, hearing, physicalexam)VALUES(' + '"' + user.username + '",' + '"' + user.userId + '",' + '"' + sessionId + '",' + '"' + 0 + '",' + '"' + 0 + '",' + '"' + 0 + '",' + '"' + 0 + '",' + '"' + 0 + '",' + '"' + 0 + '",' + '"' + 0 + '")'),
         //   function(err, landingrows) {

@@ -1,30 +1,15 @@
-"use strict"
-
 var passport = require('passport');
 var bcrypt = require('bcrypt-nodejs');
 var Model = require('./model');
 var bodyParser = require('body-parser');
 
 var mysql = require('mysql');
-var db_config = {
-      host: 'us-cdbr-iron-east-04.cleardb.net',
-      user: 'b92d757f64dfcb',
-      password: '8e8e5d6c',
-      database: 'heroku_0a3af633b949104'
-    };
-
-function handleDisconnect() {
-  console.log('handleDisconnect()');
-  connection.destroy();
-  connection = mysql.createConnection(db_config);
-  connection.connect(function(err) {
-      if(err) {
-      console.log(' Error when connecting to db  (DBERR001):', err);
-      setTimeout(handleDisconnect, 1000);
-      }
-  });
-
-}
+var connection = mysql.createConnection({
+  host: 'localhost',
+  user: 'root',
+  password: 'Hollie12123',
+  database: 'dbUsers'
+});
 
 var sessionIdArr = [];
 
@@ -55,20 +40,12 @@ var visionPost = function(req, res, next) {
 
   var sessionId = sessionIdArr;
   var user = req.user;
-    var connection = mysql.createConnection(db_config);
-    connection.connect(function(err) {
-    if(err) {
-    console.log('Connection is asleep (time to wake it up): ', err);
-    setTimeout(handleDisconnect, 1000);
-    handleDisconnect();
-    }
-    });
 
   connection.query('INSERT INTO vision(username, userId, sessionId, rightuncorrected, rightcorrected, fieldright, leftuncorrected, leftcorrected, fieldleft, bothuncorrected, bothcorrected, traficlight, monocular, optometrist, documentation) VALUES(' + "'" + user.attributes.username + "'," + "'" + user.attributes.userId + "'," + "'" + sessionId + "'," + "'" + req.body.rightuncorrected + "'," + "'" + req.body.rightcorrected + "'," + "'" + req.body.fieldright + "'," + "'" + req.body.leftuncorrected + "'," + "'" + req.body.leftcorrected + "'," + "'" + req.body.fieldleft + "'," + "'" + req.body.bothuncorrected + "'," + "'" + req.body.bothcorrected + "'," + "'" + req.body.traficlight + "'," + "'" + req.body.monocular + "'," + "'" + req.body.optometrist + "'," + "'" + req.body.documentation + "')"),
     function(err, rows) {
 
     }
-  connection.destroy();
+  //connection.end();
 
   res.redirect('/landing/' + sessionId)
 
