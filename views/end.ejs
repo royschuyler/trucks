@@ -10,12 +10,19 @@
 
         <div class="followup-brain-container">
           <div class="count-info">
-
+            There are <%= count %> issues with this driver's health.
           </div>
           <hr>
         </div>
 
-
+      <!-- <h2><%= data %></h2> -->
+            <table>
+              <% for(var i=0; i < data.length; i++) { %>
+                 <tr>
+                   <td class="end-table"><%= data[i] %></td>
+                 </tr>
+              <% } %>
+            </table>
 
 
 
