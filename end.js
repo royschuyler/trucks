@@ -205,14 +205,14 @@ var end = function(req, res, next) {
           "MCSA-5875[0].Page4[0].fedDetermination[0].amendWhy[0]": "1",
           "MCSA-5875[0].Page4[0].fedDetermination[0].ifAmendDate[0]": "1",
           "MCSA-5875[0].Page4[0].fedDetermination[0].incompleteWhy[0]": "1",
-          // "MCSA-5875[0].Page4[0].fedDetermination[0].examName[0]": moreInfoRows[0].username,
-          // "MCSA-5875[0].Page4[0].fedDetermination[0].medicalAddress[0]": moreInfoRows[0].registerAddress,
-          // "MCSA-5875[0].Page4[0].fedDetermination[0].medicalCity[0]": moreInfoRows[0].registerCity,
-          // "MCSA-5875[0].Page4[0].fedDetermination[0].medicalState[0]": moreInfoRows[0].registerState,
-          // "MCSA-5875[0].Page4[0].fedDetermination[0].medicalZip[0]": moreInfoRows[0].registerZip,
-          // "MCSA-5875[0].Page4[0].fedDetermination[0].medicalPhone[0]": moreInfoRows[0].registerPhone,
-          // "MCSA-5875[0].Page4[0].fedDetermination[0].examDate[0]": date,
-          // "MCSA-5875[0].Page4[0].fedDetermination[0].certNumber[0]": moreInfoRows[0].stateLicense,
+          "MCSA-5875[0].Page4[0].fedDetermination[0].examName[0]": moreInfoRows[0].username,
+          "MCSA-5875[0].Page4[0].fedDetermination[0].medicalAddress[0]": moreInfoRows[0].registerAddress,
+          "MCSA-5875[0].Page4[0].fedDetermination[0].medicalCity[0]": moreInfoRows[0].registerCity,
+          "MCSA-5875[0].Page4[0].fedDetermination[0].medicalState[0]": moreInfoRows[0].registerState,
+          "MCSA-5875[0].Page4[0].fedDetermination[0].medicalZip[0]": moreInfoRows[0].registerZip,
+          "MCSA-5875[0].Page4[0].fedDetermination[0].medicalPhone[0]": moreInfoRows[0].registerPhone,
+          "MCSA-5875[0].Page4[0].fedDetermination[0].examDate[0]": date,
+          "MCSA-5875[0].Page4[0].fedDetermination[0].certNumber[0]": moreInfoRows[0].stateLicense,
           "MCSA-5875[0].Page4[0].fedDetermination[0].issueState[0]": "rows[0].",
           "MCSA-5875[0].Page4[0].fedDetermination[0].md[0]": "1",
           "MCSA-5875[0].Page4[0].fedDetermination[0].do[0]": "1",
@@ -285,10 +285,10 @@ var end = function(req, res, next) {
                 var testingObj = rows2[0];
 
                 connection.query('SELECT followUpBrainInjury, followUpEpilepsy, followUpEye, followUpEar, followUpHeart, followUpPacemaker, followupBloodPressure, followUpHighCholesterol, followUpBreathingProblems, followUpLungDisease, followUpKidneyProblems, followUpStomachProblems, followUpDiabetes, followUpInsulin, followUpAnxiety, followUpFainting, followUpDizziness, followUpStroke, followUpMissingLimbs, followUpBackProblems, followUpBoneProblems, followUpBloodClots, followUpCancer, followUpChronicDiseases, followUpSleepDisorders, followUpSleepTest, followUpNightInHospital, followUpBrokenBone, followUpUseTobacco, followUpDrinkAlcohol, followUpIllegalSubstance, followUpFailedDrugTest FROM history_review WHERE history_review.sessionId = ' + "'" + sessionId + "'",
-                  function(err, rows) {
+                  function(err, rows5) {
                     //console.log(rows)
 
-                    var obj = rows[0];
+                    var obj = rows5[0];
                     // console.log("obj before:")
                     // console.log(obj)
 
@@ -470,11 +470,13 @@ var end = function(req, res, next) {
 
 
                     console.log(arr)
-                    //connection.end();
+
 
                     res.render('end', {
                       title: 'End',
-                      user: user
+                      user: user,
+                      data: arr,
+                      count: historyCount
                     });
 
                   });
