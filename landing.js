@@ -4,8 +4,6 @@ var Model = require('./model');
 var bodyParser = require('body-parser');
 var url = require('url')
 
-var mysql = require('mysql');
-
 
 var sessionIdArr = [];
 

@@ -3,13 +3,7 @@ var bcrypt = require('bcrypt-nodejs');
 var Model = require('./model');
 var bodyParser = require('body-parser');
 
-var mysql = require('mysql');
-var connection = mysql.createConnection({
-  host: 'us-cdbr-iron-east-04.cleardb.net',
-  user: 'b92d757f64dfcb',
-  password: '8e8e5d6c',
-  database: 'heroku_0a3af633b949104'
-});
+var getConnection  = require('./connectionpool');
 
 
 var sessionIdArr = [];
@@ -20,32 +14,29 @@ var home = function(req, res, next) {
   if (!req.isAuthenticated()) {
     res.redirect('/signin');
   } else {
+      console.log("on home page")
+      var sessionId = req.params.sessionId;
+      sessionIdArr.push(sessionId);
 
+      var user = req.user;
+      var arr = [];
+      var arr2 = [];
 
-    console.log("on home page")
+      if (user !== undefined) {
+        user = user.toJSON();
+      }
 
-    var sessionId = req.params.sessionId;
-    sessionIdArr.push(sessionId);
-
-    var user = req.user;
-    var arr = [];
-    var arr2 = [];
-
-    if (user !== undefined) {
-      user = user.toJSON();
-    }
-
-
-    connection.query("SELECT * FROM history WHERE history.sessionId =" + '"' + sessionId + '"',
-      function(err, rows) {
+    getConnection(function (err, connection) {
+      connection.query("SELECT * FROM history WHERE history.sessionId =" + '"' + sessionId + '"',
+        function(err, rows) {
 
         var obj = rows[0];
 
         for (var prop in obj) {
           if (obj[prop] == "1") {
-            arr.push("yes");
+          arr.push("yes");
           } else {
-            arr.push("no")
+          arr.push("no")
           }
         }
         //connection.end();
@@ -58,7 +49,9 @@ var home = function(req, res, next) {
           user: user,
           arr: arr
         });
-      });
+        connection.release();
+        });
+    });
   }
 };
 
@@ -68,8 +61,8 @@ var homePost = function(req, res, next) {
   var sessionId = sessionIdArr;
   var user = req.user;
 
-
-  connection.query('INSERT INTO history_review(username, userId, sessionId, followUpBrainInjury, followUpBrainInjuryNotes, followUpEpilepsy, followUpEpilepsyNotes, followUpEye,followUpEyeNotes,followUpEar, followUpEarNotes, followUpHeart,followUpHeartNotes, followUpPacemaker, followUpPacemakerNotes,followupBloodPressure, followupBloodPressureNotes,followUpHighCholesterol, followUpHighCholesterolNotes, followUpBreathingProblems, followUpBreathingProblemsNotes, followUpLungDisease, followUpLungDiseaseNotes, followUpKidneyProblems, followUpKidneyProblemsNotes, followUpStomachProblems, followUpStomachProblemsNotes, followUpDiabetes, followUpDiabetesNotes, followUpInsulin, followUpInsulinNotes, followUpAnxiety, followUpAnxietyNotes, followUpFainting, followUpFaintingNotes, followUpDizziness, followUpDizzinessNotes, followUpStroke, followUpStrokeNotes, followUpMissingLimbs, followUpMissingLimbsNotes, followUpBackProblems, followUpBackProblemsNotes, followUpBoneProblems, followUpBoneProblemsNotes, followUpBloodClots,followUpBloodClotsNotes, followUpCancer, followUpCancerNotes, followUpChronicDiseases, followUpChronicDiseasesNotes, followUpSleepDisorders, followUpSleepDisordersNotes, followUpSleepTest, followUpSleepTestNotes, followUpNightInHospital, followUpNightInHospitalNotes, followUpBrokenBone, followUpBrokenBoneNotes, followUpUseTobacco, followUpUseTobaccoNotes, followUpDrinkAlcohol,followUpDrinkAlcoholNotes, followUpIllegalSubstance, followUpIllegalSubstanceNotes, followUpFailedDrugTest, followUpFailedDrugTestNotes, historyReview) VALUES(' +
+  getConnection(function (err, connection) {
+    connection.query('INSERT INTO history_review(username, userId, sessionId, followUpBrainInjury, followUpBrainInjuryNotes, followUpEpilepsy, followUpEpilepsyNotes, followUpEye,followUpEyeNotes,followUpEar, followUpEarNotes, followUpHeart,followUpHeartNotes, followUpPacemaker, followUpPacemakerNotes,followupBloodPressure, followupBloodPressureNotes,followUpHighCholesterol, followUpHighCholesterolNotes, followUpBreathingProblems, followUpBreathingProblemsNotes, followUpLungDisease, followUpLungDiseaseNotes, followUpKidneyProblems, followUpKidneyProblemsNotes, followUpStomachProblems, followUpStomachProblemsNotes, followUpDiabetes, followUpDiabetesNotes, followUpInsulin, followUpInsulinNotes, followUpAnxiety, followUpAnxietyNotes, followUpFainting, followUpFaintingNotes, followUpDizziness, followUpDizzinessNotes, followUpStroke, followUpStrokeNotes, followUpMissingLimbs, followUpMissingLimbsNotes, followUpBackProblems, followUpBackProblemsNotes, followUpBoneProblems, followUpBoneProblemsNotes, followUpBloodClots,followUpBloodClotsNotes, followUpCancer, followUpCancerNotes, followUpChronicDiseases, followUpChronicDiseasesNotes, followUpSleepDisorders, followUpSleepDisordersNotes, followUpSleepTest, followUpSleepTestNotes, followUpNightInHospital, followUpNightInHospitalNotes, followUpBrokenBone, followUpBrokenBoneNotes, followUpUseTobacco, followUpUseTobaccoNotes, followUpDrinkAlcohol,followUpDrinkAlcoholNotes, followUpIllegalSubstance, followUpIllegalSubstanceNotes, followUpFailedDrugTest, followUpFailedDrugTestNotes, historyReview) VALUES(' +
       "'" +
       user.attributes.username +
       "'," + "'" +
@@ -206,12 +199,14 @@ var homePost = function(req, res, next) {
       req.body.followUpFailedDrugTestNotes +
       "'," + "'" +
       req.body.historyReview +
-      "')"),
+      "')",
 
     function(err, rows) {
-      //console.log(req.body)
-    }
+      //console.log(req.body);
+      connection.release();
+    });
     //connection.end();
+  });
 
   res.redirect('/landing/' + sessionId)
 };

@@ -3,14 +3,7 @@ var bcrypt = require('bcrypt-nodejs');
 var Model = require('./model');
 var bodyParser = require('body-parser');
 
-var mysql = require('mysql');
-var connection = mysql.createConnection({
-  host: 'us-cdbr-iron-east-04.cleardb.net',
-  user: 'b92d757f64dfcb',
-  password: '8e8e5d6c',
-  database: 'heroku_0a3af633b949104'
-});
-
+var getConnection  = require('./connectionpool');
 
 var sessionIdArr = [];
 
@@ -35,10 +28,12 @@ var demographics = function(req, res, next) {
       user = user.toJSON();
     }
 
-    connection.query("SELECT * FROM tblUsers WHERE tblUsers.username =" + '"' + req.user.attributes.username + '"',
-      function(err, rows) {
-        console.log(rows[0])
-      });
+    getConnection(function (err, connection) {
+        connection.query("SELECT * FROM tblUsers WHERE tblUsers.username =" + '"' + req.user.attributes.username + '"',
+        function(err, rows) {
+          connection.release();
+        });
+    });
     //connection.end();
 
     res.render('demographics', {
@@ -58,9 +53,11 @@ var demographicsPost = function(req, res, next) {
   var user = req.user;
   var phone = req.body.phone1 + req.body.phone2 + req.body.phone3;
 
-  connection.query('INSERT INTO persons2 (userId, username, sessionId, lastname, firstname, middlename, dob, age, streetaddress, city, state, zip, dln, issuing, phone, gender, email, holder, verified, denied) VALUES(' + '"' + user.attributes.userId + '",' + '"' + user.attributes.username + '",' + '"' + sessionId + '",' + "'" + req.body.lastname + "'," + "'" + req.body.firstname + "'," + "'" + req.body.middlename + "'," + "'" + req.body.dob + "'," + "'" + req.body.age + "'," + "'" + req.body.streetaddress + "'," + "'" + req.body.city + "'," + "'" + req.body.state + "'," + "'" + req.body.zip + "'," + "'" + req.body.dln + "'," + "'" + req.body.issuing + "'," + "'" + phone + "'," + "'" + req.body.gender + "'," + "'" + req.body.email + "'," + "'" + req.body.holder + "'," + "'" + req.body.verified + "'," + "'" + req.body.denied + "')"),
-    function(err, rows) {}
-  //connection.end();
+  getConnection(function (err, connection) {
+      connection.query('INSERT INTO persons2 (userId, username, sessionId, lastname, firstname, middlename, dob, age, streetaddress, city, state, zip, dln, issuing, phone, gender, email, holder, verified, denied) VALUES(' + '"' + user.attributes.userId + '",' + '"' + user.attributes.username + '",' + '"' + sessionId + '",' + "'" + req.body.lastname + "'," + "'" + req.body.firstname + "'," + "'" + req.body.middlename + "'," + "'" + req.body.dob + "'," + "'" + req.body.age + "'," + "'" + req.body.streetaddress + "'," + "'" + req.body.city + "'," + "'" + req.body.state + "'," + "'" + req.body.zip + "'," + "'" + req.body.dln + "'," + "'" + req.body.issuing + "'," + "'" + phone + "'," + "'" + req.body.gender + "'," + "'" + req.body.email + "'," + "'" + req.body.holder + "'," + "'" + req.body.verified + "'," + "'" + req.body.denied + "')"),
+      function(err, rows) {}
+      connection.release();
+  });
   res.redirect('/landing/' + sessionId);
 
   (req, res, next);

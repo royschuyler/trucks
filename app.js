@@ -23,11 +23,13 @@ var pdf = require('./pdf');
 var signup = require('./signUp');
 var moreInfo = require('./moreInfo')
 var landing = require('./landing')
+var getConnection  = require('./connectionpool');
 
 app.use(bodyParser.urlencoded({
   extended: false
 }));
 app.use(bodyParser.json());
+
 
 
 passport.use(new LocalStrategy(function(username, password, done) {
@@ -103,11 +105,19 @@ app.post('/hearing/:sessionId', hearing.hearingPost);
 app.post('/physicalexamination/:sessionId', physicalexamination.physicalExaminationPost)
 
 
-
-
 app.use(route.notFound404);
 
-
+process.on('uncaughtException', function(err) {
+   if(err.message.indexOf("Quit inactivity timeout")>=0){
+      getConnection(function (err, connection) {
+           connection.query("SELECT 1",
+           function(err, rows) {
+             connection.release();
+             console.log("Connection re-established !");
+           });
+      });
+   }
+});
 
 var server = app.listen(app.get('port'), function(err) {
    if(err) throw err;

@@ -3,13 +3,7 @@ var bcrypt = require('bcrypt-nodejs');
 var Model = require('./model');
 var bodyParser = require('body-parser');
 
-var mysql = require('mysql');
-var connection = mysql.createConnection({
-  host: 'us-cdbr-iron-east-04.cleardb.net',
-  user: 'b92d757f64dfcb',
-  password: '8e8e5d6c',
-  database: 'heroku_0a3af633b949104'
-});
+var getConnection  = require('./connectionpool');
 
 
 
@@ -69,20 +63,18 @@ var signInPost = function(req, res, next) {
 
         var sessionId = GUID();
 
-
-        connection.query('INSERT INTO session(username, userId, sessionId)VALUES(' + '"' + user.username + '",' + '"' + user.userId + '",' + '"' + sessionId + '")'),
-          function(err, rows) {
-
-          };
+    getConnection(function (err, connection) {
+      connection.query('INSERT INTO session(username, userId, sessionId)VALUES(' + '"' + user.username + '",' + '"' + user.userId + '",' + '"' + sessionId + '")',
+        function(err, rows) {
+          connection.release();
+        });
+    });
           //connection.end();
 
         // connection.query('INSERT INTO landing(username, userId, sessionId, demographics, history, historyreview, testing, vision, hearing, physicalexam)VALUES(' + '"' + user.username + '",' + '"' + user.userId + '",' + '"' + sessionId + '",' + '"' + 0 + '",' + '"' + 0 + '",' + '"' + 0 + '",' + '"' + 0 + '",' + '"' + 0 + '",' + '"' + 0 + '",' + '"' + 0 + '")'),
         //   function(err, landingrows) {
         //   //console.log(landingrows[0])
         //   };
-
-
-
 
         return res.redirect('/landing/' + sessionId);
       }
