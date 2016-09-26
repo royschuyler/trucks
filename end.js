@@ -279,13 +279,10 @@ var end = function(req, res, next) {
           function(err, rows2) {
           var testingObj = rows2[0];
 
-          connection.query('SELECT followUpBrainInjury, followUpEpilepsy, followUpEye, followUpEar, followUpHeart, followUpPacemaker, followupBloodPressure, followUpHighCholesterol, followUpBreathingProblems, followUpLungDisease, followUpKidneyProblems, followUpStomachProblems, followUpDiabetes, followUpInsulin, followUpAnxiety, followUpFainting, followUpDizziness, followUpStroke, followUpMissingLimbs, followUpBackProblems, followUpBoneProblems, followUpBloodClots, followUpCancer, followUpChronicDiseases, followUpSleepDisorders, followUpSleepTest, followUpNightInHospital, followUpBrokenBone, followUpUseTobacco, followUpDrinkAlcohol, followUpIllegalSubstance, followUpFailedDrugTest FROM history_review WHERE history_review.sessionId = ' + "'" + sessionId + "'",
+          connection.query('SELECT followUpBrainInjury, followUpEpilepsy, followUpEye, followUpEar, followUpHeart, followUpPacemaker, followupBloodPressure, followUpHighCholesterol, followUpBreathingProblems, followUpLungDisease, followUpKidneyProblems, followUpStomachProblems, followUpDiabetes, followUpInsulin, followUpAnxiety, followUpFainting, followUpDizziness, followUpUnExplainedWeightLoss, followUpStroke, followUpMissingLimbs, followUpBackProblems, followUpBoneProblems, followUpBloodClots, followUpCancer, followUpChronicDiseases, followUpSleepDisorders, followUpSleepTest, followUpNightInHospital, followUpBrokenBone, followUpUseTobacco, followUpDrinkAlcohol, followUpIllegalSubstance, followUpFailedDrugTest FROM history_review WHERE history_review.sessionId = ' + "'" + sessionId + "'",
             function(err, rows5) {
-            //console.log(rows)
 
             var obj = rows5[0];
-            // console.log("obj before:")
-            // console.log(obj)
 
             var noIssues = "The patient has no issues. A 3 year certificate can be issued."
             var followUpBrainInjury = "Due to head/brain injuries, ";
@@ -303,6 +300,7 @@ var end = function(req, res, next) {
             var followUpAnxiety = "Due to anxiety issues, ";
             var followUpFainting = "Due to faintin issues, ";
             var followUpDizziness = "Due to dizziness issues, ";
+            var followUpUnExplainedWeightLoss = "Due to unexplained weight loss, ";
             var followUpStroke = "Due to stroke issues, ";
             var followUpMissingLimbs = "Due to missing limbs, ";
             var followUpBackProblems = "Due to back/neck issues, ";
@@ -319,6 +317,7 @@ var end = function(req, res, next) {
             var followUpIllegalSubstance = "Due to illegal drug issues, ";
             var followUpFailedDrugTest = "Due to failed drug test history, ";
 
+
             var certificate_0 = "a maximum of 1 year certificate can be issued.";
             var certificate_1 = "a neurologist's release is required and a maximum of 1 year certificate can be issued.";
             var certificate_2 = "a maximum of 2 year certificate can be issued.";
@@ -330,15 +329,13 @@ var end = function(req, res, next) {
             var certificate_8 = "neurocardiogenic syncope, a maximum of one year certificate can be issued after a 3 month wait period.";;
             var certificate_9 = "oxygen therapy, the driver is disqualified.";
             var certificate_10 = "cough syncope, the driver is disqualified.";
+            var certificate_11 = "the patient is disqualified."
 
             for (prop in obj) {
               if (obj[prop] == 'undefined' || obj[prop] == 'na' || obj[prop] == '' || obj[prop] == 'valueZero') {
               delete obj[prop]
               }
             }
-
-            // console.log("obj after:")
-            // console.log(obj)
 
             var str = JSON.stringify(obj);
 
@@ -353,6 +350,7 @@ var end = function(req, res, next) {
             str = str.replace(/valueEight/g, certificate_8);
             str = str.replace(/valueNine/g, certificate_9);
             str = str.replace(/valueTen/g, certificate_10);
+            str = str.replace(/valueEleven/g, certificate_11);
 
             str = str.replace(/followUpBrainInjury/g, followUpBrainInjury);
             str = str.replace(/followUpEpilepsy/g, followUpEpilepsy);

@@ -39,11 +39,9 @@ var home = function(req, res, next) {
           arr.push("no")
           }
         }
-        //connection.end();
+
 
         arr.splice(0, 8);
-        //console.log(arr)
-        //connection.end();
         res.render('home', {
           title: 'Home',
           user: user,
@@ -62,7 +60,7 @@ var homePost = function(req, res, next) {
   var user = req.user;
 
   getConnection(function (err, connection) {
-    connection.query('INSERT INTO history_review(username, userId, sessionId, followUpBrainInjury, followUpBrainInjuryNotes, followUpEpilepsy, followUpEpilepsyNotes, followUpEye,followUpEyeNotes,followUpEar, followUpEarNotes, followUpHeart,followUpHeartNotes, followUpPacemaker, followUpPacemakerNotes,followupBloodPressure, followupBloodPressureNotes,followUpHighCholesterol, followUpHighCholesterolNotes, followUpBreathingProblems, followUpBreathingProblemsNotes, followUpLungDisease, followUpLungDiseaseNotes, followUpKidneyProblems, followUpKidneyProblemsNotes, followUpStomachProblems, followUpStomachProblemsNotes, followUpDiabetes, followUpDiabetesNotes, followUpInsulin, followUpInsulinNotes, followUpAnxiety, followUpAnxietyNotes, followUpFainting, followUpFaintingNotes, followUpDizziness, followUpDizzinessNotes, followUpStroke, followUpStrokeNotes, followUpMissingLimbs, followUpMissingLimbsNotes, followUpBackProblems, followUpBackProblemsNotes, followUpBoneProblems, followUpBoneProblemsNotes, followUpBloodClots,followUpBloodClotsNotes, followUpCancer, followUpCancerNotes, followUpChronicDiseases, followUpChronicDiseasesNotes, followUpSleepDisorders, followUpSleepDisordersNotes, followUpSleepTest, followUpSleepTestNotes, followUpNightInHospital, followUpNightInHospitalNotes, followUpBrokenBone, followUpBrokenBoneNotes, followUpUseTobacco, followUpUseTobaccoNotes, followUpDrinkAlcohol,followUpDrinkAlcoholNotes, followUpIllegalSubstance, followUpIllegalSubstanceNotes, followUpFailedDrugTest, followUpFailedDrugTestNotes, historyReview) VALUES(' +
+    connection.query('INSERT INTO history_review(username, userId, sessionId, followUpBrainInjury, followUpBrainInjuryNotes, followUpEpilepsy, followUpEpilepsyNotes, followUpEye, followUpEyeNotes, followUpEar, followUpEarNotes, followUpHeart, followUpHeartNotes, followUpPacemaker, followUpPacemakerNotes, followupBloodPressure, followupBloodPressureNotes, followUpHighCholesterol, followUpHighCholesterolNotes, followUpBreathingProblems, followUpBreathingProblemsNotes, followUpLungDisease, followUpLungDiseaseNotes, followUpBackProblems, followUpBackProblemsNotes, followUpKidneyProblems, followUpKidneyProblemsNotes, followUpStomachProblems, followUpStomachProblemsNotes, followUpDiabetes, followUpDiabetesNotes, followUpInsulin, followUpInsulinNotes, followUpAnxiety, followUpAnxietyNotes, followUpFainting, followUpFaintingNotes, followUpDizziness, followUpDizzinessNotes, followUpUnExplainedWeightLoss, followUpUnExplainedWeightLossNotes, followUpStroke, followUpStrokeNotes, followUpMissingLimbs, followUpMissingLimbsNotes, followUpBoneProblems, followUpBoneProblemsNotes, followUpBloodClots,followUpBloodClotsNotes, followUpCancer, followUpCancerNotes, followUpChronicDiseases, followUpChronicDiseasesNotes, followUpSleepDisorders, followUpSleepDisordersNotes, followUpSleepTest, followUpSleepTestNotes, followUpNightInHospital, followUpNightInHospitalNotes, followUpBrokenBone, followUpBrokenBoneNotes, followUpUseTobacco, followUpUseTobaccoNotes, followUpDrinkAlcohol,followUpDrinkAlcoholNotes, followUpIllegalSubstance, followUpIllegalSubstanceNotes, followUpFailedDrugTest, followUpFailedDrugTestNotes, historyReview) VALUES(' +
       "'" +
       user.attributes.username +
       "'," + "'" +
@@ -142,6 +140,10 @@ var homePost = function(req, res, next) {
       "'," + "'" +
       req.body.followUpDizzinessNotes +
       "'," + "'" +
+      req.body.followUpUnExplainedWeightLoss +
+      "'," + "'" +
+      req.body.followUpUnExplainedWeightLossNotes +
+      "'," + "'" +
       req.body.followUpStroke +
       "'," + "'" +
       req.body.followUpStrokeNotes +
@@ -202,10 +204,8 @@ var homePost = function(req, res, next) {
       "')",
 
     function(err, rows) {
-      //console.log(req.body);
       connection.release();
     });
-    //connection.end();
   });
 
   res.redirect('/landing/' + sessionId)
