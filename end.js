@@ -5,10 +5,10 @@ var bodyParser = require('body-parser');
 
 var mysql = require('mysql');
 var connection = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: 'Hollie12123',
-  database: 'dbUsers'
+  host: 'us-cdbr-iron-east-04.cleardb.net',
+  user: 'b92d757f64dfcb',
+  password: '8e8e5d6c',
+  database: 'heroku_0a3af633b949104'
 });
 
 var sessionIdArr = [];
