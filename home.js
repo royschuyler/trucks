@@ -40,7 +40,6 @@ var home = function(req, res, next) {
           }
         }
 
-
         arr.splice(0, 8);
         res.render('home', {
           title: 'Home',
