@@ -33,7 +33,7 @@ var home = function(req, res, next) {
         var obj = rows[0];
 
         for (var prop in obj) {
-          if (obj[prop] == "1") {
+          if (obj[prop] == "1" || obj[prop] == "3" ) {
           arr.push("yes");
           } else {
           arr.push("no")
