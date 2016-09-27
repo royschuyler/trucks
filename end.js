@@ -329,7 +329,14 @@ var end = function(req, res, next) {
             var certificate_8 = "neurocardiogenic syncope, a maximum of one year certificate can be issued after a 3 month wait period.";;
             var certificate_9 = "oxygen therapy, the driver is disqualified.";
             var certificate_10 = "cough syncope, the driver is disqualified.";
-            var certificate_11 = "the patient is disqualified."
+            var certificate_11 = "the patient is disqualified.";
+            var certificate_12 = "cerebellar or brainstem, a maximum of one year certificate can be issued after a one year wait period. A neurologist's release is also required.";
+            var certificate_13 = "cortical/subcortical, a maximum of one year certificate can be issued after a five year wait period. A neurologist's release is also required.";
+            var certificate_14 = "TIA, a maximum of 1 year certificate can be issued after a one year wait period."
+
+
+
+
 
             for (prop in obj) {
               if (obj[prop] == 'undefined' || obj[prop] == 'na' || obj[prop] == '' || obj[prop] == 'valueZero') {
@@ -351,6 +358,9 @@ var end = function(req, res, next) {
             str = str.replace(/valueNine/g, certificate_9);
             str = str.replace(/valueTen/g, certificate_10);
             str = str.replace(/valueEleven/g, certificate_11);
+            str = str.replace(/valueTwelve/g, certificate_12);
+            str = str.replace(/valueThirteen/g, certificate_13);
+            str = str.replace(/valueFourteen/g, certificate_14);
 
             str = str.replace(/followUpBrainInjury/g, followUpBrainInjury);
             str = str.replace(/followUpEpilepsy/g, followUpEpilepsy);
