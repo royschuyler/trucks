@@ -904,6 +904,11 @@ li.d {
   list-style: none;
 }
 
+.x {
+   pointer-events: none;
+   cursor: default;
+}
+
 
 
 

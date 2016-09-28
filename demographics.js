@@ -50,10 +50,10 @@ var demographicsPost = function(req, res, next) {
 
 
   getConnection(function (err, connection) {
-      connection.query('UPDATE landing SET demographics=1 WHERE landing.sessionId=' + "'" + sessionId + "'",
-      function(err, rows) {
-        connection.release();
-      });
+    connection.query('UPDATE landing SET demographics=' + "'" + 'x' + "'" + 'WHERE sessionId=' + "'" + sessionId + "'",
+    function(err, rows) {
+      connection.release();
+    });
   });
 
   getConnection(function (err, connection) {

@@ -3,6 +3,7 @@ var bcrypt = require('bcrypt-nodejs');
 var Model = require('./model');
 var bodyParser = require('body-parser');
 var url = require('url')
+var getConnection  = require('./connectionpool');
 
 
 var sessionIdArr = [];
@@ -14,14 +15,8 @@ var landing = function(req, res, next) {
     res.redirect('/signin');
   } else {
 
-    //console.log("url " + req.url)
-    var str = req.url
-    var hasDemographics = str.split('?')[1]
-
-    console.log('demo: ' + hasDemographics)
     var sessionId = req.params.sessionId;
     sessionIdArr.push(sessionId);
-    console.log(sessionId)
 
     if (user !== undefined) {
       user = user.toJSON();
@@ -29,12 +24,20 @@ var landing = function(req, res, next) {
 
     var user = req.user;
 
+  getConnection(function (err, connection) {
+    connection.query('SELECT * fROM landing WHERE sessionId=' + "'" + sessionId + "'",
+    function(err, rows) {
+      connection.release();
+      console.log(rows[0])
+
     res.render('landing', {
       title: 'Landing',
       user: user,
       sessionId: sessionId,
-      hasDemographics: hasDemographics
+      x: rows[0]
     });
+    });
+  });
   }
 };
 

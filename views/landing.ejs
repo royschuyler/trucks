@@ -7,13 +7,13 @@
     </div>
     <div class="link-container">
       <ul class="land-ul-new">
-        <li class="land-li <%= hasDemographics %>"><a class="land-a" id="<%= hasDemographics %>" href="../demographics/<%= sessionId %>">Demographics</a></li>
-        <li class="land-li"><a class="land-a" href="../history/<%= sessionId %>">History</a></li>
-        <li class="land-li"><a class="land-a" href="../home/<%= sessionId %>">History Review</a></li>
-        <li class="land-li"><a class="land-a" href="../testing/<%= sessionId %>">Testing</a></li>
-        <li class="land-li"><a class="land-a" href="../vision/<%= sessionId %>">Vision</a></li>
-        <li class="land-li"><a class="land-a" href="../hearing/<%= sessionId %>">Hearing</a></li>
-        <li class="land-li"><a class="land-a" href="../physicalexamination/<%= sessionId %>">Physical Exam</a></li>
+        <li class="land-li"><a class="land-a <%= x.demographics %>" id="" href="../demographics/<%= sessionId %>">Demographics</a></li>
+        <li class="land-li"><a class="land-a <%= x.history %>" href="../history/<%= sessionId %>">History</a></li>
+        <li class="land-li"><a class="land-a <%= x.historyreview %>" href="../home/<%= sessionId %>">History Review</a></li>
+        <li class="land-li"><a class="land-a <%= x.testing %>" href="../testing/<%= sessionId %>">Testing</a></li>
+        <li class="land-li"><a class="land-a <%= x.vision %>" href="../vision/<%= sessionId %>">Vision</a></li>
+        <li class="land-li"><a class="land-a <%= x.hearing %>" href="../hearing/<%= sessionId %>">Hearing</a></li>
+        <li class="land-li"><a class="land-a <%= x.physicalexam %>" href="../physicalexamination/<%= sessionId %>">Physical Exam</a></li>
         <li class="land-li"><a class="land-a" href="../end/<%= sessionId %>">Finish</a></li>
 
       </ul>

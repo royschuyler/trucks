@@ -59,6 +59,13 @@ var homePost = function(req, res, next) {
   var user = req.user;
 
   getConnection(function (err, connection) {
+    connection.query('UPDATE landing SET historyreview=' + "'" + 'x' + "'" + 'WHERE sessionId=' + "'" + sessionId + "'",
+    function(err, rows) {
+      connection.release();
+    });
+  });
+
+  getConnection(function (err, connection) {
     connection.query('INSERT INTO history_review(username, userId, sessionId, followUpBrainInjury, followUpBrainInjuryNotes, followUpEpilepsy, followUpEpilepsyNotes, followUpEye, followUpEyeNotes, followUpEar, followUpEarNotes, followUpHeart, followUpHeartNotes, followUpPacemaker, followUpPacemakerNotes, followupBloodPressure, followupBloodPressureNotes, followUpHighCholesterol, followUpHighCholesterolNotes, followUpBreathingProblems, followUpBreathingProblemsNotes, followUpLungDisease, followUpLungDiseaseNotes, followUpBackProblems, followUpBackProblemsNotes, followUpKidneyProblems, followUpKidneyProblemsNotes, followUpStomachProblems, followUpStomachProblemsNotes, followUpDiabetes, followUpDiabetesNotes, followUpInsulin, followUpInsulinNotes, followUpAnxiety, followUpAnxietyNotes, followUpFainting, followUpFaintingNotes, followUpDizziness, followUpDizzinessNotes, followUpUnExplainedWeightLoss, followUpUnExplainedWeightLossNotes, followUpStroke, followUpStrokeNotes, followUpMissingLimbs, followUpMissingLimbsNotes, followUpBoneProblems, followUpBoneProblemsNotes, followUpBloodClots,followUpBloodClotsNotes, followUpCancer, followUpCancerNotes, followUpChronicDiseases, followUpChronicDiseasesNotes, followUpSleepDisorders, followUpSleepDisordersNotes, followUpSleepTest, followUpSleepTestNotes, followUpNightInHospital, followUpNightInHospitalNotes, followUpBrokenBone, followUpBrokenBoneNotes, followUpUseTobacco, followUpUseTobaccoNotes, followUpDrinkAlcohol,followUpDrinkAlcoholNotes, followUpIllegalSubstance, followUpIllegalSubstanceNotes, followUpFailedDrugTest, followUpFailedDrugTestNotes, historyReview) VALUES(' +
       "'" +
       user.attributes.username +

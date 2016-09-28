@@ -34,6 +34,14 @@ var hearingPost = function(req, res, next) {
 
   var user = req.user;
   var sessionId = sessionIdArr;
+
+  getConnection(function (err, connection) {
+    connection.query('UPDATE landing SET hearing=' + "'" + 'x' + "'" + 'WHERE sessionId=' + "'" + sessionId + "'",
+    function(err, rows) {
+      connection.release();
+    });
+  });
+
   getConnection(function (err, connection) {
     connection.query('INSERT INTO hearing(username, userId, sessionId, hearingaid, rightear, leftear, right500, right1000, right2000, left500, left1000, left2000) VALUES(' + "'" + user.attributes.username + "'," + "'" + user.attributes.userId + "'," + "'" + sessionId + "'," + "'" + req.body.hearingaid + "'," + "'" + req.body.rightear + "'," + "'" + req.body.leftear + "'," + "'" + req.body.right500 + "'," + "'" + req.body.right1000 + "'," + "'" + req.body.right2000 + "'," + "'" + req.body.left500 + "'," + "'" + req.body.left1000 + "'," + "'" + req.body.left2000 + "')",
     function(err, rows) {
