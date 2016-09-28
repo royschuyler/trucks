@@ -16,13 +16,10 @@ var demographics = function(req, res, next) {
 
     var sessionId = req.params.sessionId;
     sessionIdArr.push(sessionId)
-    console.log("newId: " + sessionId)
-    console.log("Arr: " + sessionIdArr)
 
     var user = req.user;
     var userId = req.user.attributes.userId;
     var username = req.user.attributes.username;
-    console.log("domoUsername: " + username)
 
     if (user !== undefined) {
       user = user.toJSON();
@@ -34,7 +31,6 @@ var demographics = function(req, res, next) {
           connection.release();
         });
     });
-    //connection.end();
 
     res.render('demographics', {
       title: 'Demographics',
@@ -45,7 +41,6 @@ var demographics = function(req, res, next) {
 };
 
 //------------------------------------------------------
-
 var demographicsPost = function(req, res, next) {
 
   var posted = 'd';
@@ -53,11 +48,23 @@ var demographicsPost = function(req, res, next) {
   var user = req.user;
   var phone = req.body.phone1 + req.body.phone2 + req.body.phone3;
 
+
   getConnection(function (err, connection) {
-      connection.query('INSERT INTO persons2 (userId, username, sessionId, lastname, firstname, middlename, dob, age, streetaddress, city, state, zip, dln, issuing, phone, gender, email, holder, verified, denied) VALUES(' + '"' + user.attributes.userId + '",' + '"' + user.attributes.username + '",' + '"' + sessionId + '",' + "'" + req.body.lastname + "'," + "'" + req.body.firstname + "'," + "'" + req.body.middlename + "'," + "'" + req.body.dob + "'," + "'" + req.body.age + "'," + "'" + req.body.streetaddress + "'," + "'" + req.body.city + "'," + "'" + req.body.state + "'," + "'" + req.body.zip + "'," + "'" + req.body.dln + "'," + "'" + req.body.issuing + "'," + "'" + phone + "'," + "'" + req.body.gender + "'," + "'" + req.body.email + "'," + "'" + req.body.holder + "'," + "'" + req.body.verified + "'," + "'" + req.body.denied + "')"),
-      function(err, rows) {}
-      connection.release();
+      connection.query('UPDATE landing SET demographics=1 WHERE landing.sessionId=' + "'" + sessionId + "'",
+      function(err, rows) {
+        connection.release();
+      });
   });
+
+  getConnection(function (err, connection) {
+      connection.query('INSERT INTO persons2 (userId, username, sessionId, lastname, firstname, middlename, dob, age, streetaddress, city, state, zip, dln, issuing, phone, gender, email, holder, verified, denied) VALUES(' + '"' + user.attributes.userId + '",' + '"' + user.attributes.username + '",' + '"' + sessionId + '",' + "'" + req.body.lastname + "'," + "'" + req.body.firstname + "'," + "'" + req.body.middlename + "'," + "'" + req.body.dob + "'," + "'" + req.body.age + "'," + "'" + req.body.streetaddress + "'," + "'" + req.body.city + "'," + "'" + req.body.state + "'," + "'" + req.body.zip + "'," + "'" + req.body.dln + "'," + "'" + req.body.issuing + "'," + "'" + phone + "'," + "'" + req.body.gender + "'," + "'" + req.body.email + "'," + "'" + req.body.holder + "'," + "'" + req.body.verified + "'," + "'" + req.body.denied + "')",
+      function(err, rows) {
+        connection.release();
+      });
+  });
+
+
+
   res.redirect('/landing/' + sessionId);
 
   (req, res, next);

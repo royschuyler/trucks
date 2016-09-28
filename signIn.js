@@ -30,7 +30,6 @@ var signIn = function(req, res, next) {
   res.render('signin', {
     title: 'Sign In'
   });
-
 };
 
 //-------------------------------------------------------
@@ -70,12 +69,16 @@ var signInPost = function(req, res, next) {
           connection.release();
         });
     });
-          //connection.end();
 
-        // connection.query('INSERT INTO landing(username, userId, sessionId, demographics, history, historyreview, testing, vision, hearing, physicalexam)VALUES(' + '"' + user.username + '",' + '"' + user.userId + '",' + '"' + sessionId + '",' + '"' + 0 + '",' + '"' + 0 + '",' + '"' + 0 + '",' + '"' + 0 + '",' + '"' + 0 + '",' + '"' + 0 + '",' + '"' + 0 + '")'),
-        //   function(err, landingrows) {
-        //   //console.log(landingrows[0])
-        //   };
+    getConnection(function (err, connection) {
+      connection.query('INSERT INTO landing(username, userId, sessionId, demographics, history, historyreview, testing, vision, hearing, physicalexam)VALUES(' + '"' + user.username + '",' + '"' + user.userId + '",' + '"' + sessionId + '",' + '"' + 0 + '",' + '"' + 0 + '",' + '"' + 0 + '",' + '"' + 0 + '",' + '"' + 0 + '",' + '"' + 0 + '",' + '"' + 0 + '")',
+        function(err, rows) {
+          connection.release();
+
+        });
+    });
+
+
 
         return res.redirect('/landing/' + sessionId);
       }
