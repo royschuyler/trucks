@@ -21,7 +21,14 @@ var end = function(req, res, next) {
   getConnection(function (err, connection) {
     var datas = connection.query('SELECT persons2.*, history.*, history_review.*, testing.*, vision.*, hearing.*, physicalexam.* FROM persons2, history, history_review, testing, vision, hearing, physicalexam WHERE' + "'" + sessionId + "'" + '=persons2.sessionId AND' + "'" + sessionId + "'" + '=history.sessionId AND' + "'" + sessionId + "'" + '=history_review.sessionId AND' + "'" + sessionId + "'" + '=testing.sessionId AND' + "'" + sessionId + "'" + '=vision.sessionId AND' + "'" + sessionId + "'" + '=hearing.sessionId AND' + "'" + sessionId + "'" + '=physicalexam.sessionId',
       function(err, rows) {
-      //console.log(rows[0])
+
+      var corrected;
+      if(rows[0].hearingaidright == '1' || rows[0].hearingaidleft == '1' || rows[0].hearingaidneither == '1') {
+        corrected = '1';
+      } else {
+        corrected = '0';
+      }
+
       connection.query('SELECT * FROM moreinfo', function(err,moreInfoRows){
         console.log("moreInfoEnd" + moreInfoRows[0].username)
 
@@ -185,7 +192,7 @@ var end = function(req, res, next) {
         "MCSA-5875[0].Page4[0].fedDetermination[0].qualifiedButtonList[0]": "4",
         "MCSA-5875[0].Page4[0].fedDetermination[0].otherQualify[0]": "other qualify text",
         "MCSA-5875[0].Page4[0].fedDetermination[0].restrictVary[0].correctLenses[0]": "1",
-        "MCSA-5875[0].Page4[0].fedDetermination[0].restrictVary[0].hearingAid[0]": "1",
+        "MCSA-5875[0].Page4[0].fedDetermination[0].restrictVary[0].hearingAid[0]": corrected,
         "MCSA-5875[0].Page4[0].fedDetermination[0].restrictVary[0].waiverQualify[0]": "1",
         "MCSA-5875[0].Page4[0].fedDetermination[0].restrictVary[0].waiverEnter[0]": "yes new!",
         "MCSA-5875[0].Page4[0].fedDetermination[0].restrictVary[0].speQualify[0]": "1",
@@ -230,7 +237,7 @@ var end = function(req, res, next) {
         "MCSA-5875[0].Page5[0].stateDetermination[0].qualifiedButtonListState[0]": "2",
         "MCSA-5875[0].Page5[0].stateDetermination[0].otherQualifyState[0]": "rows[0].",
         "MCSA-5875[0].Page5[0].stateDetermination[0].correctLensesState[0]": "0",
-        "MCSA-5875[0].Page5[0].stateDetermination[0].hearingAidState[0]": "2",
+        "MCSA-5875[0].Page5[0].stateDetermination[0].hearingAidState[0]": corrected,
         "MCSA-5875[0].Page5[0].stateDetermination[0].waiverQualifyState[0]": "x",
         "MCSA-5875[0].Page5[0].stateDetermination[0].waiverEnterState[0]": "rows[0].",
         "MCSA-5875[0].Page5[0].stateDetermination[0].speQualifyState[0]": "rows[0].",
