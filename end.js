@@ -30,7 +30,70 @@ var end = function(req, res, next) {
       }
 
       connection.query('SELECT * FROM moreinfo', function(err,moreInfoRows){
-        console.log("moreInfoEnd" + moreInfoRows[0].username)
+        //console.log("moreInfoEnd" + moreInfoRows[0].username)
+
+        var whatWork = moreinfo[0].what;
+        var md = '';
+        var DO = '';
+        var pa = '';
+        var ch = '';
+        var apn = '';
+        var op = '';
+
+    if(whatWork == 'md') {
+        var md = '1';
+        var DO = '';
+        var pa = '';
+        var ch = '';
+        var apn = '';
+        var op = '';
+        }
+
+    if(whatWork == 'do') {
+        var md = '';
+        var DO = '1';
+        var pa = '';
+        var ch = '';
+        var apn = '';
+        var op = '';
+        }
+
+    if(whatWork == 'pa') {
+        var md = '';
+        var DO = '';
+        var pa = '1';
+        var ch = '';
+        var apn = '';
+        var op = '';
+        }
+
+    if(whatWork == 'ch') {
+        var md = '';
+        var DO = '';
+        var pa = '';
+        var ch = '1';
+        var apn = '';
+        var op = '';
+        }
+
+    if(whatWork == 'apn') {
+        var md = '';
+        var DO = '';
+        var pa = '';
+        var ch = '';
+        var apn = '1';
+        var op = '';
+        }
+
+     if(whatWork == 'op') {
+        var md = '';
+        var DO = '';
+        var pa = '';
+        var ch = '';
+        var apn = '';
+        var op = '1';
+        }
+
 
 
       var fs = require('fs');
@@ -207,7 +270,7 @@ var end = function(req, res, next) {
         "MCSA-5875[0].Page4[0].fedDetermination[0].amendWhy[0]": "1",
         "MCSA-5875[0].Page4[0].fedDetermination[0].ifAmendDate[0]": "1",
         "MCSA-5875[0].Page4[0].fedDetermination[0].incompleteWhy[0]": "1",
-        "MCSA-5875[0].Page4[0].fedDetermination[0].examName[0]": moreInfoRows[0].username,
+        "MCSA-5875[0].Page4[0].fedDetermination[0].examName[0]": moreInfoRows[0].fname + ' ' + moreInfoRows[0].lname ,
         "MCSA-5875[0].Page4[0].fedDetermination[0].medicalAddress[0]": moreInfoRows[0].registerAddress,
         "MCSA-5875[0].Page4[0].fedDetermination[0].medicalCity[0]": moreInfoRows[0].registerCity,
         "MCSA-5875[0].Page4[0].fedDetermination[0].medicalState[0]": moreInfoRows[0].registerState,
@@ -216,15 +279,15 @@ var end = function(req, res, next) {
         "MCSA-5875[0].Page4[0].fedDetermination[0].examDate[0]": date,
         "MCSA-5875[0].Page4[0].fedDetermination[0].certNumber[0]": moreInfoRows[0].stateLicense,
         "MCSA-5875[0].Page4[0].fedDetermination[0].issueState[0]": moreInfoRows[0].nationalLicense,
-        "MCSA-5875[0].Page4[0].fedDetermination[0].md[0]": "1",
-        "MCSA-5875[0].Page4[0].fedDetermination[0].do[0]": "1",
-        "MCSA-5875[0].Page4[0].fedDetermination[0].physAssist[0]": "1",
-        "MCSA-5875[0].Page4[0].fedDetermination[0].chiroPractor[0]": "1",
-        "MCSA-5875[0].Page4[0].fedDetermination[0].pracNurse[0]": "1",
-        "MCSA-5875[0].Page4[0].fedDetermination[0].otherPrac[0]": "1",
+        "MCSA-5875[0].Page4[0].fedDetermination[0].md[0]": md,
+        "MCSA-5875[0].Page4[0].fedDetermination[0].do[0]": DO,
+        "MCSA-5875[0].Page4[0].fedDetermination[0].physAssist[0]": pa,
+        "MCSA-5875[0].Page4[0].fedDetermination[0].chiroPractor[0]": ch,
+        "MCSA-5875[0].Page4[0].fedDetermination[0].pracNurse[0]": anp,
+        "MCSA-5875[0].Page4[0].fedDetermination[0].otherPrac[0]": op,
         "MCSA-5875[0].Page4[0].fedDetermination[0].nationalRegister[0]": "1",
-        "MCSA-5875[0].Page4[0].fedDetermination[0].expireDate[0]": "1",
-        "MCSA-5875[0].Page4[0].fedDetermination[0].otherPracSpecify[0]": "1",
+        "MCSA-5875[0].Page4[0].fedDetermination[0].expireDate[0]": moreInfoRows[0].exp,
+        "MCSA-5875[0].Page4[0].fedDetermination[0].otherPracSpecify[0]": moreInfoRows[0].specify,
         "MCSA-5875[0].Page5[0].pageHead5[0].nameLastHead5[0]": rows[0].lastname,
         "MCSA-5875[0].Page5[0].pageHead5[0].nameFirstHead5[0]": rows[0].firstname,
         "MCSA-5875[0].Page5[0].pageHead5[0].nameInitialHead5[0]": rows[0].middlename,

@@ -27,7 +27,7 @@ var moreInfoPost = function(req, res, next) {
 var username = usernameArr;
 console.log(username)
   getConnection(function (err, connection) {
-    connection.query('INSERT INTO moreinfo(username, registerAddress, registerCity, registerState, registerZip, registerPhone, registerEmail, stateLicense, nationalLicense)VALUES(' + "'" + username  + "'," + "'" + req.body.registerAddress  + "'," + "'" + req.body.registerCity + "'," + "'" + req.body.registerState + "'," + "'" + req.body.registerZip + "'," + "'" + req.body.registerPhone + "'," + "'" + req.body.registerEmail + "'," + "'" + req.body.stateLicense + "'," + "'" + req.body.nationalLicense + "')",
+    connection.query('INSERT INTO moreinfo(username, fname, lname, registerAddress, registerCity, registerState, registerZip, registerPhone, registerEmail, stateLicense, stateLicenseState, nationalLicense, exp, what, specify)VALUES(' + "'" + username  + "'," + "'" + req.body.fname   + "'," + "'" + req.body.lname  + "'," + "'" + req.body.registerAddress  + "'," + "'" + req.body.registerCity + "'," + "'" + req.body.registerState + "'," + "'" + req.body.registerZip + "'," + "'" + req.body.registerPhone + "'," + "'" + req.body.registerEmail + "'," + "'" + req.body.stateLicense   + "'," + "'" + req.body.stateLicenseState + "'," + "'" + req.body.nationalLicense + "'," + "'" + req.body.exp  + "'," + "'" + req.body.what + "'," + "'" + req.body.specify  + "')",
     function(err, rows) {
       connection.release();
     });
