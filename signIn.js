@@ -25,8 +25,8 @@ function GUID() {
 //var sessionId = GUID();
 
 var signIn = function(req, res, next) {
-  req.logout();
-  if (req.isAuthenticated()) res.redirect('/');
+
+  //if (req.isAuthenticated()) res.redirect('/');
   res.render('signin', {
     title: 'Sign In'
   });
@@ -35,6 +35,7 @@ var signIn = function(req, res, next) {
 //-------------------------------------------------------
 
 var signInPost = function(req, res, next) {
+
   passport.authenticate('local', {
     successRedirect: '/',
     failureRedirect: '/signin'

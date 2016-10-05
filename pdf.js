@@ -4,7 +4,7 @@ var Model = require('./model');
 var bodyParser = require('body-parser');
 
 var mysql = require('mysql');
-var sessionIdArr = [];
+//var sessionIdArr = [];
 
 //***********************************************************
 
@@ -13,8 +13,8 @@ var pdf = function(req, res, next) {
     res.redirect('/signin');
   } else {
 
-    var sessionId = req.params.sessionId;
-    sessionIdArr.push(sessionId);
+    sessionId = req.params.sessionId;
+    //sessionIdArr.push(sessionId);
 
     var user = req.user;
 

@@ -6,7 +6,7 @@ var bodyParser = require('body-parser');
 var getConnection  = require('./connectionpool');
 
 
-var sessionIdArr = [];
+//var sessionIdArr = [];
 
 //-------------------------------------------------------
 
@@ -15,8 +15,8 @@ var home = function(req, res, next) {
     res.redirect('/signin');
   } else {
       console.log("on home page")
-      var sessionId = req.params.sessionId;
-      sessionIdArr.push(sessionId);
+      sessionId = req.params.sessionId;
+      //sessionIdArr.push(sessionId);
 
       var user = req.user;
       var arr = [];
@@ -55,7 +55,7 @@ var home = function(req, res, next) {
 //-------------------------------------------------------
 var homePost = function(req, res, next) {
 
-  var sessionId = sessionIdArr;
+  //var sessionId = sessionIdArr;
   var user = req.user;
 
   getConnection(function (err, connection) {

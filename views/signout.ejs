@@ -1,4 +1,14 @@
 <!DOCTYPE html>
 <% include header.ejs %>
-<h1>SIGNOUT</h1>
-<% include footer.ejs %>
+
+  <div class="header-container">
+    <div class="table-header table-header2">SIGNOUT</div>
+  </div>
+  <div class=" container full-container full-container2">
+    <form action="/signout" method="post" name="frmSurvey">
+    <input type="submit" name="signup" id="signup" value="signout"/>
+    </form>
+  </div>
+
+
+  <% include footer.ejs %>

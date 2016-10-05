@@ -93,6 +93,7 @@ app.get('/physicalexamination/:sessionId', physicalexamination.physicalExaminati
 
 app.post('/signin', signIn.signInPost);
 app.post('/signup', signup.signUpPost);
+app.post('/signout', route.signOutPost);
 app.post('/moreinfo/:username', moreInfo.moreInfoPost);
 app.post('/home/:sessionId', home.homePost);
 app.post('/end/:sessionId', end.endPost);

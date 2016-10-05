@@ -6,7 +6,7 @@ var bodyParser = require('body-parser');
 var getConnection  = require('./connectionpool');
 
 
-var sessionIdArr = [];
+//var sessionIdArr = [];
 
 //**************************************************
 
@@ -15,8 +15,8 @@ var testing = function(req, res, next) {
     res.redirect('/signin');
   } else {
 
-    var sessionId = req.params.sessionId;
-    sessionIdArr.push(sessionId);
+    sessionId = req.params.sessionId;
+    //sessionIdArr.push(sessionId);
     var user = req.user;
 
     if (user !== undefined) {
@@ -33,7 +33,7 @@ var testing = function(req, res, next) {
 var testingPost = function(req, res, next) {
 
   var user = req.user;
-  var sessionId = sessionIdArr;
+  //var sessionId = sessionIdArr;
 
   getConnection(function (err, connection) {
     connection.query('UPDATE landing SET testing=' + "'" + 'x' + "'" + 'WHERE sessionId=' + "'" + sessionId + "'",

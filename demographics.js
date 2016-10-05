@@ -14,8 +14,9 @@ var demographics = function(req, res, next) {
     res.redirect('/signin');
   } else {
 
-    var sessionId = req.params.sessionId;
+    sessionId = req.params.sessionId;
     sessionIdArr.push(sessionId)
+
 
     var user = req.user;
     var userId = req.user.attributes.userId;
@@ -43,8 +44,7 @@ var demographics = function(req, res, next) {
 //------------------------------------------------------
 var demographicsPost = function(req, res, next) {
 
-  var posted = 'd';
-  var sessionId = sessionIdArr;
+  //var sessionId = req.params.sessionId;
   var user = req.user;
   var phone = req.body.phone1 + req.body.phone2 + req.body.phone3;
 
@@ -68,6 +68,7 @@ var demographicsPost = function(req, res, next) {
   res.redirect('/landing/' + sessionId);
 
   (req, res, next);
+  sessionId = [];
 };
 
 module.exports.demographics = demographics;

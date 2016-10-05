@@ -5,7 +5,7 @@ var bodyParser = require('body-parser');
 
 var getConnection  = require('./connectionpool');
 
-var sessionIdArr = [];
+//var sessionIdArr = [];
 
 //***********************************************************
 
@@ -15,8 +15,8 @@ var end = function(req, res, next) {
   } else {
 
     var user = req.user;
-    var sessionId = req.params.sessionId;
-    sessionIdArr.push(sessionId);
+    sessionId = req.params.sessionId;
+    //sessionIdArr.push(sessionId);
 
   getConnection(function (err, connection) {
     var datas = connection.query('SELECT persons2.*, history.*, history_review.*, testing.*, vision.*, hearing.*, physicalexam.* FROM persons2, history, history_review, testing, vision, hearing, physicalexam WHERE' + "'" + sessionId + "'" + '=persons2.sessionId AND' + "'" + sessionId + "'" + '=history.sessionId AND' + "'" + sessionId + "'" + '=history_review.sessionId AND' + "'" + sessionId + "'" + '=testing.sessionId AND' + "'" + sessionId + "'" + '=vision.sessionId AND' + "'" + sessionId + "'" + '=hearing.sessionId AND' + "'" + sessionId + "'" + '=physicalexam.sessionId',
@@ -536,7 +536,7 @@ var end = function(req, res, next) {
 //-------------------------------------------------------
 var endPost = function(req, res, next) {
 
-  var sessionId = sessionIdArr;
+  //var sessionId = sessionIdArr;
   var user = req.user;
 
   res.redirect('/pdf/' + sessionId)

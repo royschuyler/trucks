@@ -3,7 +3,7 @@ var bcrypt = require('bcrypt-nodejs');
 var Model = require('./model');
 var bodyParser = require('body-parser');
 
-var mysql = require('mysql');
+var getConnection  = require('./connectionpool');
 
 //-----------------------------------------------------
 
@@ -28,9 +28,23 @@ var index = function(req, res, next) {
 
 var signOut = function(req, res, next) {
 
-    req.logout();
-    res.redirect('/signin');
+var user = req.user;
+      // req.session.destroy()
+      // req.logout()
+      res.render('signout', {
+      title: 'Signout',
+      user: user
+    });
   }
+
+var signOutPost = function(req, res, next) {
+
+      req.session.destroy()
+      req.logout()
+
+  res.redirect('/signin')
+
+};
 
 
 //-------------------------------------------------------
@@ -57,4 +71,5 @@ var notFound404 = function(req, res, next) {
 
 module.exports.index = index;
 module.exports.signOut = signOut;
+module.exports.signOutPost = signOutPost;
 module.exports.notFound404 = notFound404;
