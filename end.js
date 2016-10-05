@@ -21,9 +21,79 @@ var end = function(req, res, next) {
   getConnection(function (err, connection) {
     var datas = connection.query('SELECT persons2.*, history.*, history_review.*, testing.*, vision.*, hearing.*, physicalexam.* FROM persons2, history, history_review, testing, vision, hearing, physicalexam WHERE' + "'" + sessionId + "'" + '=persons2.sessionId AND' + "'" + sessionId + "'" + '=history.sessionId AND' + "'" + sessionId + "'" + '=history_review.sessionId AND' + "'" + sessionId + "'" + '=testing.sessionId AND' + "'" + sessionId + "'" + '=vision.sessionId AND' + "'" + sessionId + "'" + '=hearing.sessionId AND' + "'" + sessionId + "'" + '=physicalexam.sessionId',
       function(err, rows) {
-      //console.log(rows[0])
+
+      var corrected;
+      if(rows[0].hearingaidright == '1' || rows[0].hearingaidleft == '1' || rows[0].hearingaidneither == '1') {
+        corrected = '1';
+      } else {
+        corrected = '0';
+      }
+
       connection.query('SELECT * FROM moreinfo', function(err,moreInfoRows){
-        console.log("moreInfoEnd" + moreInfoRows[0].username)
+        //console.log("moreInfoEnd" + moreInfoRows[0].username)
+
+    //     var whatWork = moreinfo[0].what;
+    //     var md = '';
+    //     var DO = '';
+    //     var pa = '';
+    //     var ch = '';
+    //     var apn = '';
+    //     var op = '';
+
+    // if(whatWork == 'md') {
+    //     var md = '1';
+    //     var DO = '';
+    //     var pa = '';
+    //     var ch = '';
+    //     var apn = '';
+    //     var op = '';
+    //     }
+
+    // if(whatWork == 'do') {
+    //     var md = '';
+    //     var DO = '1';
+    //     var pa = '';
+    //     var ch = '';
+    //     var apn = '';
+    //     var op = '';
+    //     }
+
+    // if(whatWork == 'pa') {
+    //     var md = '';
+    //     var DO = '';
+    //     var pa = '1';
+    //     var ch = '';
+    //     var apn = '';
+    //     var op = '';
+    //     }
+
+    // if(whatWork == 'ch') {
+    //     var md = '';
+    //     var DO = '';
+    //     var pa = '';
+    //     var ch = '1';
+    //     var apn = '';
+    //     var op = '';
+    //     }
+
+    // if(whatWork == 'apn') {
+    //     var md = '';
+    //     var DO = '';
+    //     var pa = '';
+    //     var ch = '';
+    //     var apn = '1';
+    //     var op = '';
+    //     }
+
+    //  if(whatWork == 'op') {
+    //     var md = '';
+    //     var DO = '';
+    //     var pa = '';
+    //     var ch = '';
+    //     var apn = '';
+    //     var op = '1';
+    //     }
+
 
 
       var fs = require('fs');
@@ -185,7 +255,7 @@ var end = function(req, res, next) {
         "MCSA-5875[0].Page4[0].fedDetermination[0].qualifiedButtonList[0]": "4",
         "MCSA-5875[0].Page4[0].fedDetermination[0].otherQualify[0]": "other qualify text",
         "MCSA-5875[0].Page4[0].fedDetermination[0].restrictVary[0].correctLenses[0]": "1",
-        "MCSA-5875[0].Page4[0].fedDetermination[0].restrictVary[0].hearingAid[0]": "1",
+        "MCSA-5875[0].Page4[0].fedDetermination[0].restrictVary[0].hearingAid[0]": corrected,
         "MCSA-5875[0].Page4[0].fedDetermination[0].restrictVary[0].waiverQualify[0]": "1",
         "MCSA-5875[0].Page4[0].fedDetermination[0].restrictVary[0].waiverEnter[0]": "yes new!",
         "MCSA-5875[0].Page4[0].fedDetermination[0].restrictVary[0].speQualify[0]": "1",
@@ -200,7 +270,7 @@ var end = function(req, res, next) {
         "MCSA-5875[0].Page4[0].fedDetermination[0].amendWhy[0]": "1",
         "MCSA-5875[0].Page4[0].fedDetermination[0].ifAmendDate[0]": "1",
         "MCSA-5875[0].Page4[0].fedDetermination[0].incompleteWhy[0]": "1",
-        "MCSA-5875[0].Page4[0].fedDetermination[0].examName[0]": moreInfoRows[0].username,
+        "MCSA-5875[0].Page4[0].fedDetermination[0].examName[0]": moreInfoRows[0].fname + ' ' + moreInfoRows[0].lname,
         "MCSA-5875[0].Page4[0].fedDetermination[0].medicalAddress[0]": moreInfoRows[0].registerAddress,
         "MCSA-5875[0].Page4[0].fedDetermination[0].medicalCity[0]": moreInfoRows[0].registerCity,
         "MCSA-5875[0].Page4[0].fedDetermination[0].medicalState[0]": moreInfoRows[0].registerState,
@@ -209,15 +279,15 @@ var end = function(req, res, next) {
         "MCSA-5875[0].Page4[0].fedDetermination[0].examDate[0]": date,
         "MCSA-5875[0].Page4[0].fedDetermination[0].certNumber[0]": moreInfoRows[0].stateLicense,
         "MCSA-5875[0].Page4[0].fedDetermination[0].issueState[0]": moreInfoRows[0].nationalLicense,
-        "MCSA-5875[0].Page4[0].fedDetermination[0].md[0]": "1",
-        "MCSA-5875[0].Page4[0].fedDetermination[0].do[0]": "1",
-        "MCSA-5875[0].Page4[0].fedDetermination[0].physAssist[0]": "1",
-        "MCSA-5875[0].Page4[0].fedDetermination[0].chiroPractor[0]": "1",
-        "MCSA-5875[0].Page4[0].fedDetermination[0].pracNurse[0]": "1",
-        "MCSA-5875[0].Page4[0].fedDetermination[0].otherPrac[0]": "1",
+        "MCSA-5875[0].Page4[0].fedDetermination[0].md[0]": "md",
+        "MCSA-5875[0].Page4[0].fedDetermination[0].do[0]": "DO",
+        "MCSA-5875[0].Page4[0].fedDetermination[0].physAssist[0]": "pa",
+        "MCSA-5875[0].Page4[0].fedDetermination[0].chiroPractor[0]": "ch",
+        "MCSA-5875[0].Page4[0].fedDetermination[0].pracNurse[0]": "anp",
+        "MCSA-5875[0].Page4[0].fedDetermination[0].otherPrac[0]": "op",
         "MCSA-5875[0].Page4[0].fedDetermination[0].nationalRegister[0]": "1",
-        "MCSA-5875[0].Page4[0].fedDetermination[0].expireDate[0]": "1",
-        "MCSA-5875[0].Page4[0].fedDetermination[0].otherPracSpecify[0]": "1",
+        "MCSA-5875[0].Page4[0].fedDetermination[0].expireDate[0]": moreInfoRows[0].exp,
+        "MCSA-5875[0].Page4[0].fedDetermination[0].otherPracSpecify[0]": moreInfoRows[0].specify,
         "MCSA-5875[0].Page5[0].pageHead5[0].nameLastHead5[0]": rows[0].lastname,
         "MCSA-5875[0].Page5[0].pageHead5[0].nameFirstHead5[0]": rows[0].firstname,
         "MCSA-5875[0].Page5[0].pageHead5[0].nameInitialHead5[0]": rows[0].middlename,
@@ -230,7 +300,7 @@ var end = function(req, res, next) {
         "MCSA-5875[0].Page5[0].stateDetermination[0].qualifiedButtonListState[0]": "2",
         "MCSA-5875[0].Page5[0].stateDetermination[0].otherQualifyState[0]": "rows[0].",
         "MCSA-5875[0].Page5[0].stateDetermination[0].correctLensesState[0]": "0",
-        "MCSA-5875[0].Page5[0].stateDetermination[0].hearingAidState[0]": "2",
+        "MCSA-5875[0].Page5[0].stateDetermination[0].hearingAidState[0]": corrected,
         "MCSA-5875[0].Page5[0].stateDetermination[0].waiverQualifyState[0]": "x",
         "MCSA-5875[0].Page5[0].stateDetermination[0].waiverEnterState[0]": "rows[0].",
         "MCSA-5875[0].Page5[0].stateDetermination[0].speQualifyState[0]": "rows[0].",
@@ -242,7 +312,8 @@ var end = function(req, res, next) {
         "MCSA-5875[0].Page5[0].stateDetermination[0].medicalStateState[0]": moreInfoRows[0].registerState,
         "MCSA-5875[0].Page5[0].stateDetermination[0].medicalZipState[0]": moreInfoRows[0].registerZip,
         "MCSA-5875[0].Page5[0].stateDetermination[0].medicalPhoneState[0]": moreInfoRows[0].registerPhone,
-        "MCSA-5875[0].Page5[0].stateDetermination[0].certNumberState[0]": moreInfoRows[0].stateLicense,        "MCSA-5875[0].Page5[0].stateDetermination[0].issueStateState[0]": moreInfoRows[0].stateLicense,
+        "MCSA-5875[0].Page5[0].stateDetermination[0].certNumberState[0]": moreInfoRows[0].stateLicense,
+        "MCSA-5875[0].Page5[0].stateDetermination[0].issueStateState[0]": moreInfoRows[0].stateLicense,
         "MCSA-5875[0].Page5[0].stateDetermination[0].mdState[0]": "rows[0].",
         "MCSA-5875[0].Page5[0].stateDetermination[0].doState[0]": "rows[0].",
         "MCSA-5875[0].Page5[0].stateDetermination[0].physAssistState[0]": "rows[0].",
@@ -502,4 +573,3 @@ var endPost = function(req, res, next) {
 
 module.exports.end = end;
 module.exports.endPost = endPost;
-

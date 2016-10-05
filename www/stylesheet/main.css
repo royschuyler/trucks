@@ -1,3 +1,4 @@
+
 .form-label {
   margin-bottom: 25px;
   margin-top: 50px;
@@ -209,9 +210,7 @@ body {
 /*.main-box {
   border: solid darkgreen 1px;
 }
-
 .main-header {
-
   background-color: darkgreen;
 }*/
 
@@ -909,6 +908,38 @@ li.d {
    cursor: default;
 }
 
+.register-op {
+  margin-left: 6px;
+}
 
+.register-anp {
+  margin-left: 14px;
+}
 
+.register-chiropractor {
+  margin-left: 93px;
+}
 
+.register-pa {
+  margin-left: 52px;
+}
+
+.register-do {
+  margin-left: 148px;
+}
+
+.register-md {
+  margin-left: 148px;
+}
+
+.register-date {
+  margin-left: -48px
+}
+
+.register-fname {
+  margin-left: -24px
+}
+
+.register-lname {
+  margin-left: -24px
+}
