@@ -1,3 +1,11 @@
+        "MCSA-5875[0].Page4[0].fedDetermination[0].md[0]": md,
+        "MCSA-5875[0].Page4[0].fedDetermination[0].do[0]": DO,
+        "MCSA-5875[0].Page4[0].fedDetermination[0].physAssist[0]": pa,
+        "MCSA-5875[0].Page4[0].fedDetermination[0].chiroPractor[0]": ch,
+        "MCSA-5875[0].Page4[0].fedDetermination[0].pracNurse[0]": anp,
+        "MCSA-5875[0].Page4[0].fedDetermination[0].otherPrac[0]": op,
+
+
 pdftk pdfForm3.pdf fill_form data.fdf output form.filled.pdf
 
 
