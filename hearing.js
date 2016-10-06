@@ -16,7 +16,7 @@ var hearing = function(req, res, next) {
     res.redirect('/signin');
   } else {
 
-    var sessionId = req.params.sessionId;
+    sessionId = req.params.sessionId;
     sessionIdArr.push(sessionId);
     var user = req.user;
 
@@ -33,7 +33,7 @@ var hearing = function(req, res, next) {
 var hearingPost = function(req, res, next) {
 
   var user = req.user;
-  var sessionId = sessionIdArr;
+  //var sessionId = sessionIdArr;
 
   getConnection(function (err, connection) {
     connection.query('UPDATE landing SET hearing=' + "'" + 'x' + "'" + 'WHERE sessionId=' + "'" + sessionId + "'",

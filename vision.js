@@ -15,7 +15,7 @@ var vision = function(req, res, next) {
     res.redirect('/signin');
   } else {
 
-    var sessionId = req.params.sessionId;
+    sessionId = req.params.sessionId;
     sessionIdArr.push(sessionId);
 
     var user = req.user;
@@ -33,7 +33,7 @@ var vision = function(req, res, next) {
 //-------------------------------------------------------
 var visionPost = function(req, res, next) {
 
-  var sessionId = sessionIdArr;
+  //var sessionId = sessionIdArr;
   var user = req.user;
 
   getConnection(function (err, connection) {

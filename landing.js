@@ -15,7 +15,7 @@ var landing = function(req, res, next) {
     res.redirect('/signin');
   } else {
 
-    var sessionId = req.params.sessionId;
+    sessionId = req.params.sessionId;
     sessionIdArr.push(sessionId);
 
     if (user !== undefined) {

@@ -15,7 +15,7 @@ var end = function(req, res, next) {
   } else {
 
     var user = req.user;
-    var sessionId = req.params.sessionId;
+    sessionId = req.params.sessionId;
     sessionIdArr.push(sessionId);
 
   getConnection(function (err, connection) {
@@ -564,7 +564,7 @@ var end = function(req, res, next) {
 //-------------------------------------------------------
 var endPost = function(req, res, next) {
 
-  var sessionId = sessionIdArr;
+  //var sessionId = sessionIdArr;
   var user = req.user;
 
   res.redirect('/pdf/' + sessionId)

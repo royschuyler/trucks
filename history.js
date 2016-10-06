@@ -16,7 +16,7 @@ var history = function(req, res, next) {
   } else {
 
 
-    var sessionId = req.params.sessionId;
+    sessionId = req.params.sessionId;
     sessionIdArr.push(sessionId);
 
     if (user !== undefined) {
@@ -39,7 +39,7 @@ var history = function(req, res, next) {
 
 var historyPost = function(req, res, next) {
 
-  var sessionId = sessionIdArr;
+  //var sessionId = sessionIdArr;
   var user = req.user;
 
   getConnection(function (err, connection) {

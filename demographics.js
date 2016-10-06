@@ -14,7 +14,7 @@ var demographics = function(req, res, next) {
     res.redirect('/signin');
   } else {
 
-    var sessionId = req.params.sessionId;
+    sessionId = req.params.sessionId;
     sessionIdArr.push(sessionId)
 
     var user = req.user;
@@ -44,7 +44,7 @@ var demographics = function(req, res, next) {
 var demographicsPost = function(req, res, next) {
 
   var posted = 'd';
-  var sessionId = sessionIdArr;
+  //var sessionId = sessionIdArr;
   var user = req.user;
   var phone = req.body.phone1 + req.body.phone2 + req.body.phone3;
 
