@@ -30,7 +30,7 @@ var end = function(req, res, next) {
       }
 
       connection.query('SELECT * FROM moreinfo', function(err,moreInfoRows){
-        //console.log("moreInfoEnd" + moreInfoRows[0].username)
+        ////console.log("moreInfoEnd" + moreInfoRows[0].username)
 
         var whatWork = moreInfoRows[0].what;
         var md = '0';
@@ -77,7 +77,7 @@ var end = function(req, res, next) {
       var d = new Date();
       var monthFix = Number(d.getMonth()) + 1;
       var date = monthFix + "/" + d.getDate() + "/" + d.getFullYear();
-      //console.log(str);
+      ////console.log(str);
 
       var avgRight = (parseInt(rows[0].right500) + parseInt(rows[0].right1000) + parseInt(rows[0].right2000)) / 3;
       var avgLeft = (parseInt(rows[0].left500) + parseInt(rows[0].left1000) + parseInt(rows[0].left2000)) / 3;
@@ -298,7 +298,7 @@ var end = function(req, res, next) {
 
       pdfFiller.fillForm(sourcePDF, destinationPDF, data, shouldFlatten, function(err) {
         if (err) throw err;
-        console.log("In callback (we're done).");
+        //console.log("In callback (we're done).");
       });
 
       });
@@ -324,7 +324,7 @@ var end = function(req, res, next) {
 
             var obj = rows5[0];
 
-            var noIssues = "The patient has no issues. A 3 year certificate can be issued."
+            var noIssues = "The patient has no issues. A 2 year certificate can be issued."
             var followUpBrainInjury = "Due to head/brain injuries, ";
             var followUpEpilepsy = "Due to seizures/epilepsy, ";
             var followUpHeart = "Due to heart issues, ";
@@ -373,9 +373,6 @@ var end = function(req, res, next) {
             var certificate_12 = "cerebellar or brainstem, a maximum of one year certificate can be issued after a one year wait period. A neurologist's release is also required.";
             var certificate_13 = "cortical/subcortical, a maximum of one year certificate can be issued after a five year wait period. A neurologist's release is also required.";
             var certificate_14 = "TIA, a maximum of 1 year certificate can be issued after a one year wait period."
-
-
-
 
 
             for (prop in obj) {
@@ -436,8 +433,10 @@ var end = function(req, res, next) {
             obj = JSON.parse(str);
 
             var arr = [];
+            var timeline = [];
             for (prop in obj) {
               arr.push(prop + ' ' + obj[prop])
+              timeline.push(obj[prop])
             }
 
             var bloodPressureIssue = '';
@@ -503,7 +502,7 @@ var end = function(req, res, next) {
             }
 
 
-            console.log(visionObj)
+            //console.log(visionObj)
 
             if (arr.length == 0) {
               arr.push(noIssues)
@@ -511,8 +510,37 @@ var end = function(req, res, next) {
 
             var historyCount = arr.length;
 
+            var cert = [];
+            for (i = 0; i < timeline.length; i++) {
+              if(timeline[i] == "a maximum of 1 year certificate can be issued."){
+                cert.push(1)
+              }
+              if(timeline[i] == "a maximum of 2 year certificate can be issued."){
+                cert.push(2)
+              }
+              if(timeline[i] == "Due to stage 2 hypertension, a 3 month certificate can be issued."){
+                cert.push(3)
+              }
+              if(timeline[i] == "the patient is disqualified." ||
+                 timeline[i] == "cough syncope, the driver is disqualified." ||
+                 timeline[i] == "oxygen therapy, the driver is disqualified." ||
+                 timeline[i] == "ICD (defibrillator), the driver is disqualified." ||
+                 timeline[i] == "Due to vision problems, the driver is disqualified." ||
+                 timeline[i] == "Due to hearing issues, the driver is disqualified." ||
+                 timeline[i] == "Due to stage 3 hypertension, The driver may not be qualified, even temporarily, until reduced to 140/90 or less."
+                 ){
+                cert.push(0)
+              }
+            }
 
-            console.log(arr)
+            var min = Math.min.apply(null, cert) // 1
+            console.log(min)
+
+
+            //console.log(cert)
+            //console.log(timeline)
+
+            //console.log(arr)
 
 
             res.render('end', {
