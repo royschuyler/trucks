@@ -66,6 +66,7 @@ var signInPost = function(req, res, next) {
     getConnection(function (err, connection) {
       connection.query('INSERT INTO session(username, userId, sessionId)VALUES(' + '"' + user.username + '",' + '"' + user.userId + '",' + '"' + sessionId + '")',
         function(err, rows) {
+          console.log(user.username)
           connection.release();
         });
     });

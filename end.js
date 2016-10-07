@@ -14,7 +14,8 @@ var end = function(req, res, next) {
     res.redirect('/signin');
   } else {
 
-    var user = req.user;
+    user = req.user;
+
     sessionId = req.params.sessionId;
     sessionIdArr.push(sessionId);
 
@@ -29,9 +30,10 @@ var end = function(req, res, next) {
         corrected = '0';
       }
 
-      connection.query('SELECT * FROM moreinfo', function(err,moreInfoRows){
-        ////console.log("moreInfoEnd" + moreInfoRows[0].username)
-
+      connection.query('SELECT * FROM moreinfo WHERE username="po"',
+        function(err, moreInfoRows){
+        console.log(user.username)
+        console.log(moreInfoRows[0])
         var whatWork = moreInfoRows[0].what;
         var md = '0';
         var DO = '0';
@@ -275,26 +277,32 @@ var end = function(req, res, next) {
         "MCSA-5875[0].Page5[0].stateDetermination[0].waiverEnterState[0]": "rows[0].",
         "MCSA-5875[0].Page5[0].stateDetermination[0].speQualifyState[0]": "rows[0].",
         "MCSA-5875[0].Page5[0].stateDetermination[0].grandQualifyState[0]": "rows[0].",
-        "MCSA-5875[0].Page5[0].stateDetermination[0].examNameState[0]": "rows[0].",
-        "MCSA-5875[0].Page5[0].stateDetermination[0].examDateState[0]": "rows[0].",
+        "MCSA-5875[0].Page5[0].stateDetermination[0].examNameState[0]": moreInfoRows[0].fname + ' ' + moreInfoRows[0].lname,
+        "MCSA-5875[0].Page5[0].stateDetermination[0].examDateState[0]": date,
         "MCSA-5875[0].Page5[0].stateDetermination[0].medicalAddressState[0]": moreInfoRows[0].registerAddress,
         "MCSA-5875[0].Page5[0].stateDetermination[0].medicalCityState[0]": moreInfoRows[0].registerCity,
         "MCSA-5875[0].Page5[0].stateDetermination[0].medicalStateState[0]": moreInfoRows[0].registerState,
         "MCSA-5875[0].Page5[0].stateDetermination[0].medicalZipState[0]": moreInfoRows[0].registerZip,
         "MCSA-5875[0].Page5[0].stateDetermination[0].medicalPhoneState[0]": moreInfoRows[0].registerPhone,
         "MCSA-5875[0].Page5[0].stateDetermination[0].certNumberState[0]": moreInfoRows[0].stateLicense,
-        "MCSA-5875[0].Page5[0].stateDetermination[0].issueStateState[0]": moreInfoRows[0].stateLicense,
-        "MCSA-5875[0].Page5[0].stateDetermination[0].mdState[0]": "rows[0].",
-        "MCSA-5875[0].Page5[0].stateDetermination[0].doState[0]": "rows[0].",
-        "MCSA-5875[0].Page5[0].stateDetermination[0].physAssistState[0]": "rows[0].",
-        "MCSA-5875[0].Page5[0].stateDetermination[0].chiroPractorState[0]": "rows[0].",
-        "MCSA-5875[0].Page5[0].stateDetermination[0].pracNurseState[0]": "rows[0].",
-        "MCSA-5875[0].Page5[0].stateDetermination[0].otherPracState[0]": "rows[0].",
-        "MCSA-5875[0].Page5[0].stateDetermination[0].otherSpec[0]": "rows[0].",
-        "MCSA-5875[0].Page5[0].stateDetermination[0].nationalRegisterState[0]": "rows[0].",
-        "MCSA-5875[0].Page5[0].stateDetermination[0].expireDateState[0]": "rows[0]."
-
+        "MCSA-5875[0].Page5[0].stateDetermination[0].issueStateState[0]": moreInfoRows[0].registerState,
+        "MCSA-5875[0].Page5[0].stateDetermination[0].mdState[0]": md,
+        "MCSA-5875[0].Page5[0].stateDetermination[0].doState[0]": DO,
+        "MCSA-5875[0].Page5[0].stateDetermination[0].physAssistState[0]": pa,
+        "MCSA-5875[0].Page5[0].stateDetermination[0].chiroPractorState[0]": ch,
+        "MCSA-5875[0].Page5[0].stateDetermination[0].pracNurseState[0]": apn,
+        "MCSA-5875[0].Page5[0].stateDetermination[0].otherPracState[0]": op,
+        "MCSA-5875[0].Page5[0].stateDetermination[0].otherSpec[0]": moreInfoRows[0].specify,
+        "MCSA-5875[0].Page5[0].stateDetermination[0].nationalRegisterState[0]": moreInfoRows[0].nationalLicense,
+        "MCSA-5875[0].Page5[0].stateDetermination[0].expireDateState[0]": moreInfoRows[0].exp
       };
+
+        var md = '0';
+        var DO = '0';
+        var pa = '0';
+        var ch = '0';
+        var apn = '0';
+        var op = '0';
 
       pdfFiller.fillForm(sourcePDF, destinationPDF, data, shouldFlatten, function(err) {
         if (err) throw err;
