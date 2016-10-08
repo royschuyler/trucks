@@ -14,7 +14,10 @@ var end = function(req, res, next) {
     res.redirect('/signin');
   } else {
 
-    user = req.user;
+    var user = req.user;
+    var username = req.user.username
+    //console.log(username)
+    //console.log(user)
 
     sessionId = req.params.sessionId;
     sessionIdArr.push(sessionId);
@@ -30,9 +33,9 @@ var end = function(req, res, next) {
         corrected = '0';
       }
 
-      connection.query('SELECT * FROM moreinfo WHERE username="po"',
-        function(err, moreInfoRows){
-        console.log(user.username)
+    connection.query('SELECT * FROM moreinfo WHERE username = ' + "'" + req.user.attributes.username + "'",
+    function(err, moreInfoRows) {
+        console.log(req.user.attributes.username)
         console.log(moreInfoRows[0])
         var whatWork = moreInfoRows[0].what;
         var md = '0';
