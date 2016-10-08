@@ -296,7 +296,7 @@ var end = function(req, res, next) {
         "MCSA-5875[0].Page5[0].stateDetermination[0].pracNurseState[0]": apn,
         "MCSA-5875[0].Page5[0].stateDetermination[0].otherPracState[0]": op,
         "MCSA-5875[0].Page5[0].stateDetermination[0].otherSpec[0]": moreInfoRows[0].specify,
-        "MCSA-5875[0].Page5[0].stateDetermination[0].nationalRegisterState[0]": moreInfoRows[0].nationalLicense,
+        "MCSA-5875[0].Page5[0].stateDetermination[0].nationalRegisterState[0]": moreInfoRows[0].stateLicenseState,
         "MCSA-5875[0].Page5[0].stateDetermination[0].expireDateState[0]": moreInfoRows[0].exp
       };
 
