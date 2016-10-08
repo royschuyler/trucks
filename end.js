@@ -25,7 +25,7 @@ var end = function(req, res, next) {
   getConnection(function (err, connection) {
     var datas = connection.query('SELECT persons2.*, history.*, history_review.*, testing.*, vision.*, hearing.*, physicalexam.* FROM persons2, history, history_review, testing, vision, hearing, physicalexam WHERE' + "'" + sessionId + "'" + '=persons2.sessionId AND' + "'" + sessionId + "'" + '=history.sessionId AND' + "'" + sessionId + "'" + '=history_review.sessionId AND' + "'" + sessionId + "'" + '=testing.sessionId AND' + "'" + sessionId + "'" + '=vision.sessionId AND' + "'" + sessionId + "'" + '=hearing.sessionId AND' + "'" + sessionId + "'" + '=physicalexam.sessionId',
       function(err, rows) {
-
+          console.log('glasses: ' + rows[0].glasses)
       var corrected;
       if(rows[0].hearingaidright == '1' || rows[0].hearingaidleft == '1' || rows[0].hearingaidneither == '1') {
         corrected = '1';
@@ -78,6 +78,9 @@ var end = function(req, res, next) {
       // var destinationPDF =  "../../Desktop/watch8.pdf";
       var destinationPDF = "watch9.pdf";
       var shouldFlatten = false;
+
+
+
 
       var d = new Date();
       var monthFix = Number(d.getMonth()) + 1;
@@ -223,13 +226,13 @@ var end = function(req, res, next) {
         "MCSA-5875[0].Page4[0].pageHead4[0].nameInitialHead4[0]": rows[0].middlename,
         "MCSA-5875[0].Page4[0].pageHead4[0].dateBirth4[0]": rows[0].dob,
         "MCSA-5875[0].Page4[0].pageHead4[0].dateForm4[0]": date,
-        //federal page
+
         "MCSA-5875[0].Page4[0].fedDetermination[0].standardButtonList[0]": "1",
         "MCSA-5875[0].Page4[0].fedDetermination[0].notStandardsWhy[0]": "not standard text",
         "MCSA-5875[0].Page4[0].fedDetermination[0].butStandardsWhy[0]": "1",
         "MCSA-5875[0].Page4[0].fedDetermination[0].qualifiedButtonList[0]": "1",
         "MCSA-5875[0].Page4[0].fedDetermination[0].otherQualify[0]": "other qualify text",
-        "MCSA-5875[0].Page4[0].fedDetermination[0].restrictVary[0].correctLenses[0]": "1",
+        "MCSA-5875[0].Page4[0].fedDetermination[0].restrictVary[0].correctLenses[0]": rows[0].glasses,
         "MCSA-5875[0].Page4[0].fedDetermination[0].restrictVary[0].hearingAid[0]": corrected,
         "MCSA-5875[0].Page4[0].fedDetermination[0].restrictVary[0].waiverQualify[0]": "1",
         "MCSA-5875[0].Page4[0].fedDetermination[0].restrictVary[0].waiverEnter[0]": "yes new!",
@@ -268,14 +271,14 @@ var end = function(req, res, next) {
         "MCSA-5875[0].Page5[0].pageHead5[0].nameInitialHead5[0]": rows[0].middlename,
         "MCSA-5875[0].Page5[0].pageHead5[0].dateBirth5[0]": rows[0].dob,
         "MCSA-5875[0].Page5[0].pageHead5[0].dateForm5[0]": date,
-        //state page
+
         "MCSA-5875[0].Page5[0].stateDetermination[0].standardButtonListState[0]": "1",
         "MCSA-5875[0].Page5[0].stateDetermination[0].notStandardsWhyState[0]": "because",
         "MCSA-5875[0].Page5[0].stateDetermination[0].butStandardsWhyState[0]": "1",
         "MCSA-5875[0].Page5[0].stateDetermination[0].qualifiedButtonListState[0]": "1",
         "MCSA-5875[0].Page5[0].stateDetermination[0].otherQualifyState[0]": "rows[0].",
-        "MCSA-5875[0].Page5[0].stateDetermination[0].correctLensesState[0]": "0",
-        "MCSA-5875[0].Page5[0].stateDetermination[0].hearingAidState[0]": corrected,
+        "MCSA-5875[0].Page5[0].stateDetermination[0].varyRestrict[0].correctLensesState[0]": rows[0].glasses,
+        "MCSA-5875[0].Page5[0].stateDetermination[0].varyRestrict[0].hearingAidState[0]": corrected,
         "MCSA-5875[0].Page5[0].stateDetermination[0].waiverQualifyState[0]": "x",
         "MCSA-5875[0].Page5[0].stateDetermination[0].waiverEnterState[0]": "rows[0].",
         "MCSA-5875[0].Page5[0].stateDetermination[0].speQualifyState[0]": "rows[0].",
@@ -288,7 +291,7 @@ var end = function(req, res, next) {
         "MCSA-5875[0].Page5[0].stateDetermination[0].medicalZipState[0]": moreInfoRows[0].registerZip,
         "MCSA-5875[0].Page5[0].stateDetermination[0].medicalPhoneState[0]": moreInfoRows[0].registerPhone,
         "MCSA-5875[0].Page5[0].stateDetermination[0].certNumberState[0]": moreInfoRows[0].stateLicense,
-        "MCSA-5875[0].Page5[0].stateDetermination[0].issueStateState[0]": moreInfoRows[0].registerState,
+        "MCSA-5875[0].Page5[0].stateDetermination[0].issueStateState[0]": moreInfoRows[0].stateLicenseState,
         "MCSA-5875[0].Page5[0].stateDetermination[0].mdState[0]": md,
         "MCSA-5875[0].Page5[0].stateDetermination[0].doState[0]": DO,
         "MCSA-5875[0].Page5[0].stateDetermination[0].physAssistState[0]": pa,
@@ -296,7 +299,7 @@ var end = function(req, res, next) {
         "MCSA-5875[0].Page5[0].stateDetermination[0].pracNurseState[0]": apn,
         "MCSA-5875[0].Page5[0].stateDetermination[0].otherPracState[0]": op,
         "MCSA-5875[0].Page5[0].stateDetermination[0].otherSpec[0]": moreInfoRows[0].specify,
-        "MCSA-5875[0].Page5[0].stateDetermination[0].nationalRegisterState[0]": moreInfoRows[0].stateLicenseState,
+        "MCSA-5875[0].Page5[0].stateDetermination[0].nationalRegisterState[0]": moreInfoRows[0].nationalLicense,
         "MCSA-5875[0].Page5[0].stateDetermination[0].expireDateState[0]": moreInfoRows[0].exp
       };
 
@@ -311,6 +314,8 @@ var end = function(req, res, next) {
         if (err) throw err;
         //console.log("In callback (we're done).");
       });
+
+
 
       });
 

@@ -933,13 +933,17 @@ li.d {
 }
 
 .register-date {
-  margin-left: -48px
+  margin-left: -48px;
 }
 
 .register-fname {
-  margin-left: -24px
+  margin-left: -24px;
 }
 
 .register-lname {
-  margin-left: -24px
+  margin-left: -24px;
+}
+
+.yesleft {
+  padding-right: 5px;
 }
