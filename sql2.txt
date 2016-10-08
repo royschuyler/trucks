@@ -638,6 +638,13 @@ function(err, rows) {
   console.log(rows[0])
 })
 
+//*******************certificate**********************************
+
+connection.query('INSERT INTO certificate(username, userId, sessionId, length, reason)VALUES('+ "'" + user.attributes.username + "'," + "'" + user.attributes.userId + "'," + "'" + sessionId + "'," + "'" + length + "'," + "'" + reason + "')",
+function(err, rows){
+
+});
+
 
 
 | ID | moreInfoRows[0].username  moreInfoRows[0].registerAddress  moreInfoRows[0].registerCity  moreInfoRows[0].registerState | moreInfoRows[0].registerZip  moreInfoRows[0].registerPhone  moreInfoRows[0].registerEmail  moreInfoRows[0].stateLicense  moreInfoRows[0].nationalLicense

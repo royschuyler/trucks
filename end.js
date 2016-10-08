@@ -90,6 +90,259 @@ var end = function(req, res, next) {
       var avgRight = (parseInt(rows[0].right500) + parseInt(rows[0].right1000) + parseInt(rows[0].right2000)) / 3;
       var avgLeft = (parseInt(rows[0].left500) + parseInt(rows[0].left1000) + parseInt(rows[0].left2000)) / 3;
 
+
+    if (user !== undefined) {
+      user = user.toJSON();
+    }
+
+    connection.query('SELECT * from vision WHERE vision.sessionId = ' + "'" + sessionId + "'",
+      function(err, rows4) {
+      var visionObj = rows4[0]
+
+      connection.query('SELECT * from hearing WHERE hearing.sessionId = ' + "'" + sessionId + "'",
+        function(err, rows3) {
+        var hearingObj = rows3[0]
+
+        connection.query('SELECT * FROM testing WHERE testing.sessionId = ' + "'" + sessionId + "'",
+          function(err, rows2) {
+          var testingObj = rows2[0];
+
+          connection.query('SELECT followUpBrainInjury, followUpEpilepsy, followUpEye, followUpEar, followUpHeart, followUpPacemaker, followupBloodPressure, followUpHighCholesterol, followUpBreathingProblems, followUpLungDisease, followUpKidneyProblems, followUpStomachProblems, followUpDiabetes, followUpInsulin, followUpAnxiety, followUpFainting, followUpDizziness, followUpUnExplainedWeightLoss, followUpStroke, followUpMissingLimbs, followUpBackProblems, followUpBoneProblems, followUpBloodClots, followUpCancer, followUpChronicDiseases, followUpSleepDisorders, followUpSleepTest, followUpNightInHospital, followUpBrokenBone, followUpUseTobacco, followUpDrinkAlcohol, followUpIllegalSubstance, followUpFailedDrugTest FROM history_review WHERE history_review.sessionId = ' + "'" + sessionId + "'",
+            function(err, rows5) {
+
+            var obj = rows5[0];
+
+            var noIssues = "The patient has no issues. A 2 year certificate can be issued."
+            var followUpBrainInjury = "Due to head/brain injuries, ";
+            var followUpEpilepsy = "Due to seizures/epilepsy, ";
+            var followUpHeart = "Due to heart issues, ";
+            var followUpPacemaker = "Due to issues with a pacemaker, ";
+            var followupBloodPressure = "Due to blood pressure, ";
+            var followUpHighCholesterol = "Due to cholesterol issues, ";
+            var followUpBreathingProblems = "Due to breathing issues, ";
+            var followUpLungDisease = "Due to lung issues, ";
+            var followUpKidneyProblems = "Due to kidney issues, ";
+            var followUpStomachProblems = "Due to stomach issues, ";
+            var followUpDiabetes = "Due to diabetes issues, ";
+            var followUpInsulin = "Due to insulin use, ";
+            var followUpAnxiety = "Due to anxiety issues, ";
+            var followUpFainting = "Due to faintin issues, ";
+            var followUpDizziness = "Due to dizziness issues, ";
+            var followUpUnExplainedWeightLoss = "Due to unexplained weight loss, ";
+            var followUpStroke = "Due to stroke issues, ";
+            var followUpMissingLimbs = "Due to missing limbs, ";
+            var followUpBackProblems = "Due to back/neck issues, ";
+            var followUpBoneProblems = "Due to bone issues, ";
+            var followUpBloodClots = "Due to blood clot issues, ";
+            var followUpCancer = "Due to cancer issues, ";
+            var followUpChronicDiseases = "Due to infections/chronic diseases, ";
+            var followUpSleepDisorders = "Due to sleep disorders, ";
+            var followUpSleepTest = "Due to sleep test issues, ";
+            var followUpNightInHospital = "Due to hospital visits, ";
+            var followUpBrokenBone = "Due to broken bone issues, ";
+            var followUpUseTobacco = "Due to tobacco use, ";
+            var followUpDrinkAlcohol = "Due to alcohol issues, ";
+            var followUpIllegalSubstance = "Due to illegal drug issues, ";
+            var followUpFailedDrugTest = "Due to failed drug test history, ";
+
+
+            var certificate_0 = "a maximum of 1 year certificate can be issued.";
+            var certificate_1 = "a neurologist's release is required and a maximum of 1 year certificate can be issued.";
+            var certificate_2 = "a maximum of 2 year certificate can be issued.";
+            var certificate_3 = "a maximum of 1 year certificate can be issued after a two month wait period. A cardiologist release is needed and an exersize tolerance test must be administered every two years.";
+            var certificate_4 = "a cardiologist release is needed. A maximum of 2 year certificate can be issued after a 3 month wait period. After 5 years, an annual ETT is required.";
+            var certificate_5 = "AV block / sinus node dysfunction, a maximum of one year certificate can be issued after a 1 month wait period.";
+            var certificate_6 = "ICD (defibrillator), the driver is disqualified.";
+            var certificate_7 = "a neurologist's release is required or there is a 10 year wait period before a certificate can be issued.";
+            var certificate_8 = "neurocardiogenic syncope, a maximum of one year certificate can be issued after a 3 month wait period.";
+            var certificate_9 = "oxygen therapy, the driver is disqualified.";
+            var certificate_10 = "cough syncope, the driver is disqualified.";
+            var certificate_11 = "the patient is disqualified.";
+            var certificate_12 = "cerebellar or brainstem, a maximum of one year certificate can be issued after a one year wait period. A neurologist's release is also required.";
+            var certificate_13 = "cortical/subcortical, a maximum of one year certificate can be issued after a five year wait period. A neurologist's release is also required.";
+            var certificate_14 = "TIA, a maximum of 1 year certificate can be issued after a one year wait period."
+
+
+            for (prop in obj) {
+              if (obj[prop] == 'undefined' || obj[prop] == 'na' || obj[prop] == '' || obj[prop] == 'valueZero') {
+              delete obj[prop]
+              }
+            }
+
+            var str = JSON.stringify(obj);
+
+            str = str.replace(/valueZero/g, certificate_0);
+            str = str.replace(/valueOne/g, certificate_1);
+            str = str.replace(/valueTwo/g, certificate_2);
+            str = str.replace(/valueThree/g, certificate_3);
+            str = str.replace(/valueFour/g, certificate_4);
+            str = str.replace(/valueFive/g, certificate_5);
+            str = str.replace(/valueSix/g, certificate_6);
+            str = str.replace(/valueSeven/g, certificate_7);
+            str = str.replace(/valueEight/g, certificate_8);
+            str = str.replace(/valueNine/g, certificate_9);
+            str = str.replace(/valueTen/g, certificate_10);
+            str = str.replace(/valueEleven/g, certificate_11);
+            str = str.replace(/valueTwelve/g, certificate_12);
+            str = str.replace(/valueThirteen/g, certificate_13);
+            str = str.replace(/valueFourteen/g, certificate_14);
+
+            str = str.replace(/followUpBrainInjury/g, followUpBrainInjury);
+            str = str.replace(/followUpEpilepsy/g, followUpEpilepsy);
+            str = str.replace(/followUpHeart/g, followUpHeart);
+            str = str.replace(/followUpPacemaker/g, followUpPacemaker);
+            str = str.replace(/followupBloodPressure/g, followupBloodPressure);
+            str = str.replace(/followUpHighCholesterol/g, followUpHighCholesterol);
+            str = str.replace(/followUpBreathingProblems/g, followUpBreathingProblems);
+            str = str.replace(/followUpLungDisease/g, followUpLungDisease);
+            str = str.replace(/followUpKidneyProblems/g, followUpKidneyProblems);
+            str = str.replace(/followUpStomachProblems/g, followUpStomachProblems);
+            str = str.replace(/followUpDiabetes/g, followUpDiabetes);
+            str = str.replace(/followUpInsulin/g, followUpInsulin);
+            str = str.replace(/followUpAnxiety/g, followUpAnxiety);
+            str = str.replace(/followUpFainting/g, followUpFainting);
+            str = str.replace(/followUpDizziness/g, followUpDizziness);
+            str = str.replace(/followUpStroke/g, followUpStroke);
+            str = str.replace(/followUpMissingLimbs/g, followUpMissingLimbs);
+            str = str.replace(/followUpBackProblems/g, followUpBackProblems);
+            str = str.replace(/followUpBoneProblems/g, followUpBoneProblems);
+            str = str.replace(/followUpBloodClots/g, followUpBloodClots);
+            str = str.replace(/followUpCancer/g, followUpCancer);
+            str = str.replace(/followUpChronicDiseases/g, followUpChronicDiseases);
+            str = str.replace(/followUpSleepDisorders/g, followUpSleepDisorders);
+            str = str.replace(/followUpSleepTest/g, followUpSleepTest);
+            str = str.replace(/followUpNightInHospital/g, followUpNightInHospital);
+            str = str.replace(/followUpBrokenBone/g, followUpBrokenBone);
+            str = str.replace(/followUpUseTobacco/g, followUpUseTobacco);
+            str = str.replace(/followUpDrinkAlcohol/g, followUpDrinkAlcohol);
+            str = str.replace(/followUpIllegalSubstance/g, followUpIllegalSubstance);
+            str = str.replace(/followUpFailedDrugTest/g, followUpFailedDrugTest);
+
+            obj = JSON.parse(str);
+
+            var arr = [];
+            var timeline = [];
+            for (prop in obj) {
+              arr.push(prop + ' ' + obj[prop])
+              timeline.push(obj[prop])
+            }
+
+            var bloodPressureIssue = '';
+            if (parseInt(testingObj.systolic1) >= 140 &&
+              parseInt(testingObj.systolic1) <= 159 &&
+              parseInt(testingObj.systolic2) >= 140 &&
+              parseInt(testingObj.systolic2) <= 159 ||
+              parseInt(testingObj.diastolic1) >= 90 &&
+              parseInt(testingObj.diastolic1) <= 99 &&
+              parseInt(testingObj.diastolic2) >= 90 &&
+              parseInt(testingObj.diastolic2) <= 99) {
+              bloodPressureIssue = "Due to stage 1 hypertension, a 1 year certificate can be issued.";
+              timeline.push(bloodPressureIssue)
+            }
+
+            if (parseInt(testingObj.systolic1) >= 160 &&
+              parseInt(testingObj.systolic1) <= 179 &&
+              parseInt(testingObj.systolic2) >= 160 &&
+              parseInt(testingObj.systolic2) <= 179 ||
+              parseInt(testingObj.diastolic1) >= 100 &&
+              parseInt(testingObj.diastolic1) <= 109 &&
+              parseInt(testingObj.diastolic2) >= 100 &&
+              parseInt(testingObj.diastolic2) <= 109) {
+              bloodPressureIssue = "Due to stage 2 hypertension, a 3 month certificate can be issued.";
+              arr.push(bloodPressureIssue)
+              timeline.push(bloodPressureIssue)
+            }
+
+            if (parseInt(testingObj.systolic1) >= 180 &&
+              parseInt(testingObj.systolic2) >= 180 ||
+              parseInt(testingObj.diastolic1) >= 110 &&
+              parseInt(testingObj.diastolic2) >= 110) {
+              bloodPressureIssue = "Due to stage 3 hypertension, The driver may not be qualified, even temporarily, until reduced to 140/90 or less.";
+              arr.push(bloodPressureIssue)
+              timeline.push(bloodPressureIssue)
+            }
+
+            // if(bloodPressureIssue != ''){
+            // arr.push(bloodPressureIssue)
+            // }
+
+
+            var hearingIssue = '';
+            if (parseInt(hearingObj.rightear) < 5 &&
+              parseInt(hearingObj.leftear) < 5 &&
+              parseInt(hearingObj.right500) < 40 ||
+              parseInt(hearingObj.right1000) < 40 ||
+              parseInt(hearingObj.right2000) < 40 ||
+              parseInt(hearingObj.left500) < 40 ||
+              parseInt(hearingObj.left1000) < 40 ||
+              parseInt(hearingObj.left2000) < 40) {
+              hearingIssue = "Due to hearing issues, the driver is disqualified."
+              arr.push(hearingIssue)
+              timeline.push(bloodPressureIssue)
+            }
+
+            var visionIssue = '';
+            if (parseInt(visionObj.rightcorrected) > 40 ||
+              parseInt(visionObj.rightuncorrected) > 40 ||
+              parseInt(visionObj.leftcorrected) > 40 ||
+              parseInt(visionObj.leftuncorrected) > 40 ||
+              parseInt(visionObj.bothcorrected) > 40 ||
+              parseInt(visionObj.bothuncorrected) > 40 ||
+              parseInt(visionObj.fieldright) < 70 ||
+              parseInt(visionObj.fieldleft) < 70 ){
+              visionIssue = "Due to vision problems, the driver is disqualified."
+              arr.push(visionIssue)
+              timeline.push(bloodPressureIssue)
+            }
+
+
+            if (arr.length == 0) {
+              arr.push(noIssues)
+            }
+
+            var historyCount = arr.length;
+
+            var cert = [];
+            for (i = 0; i < timeline.length; i++) {
+              if(timeline[i] == "a maximum of 1 year certificate can be issued." ||
+                 timeline[i] == "a neurologist's release is required and a maximum of 1 year certificate can be issued." ||
+                 timeline[i] == "a maximum of 1 year certificate can be issued after a two month wait period. A cardiologist release is needed and an exersize tolerance test must be administered every two years."){
+                 cert.push(3)
+              }
+              // if(timeline[i] == "a maximum of 2 year certificate can be issued."){
+              //   cert.push(2)
+              // }
+              if(timeline[i] == "Due to stage 2 hypertension, a 3 month certificate can be issued."){
+                cert.push(1)
+              }
+              // if(timeline[i] == "the patient is disqualified." ||
+              //    timeline[i] == "cough syncope, the driver is disqualified." ||
+              //    timeline[i] == "oxygen therapy, the driver is disqualified." ||
+              //    timeline[i] == "ICD (defibrillator), the driver is disqualified." ||
+              //    timeline[i] == "Due to vision problems, the driver is disqualified." ||
+              //    timeline[i] == "Due to hearing issues, the driver is disqualified." ||
+              //    timeline[i] == "Due to stage 3 hypertension, The driver may not be qualified, even temporarily, until reduced to 140/90 or less."
+              //    ){
+              //   cert.push(0)
+              // }
+            }
+
+            var min = Math.min.apply(null, cert) // 1
+            console.log("min: " + min)
+            var minUse;
+            if(min == 1 || min == 3){
+              minUse = min;
+            }else {
+              minUse = 'x'
+            }
+
+            console.log("minUse: " + minUse)
+
+
+
+
+
+
       var data = {
         "MCSA-5875[0].Page1[0].privacyStatement[0].privacyDate[0]": "rows[0].",
         "MCSA-5875[0].Page1[0].medRecord[0].medNumber[0]": "rows[0].",
@@ -230,7 +483,7 @@ var end = function(req, res, next) {
         "MCSA-5875[0].Page4[0].fedDetermination[0].standardButtonList[0]": "1",
         "MCSA-5875[0].Page4[0].fedDetermination[0].notStandardsWhy[0]": "not standard text",
         "MCSA-5875[0].Page4[0].fedDetermination[0].butStandardsWhy[0]": "1",
-        "MCSA-5875[0].Page4[0].fedDetermination[0].qualifiedButtonList[0]": "1",
+        "MCSA-5875[0].Page4[0].fedDetermination[0].qualifiedButtonList[0]": minUse,
         "MCSA-5875[0].Page4[0].fedDetermination[0].otherQualify[0]": "other qualify text",
         "MCSA-5875[0].Page4[0].fedDetermination[0].restrictVary[0].correctLenses[0]": rows[0].glasses,
         "MCSA-5875[0].Page4[0].fedDetermination[0].restrictVary[0].hearingAid[0]": corrected,
@@ -275,7 +528,7 @@ var end = function(req, res, next) {
         "MCSA-5875[0].Page5[0].stateDetermination[0].standardButtonListState[0]": "1",
         "MCSA-5875[0].Page5[0].stateDetermination[0].notStandardsWhyState[0]": "because",
         "MCSA-5875[0].Page5[0].stateDetermination[0].butStandardsWhyState[0]": "1",
-        "MCSA-5875[0].Page5[0].stateDetermination[0].qualifiedButtonListState[0]": "1",
+        "MCSA-5875[0].Page5[0].stateDetermination[0].qualifiedButtonListState[0]": minUse,
         "MCSA-5875[0].Page5[0].stateDetermination[0].otherQualifyState[0]": "rows[0].",
         "MCSA-5875[0].Page5[0].stateDetermination[0].varyRestrict[0].correctLensesState[0]": rows[0].glasses,
         "MCSA-5875[0].Page5[0].stateDetermination[0].varyRestrict[0].hearingAidState[0]": corrected,
@@ -303,12 +556,12 @@ var end = function(req, res, next) {
         "MCSA-5875[0].Page5[0].stateDetermination[0].expireDateState[0]": moreInfoRows[0].exp
       };
 
-        var md = '0';
-        var DO = '0';
-        var pa = '0';
-        var ch = '0';
-        var apn = '0';
-        var op = '0';
+        // var md = '0';
+        // var DO = '0';
+        // var pa = '0';
+        // var ch = '0';
+        // var apn = '0';
+        // var op = '0';
 
       pdfFiller.fillForm(sourcePDF, destinationPDF, data, shouldFlatten, function(err) {
         if (err) throw err;
@@ -317,240 +570,7 @@ var end = function(req, res, next) {
 
 
 
-      });
 
-    if (user !== undefined) {
-      user = user.toJSON();
-    }
-
-    connection.query('SELECT * from vision WHERE vision.sessionId = ' + "'" + sessionId + "'",
-      function(err, rows4) {
-      var visionObj = rows4[0]
-
-      connection.query('SELECT * from hearing WHERE hearing.sessionId = ' + "'" + sessionId + "'",
-        function(err, rows3) {
-        var hearingObj = rows3[0]
-
-        connection.query('SELECT * FROM testing WHERE testing.sessionId = ' + "'" + sessionId + "'",
-          function(err, rows2) {
-          var testingObj = rows2[0];
-
-          connection.query('SELECT followUpBrainInjury, followUpEpilepsy, followUpEye, followUpEar, followUpHeart, followUpPacemaker, followupBloodPressure, followUpHighCholesterol, followUpBreathingProblems, followUpLungDisease, followUpKidneyProblems, followUpStomachProblems, followUpDiabetes, followUpInsulin, followUpAnxiety, followUpFainting, followUpDizziness, followUpUnExplainedWeightLoss, followUpStroke, followUpMissingLimbs, followUpBackProblems, followUpBoneProblems, followUpBloodClots, followUpCancer, followUpChronicDiseases, followUpSleepDisorders, followUpSleepTest, followUpNightInHospital, followUpBrokenBone, followUpUseTobacco, followUpDrinkAlcohol, followUpIllegalSubstance, followUpFailedDrugTest FROM history_review WHERE history_review.sessionId = ' + "'" + sessionId + "'",
-            function(err, rows5) {
-
-            var obj = rows5[0];
-
-            var noIssues = "The patient has no issues. A 2 year certificate can be issued."
-            var followUpBrainInjury = "Due to head/brain injuries, ";
-            var followUpEpilepsy = "Due to seizures/epilepsy, ";
-            var followUpHeart = "Due to heart issues, ";
-            var followUpPacemaker = "Due to issues with a pacemaker, ";
-            var followupBloodPressure = "Due to blood pressure, ";
-            var followUpHighCholesterol = "Due to cholesterol issues, ";
-            var followUpBreathingProblems = "Due to breathing issues, ";
-            var followUpLungDisease = "Due to lung issues, ";
-            var followUpKidneyProblems = "Due to kidney issues, ";
-            var followUpStomachProblems = "Due to stomach issues, ";
-            var followUpDiabetes = "Due to diabetes issues, ";
-            var followUpInsulin = "Due to insulin use, ";
-            var followUpAnxiety = "Due to anxiety issues, ";
-            var followUpFainting = "Due to faintin issues, ";
-            var followUpDizziness = "Due to dizziness issues, ";
-            var followUpUnExplainedWeightLoss = "Due to unexplained weight loss, ";
-            var followUpStroke = "Due to stroke issues, ";
-            var followUpMissingLimbs = "Due to missing limbs, ";
-            var followUpBackProblems = "Due to back/neck issues, ";
-            var followUpBoneProblems = "Due to bone issues, ";
-            var followUpBloodClots = "Due to blood clot issues, ";
-            var followUpCancer = "Due to cancer issues, ";
-            var followUpChronicDiseases = "Due to infections/chronic diseases, ";
-            var followUpSleepDisorders = "Due to sleep disorders, ";
-            var followUpSleepTest = "Due to sleep test issues, ";
-            var followUpNightInHospital = "Due to hospital visits, ";
-            var followUpBrokenBone = "Due to broken bone issues, ";
-            var followUpUseTobacco = "Due to tobacco use, ";
-            var followUpDrinkAlcohol = "Due to alcohol issues, ";
-            var followUpIllegalSubstance = "Due to illegal drug issues, ";
-            var followUpFailedDrugTest = "Due to failed drug test history, ";
-
-
-            var certificate_0 = "a maximum of 1 year certificate can be issued.";
-            var certificate_1 = "a neurologist's release is required and a maximum of 1 year certificate can be issued.";
-            var certificate_2 = "a maximum of 2 year certificate can be issued.";
-            var certificate_3 = "a maximum of 1 year certificate can be issued after a two month wait period. A cadiologist release is needed and an exersize tolerance test must be administered every two years.";
-            var certificate_4 = "a cardiologist release is needed. A maximum of 2 year certificate can be issued after a 3 month wait period. After 5 years, an annual ETT is required.";
-            var certificate_5 = "AV block / sinus node dysfunction, a maximum of one year certificate can be issued after a 1 month wait period.";
-            var certificate_6 = "ICD (defibrillator), the driver is disqualified.";
-            var certificate_7 = "a neurologist's release is required or there is a 10 year wait period before a certificate can be issued.";
-            var certificate_8 = "neurocardiogenic syncope, a maximum of one year certificate can be issued after a 3 month wait period.";;
-            var certificate_9 = "oxygen therapy, the driver is disqualified.";
-            var certificate_10 = "cough syncope, the driver is disqualified.";
-            var certificate_11 = "the patient is disqualified.";
-            var certificate_12 = "cerebellar or brainstem, a maximum of one year certificate can be issued after a one year wait period. A neurologist's release is also required.";
-            var certificate_13 = "cortical/subcortical, a maximum of one year certificate can be issued after a five year wait period. A neurologist's release is also required.";
-            var certificate_14 = "TIA, a maximum of 1 year certificate can be issued after a one year wait period."
-
-
-            for (prop in obj) {
-              if (obj[prop] == 'undefined' || obj[prop] == 'na' || obj[prop] == '' || obj[prop] == 'valueZero') {
-              delete obj[prop]
-              }
-            }
-
-            var str = JSON.stringify(obj);
-
-            str = str.replace(/valueZero/g, certificate_0);
-            str = str.replace(/valueOne/g, certificate_1);
-            str = str.replace(/valueTwo/g, certificate_2);
-            str = str.replace(/valueThree/g, certificate_3);
-            str = str.replace(/valueFour/g, certificate_4);
-            str = str.replace(/valueFive/g, certificate_5);
-            str = str.replace(/valueSix/g, certificate_6);
-            str = str.replace(/valueSeven/g, certificate_7);
-            str = str.replace(/valueEight/g, certificate_8);
-            str = str.replace(/valueNine/g, certificate_9);
-            str = str.replace(/valueTen/g, certificate_10);
-            str = str.replace(/valueEleven/g, certificate_11);
-            str = str.replace(/valueTwelve/g, certificate_12);
-            str = str.replace(/valueThirteen/g, certificate_13);
-            str = str.replace(/valueFourteen/g, certificate_14);
-
-            str = str.replace(/followUpBrainInjury/g, followUpBrainInjury);
-            str = str.replace(/followUpEpilepsy/g, followUpEpilepsy);
-            str = str.replace(/followUpHeart/g, followUpHeart);
-            str = str.replace(/followUpPacemaker/g, followUpPacemaker);
-            str = str.replace(/followupBloodPressure/g, followupBloodPressure);
-            str = str.replace(/followUpHighCholesterol/g, followUpHighCholesterol);
-            str = str.replace(/followUpBreathingProblems/g, followUpBreathingProblems);
-            str = str.replace(/followUpLungDisease/g, followUpLungDisease);
-            str = str.replace(/followUpKidneyProblems/g, followUpKidneyProblems);
-            str = str.replace(/followUpStomachProblems/g, followUpStomachProblems);
-            str = str.replace(/followUpDiabetes/g, followUpDiabetes);
-            str = str.replace(/followUpInsulin/g, followUpInsulin);
-            str = str.replace(/followUpAnxiety/g, followUpAnxiety);
-            str = str.replace(/followUpFainting/g, followUpFainting);
-            str = str.replace(/followUpDizziness/g, followUpDizziness);
-            str = str.replace(/followUpStroke/g, followUpStroke);
-            str = str.replace(/followUpMissingLimbs/g, followUpMissingLimbs);
-            str = str.replace(/followUpBackProblems/g, followUpBackProblems);
-            str = str.replace(/followUpBoneProblems/g, followUpBoneProblems);
-            str = str.replace(/followUpBloodClots/g, followUpBloodClots);
-            str = str.replace(/followUpCancer/g, followUpCancer);
-            str = str.replace(/followUpChronicDiseases/g, followUpChronicDiseases);
-            str = str.replace(/followUpSleepDisorders/g, followUpSleepDisorders);
-            str = str.replace(/followUpSleepTest/g, followUpSleepTest);
-            str = str.replace(/followUpNightInHospital/g, followUpNightInHospital);
-            str = str.replace(/followUpBrokenBone/g, followUpBrokenBone);
-            str = str.replace(/followUpUseTobacco/g, followUpUseTobacco);
-            str = str.replace(/followUpDrinkAlcohol/g, followUpDrinkAlcohol);
-            str = str.replace(/followUpIllegalSubstance/g, followUpIllegalSubstance);
-            str = str.replace(/followUpFailedDrugTest/g, followUpFailedDrugTest);
-
-            obj = JSON.parse(str);
-
-            var arr = [];
-            var timeline = [];
-            for (prop in obj) {
-              arr.push(prop + ' ' + obj[prop])
-              timeline.push(obj[prop])
-            }
-
-            var bloodPressureIssue = '';
-            if (parseInt(testingObj.systolic1) >= 140 &&
-              parseInt(testingObj.systolic1) <= 159 &&
-              parseInt(testingObj.systolic2) >= 140 &&
-              parseInt(testingObj.systolic2) <= 159 ||
-              parseInt(testingObj.diastolic1) >= 90 &&
-              parseInt(testingObj.diastolic1) <= 99 &&
-              parseInt(testingObj.diastolic2) >= 90 &&
-              parseInt(testingObj.diastolic2) <= 99) {
-              bloodPressureIssue = "Due to stage 1 hypertension, a 1 year certificate can be issued.";
-            }
-
-            if (parseInt(testingObj.systolic1) >= 160 &&
-              parseInt(testingObj.systolic1) <= 179 &&
-              parseInt(testingObj.systolic2) >= 160 &&
-              parseInt(testingObj.systolic2) <= 179 ||
-              parseInt(testingObj.diastolic1) >= 100 &&
-              parseInt(testingObj.diastolic1) <= 109 &&
-              parseInt(testingObj.diastolic2) >= 100 &&
-              parseInt(testingObj.diastolic2) <= 109) {
-              bloodPressureIssue = "Due to stage 2 hypertension, a 3 month certificate can be issued.";
-            }
-
-            if (parseInt(testingObj.systolic1) >= 180 &&
-              parseInt(testingObj.systolic2) >= 180 ||
-              parseInt(testingObj.diastolic1) >= 110 &&
-              parseInt(testingObj.diastolic2) >= 110) {
-              bloodPressureIssue = "Due to stage 3 hypertension, The driver may not be qualified, even temporarily, until reduced to 140/90 or less.";
-            }
-
-            if(bloodPressureIssue != ''){
-            arr.push(bloodPressureIssue)
-            }
-
-
-            var hearingIssue = '';
-            if (parseInt(hearingObj.rightear) < 5 &&
-              parseInt(hearingObj.leftear) < 5 &&
-              parseInt(hearingObj.right500) < 40 ||
-              parseInt(hearingObj.right1000) < 40 ||
-              parseInt(hearingObj.right2000) < 40 ||
-              parseInt(hearingObj.left500) < 40 ||
-              parseInt(hearingObj.left1000) < 40 ||
-              parseInt(hearingObj.left2000) < 40) {
-              hearingIssue = "Due to hearing issues, the driver is disqualified."
-              arr.push(hearingIssue)
-            }
-
-            var visionIssue = '';
-            if (parseInt(visionObj.rightcorrected) > 40 ||
-              parseInt(visionObj.rightuncorrected) > 40 ||
-              parseInt(visionObj.leftcorrected) > 40 ||
-              parseInt(visionObj.leftuncorrected) > 40 ||
-              parseInt(visionObj.bothcorrected) > 40 ||
-              parseInt(visionObj.bothuncorrected) > 40 ||
-              parseInt(visionObj.fieldright) < 70 ||
-              parseInt(visionObj.fieldleft) < 70 ){
-
-              visionIssue = "Due to vision problems, the driver is disqualified."
-              arr.push(visionIssue)
-            }
-
-
-            //console.log(visionObj)
-
-            if (arr.length == 0) {
-              arr.push(noIssues)
-            }
-
-            var historyCount = arr.length;
-
-            var cert = [];
-            for (i = 0; i < timeline.length; i++) {
-              if(timeline[i] == "a maximum of 1 year certificate can be issued."){
-                cert.push(1)
-              }
-              if(timeline[i] == "a maximum of 2 year certificate can be issued."){
-                cert.push(2)
-              }
-              if(timeline[i] == "Due to stage 2 hypertension, a 3 month certificate can be issued."){
-                cert.push(3)
-              }
-              if(timeline[i] == "the patient is disqualified." ||
-                 timeline[i] == "cough syncope, the driver is disqualified." ||
-                 timeline[i] == "oxygen therapy, the driver is disqualified." ||
-                 timeline[i] == "ICD (defibrillator), the driver is disqualified." ||
-                 timeline[i] == "Due to vision problems, the driver is disqualified." ||
-                 timeline[i] == "Due to hearing issues, the driver is disqualified." ||
-                 timeline[i] == "Due to stage 3 hypertension, The driver may not be qualified, even temporarily, until reduced to 140/90 or less."
-                 ){
-                cert.push(0)
-              }
-            }
-
-            var min = Math.min.apply(null, cert) // 1
-            console.log(min)
 
 
             //console.log(cert)
@@ -567,12 +587,13 @@ var end = function(req, res, next) {
             });
 
             connection.release();
-            });
+            })
           })
         })
       })
     })
-  });
+  })
+})
   }
 }
 //-------------------------------------------------------
