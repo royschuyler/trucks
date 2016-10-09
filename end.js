@@ -111,123 +111,216 @@ var end = function(req, res, next) {
             function(err, rows5) {
 
             var obj = rows5[0];
-
-            var noIssues = "The patient has no issues. A 2 year certificate can be issued."
-            var followUpBrainInjury = "Due to head/brain injuries, ";
-            var followUpEpilepsy = "Due to seizures/epilepsy, ";
-            var followUpHeart = "Due to heart issues, ";
-            var followUpPacemaker = "Due to issues with a pacemaker, ";
-            var followupBloodPressure = "Due to blood pressure, ";
-            var followUpHighCholesterol = "Due to cholesterol issues, ";
-            var followUpBreathingProblems = "Due to breathing issues, ";
-            var followUpLungDisease = "Due to lung issues, ";
-            var followUpKidneyProblems = "Due to kidney issues, ";
-            var followUpStomachProblems = "Due to stomach issues, ";
-            var followUpDiabetes = "Due to diabetes issues, ";
-            var followUpInsulin = "Due to insulin use, ";
-            var followUpAnxiety = "Due to anxiety issues, ";
-            var followUpFainting = "Due to faintin issues, ";
-            var followUpDizziness = "Due to dizziness issues, ";
-            var followUpUnExplainedWeightLoss = "Due to unexplained weight loss, ";
-            var followUpStroke = "Due to stroke issues, ";
-            var followUpMissingLimbs = "Due to missing limbs, ";
-            var followUpBackProblems = "Due to back/neck issues, ";
-            var followUpBoneProblems = "Due to bone issues, ";
-            var followUpBloodClots = "Due to blood clot issues, ";
-            var followUpCancer = "Due to cancer issues, ";
-            var followUpChronicDiseases = "Due to infections/chronic diseases, ";
-            var followUpSleepDisorders = "Due to sleep disorders, ";
-            var followUpSleepTest = "Due to sleep test issues, ";
-            var followUpNightInHospital = "Due to hospital visits, ";
-            var followUpBrokenBone = "Due to broken bone issues, ";
-            var followUpUseTobacco = "Due to tobacco use, ";
-            var followUpDrinkAlcohol = "Due to alcohol issues, ";
-            var followUpIllegalSubstance = "Due to illegal drug issues, ";
-            var followUpFailedDrugTest = "Due to failed drug test history, ";
+            console.log(rows5[0])
 
 
-            var certificate_0 = "a maximum of 1 year certificate can be issued.";
-            var certificate_1 = "a neurologist's release is required and a maximum of 1 year certificate can be issued.";
-            var certificate_2 = "a maximum of 2 year certificate can be issued.";
-            var certificate_3 = "a maximum of 1 year certificate can be issued after a two month wait period. A cardiologist release is needed and an exersize tolerance test must be administered every two years.";
-            var certificate_4 = "a cardiologist release is needed. A maximum of 2 year certificate can be issued after a 3 month wait period. After 5 years, an annual ETT is required.";
-            var certificate_5 = "AV block / sinus node dysfunction, a maximum of one year certificate can be issued after a 1 month wait period.";
-            var certificate_6 = "ICD (defibrillator), the driver is disqualified.";
-            var certificate_7 = "a neurologist's release is required or there is a 10 year wait period before a certificate can be issued.";
-            var certificate_8 = "neurocardiogenic syncope, a maximum of one year certificate can be issued after a 3 month wait period.";
-            var certificate_9 = "oxygen therapy, the driver is disqualified.";
-            var certificate_10 = "cough syncope, the driver is disqualified.";
+            var certificate_0 = "Due to missing limbs, with a SPE certificate, a maximum of 1 year certificate can be issued.";
+            var certificate_1 = "Due to head/brain injuries, a neurologist's release is required and a maximum of 1 year certificate can be issued.";
+            var certificate_2 = "Due to head/brain injuries, a maximum of 2 year certificate can be issued.";
+            var certificate_3 = "Due to heart issues, a maximum of 1 year certificate can be issued after a two month wait period. A cardiologist release is needed and an exersize tolerance test must be administered every two years.";
+            var certificate_4 = "Due to heart issues, a cardiologist release is needed. A maximum of 2 year certificate can be issued after a 3 month wait period. After 5 years, an annual ETT is required.";
+            var certificate_5 = "Due to issues with a pacemaker, AV block / sinus node dysfunction, a maximum of one year certificate can be issued after a 1 month wait period.";
+            var certificate_6 = "Due to issues with a pacemaker, ICD (defibrillator), the driver is disqualified.";
+            var certificate_7 = "Due to seizures/epilepsy, a neurologist's release is required or there is a 10 year wait period before a certificate can be issued.";
+            var certificate_8 = "Due to issues with a pacemaker, neurocardiogenic syncope, a maximum of one year certificate can be issued after a 3 month wait period.";
+            var certificate_9 = "Due to lung issues, oxygen therapy, the driver is disqualified.";
+            var certificate_10 = "Due to lung issues, cough syncope, the driver is disqualified.";
             var certificate_11 = "the patient is disqualified.";
-            var certificate_12 = "cerebellar or brainstem, a maximum of one year certificate can be issued after a one year wait period. A neurologist's release is also required.";
-            var certificate_13 = "cortical/subcortical, a maximum of one year certificate can be issued after a five year wait period. A neurologist's release is also required.";
-            var certificate_14 = "TIA, a maximum of 1 year certificate can be issued after a one year wait period."
+            var certificate_12 = "Due to stroke issues, cerebellar or brainstem, a maximum of one year certificate can be issued after a one year wait period. A neurologist's release is also required.";
+            var certificate_13 = "Due to stroke issues, cortical/subcortical, a maximum of one year certificate can be issued after a five year wait period. A neurologist's release is also required.";
+            var certificate_14 = "Due to stroke issues, TIA, a maximum of 1 year certificate can be issued after a one year wait period."
+            var certificate_15 = "Due to kidney issues, the patient is disqualified.";
+            var certificate_16 = "Due to stomach issues, the patient is disqualified.";
+            var certificate_17 = "Due to insulin use, the patient is disqualified.";
+            var certificate_18 = "Due to anxiety issues, the patient is disqualified.";
+            var certificate_19 = "Due to fainting issues, the patient is disqualified.";
+            var certificate_20 = "Due to dizziness issues, the patient is disqualified.";
+            var certificate_21 = "Due to unexplained weight loss, the patient is disqualified.";
+            var certificate_22 = "Due to breathing issues, the patient is disqualified.";
+            var certificate_23 = "Due to missing limbs, the patient is disqualified.";
+            var certificate_24 = "Due to back/neck issues, the patient is disqualified.";
+            var certificate_25 = "Due to bone issues, the patient is disqualified.";
+            var certificate_26 = "Due to blood clot issues, the patient is disqualified.";
+            var certificate_27 = "Due to cancer issues, the patient is disqualified.";
+            var certificate_28 = "Due to infections/chronic diseases, the patient is disqualified.";
+            var certificate_29 = "Due to sleep disorders, the patient is disqualified.";
+            var certificate_30 = "Due to sleep test issues, the patient is disqualified.";
+            var certificate_31 = "Due to hospital visits, the patient is disqualified.";
+            var certificate_32 = "Due to broken bone issues, the patient is disqualified.";
+            var certificate_33 = "Due to tobacco use, the patient is disqualified.";
+            var certificate_34 = "Due to alcohol issues, the patient is disqualified.";
+            var certificate_35 = "Due to illegal drug issues, the patient is disqualified.";
+            var certificate_36 = "Due to failed drug test history, the patient is disqualified.";
 
-
+            var filtered = [];
             for (prop in obj) {
-              if (obj[prop] == 'undefined' || obj[prop] == 'na' || obj[prop] == '' || obj[prop] == 'valueZero') {
+              if (obj[prop] == 'undefined' || obj[prop] == 'na' || obj[prop] == '') {
               delete obj[prop]
+              }else {
+                filtered.push(obj[prop])
               }
             }
 
-            var str = JSON.stringify(obj);
+            console.log("filtered: " + filtered)
 
-            str = str.replace(/valueZero/g, certificate_0);
-            str = str.replace(/valueOne/g, certificate_1);
-            str = str.replace(/valueTwo/g, certificate_2);
-            str = str.replace(/valueThree/g, certificate_3);
-            str = str.replace(/valueFour/g, certificate_4);
-            str = str.replace(/valueFive/g, certificate_5);
-            str = str.replace(/valueSix/g, certificate_6);
-            str = str.replace(/valueSeven/g, certificate_7);
-            str = str.replace(/valueEight/g, certificate_8);
-            str = str.replace(/valueNine/g, certificate_9);
-            str = str.replace(/valueTen/g, certificate_10);
-            str = str.replace(/valueEleven/g, certificate_11);
-            str = str.replace(/valueTwelve/g, certificate_12);
-            str = str.replace(/valueThirteen/g, certificate_13);
-            str = str.replace(/valueFourteen/g, certificate_14);
 
-            str = str.replace(/followUpBrainInjury/g, followUpBrainInjury);
-            str = str.replace(/followUpEpilepsy/g, followUpEpilepsy);
-            str = str.replace(/followUpHeart/g, followUpHeart);
-            str = str.replace(/followUpPacemaker/g, followUpPacemaker);
-            str = str.replace(/followupBloodPressure/g, followupBloodPressure);
-            str = str.replace(/followUpHighCholesterol/g, followUpHighCholesterol);
-            str = str.replace(/followUpBreathingProblems/g, followUpBreathingProblems);
-            str = str.replace(/followUpLungDisease/g, followUpLungDisease);
-            str = str.replace(/followUpKidneyProblems/g, followUpKidneyProblems);
-            str = str.replace(/followUpStomachProblems/g, followUpStomachProblems);
-            str = str.replace(/followUpDiabetes/g, followUpDiabetes);
-            str = str.replace(/followUpInsulin/g, followUpInsulin);
-            str = str.replace(/followUpAnxiety/g, followUpAnxiety);
-            str = str.replace(/followUpFainting/g, followUpFainting);
-            str = str.replace(/followUpDizziness/g, followUpDizziness);
-            str = str.replace(/followUpStroke/g, followUpStroke);
-            str = str.replace(/followUpMissingLimbs/g, followUpMissingLimbs);
-            str = str.replace(/followUpBackProblems/g, followUpBackProblems);
-            str = str.replace(/followUpBoneProblems/g, followUpBoneProblems);
-            str = str.replace(/followUpBloodClots/g, followUpBloodClots);
-            str = str.replace(/followUpCancer/g, followUpCancer);
-            str = str.replace(/followUpChronicDiseases/g, followUpChronicDiseases);
-            str = str.replace(/followUpSleepDisorders/g, followUpSleepDisorders);
-            str = str.replace(/followUpSleepTest/g, followUpSleepTest);
-            str = str.replace(/followUpNightInHospital/g, followUpNightInHospital);
-            str = str.replace(/followUpBrokenBone/g, followUpBrokenBone);
-            str = str.replace(/followUpUseTobacco/g, followUpUseTobacco);
-            str = str.replace(/followUpDrinkAlcohol/g, followUpDrinkAlcohol);
-            str = str.replace(/followUpIllegalSubstance/g, followUpIllegalSubstance);
-            str = str.replace(/followUpFailedDrugTest/g, followUpFailedDrugTest);
 
-            obj = JSON.parse(str);
+            console.log(obj)
 
             var disqualifiedState;
             var disqualified;
             var arr = [];
             var timeline = [];
+
             for (prop in obj) {
-              arr.push(prop + ' ' + obj[prop])
-              timeline.push(obj[prop])
+              if(obj[prop] == "valueZero") {
+                arr.push(certificate_0)
+                timeline.push(certificate_0)
+              }
+              if(obj[prop] == "valueOne") {
+                arr.push(certificate_1)
+                timeline.push(certificate_1)
+              }
+              if(obj[prop] == "valueTwo") {
+                arr.push(certificate_2)
+                timeline.push(certificate_2)
+              }
+              if(obj[prop] == "valueThree") {
+                arr.push(certificate_3)
+                timeline.push(certificate_3)
+              }
+              if(obj[prop] == "valueFour") {
+                arr.push(certificate_4)
+                timeline.push(certificate_4)
+              }
+              if(obj[prop] == "valueFive") {
+                arr.push(certificate_5)
+                timeline.push(certificate_5)
+              }
+              if(obj[prop] == "valueSix") {
+                arr.push(certificate_6)
+                timeline.push(certificate_6)
+              }
+              if(obj[prop] == "valueSeven") {
+                arr.push(certificate_7)
+                timeline.push(certificate_7)
+              }
+              if(obj[prop] == "valueEight") {
+                arr.push(certificate_8)
+                timeline.push(certificate_8)
+              }
+              if(obj[prop] == "valueNine") {
+                arr.push(certificate_9)
+                timeline.push(certificate_9)
+              }
+              if(obj[prop] == "valueTen") {
+                arr.push(certificate_10)
+                timeline.push(certificate_10)
+              }
+              if(obj[prop] == "valueTwelve") {
+                arr.push(certificate_12)
+                timeline.push(certificate_12)
+              }
+              if(obj[prop] == "valueThirteen") {
+                arr.push(certificate_13)
+                timeline.push(certificate_13)
+              }
+              if(obj[prop] == "valueFourteen") {
+                arr.push(certificate_14)
+                timeline.push(certificate_14)
+              }
+              if(obj[prop] == "valueFifteen") {
+                arr.push(certificate_15)
+                timeline.push(certificate_15)
+              }
+              if(obj[prop] == "valueSixteen") {
+                arr.push(certificate_16)
+                timeline.push(certificate_16)
+              }
+              if(obj[prop] == "valueSeventeen") {
+                arr.push(certificate_17)
+                timeline.push(certificate_17)
+              }
+              if(obj[prop] == "valueEighteen") {
+                arr.push(certificate_18)
+                timeline.push(certificate_18)
+              }
+              if(obj[prop] == "valueNineteen") {
+                arr.push(certificate_19)
+                timeline.push(certificate_19)
+              }
+              if(obj[prop] == "valueTwenty") {
+                arr.push(certificate_20)
+                timeline.push(certificate_20)
+              }
+              if(obj[prop] == "valueTwentyOne") {
+                arr.push(certificate_21)
+                timeline.push(certificate_21)
+              }
+              if(obj[prop] == "valueTwentyTwo") {
+                arr.push(certificate_22)
+                timeline.push(certificate_22)
+              }
+              if(obj[prop] == "valueTwentyThree") {
+                arr.push(certificate_23)
+                timeline.push(certificate_23)
+              }
+              if(obj[prop] == "valueTwentyFour") {
+                arr.push(certificate_24)
+                timeline.push(certificate_24)
+              }
+              if(obj[prop] == "valueTwentyFive") {
+                arr.push(certificate_25)
+                timeline.push(certificate_25)
+              }
+              if(obj[prop] == "valueTwentySix") {
+                arr.push(certificate_26)
+                timeline.push(certificate_26)
+              }
+              if(obj[prop] == "valueTwentySeven") {
+                arr.push(certificate_27)
+                timeline.push(certificate_27)
+              }
+              if(obj[prop] == "valueTwentyEight") {
+                arr.push(certificate_28)
+                timeline.push(certificate_28)
+              }
+              if(obj[prop] == "valueTwentyNine") {
+                arr.push(certificate_29)
+                timeline.push(certificate_29)
+              }
+              if(obj[prop] == "valueThirty") {
+                arr.push(certificate_30)
+                timeline.push(certificate_30)
+              }
+              if(obj[prop] == "valueThirtyOne") {
+                arr.push(certificate_31)
+                timeline.push(certificate_31)
+              }
+              if(obj[prop] == "valueThirtyTwo") {
+                arr.push(certificate_32)
+                timeline.push(certificate_32)
+              }
+              if(obj[prop] == "valueThirtyThree") {
+                arr.push(certificate_33)
+                timeline.push(certificate_33)
+              }
+              if(obj[prop] == "valueThirtyFour") {
+                arr.push(certificate_34)
+                timeline.push(certificate_34)
+              }
+              if(obj[prop] == "valueThirtyFive") {
+                arr.push(certificate_35)
+                timeline.push(certificate_35)
+              }
+              if(obj[prop] == "valueThirtySix") {
+                arr.push(certificate_36)
+                timeline.push(certificate_36)
+              }
             }
+
+            console.log("arr: " + arr)
+
 
             var bloodPressureIssue = '';
           if (parseInt(testingObj.systolic1) >= 140 &&
@@ -300,7 +393,7 @@ var end = function(req, res, next) {
             if (arr.length == 0) {
               arr.push(noIssues)
             }
-
+            console.log(timeline)
             var historyCount = arr.length;
             var cert = [];
             for (i = 0; i < timeline.length; i++) {
@@ -309,9 +402,11 @@ var end = function(req, res, next) {
                  timeline[i] == "a maximum of 1 year certificate can be issued after a two month wait period. A cardiologist release is needed and an exersize tolerance test must be administered every two years."){
                  cert.push(3)
               }
+
               // if(timeline[i] == "a maximum of 2 year certificate can be issued."){
               //   cert.push(2)
               // }
+
               if(timeline[i] == "Due to stage 2 hypertension, a 3 month certificate can be issued."){
                 cert.push(1)
               }
@@ -347,7 +442,8 @@ var end = function(req, res, next) {
             console.log("minUse: " + minUse)
             console.log("disqualified: " + disqualified)
             console.log("disqualifiedState: " + disqualifiedState)
-            console.log("cert: " + cert)
+            console.log("minUse: " + minUse)
+
 
             if(disqualified == 0 || disqualified == 1){
               minUse = 'x';
@@ -360,7 +456,38 @@ var end = function(req, res, next) {
             console.log("minUse: " + minUse)
             console.log("disqualified: " + disqualified)
             console.log("disqualifiedState: " + disqualifiedState)
-            console.log("cert: " + cert)
+            console.log("minUse: " + minUse)
+
+
+
+            var disqualifiedReason = [];
+            for (i = 0; i < timeline.length; i++) {
+              if(timeline[i] == "cough syncope, the driver is disqualified."){
+                disqualifiedReason.push("cough syncope")
+              }
+              if(timeline[i] == "oxygen therapy, the driver is disqualified."){
+                disqualifiedReason.push("oxygen therapy")
+              }
+              if(timeline[i] == "ICD (defibrillator), the driver is disqualified."){
+                disqualifiedReason.push("ICD (defibrillator)")
+              }
+              if(timeline[i] == "Due to vision problems, the driver is disqualified."){
+                disqualifiedReason.push("vision issues")
+              }
+              if(timeline[i] == "Due to hearing issues, the driver is disqualified."){
+                disqualifiedReason.push("hearing issues")
+              }
+              if(timeline[i] == "Due to stage 3 hypertension, The driver may not be qualified, even temporarily, until reduced to 140/90 or less."){
+                disqualifiedReason.push("stage 3 hypertension")
+              }
+            }
+
+//***************** LOOP THROUGH ALL DISQUALIFIERS AND CONCATINATE  ****************
+
+            var dqReasonUse = '';
+            for (i = 0; i < disqualifiedReason.length; i++){
+              dqReasonUse += disqualifiedReason[i] + ' / '
+            }
 
 
 
@@ -502,7 +629,7 @@ var end = function(req, res, next) {
         "MCSA-5875[0].Page4[0].pageHead4[0].dateBirth4[0]": rows[0].dob,
         "MCSA-5875[0].Page4[0].pageHead4[0].dateForm4[0]": date,
         "MCSA-5875[0].Page4[0].fedDetermination[0].standardButtonList[0]": disqualified,
-        "MCSA-5875[0].Page4[0].fedDetermination[0].notStandardsWhy[0]": "",
+        "MCSA-5875[0].Page4[0].fedDetermination[0].notStandardsWhy[0]": dqReasonUse,
         "MCSA-5875[0].Page4[0].fedDetermination[0].butStandardsWhy[0]": "",
         "MCSA-5875[0].Page4[0].fedDetermination[0].qualifiedButtonList[0]": minUse,
         "MCSA-5875[0].Page4[0].fedDetermination[0].otherQualify[0]": "",
@@ -546,7 +673,7 @@ var end = function(req, res, next) {
         "MCSA-5875[0].Page5[0].pageHead5[0].dateBirth5[0]": rows[0].dob,
         "MCSA-5875[0].Page5[0].pageHead5[0].dateForm5[0]": date,
         "MCSA-5875[0].Page5[0].stateDetermination[0].standardButtonListState[0]": disqualifiedState,
-        "MCSA-5875[0].Page5[0].stateDetermination[0].notStandardsWhyState[0]": "because",
+        "MCSA-5875[0].Page5[0].stateDetermination[0].notStandardsWhyState[0]": dqReasonUse,
         "MCSA-5875[0].Page5[0].stateDetermination[0].butStandardsWhyState[0]": "",
         "MCSA-5875[0].Page5[0].stateDetermination[0].qualifiedButtonListState[0]": minUse,
         "MCSA-5875[0].Page5[0].stateDetermination[0].otherQualifyState[0]": "rows[0].",
@@ -593,10 +720,12 @@ var end = function(req, res, next) {
         //console.log("In callback (we're done).");
       });
 
+
+console.log("arr: " + arr)
             res.render('end', {
               title: 'End',
               user: user,
-              data: arr,
+              data: timeline,
               count: historyCount
             });
 
