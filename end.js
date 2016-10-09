@@ -465,132 +465,31 @@ var end = function(req, res, next) {
             var dqState;
             var cert;
 
+            console.log("dqArr.length: " + dqArr.length)
+            console.log("certArr.length: " + certArr.length)
+
             if (dqArr.length == 0 && certArr.length == 0) {
               cert = 'x'
               dq = 1;
               dqState = 3;
-            }
-
-            if (dqArr.length != 0){
+            } else if (dqArr.length != 0){
               cert = 'x';
               dq = 0;
               dqState = 0;
+            } else {
+              dq = 'x';
+              dqState = 'x';
+              cert = Math.min.apply(null, certArr)
             }
 
-            //var minUse = 1;
+            console.log("cert: " + cert)
 
-            if (dqArr.length == 0 && certArr.length != 0){
+            // if (dqArr.length == 0 && certArr.length != 0){
 
-              var min = Math.min.apply(null, certArr)
-              console.log("min: " + min)
-
-              if(min == 1 || min == 3){
-                cert = min;
-              } else {
-                cert = 'x'
-              }
-
-            }
-
-            //console.log(timeline)
-
-            //var cert = [];
-
-
-            // for (i = 0; i < timeline.length; i++) {
-            //   if(timeline[i] == "a maximum of 1 year certificate can be issued." ||
-            //      timeline[i] == "a neurologist's release is required and a maximum of 1 year certificate can be issued." ||
-            //      timeline[i] == "a maximum of 1 year certificate can be issued after a two month wait period. A cardiologist release is needed and an exersize tolerance test must be administered every two years."){
-            //      cert.push(3)
-            //   }
-
-              // if(timeline[i] == "a maximum of 2 year certificate can be issued."){
-              //   cert.push(2)
-              // }
-
-            //   if(timeline[i] == "Due to stage 2 hypertension, a 3 month certificate can be issued."){
-            //     cert.push(1)
-            //   }
-            //   if(timeline[i] == "the patient is disqualified." ||
-            //      timeline[i] == "cough syncope, the driver is disqualified." ||
-            //      timeline[i] == "oxygen therapy, the driver is disqualified." ||
-            //      timeline[i] == "ICD (defibrillator), the driver is disqualified." ||
-            //      timeline[i] == "Due to vision problems, the driver is disqualified." ||
-            //      timeline[i] == "Due to hearing issues, the driver is disqualified." ||
-            //      timeline[i] == "Due to stage 3 hypertension, The driver may not be qualified, even temporarily, until reduced to 140/90 or less."
-            //      ){
-            //   disqualified = 0;
-            //   disqualifiedState = 0;
-            //   }
+            //   var min = Math.min.apply(null, certArr)
+            //   console.log("min: " + min);
+            //   cert = min;
             // }
-
-            // console.log("cert: " + cert)
-
-            // if (disqualified != 0) {
-            //   disqualified = 1;
-            //   disqualifiedState = 3;
-            // }
-
-            // var min = Math.min.apply(null, cert) // 1
-            // console.log("min: " + min)
-            // var minUse;
-            // if(min == 1 || min == 3){
-            //   minUse = min;
-            // }else {
-            //   minUse = 'x'
-            // }
-
-            // console.log("minUse: " + minUse)
-            // console.log("disqualified: " + disqualified)
-            // console.log("disqualifiedState: " + disqualifiedState)
-            // console.log("minUse: " + minUse)
-
-
-            // if(disqualified == 0 || disqualified == 1){
-            //   minUse = 'x';
-            // }
-
-            // if(disqualifiedState == 0 || disqualifiedState == 3){
-            //   minUse = 'x';
-            // }
-
-            // console.log("minUse: " + minUse)
-            // console.log("disqualified: " + disqualified)
-            // console.log("disqualifiedState: " + disqualifiedState)
-            // console.log("minUse: " + minUse)
-
-
-
-            // var disqualifiedReason = [];
-            // for (i = 0; i < timeline.length; i++) {
-            //   if(timeline[i] == "cough syncope, the driver is disqualified."){
-            //     disqualifiedReason.push("cough syncope")
-            //   }
-            //   if(timeline[i] == "oxygen therapy, the driver is disqualified."){
-            //     disqualifiedReason.push("oxygen therapy")
-            //   }
-            //   if(timeline[i] == "ICD (defibrillator), the driver is disqualified."){
-            //     disqualifiedReason.push("ICD (defibrillator)")
-            //   }
-            //   if(timeline[i] == "Due to vision problems, the driver is disqualified."){
-            //     disqualifiedReason.push("vision issues")
-            //   }
-            //   if(timeline[i] == "Due to hearing issues, the driver is disqualified."){
-            //     disqualifiedReason.push("hearing issues")
-            //   }
-            //   if(timeline[i] == "Due to stage 3 hypertension, The driver may not be qualified, even temporarily, until reduced to 140/90 or less."){
-            //     disqualifiedReason.push("stage 3 hypertension")
-            //   }
-            // }
-
-//***************** LOOP THROUGH ALL DISQUALIFIERS AND CONCATINATE  ****************
-
-            // var dqReasonUse = '';
-            // for (i = 0; i < disqualifiedReason.length; i++){
-            //   dqReasonUse += disqualifiedReason[i] + ' / '
-            // }
-
-
 
 
       var data = {
@@ -732,7 +631,7 @@ var end = function(req, res, next) {
         "MCSA-5875[0].Page4[0].fedDetermination[0].standardButtonList[0]": dq,
         "MCSA-5875[0].Page4[0].fedDetermination[0].notStandardsWhy[0]": reason,
         "MCSA-5875[0].Page4[0].fedDetermination[0].butStandardsWhy[0]": "",
-        "MCSA-5875[0].Page4[0].fedDetermination[0].qualifiedButtonList[0]": cert,
+        "MCSA-5875[0].Page4[0].fedDetermination[0].qualifiedButtonList[0]": 1,
         "MCSA-5875[0].Page4[0].fedDetermination[0].otherQualify[0]": "",
         "MCSA-5875[0].Page4[0].fedDetermination[0].restrictVary[0].correctLenses[0]": rows[0].glasses,
         "MCSA-5875[0].Page4[0].fedDetermination[0].restrictVary[0].hearingAid[0]": corrected,
@@ -776,7 +675,7 @@ var end = function(req, res, next) {
         "MCSA-5875[0].Page5[0].stateDetermination[0].standardButtonListState[0]": dqState,
         "MCSA-5875[0].Page5[0].stateDetermination[0].notStandardsWhyState[0]": reason,
         "MCSA-5875[0].Page5[0].stateDetermination[0].butStandardsWhyState[0]": "",
-        "MCSA-5875[0].Page5[0].stateDetermination[0].qualifiedButtonListState[0]": cert,
+        "MCSA-5875[0].Page5[0].stateDetermination[0].qualifiedButtonListState[0]": 1,
         "MCSA-5875[0].Page5[0].stateDetermination[0].otherQualifyState[0]": "rows[0].",
         "MCSA-5875[0].Page5[0].stateDetermination[0].varyRestrict[0].correctLensesState[0]": rows[0].glasses,
         "MCSA-5875[0].Page5[0].stateDetermination[0].varyRestrict[0].hearingAidState[0]": corrected,
