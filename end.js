@@ -342,11 +342,17 @@ var end = function(req, res, next) {
             console.log("disqualified: " + disqualified[0])
             console.log("disqualifiedState: " + disqualifiedState[0])
 
-            // if (disqualified == undefined || && minUse == 'x'){
-            //   disqualified = [1];
-            // }
+            if(disqualified[0] == 0 || disqualified[0] == 1){
+              minUse = 'x';
+            }
 
+            if(disqualifiedState[0] == 0 || disqualifiedState[0] == 3){
+              minUse = 'x';
+            }
 
+            console.log("minUse: " + minUse)
+            console.log("disqualified: " + disqualified[0])
+            console.log("disqualifiedState: " + disqualifiedState[0])
 
 
 
