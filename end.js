@@ -228,7 +228,7 @@ var end = function(req, res, next) {
             }
 
             var bloodPressureIssue = '';
-            if (parseInt(testingObj.systolic1) >= 140 &&
+          if (parseInt(testingObj.systolic1) >= 140 &&
               parseInt(testingObj.systolic1) <= 159 &&
               parseInt(testingObj.systolic2) >= 140 &&
               parseInt(testingObj.systolic2) <= 159 ||
@@ -240,7 +240,7 @@ var end = function(req, res, next) {
               timeline.push(bloodPressureIssue)
             }
 
-            if (parseInt(testingObj.systolic1) >= 160 &&
+          if (parseInt(testingObj.systolic1) >= 160 &&
               parseInt(testingObj.systolic1) <= 179 &&
               parseInt(testingObj.systolic2) >= 160 &&
               parseInt(testingObj.systolic2) <= 179 ||
@@ -253,7 +253,7 @@ var end = function(req, res, next) {
               timeline.push(bloodPressureIssue)
             }
 
-            if (parseInt(testingObj.systolic1) >= 180 &&
+          if (parseInt(testingObj.systolic1) >= 180 &&
               parseInt(testingObj.systolic2) >= 180 ||
               parseInt(testingObj.diastolic1) >= 110 &&
               parseInt(testingObj.diastolic2) >= 110) {
@@ -263,7 +263,7 @@ var end = function(req, res, next) {
             }
 
             var hearingIssue = '';
-            if (parseInt(hearingObj.rightear) < 5 &&
+          if (parseInt(hearingObj.rightear) < 5 &&
               parseInt(hearingObj.leftear) < 5 &&
               parseInt(hearingObj.right500) < 40 ||
               parseInt(hearingObj.right1000) < 40 ||
@@ -278,7 +278,7 @@ var end = function(req, res, next) {
             }
 
             var visionIssue = '';
-            if (parseInt(visionObj.rightcorrected) > 40 ||
+          if (parseInt(visionObj.rightcorrected) > 40 ||
               parseInt(visionObj.rightuncorrected) > 40 ||
               parseInt(visionObj.leftcorrected) > 40 ||
               parseInt(visionObj.leftuncorrected) > 40 ||
@@ -298,7 +298,7 @@ var end = function(req, res, next) {
             }
 
             var historyCount = arr.length;
-
+            var disqualifiedState = [];
             var disqualified = [];
             var cert = [];
             for (i = 0; i < timeline.length; i++) {
@@ -322,6 +322,10 @@ var end = function(req, res, next) {
                  timeline[i] == "Due to stage 3 hypertension, The driver may not be qualified, even temporarily, until reduced to 140/90 or less."
                  ){
                 disqualified.push(0)
+                disqualifiedState.push(0)
+              } else{
+                disqualified.push(1)
+                disqualifiedState.push(3)
               }
             }
 
@@ -335,7 +339,12 @@ var end = function(req, res, next) {
             }
 
             console.log("minUse: " + minUse)
-            console.log("disqualified: " + disqualified)
+            console.log("disqualified: " + disqualified[0])
+            console.log("disqualifiedState: " + disqualifiedState[0])
+
+            // if (disqualified == undefined || && minUse == 'x'){
+            //   disqualified = [1];
+            // }
 
 
 
@@ -522,8 +531,7 @@ var end = function(req, res, next) {
         "MCSA-5875[0].Page5[0].pageHead5[0].nameInitialHead5[0]": rows[0].middlename,
         "MCSA-5875[0].Page5[0].pageHead5[0].dateBirth5[0]": rows[0].dob,
         "MCSA-5875[0].Page5[0].pageHead5[0].dateForm5[0]": date,
-
-        "MCSA-5875[0].Page5[0].stateDetermination[0].standardButtonListState[0]": disqualified[0],
+        "MCSA-5875[0].Page5[0].stateDetermination[0].standardButtonListState[0]": disqualifiedState[0],
         "MCSA-5875[0].Page5[0].stateDetermination[0].notStandardsWhyState[0]": "because",
         "MCSA-5875[0].Page5[0].stateDetermination[0].butStandardsWhyState[0]": "1",
         "MCSA-5875[0].Page5[0].stateDetermination[0].qualifiedButtonListState[0]": minUse,
@@ -554,28 +562,22 @@ var end = function(req, res, next) {
         "MCSA-5875[0].Page5[0].stateDetermination[0].expireDateState[0]": moreInfoRows[0].exp
       };
 
-        // var md = '0';
-        // var DO = '0';
-        // var pa = '0';
-        // var ch = '0';
-        // var apn = '0';
-        // var op = '0';
+      //0 state = does not meet
+      //1 state = does not meet
+      //2 state = meets but periodic
+      //3 state = meets
+
+      //0 fed = does not meet
+      //1 fed = meets?  also periodic?
+      //2 fed = does not meet
+      //3 fed = meetsbut periodic
+
+
 
       pdfFiller.fillForm(sourcePDF, destinationPDF, data, shouldFlatten, function(err) {
         if (err) throw err;
         //console.log("In callback (we're done).");
       });
-
-
-
-
-
-
-            //console.log(cert)
-            //console.log(timeline)
-
-            //console.log(arr)
-
 
             res.render('end', {
               title: 'End',
@@ -597,7 +599,7 @@ var end = function(req, res, next) {
 //-------------------------------------------------------
 var endPost = function(req, res, next) {
 
-  //var sessionId = sessionIdArr;
+
   var user = req.user;
 
   res.redirect('/pdf/' + sessionId)
