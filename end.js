@@ -151,6 +151,10 @@ var end = function(req, res, next) {
             var certificate_34 = "Due to alcohol issues, the patient is disqualified.";
             var certificate_35 = "Due to illegal drug issues, the patient is disqualified.";
             var certificate_36 = "Due to failed drug test history, the patient is disqualified.";
+            var certificate_37 = "Due to head/brain injuries, the patient is disqualified.";
+            var certificate_38 = "Due to heart issues without a cardiologist's release, the patient is disqualified.";
+            var certificate_39 = "Due to epilepsy without a neurologist's release, the patient is disqualified.";
+            var certificate_40 = "Due to Neurocardiogenic syncope without a 3 month wait period, the patient is disqualified.";
 
             var filtered = [];
             for (prop in obj) {
@@ -177,18 +181,21 @@ var end = function(req, res, next) {
             var arr = [];
             var timeline = [];
             var reason = '';
+            var reasonb = '';
 
             for (i = 0; i < filtered.length; i++) {
               if(filtered[i] == "valueZero") {
                 arr.push(certificate_0);
                 timeline.push(certificate_0);
                 certArr.push(3);
+                reasonb += "missing limbs with a SPE certificate / "
 
               }
               if(filtered[i] == "valueOne") {
                 arr.push(certificate_1);
                 timeline.push(certificate_1);
                 certArr.push(3);
+                reasonb += "head or brain injuries with a neurologist's release / "
               }
               if(filtered[i] == "valueTwo") {
                 arr.push(certificate_2)
@@ -209,6 +216,7 @@ var end = function(req, res, next) {
                 arr.push(certificate_5)
                 timeline.push(certificate_5)
                 certArr.push(3);
+                reasonb += "AV block - sinus node dysfunction after a 1 month wait / "
               }
               if(filtered[i] == "valueSix") {
                 arr.push(certificate_6)
@@ -225,6 +233,7 @@ var end = function(req, res, next) {
                 arr.push(certificate_8)
                 timeline.push(certificate_8)
                 certArr.push(3);
+                reasonb += "neurocardiogenic syncope after a 3 month wait / "
               }
               if(filtered[i] == "valueNine") {
                 arr.push(certificate_9)
@@ -242,6 +251,7 @@ var end = function(req, res, next) {
                 arr.push(certificate_12)
                 timeline.push(certificate_12)
                 certArr.push(3);
+                reasonb += "cerebellar or brainstem with a neurologist's release and a 1 year wait / "
               }
               if(filtered[i] == "valueThirteen") {
                 arr.push(certificate_13)
@@ -385,6 +395,30 @@ var end = function(req, res, next) {
                 dqArr.push(0)
                 reason += "failed drug test history / "
               }
+              if(filtered[i] == "valueThirtySeven") {
+                arr.push(certificate_37)
+                timeline.push(certificate_37)
+                dqArr.push(0)
+                reason += "head or brain injuries / "
+              }
+              if(filtered[i] == "valueThirtyEight") {
+                arr.push(certificate_38)
+                timeline.push(certificate_38)
+                dqArr.push(0)
+                reason += "heart issues / "
+              }
+              if(filtered[i] == "valueThirtyNine") {
+                arr.push(certificate_39)
+                timeline.push(certificate_39)
+                dqArr.push(0)
+                reason += "epilepsy / "
+              }
+              if(filtered[i] == "valueFourty") {
+                arr.push(certificate_40)
+                timeline.push(certificate_40)
+                dqArr.push(0)
+                reason += "neurocardiogenic syncope / "
+              }
             }
 
             //console.log("arr: " + arr)
@@ -400,6 +434,7 @@ var end = function(req, res, next) {
               parseInt(testingObj.diastolic2) <= 99) {
               bloodPressureIssue = "Due to stage 1 hypertension, a 1 year certificate can be issued.";
               timeline.push(bloodPressureIssue)
+              reasonb += "stage 1 hypertension / "
             }
 
           if (parseInt(testingObj.systolic1) >= 160 &&
@@ -413,6 +448,7 @@ var end = function(req, res, next) {
               bloodPressureIssue = "Due to stage 2 hypertension, a 3 month certificate can be issued.";
               certArr.push(1)
               timeline.push(bloodPressureIssue)
+              reasonb += "stage 2 hypertension / "
             }
 
           if (parseInt(testingObj.systolic1) >= 180 &&
@@ -631,7 +667,7 @@ var end = function(req, res, next) {
         "MCSA-5875[0].Page4[0].fedDetermination[0].standardButtonList[0]": dq,
         "MCSA-5875[0].Page4[0].fedDetermination[0].notStandardsWhy[0]": reason,
         "MCSA-5875[0].Page4[0].fedDetermination[0].butStandardsWhy[0]": "",
-        "MCSA-5875[0].Page4[0].fedDetermination[0].qualifiedButtonList[0]": 1,
+        "MCSA-5875[0].Page4[0].fedDetermination[0].qualifiedButtonList[0]": cert,
         "MCSA-5875[0].Page4[0].fedDetermination[0].otherQualify[0]": "",
         "MCSA-5875[0].Page4[0].fedDetermination[0].restrictVary[0].correctLenses[0]": rows[0].glasses,
         "MCSA-5875[0].Page4[0].fedDetermination[0].restrictVary[0].hearingAid[0]": corrected,
@@ -675,7 +711,7 @@ var end = function(req, res, next) {
         "MCSA-5875[0].Page5[0].stateDetermination[0].standardButtonListState[0]": dqState,
         "MCSA-5875[0].Page5[0].stateDetermination[0].notStandardsWhyState[0]": reason,
         "MCSA-5875[0].Page5[0].stateDetermination[0].butStandardsWhyState[0]": "",
-        "MCSA-5875[0].Page5[0].stateDetermination[0].qualifiedButtonListState[0]": 1,
+        "MCSA-5875[0].Page5[0].stateDetermination[0].qualifiedButtonListState[0]": cert,
         "MCSA-5875[0].Page5[0].stateDetermination[0].otherQualifyState[0]": "rows[0].",
         "MCSA-5875[0].Page5[0].stateDetermination[0].varyRestrict[0].correctLensesState[0]": rows[0].glasses,
         "MCSA-5875[0].Page5[0].stateDetermination[0].varyRestrict[0].hearingAidState[0]": corrected,
