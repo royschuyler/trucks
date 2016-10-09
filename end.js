@@ -176,12 +176,14 @@ var end = function(req, res, next) {
             var certArr = [];
             var arr = [];
             var timeline = [];
+            var reason = '';
 
             for (i = 0; i < filtered.length; i++) {
               if(filtered[i] == "valueZero") {
                 arr.push(certificate_0);
                 timeline.push(certificate_0);
                 certArr.push(3);
+
               }
               if(filtered[i] == "valueOne") {
                 arr.push(certificate_1);
@@ -201,6 +203,7 @@ var end = function(req, res, next) {
                 arr.push(certificate_4)
                 timeline.push(certificate_4)
                 dqArr.push(0)
+                reason += "heart issues / ";
               }
               if(filtered[i] == "valueFive") {
                 arr.push(certificate_5)
@@ -211,6 +214,7 @@ var end = function(req, res, next) {
                 arr.push(certificate_6)
                 timeline.push(certificate_6)
                 dqArr.push(0)
+                reason += "pacemaker, ICD (defibrillator) / ";
               }
               if(filtered[i] == "valueSeven") {
                 arr.push(certificate_7)
@@ -226,11 +230,13 @@ var end = function(req, res, next) {
                 arr.push(certificate_9)
                 timeline.push(certificate_9)
                 dqArr.push(0)
+                reason += "lung issues, oxygen therapy / "
               }
               if(filtered[i] == "valueTen") {
                 arr.push(certificate_10)
                 timeline.push(certificate_10)
                 dqArr.push(0)
+                reason += "lung issues, cough syncope / "
               }
               if(filtered[i] == "valueTwelve") {
                 arr.push(certificate_12)
@@ -251,111 +257,133 @@ var end = function(req, res, next) {
                 arr.push(certificate_15)
                 timeline.push(certificate_15)
                 dqArr.push(0)
+                reason += "kidney issues / "
               }
               if(filtered[i] == "valueSixteen") {
                 arr.push(certificate_16)
                 timeline.push(certificate_16)
                 dqArr.push(0)
+                reason += "stomach issues / "
               }
               if(filtered[i] == "valueSeventeen") {
                 arr.push(certificate_17)
                 timeline.push(certificate_17)
                 dqArr.push(0)
+                reason += "insulin use / "
               }
               if(filtered[i] == "valueEighteen") {
                 arr.push(certificate_18)
                 timeline.push(certificate_18)
                 dqArr.push(0)
+                reason += "anxiety issues / "
               }
               if(filtered[i] == "valueNineteen") {
                 arr.push(certificate_19)
                 timeline.push(certificate_19)
                 dqArr.push(0)
+                reason += "fainting issues / "
               }
               if(filtered[i] == "valueTwenty") {
                 arr.push(certificate_20)
                 timeline.push(certificate_20)
                 dqArr.push(0)
+                reason += "dizziness issues / "
               }
               if(filtered[i] == "valueTwentyOne") {
                 arr.push(certificate_21)
                 timeline.push(certificate_21)
                 dqArr.push(0)
+                reason += "unexplained weight loss / "
               }
               if(filtered[i] == "valueTwentyTwo") {
                 arr.push(certificate_22)
                 timeline.push(certificate_22)
                 dqArr.push(0)
+                reason += "breathing issues / "
               }
               if(filtered[i] == "valueTwentyThree") {
                 arr.push(certificate_23)
                 timeline.push(certificate_23)
                 dqArr.push(0)
+                reason += "missing limbs / "
               }
               if(filtered[i] == "valueTwentyFour") {
                 arr.push(certificate_24)
                 timeline.push(certificate_24)
                 dqArr.push(0)
+                reason += "back issues / "
               }
               if(filtered[i] == "valueTwentyFive") {
                 arr.push(certificate_25)
                 timeline.push(certificate_25)
                 dqArr.push(0)
+                reason += "bone issues / "
               }
               if(filtered[i] == "valueTwentySix") {
                 arr.push(certificate_26)
                 timeline.push(certificate_26)
                 dqArr.push(0)
+                reason += "bloodclot issues / "
               }
               if(filtered[i] == "valueTwentySeven") {
                 arr.push(certificate_27)
                 timeline.push(certificate_27)
                 dqArr.push(0)
+                reason += "cancer issues / "
               }
               if(filtered[i] == "valueTwentyEight") {
                 arr.push(certificate_28)
                 timeline.push(certificate_28)
                 dqArr.push(0)
+                reason += "infections or chronic diseases / "
               }
               if(filtered[i] == "valueTwentyNine") {
                 arr.push(certificate_29)
                 timeline.push(certificate_29)
                 dqArr.push(0)
+                reason += "sleep disorders / "
               }
               if(filtered[i] == "valueThirty") {
                 arr.push(certificate_30)
                 timeline.push(certificate_30)
                 dqArr.push(0)
+                reason += "sleep test results / "
               }
               if(filtered[i] == "valueThirtyOne") {
                 arr.push(certificate_31)
                 timeline.push(certificate_31)
                 dqArr.push(0)
+                reason += "hospital visits / "
               }
               if(filtered[i] == "valueThirtyTwo") {
                 arr.push(certificate_32)
                 timeline.push(certificate_32)
                 dqArr.push(0)
+                reason += "broken bones / "
               }
               if(filtered[i] == "valueThirtyThree") {
                 arr.push(certificate_33)
                 timeline.push(certificate_33)
                 dqArr.push(0)
+                reason += "tobacco use / "
               }
               if(filtered[i] == "valueThirtyFour") {
                 arr.push(certificate_34)
                 timeline.push(certificate_34)
                 dqArr.push(0)
+                reason += "alcohol issues / "
               }
               if(filtered[i] == "valueThirtyFive") {
                 arr.push(certificate_35)
                 timeline.push(certificate_35)
                 dqArr.push(0)
+                reason += "illegal drugs / "
               }
               if(filtered[i] == "valueThirtySix") {
                 arr.push(certificate_36)
                 timeline.push(certificate_36)
                 dqArr.push(0)
+                reason += "failed drug test history / "
               }
             }
 
@@ -394,6 +422,7 @@ var end = function(req, res, next) {
               bloodPressureIssue = "Due to stage 3 hypertension, The driver may not be qualified, even temporarily, until reduced to 140/90 or less.";
               dqArr.push(0)
               timeline.push(bloodPressureIssue)
+              reason += "stage 3 hypertension / "
             }
 
             var hearingIssue = '';
@@ -408,6 +437,7 @@ var end = function(req, res, next) {
               hearingIssue = "Due to hearing issues, the driver is disqualified."
               dqArr.push(0)
               timeline.push(bloodPressureIssue)
+              reason += "hearing issues / "
             }
 
             var visionIssue = '';
@@ -422,6 +452,7 @@ var end = function(req, res, next) {
               visionIssue = "Due to vision problems, the driver is disqualified."
               dqArr.push(0)
               timeline.push(bloodPressureIssue)
+              reason += "vision issues / "
             }
 
 
@@ -699,7 +730,7 @@ var end = function(req, res, next) {
         "MCSA-5875[0].Page4[0].pageHead4[0].dateBirth4[0]": rows[0].dob,
         "MCSA-5875[0].Page4[0].pageHead4[0].dateForm4[0]": date,
         "MCSA-5875[0].Page4[0].fedDetermination[0].standardButtonList[0]": dq,
-        "MCSA-5875[0].Page4[0].fedDetermination[0].notStandardsWhy[0]": "dqReasonUse",
+        "MCSA-5875[0].Page4[0].fedDetermination[0].notStandardsWhy[0]": reason,
         "MCSA-5875[0].Page4[0].fedDetermination[0].butStandardsWhy[0]": "",
         "MCSA-5875[0].Page4[0].fedDetermination[0].qualifiedButtonList[0]": cert,
         "MCSA-5875[0].Page4[0].fedDetermination[0].otherQualify[0]": "",
@@ -743,7 +774,7 @@ var end = function(req, res, next) {
         "MCSA-5875[0].Page5[0].pageHead5[0].dateBirth5[0]": rows[0].dob,
         "MCSA-5875[0].Page5[0].pageHead5[0].dateForm5[0]": date,
         "MCSA-5875[0].Page5[0].stateDetermination[0].standardButtonListState[0]": dqState,
-        "MCSA-5875[0].Page5[0].stateDetermination[0].notStandardsWhyState[0]": "dqReasonUse",
+        "MCSA-5875[0].Page5[0].stateDetermination[0].notStandardsWhyState[0]": reason,
         "MCSA-5875[0].Page5[0].stateDetermination[0].butStandardsWhyState[0]": "",
         "MCSA-5875[0].Page5[0].stateDetermination[0].qualifiedButtonListState[0]": cert,
         "MCSA-5875[0].Page5[0].stateDetermination[0].otherQualifyState[0]": "rows[0].",
