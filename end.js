@@ -220,6 +220,8 @@ var end = function(req, res, next) {
 
             obj = JSON.parse(str);
 
+            var disqualifiedState;
+            var disqualified;
             var arr = [];
             var timeline = [];
             for (prop in obj) {
@@ -274,7 +276,8 @@ var end = function(req, res, next) {
               hearingIssue = "Due to hearing issues, the driver is disqualified."
               arr.push(hearingIssue)
               timeline.push(bloodPressureIssue)
-              disqualified.push(0)
+              disqualified = 0;
+              disqualifiedState = 0;
             }
 
             var visionIssue = '';
@@ -289,7 +292,8 @@ var end = function(req, res, next) {
               visionIssue = "Due to vision problems, the driver is disqualified."
               arr.push(visionIssue)
               timeline.push(bloodPressureIssue)
-              disqualified.push(0)
+              disqualified = 0;
+              disqualifiedState = 0;
             }
 
 
@@ -298,8 +302,6 @@ var end = function(req, res, next) {
             }
 
             var historyCount = arr.length;
-            var disqualifiedState = [];
-            var disqualified = [];
             var cert = [];
             for (i = 0; i < timeline.length; i++) {
               if(timeline[i] == "a maximum of 1 year certificate can be issued." ||
@@ -321,12 +323,16 @@ var end = function(req, res, next) {
                  timeline[i] == "Due to hearing issues, the driver is disqualified." ||
                  timeline[i] == "Due to stage 3 hypertension, The driver may not be qualified, even temporarily, until reduced to 140/90 or less."
                  ){
-                disqualified.push(0)
-                disqualifiedState.push(0)
-              } else{
-                disqualified.push(1)
-                disqualifiedState.push(3)
+              disqualified = 0;
+              disqualifiedState = 0;
               }
+            }
+
+            console.log("cert: " + cert)
+
+            if (disqualified != 0) {
+              disqualified = 1;
+              disqualifiedState = 3;
             }
 
             var min = Math.min.apply(null, cert) // 1
@@ -339,20 +345,22 @@ var end = function(req, res, next) {
             }
 
             console.log("minUse: " + minUse)
-            console.log("disqualified: " + disqualified[0])
-            console.log("disqualifiedState: " + disqualifiedState[0])
+            console.log("disqualified: " + disqualified)
+            console.log("disqualifiedState: " + disqualifiedState)
+            console.log("cert: " + cert)
 
-            if(disqualified[0] == 0 || disqualified[0] == 1){
+            if(disqualified == 0 || disqualified == 1){
               minUse = 'x';
             }
 
-            if(disqualifiedState[0] == 0 || disqualifiedState[0] == 3){
+            if(disqualifiedState == 0 || disqualifiedState == 3){
               minUse = 'x';
             }
 
             console.log("minUse: " + minUse)
-            console.log("disqualified: " + disqualified[0])
-            console.log("disqualifiedState: " + disqualifiedState[0])
+            console.log("disqualified: " + disqualified)
+            console.log("disqualifiedState: " + disqualifiedState)
+            console.log("cert: " + cert)
 
 
 
@@ -493,7 +501,7 @@ var end = function(req, res, next) {
         "MCSA-5875[0].Page4[0].pageHead4[0].nameInitialHead4[0]": rows[0].middlename,
         "MCSA-5875[0].Page4[0].pageHead4[0].dateBirth4[0]": rows[0].dob,
         "MCSA-5875[0].Page4[0].pageHead4[0].dateForm4[0]": date,
-        "MCSA-5875[0].Page4[0].fedDetermination[0].standardButtonList[0]": disqualified[0],
+        "MCSA-5875[0].Page4[0].fedDetermination[0].standardButtonList[0]": disqualified,
         "MCSA-5875[0].Page4[0].fedDetermination[0].notStandardsWhy[0]": "",
         "MCSA-5875[0].Page4[0].fedDetermination[0].butStandardsWhy[0]": "",
         "MCSA-5875[0].Page4[0].fedDetermination[0].qualifiedButtonList[0]": minUse,
@@ -537,7 +545,7 @@ var end = function(req, res, next) {
         "MCSA-5875[0].Page5[0].pageHead5[0].nameInitialHead5[0]": rows[0].middlename,
         "MCSA-5875[0].Page5[0].pageHead5[0].dateBirth5[0]": rows[0].dob,
         "MCSA-5875[0].Page5[0].pageHead5[0].dateForm5[0]": date,
-        "MCSA-5875[0].Page5[0].stateDetermination[0].standardButtonListState[0]": disqualifiedState[0],
+        "MCSA-5875[0].Page5[0].stateDetermination[0].standardButtonListState[0]": disqualifiedState,
         "MCSA-5875[0].Page5[0].stateDetermination[0].notStandardsWhyState[0]": "because",
         "MCSA-5875[0].Page5[0].stateDetermination[0].butStandardsWhyState[0]": "",
         "MCSA-5875[0].Page5[0].stateDetermination[0].qualifiedButtonListState[0]": minUse,
