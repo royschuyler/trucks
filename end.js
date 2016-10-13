@@ -155,6 +155,9 @@ var end = function(req, res, next) {
             var certificate_38 = "Due to heart issues without a cardiologist's release, the patient is disqualified.";
             var certificate_39 = "Due to epilepsy without a neurologist's release, the patient is disqualified.";
             var certificate_40 = "Due to Neurocardiogenic syncope without a 3 month wait period, the patient is disqualified.";
+            var certificate_41 = "Due to Cerebellar or Brainstem without a neurologist's release, the patient is disqualified.";
+            var certificate_42 = "Due to Cortical/Subcortical without a neurologist's release, the patient is disqualified.";
+            var certificate_43 = "Due to TIA without a 1 year wait, the patient is disqualified.";
 
             var filtered = [];
             for (prop in obj) {
@@ -419,6 +422,24 @@ var end = function(req, res, next) {
                 dqArr.push(0)
                 reason += "neurocardiogenic syncope / "
               }
+              if(filtered[i] == "valueFourtyOne") {
+                arr.push(certificate_41)
+                timeline.push(certificate_41)
+                dqArr.push(0)
+                reason += "Cerebellar or Brainstem / "
+              }
+              if(filtered[i] == "valueFourtyTwo") {
+                arr.push(certificate_42)
+                timeline.push(certificate_42)
+                dqArr.push(0)
+                reason += "Cortical/Subcortical / "
+              }
+              if(filtered[i] == "valueFourtyThree") {
+                arr.push(certificate_43)
+                timeline.push(certificate_43)
+                dqArr.push(0)
+                reason += "TIA / "
+              }
             }
 
             //console.log("arr: " + arr)
@@ -520,12 +541,6 @@ var end = function(req, res, next) {
 
             console.log("cert: " + cert)
 
-            // if (dqArr.length == 0 && certArr.length != 0){
-
-            //   var min = Math.min.apply(null, certArr)
-            //   console.log("min: " + min);
-            //   cert = min;
-            // }
 
 
       var data = {
@@ -597,7 +612,7 @@ var end = function(req, res, next) {
         "MCSA-5875[0].Page2[0].commentGroup[0].commentDescribe[0]": rows[0].yesDescribe,
         "MCSA-5875[0].Page2[0].attachButton[0]": "",
         "MCSA-5875[0].Page2[0].driverSignature[0].signatureDate[0]": date,
-        "MCSA-5875[0].Page2[0].#area[2].driveReview[0].examinerComment[0]": "rows[0].",
+        "MCSA-5875[0].Page2[0].#area[2].driveReview[0].examinerComment[0]": "",
         "MCSA-5875[0].Page2[0].#area[2].driveReview[0].attachButton2[0]": "",
         "MCSA-5875[0].Page3[0].pageHead3[0].nameLastHead3[0]": rows[0].lastname,
         "MCSA-5875[0].Page3[0].pageHead3[0].nameFirstHead3[0]": rows[0].firstname,
