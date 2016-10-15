@@ -28,18 +28,18 @@ var search = function(req, res, next) {
 var searchPost = function(req, res, next) {
 
 var user = req.user;
-var search = req.body.search;
-
+sessionId = req.body.sessionId;
 
 getConnection(function (err, connection) {
-  connection.query('SELECT * FROM persons2 WHERE sessionId =' + "'" + search + "'",
+  connection.query('SELECT * FROM persons2 WHERE sessionId =' + "'" + sessionId + "'",
     function(err, rows) {
       console.log(rows[0])
+      var name = rows[0].firstname + ' ' + rows[0].lastname;
+      console.log("name: " + name)
+      res.redirect('/searchresults/' + sessionId);
       connection.release();
     });
 });
-
-  res.redirect('/searchresults')
 };
 
 module.exports.search = search;

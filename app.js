@@ -24,6 +24,7 @@ var signup = require('./signUp');
 var moreInfo = require('./moreInfo')
 var landing = require('./landing')
 var search = require('./search')
+var searchResults = require('./searchResults')
 var getConnection  = require('./connectionpool');
 
 app.use(bodyParser.urlencoded({
@@ -77,6 +78,7 @@ app.use(passport.session());
 app.get('/signin', signIn.signIn);
 app.get('/signup', signup.signUp);
 app.get('/search', search.search);
+app.get('/searchResults/:sessionId', searchResults.searchResults);
 app.get('/moreinfo/:username', moreInfo.moreInfo);
 app.get('/landing/:sessionId', landing.landing);
 app.get('/home/:sessionId', home.home);
@@ -96,6 +98,7 @@ app.get('/physicalexamination/:sessionId', physicalexamination.physicalExaminati
 app.post('/signin', signIn.signInPost);
 app.post('/signup', signup.signUpPost);
 app.post('/search', search.searchPost);
+app.post('/searchResults/:sessionId', searchResults.searchResultsPost);
 app.post('/moreinfo/:username', moreInfo.moreInfoPost);
 app.post('/home/:sessionId', home.homePost);
 app.post('/end/:sessionId', end.endPost);
