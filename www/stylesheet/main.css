@@ -951,3 +951,35 @@ li.d {
 .medical-number {
   margin-left: -55px;
 }
+
+.option-button {
+  font: bold 11px Arial;
+  text-decoration: none;
+  background-color: #EEEEEE;
+  color: #333333;
+  padding: 2px 6px 2px 6px;
+  border-top: 1px solid #CCCCCC;
+  border-right: 1px solid #333333;
+  border-bottom: 1px solid #333333;
+  border-left: 1px solid #CCCCCC;
+  width: 10%;
+  text-align: center;
+
+}
+
+.option-super-container {
+  width: 90%;
+}
+
+.option-sub-container {
+  width: 90%;
+  float: right;
+}
+
+.option-search {
+  text-align: center;
+}
+
+.option-new {
+  text-align: center;
+}

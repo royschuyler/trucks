@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<% include header.ejs %>
+
+  <div class="option-super-container">
+    <div class="option-sub-container">
+      <div class="option-search-container">
+        <div class="option-search">
+          <h3 class="option-search-header">
+            Search for existing person
+          </h3>
+          <a href="../search" class="option-button">Search</a>
+        </div>
+
+      </div>
+      <form method="post" action="/option/:sessionId">
+        <div class="option-new-container">
+          <div class="option-new">
+            <h3 class="option-new-header">
+              Create new exam
+            </h3>
+            <input type="submit" class="option-button" value="Start New"></a>
+          </div>
+        </div>
+      </form>
+    </div>
+
+  </div>
+
+
+  <% include footer.ejs %>

@@ -22,8 +22,9 @@ var end = require('./end');
 var pdf = require('./pdf');
 var signup = require('./signUp');
 var moreInfo = require('./moreInfo')
-var landing = require('./landing')
-var search = require('./search')
+var landing = require('./landing');
+var search = require('./search');
+var option = require('./option')
 var searchResults = require('./searchResults')
 var getConnection  = require('./connectionpool');
 
@@ -78,6 +79,7 @@ app.use(passport.session());
 app.get('/signin', signIn.signIn);
 app.get('/signup', signup.signUp);
 app.get('/search', search.search);
+app.get('/option/:sessionId', option.option);
 app.get('/searchResults/:sessionId', searchResults.searchResults);
 app.get('/moreinfo/:username', moreInfo.moreInfo);
 app.get('/landing/:sessionId', landing.landing);
@@ -98,6 +100,7 @@ app.get('/physicalexamination/:sessionId', physicalexamination.physicalExaminati
 app.post('/signin', signIn.signInPost);
 app.post('/signup', signup.signUpPost);
 app.post('/search', search.searchPost);
+app.post('/option/:sessionId', option.optionPost);
 app.post('/searchResults/:sessionId', searchResults.searchResultsPost);
 app.post('/moreinfo/:username', moreInfo.moreInfoPost);
 app.post('/home/:sessionId', home.homePost);
