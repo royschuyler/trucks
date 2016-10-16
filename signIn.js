@@ -22,8 +22,6 @@ function GUID() {
   return uuid;
 }
 
-//var sessionId = GUID();
-
 var signIn = function(req, res, next) {
   req.logout();
   if (req.isAuthenticated()) res.redirect('/');

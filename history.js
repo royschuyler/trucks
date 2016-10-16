@@ -56,7 +56,7 @@ var historyPost = function(req, res, next) {
     });
       //connection.end();
   });
-  res.redirect('/landing/' + sessionId)
+  res.redirect('/submit/' + sessionId)
 };
 
 module.exports.history = history;

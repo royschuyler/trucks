@@ -18,8 +18,23 @@
         <div id="topad">
         <input type="submit" value="Search" class="btn btn-primary submitBtn search-btn" /><span></span>
         </div>
-
       </form>
+    </div>
+    <div class="list">
+      <h4 class="list-header">Below are the last few people registered.</h4>
+      <table>
+        <col width="130">
+        <col width="80">
+        <th class="list-name">Name</th>
+        <th class="list-dob">DOB</th>
+        <% for(var i=0; i < last.length; i++) { %>
+           <tr>
+             <td><a href="../landing/<%= last[i].sessionId %>"><%= last[i].firstname + ' ' + last[i].lastname %></a></td>
+             <td><a href="../landing/<%= last[i].sessionId %>"><%= last[i].dob %></a></td>
+           </tr>
+        <% } %>
+      </table>
+      <h5>Not who you're looking for?<br>Try the search form to the right.</h5>
     </div>
   </div>
 

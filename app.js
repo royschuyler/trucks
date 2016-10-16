@@ -21,11 +21,12 @@ var physicalexamination = require('./physicalExam');
 var end = require('./end');
 var pdf = require('./pdf');
 var signup = require('./signUp');
-var moreInfo = require('./moreInfo')
+var moreInfo = require('./moreInfo');
 var landing = require('./landing');
 var search = require('./search');
-var option = require('./option')
-var searchResults = require('./searchResults')
+var option = require('./option');
+var submit = require('./submit');
+var searchResults = require('./searchResults');
 var getConnection  = require('./connectionpool');
 
 app.use(bodyParser.urlencoded({
@@ -67,18 +68,16 @@ app.set('port', process.env.PORT || 3000);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 app.use(express.static('www'));
-
 app.use(cookieParser());
 app.use(bodyParser());
 app.use(session({secret: 'secret strategic xxzzz code'}));
 app.use(passport.initialize());
 app.use(passport.session());
 
-//app.get('/', route.index);
-
 app.get('/signin', signIn.signIn);
 app.get('/signup', signup.signUp);
 app.get('/search', search.search);
+app.get('/submit/:sessionId', submit.submit);
 app.get('/option/:sessionId', option.option);
 app.get('/searchResults/:sessionId', searchResults.searchResults);
 app.get('/moreinfo/:username', moreInfo.moreInfo);
@@ -88,18 +87,16 @@ app.get('/end/:sessionId', end.end);
 app.get('/pdf/:sessionId', pdf.pdf);
 app.get('/demographics/:sessionId', demographics.demographics);
 app.get('/history/:sessionId', history.history);
-// app.get('/historyreview', route.historyReview);
 app.get('/testing/:sessionId', testing.testing);
 app.get('/vision/:sessionId', vision.vision);
 app.get('/hearing/:sessionId', hearing.hearing);
 app.get('/signout', route.signOut);
 app.get('/physicalexamination/:sessionId', physicalexamination.physicalExamination)
 
-
-
 app.post('/signin', signIn.signInPost);
 app.post('/signup', signup.signUpPost);
 app.post('/search', search.searchPost);
+app.post('/submit/:sessionId', submit.submitPost);
 app.post('/option/:sessionId', option.optionPost);
 app.post('/searchResults/:sessionId', searchResults.searchResultsPost);
 app.post('/moreinfo/:username', moreInfo.moreInfoPost);
@@ -107,12 +104,10 @@ app.post('/home/:sessionId', home.homePost);
 app.post('/end/:sessionId', end.endPost);
 app.post('/demographics/:sessionId', demographics.demographicsPost);
 app.post('/history/:sessionId', history.historyPost);
-// app.post('/historyreview', route.historyReviewPost);
 app.post('/testing/:sessionId', testing.testingPost);
 app.post('/vision/:sessionId', vision.visionPost);
 app.post('/hearing/:sessionId', hearing.hearingPost);
 app.post('/physicalexamination/:sessionId', physicalexamination.physicalExaminationPost)
-
 
 app.use(route.notFound404);
 

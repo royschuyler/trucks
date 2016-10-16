@@ -8,34 +8,31 @@ var getConnection  = require('./connectionpool');
 
 //***********************************************************
 
-var option = function(req, res, next) {
+var submit = function(req, res, next) {
   if (!req.isAuthenticated()) {
     res.redirect('/signin');
   } else {
 
     var user = req.user;
     sessionId = req.params.sessionId;
-    console.log("qoiuqoiun: " + sessionId)
+    console.log("submit: " + sessionId)
 
     if (user !== undefined) {
       user = user.toJSON();
     }
-    res.render('option', {
-      title: 'Option',
-      user: user,
-      sessionId: sessionId
+    res.render('submit', {
+      title: 'Submit',
+      user: user
     });
   }
 };
 
-var optionPost = function(req, res, next) {
+//-------------------------------------------------------
 
-  //var user = req.user;
-  res.redirect('/demographics/' + sessionId)
-
+var submitPost = function(req, res, next) {
+  console.log("submit: " + sessionId)
+  res.redirect('/signin')
 };
 
-module.exports.option = option;
-module.exports.optionPost = optionPost;
-
-
+module.exports.submit = submit;
+module.exports.submitPost = submitPost;

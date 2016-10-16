@@ -985,12 +985,21 @@ li.d {
 }
 
 .search-super-container {
-  width: 90%;
+  width: 80%;
+  margin-top: 40px;
+  /*border: solid 1px black;*/
 }
 
 .search-sub-container {
-  width: 90%;
+  width: 40%;
   float: right;
+  /*border: solid 1px red;*/
+}
+
+.list {
+  width: 40%;
+/*  border: solid 1px red;*/
+  margin-left: 200px;
 }
 
 .search-form {
@@ -1044,4 +1053,17 @@ li.d {
   margin-left: 80px;
   margin-bottom: 20px;
   margin-top: 50px;
+}
+
+.list-header {
+  margin-bottom: 20px;
+  margin-top: 30px;
+}
+
+.list-name {
+
+}
+
+.list-dob {
+  margin-left: 10px;
 }

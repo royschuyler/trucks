@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<% include header.ejs %>
+
+  <div class="search-super-container">
+    <div class="search-sub-container">
+      <h4 class="search-error">Your forms have been saved.</h4>
+       <form class="search-form" action="/submit/:sessionId" method="post">
+        <div id="topad">
+        <input type="submit" value="Return to login" class="btn btn-primary submitBtn search-btn" /><span></span>
+        </div>
+       </form>
+    </div>
+  </div>
+
+
+  <% include footer.ejs %>

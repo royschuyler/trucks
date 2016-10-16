@@ -65,7 +65,7 @@ var demographicsPost = function(req, res, next) {
 
 
 
-  res.redirect('/landing/' + sessionId);
+  res.redirect('/history/' + sessionId);
 
   (req, res, next);
 };
