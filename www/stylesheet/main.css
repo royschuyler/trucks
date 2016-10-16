@@ -1067,3 +1067,12 @@ li.d {
 .list-dob {
   margin-left: 10px;
 }
+
+.submit-super-container {
+  width: 100%;
+}
+
+.submit-sub-container {
+  text-align: center;
+  margin-top: 40px;
+}
