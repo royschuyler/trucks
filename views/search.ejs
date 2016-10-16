@@ -3,16 +3,21 @@
 
   <div class="search-super-container">
     <div class="search-sub-container">
-      <h3 class="search-error"><%= error %></h3>
+      <h4 class="search-error"><%= error %></h4>
       <form class="search-form" method="post" action="/search">
-        <div class="search-div-id"><input class="search-input-id" type="text" name="sessionId">Search by session id</div>
-        <div class="search-div-lastname"><input class="search-input-lastname" type="text" name="lastname">Search by last name</div>
-        <div class="search-div-dob"><input class="search-input-dob" type="date" name="dob">Search by date of birth</div>
+        <div class="search-div-id"><input class="search-input-id" type="text" name="sessionId">session id</div>
+        <div id="topad">
+         <input type="submit" value="Search" class="btn btn-primary submitBtn search-btn" /><span></span>
+        </div>
+
+        <h4 class="or-search">Or search by last name and birthday</h4>
+        <div class="search-div-lastname"><input class="search-input-lastname" type="text" name="lastname">last name</div>
+        <div class="search-div-dob"><input class="search-input-dob" type="date" name="dob">date of birth</div>
 
 
-              <div id="topad">
-              <input type="submit" value="Search" class="btn btn-primary submitBtn search-btn" /><span></span>
-              </div>
+        <div id="topad">
+        <input type="submit" value="Search" class="btn btn-primary submitBtn search-btn" /><span></span>
+        </div>
 
       </form>
     </div>

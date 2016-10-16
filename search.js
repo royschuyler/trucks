@@ -21,7 +21,7 @@ var search = function(req, res, next) {
     res.render('search', {
       title: 'Search',
       user: user,
-      error: 'test'
+      error: 'Search by session Id'
     });
   }
 };
@@ -34,10 +34,8 @@ var user = req.user;
 
 if (req.body.sessionId){
   sql = 'SELECT * FROM persons2 WHERE sessionId =' + "'" + req.body.sessionId + "'";
-} else if (req.body.lastname){
-  sql = 'SELECT * FROM persons2 WHERE lastname =' + "'" + req.body.lastname + "'" + 'AND username = ' + "'" + req.user.attributes.username + "'";
-} else if (req.body.dob){
-  sql = 'SELECT * FROM persons2 WHERE dob =' + "'" + req.body.dob + "'";
+} else if (req.body.lastname && req.body.dob){
+  sql = 'SELECT * FROM persons2 WHERE lastname =' + "'" + req.body.lastname + "'" + 'AND dob = ' + "'" + req.body.dob + "'"+ 'AND username = ' + "'" + req.user.attributes.username + "'";
 } else {
   res.redirect('/search')
 }
@@ -54,7 +52,6 @@ getConnection(function (err, connection) {
           user: user
         })
       }
-
 
       var sessionId = rows[0].sessionId;
       res.redirect('/searchresults/' + sessionId);
