@@ -20,26 +20,47 @@ var search = function(req, res, next) {
     }
     res.render('search', {
       title: 'Search',
-      user: user
+      user: user,
+      error: 'test'
     });
   }
 };
+
 //-------------------------------------------------------
+
 var searchPost = function(req, res, next) {
 
 var user = req.user;
-sessionId = req.body.sessionId;
+
+if (req.body.sessionId){
+  sql = 'SELECT * FROM persons2 WHERE sessionId =' + "'" + req.body.sessionId + "'";
+} else if (req.body.lastname){
+  sql = 'SELECT * FROM persons2 WHERE lastname =' + "'" + req.body.lastname + "'";
+} else if (req.body.dob){
+  sql = 'SELECT * FROM persons2 WHERE dob =' + "'" + req.body.dob + "'";
+} else {
+  res.redirect('/search')
+}
 
 getConnection(function (err, connection) {
-  connection.query('SELECT * FROM persons2 WHERE sessionId =' + "'" + sessionId + "'",
+  connection.query(sql,
     function(err, rows) {
+      console.log(rows)
       console.log(rows[0])
-      var name = rows[0].firstname + ' ' + rows[0].lastname;
-      console.log("name: " + name)
+      if (rows[0] == [] || rows[0] == null || rows[0] == undefined){
+        res.render('search', {
+          error: "No results found. Please try again",
+          title: 'Search',
+          user: user
+        })
+      }
+
+
+      var sessionId = rows[0].sessionId;
       res.redirect('/searchresults/' + sessionId);
       connection.release();
     });
-});
+  });
 };
 
 module.exports.search = search;

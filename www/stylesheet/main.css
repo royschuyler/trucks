@@ -983,3 +983,58 @@ li.d {
 .option-new {
   text-align: center;
 }
+
+.search-super-container {
+  width: 90%;
+}
+
+.search-sub-container {
+  width: 90%;
+  float: right;
+}
+
+.search-form {
+  text-align: center;
+}
+
+.search-input {
+  margin-bottom: 10px;
+}
+
+.search-input-id {
+  margin-right: 5px;
+  width: 150px;
+}
+
+.search-input-lastname {
+  margin-right: 5px;
+  width: 150px;
+}
+
+.search-input-dob {
+  margin-right: 5px;
+  width: 150px;
+}
+
+.search-div-id {
+  margin-bottom: 10px;
+  margin-left: 2px;
+}
+
+.search-div-lastname {
+  margin-bottom: 10px;
+}
+
+.search-div-dob {
+  margin-bottom: 10px;
+  margin-left: 14px;
+}
+
+.search-btn {
+  margin-right: 130px;
+}
+
+.search-error {
+  text-align: center;
+  margin-bottom: 50px;
+}

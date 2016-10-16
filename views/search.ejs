@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <% include header.ejs %>
 
-  <div class="container">
-    <form method="post" action="/search">
-      <div class="row">
-        <div class="col-md-4 col-md-offset-4">
+  <div class="search-super-container">
+    <div class="search-sub-container">
+      <h3 class="search-error"><%= error %></h3>
+      <form class="search-form" method="post" action="/search">
+        <div class="search-div-id"><input class="search-input-id" type="text" name="sessionId">Search by session id</div>
+        <div class="search-div-lastname"><input class="search-input-lastname" type="text" name="lastname">Search by last name</div>
+        <div class="search-div-dob"><input class="search-input-dob" type="date" name="dob">Search by date of birth</div>
 
-          <input type="text" name="sessionId">Search
 
+              <div id="topad">
+              <input type="submit" value="Search" class="btn btn-primary submitBtn search-btn" /><span></span>
+              </div>
 
-            <div id="topad">
-            <input type="submit" value="Save Changes" class="btn btn-primary submitBtn" /><span></span>
-            <input type="reset" value="Clear form" class="btn btn-default clearBtn" />
-            </div>
-        </div>
-      </div>
-    </form>
+      </form>
+    </div>
   </div>
 
 
