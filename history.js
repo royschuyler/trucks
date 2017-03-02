@@ -23,8 +23,6 @@ var history = function(req, res, next) {
       user = user.toJSON();
     }
 
-
-
     var user = req.user;
 
     res.render('history', {
@@ -56,7 +54,7 @@ var historyPost = function(req, res, next) {
     });
       //connection.end();
   });
-  res.redirect('/submit/' + sessionId)
+  res.redirect('/landing/' + sessionId)
 };
 
 module.exports.history = history;

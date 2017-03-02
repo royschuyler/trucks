@@ -79,7 +79,7 @@ var signInPost = function(req, res, next) {
 
 
 
-        return res.redirect('/option/' + sessionId)
+        return res.redirect('/landing/' + sessionId)
 
       }
     });
